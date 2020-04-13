@@ -1,5 +1,5 @@
 // VADLIDATION ERRORS MASTER OBJECT
-export const validators = {
+const validators = {
 	required: (value) => (value) ? undefined : '*Required',
 	maxLength: (max) => (value) => value && value.length > max ? `*Must be ${max} characters or less` : undefined,
 	number: (value) => (value) && isNaN(Number(value)) ? '*Must be a number' : undefined,
@@ -35,8 +35,10 @@ export const validators = {
 	nonEmpty: (value) => {
 		if (value) {
 			return !value.trim()
-				? '*Field can\'t be blank'
+				? '*Field cannot be blank'
 				: undefined;
 		}
 	}
 };
+
+export default validators;
