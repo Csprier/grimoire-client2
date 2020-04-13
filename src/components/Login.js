@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './css/login.css';
 
 const Login = () => {
-  let [username, onChangeUsername] = useState('');
-  let [password, onChangePassword] = useState('');
+  const [username, onChangeUsername] = useState('');
+  const [password, onChangePassword] = useState('');
   let error;
   return(
     <form 
@@ -24,6 +24,7 @@ const Login = () => {
             let typedUsername = e.target.value;
             onChangeUsername(typedUsername)
           }}
+          required
         />
       </label>
       <label>
@@ -36,6 +37,7 @@ const Login = () => {
             let typedPassword = e.target.value;
             onChangePassword(typedPassword)
           }}
+          required
         />
       </label>
       <button 
