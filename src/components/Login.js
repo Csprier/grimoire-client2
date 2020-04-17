@@ -3,11 +3,14 @@ import useForm from '../custom-hooks/useForm';
 import validateLogin from '../custom-hooks/validateLogin';
 import './css/login.css';
 
+import utils from '../utility/utils';
+
 const Login = () => {
   const { values, handleChange, handleSubmit, errors } = useForm(login, validateLogin);
 
   function login() {
-    console.log(values);    
+    console.log(values);
+    utils.userAPI.login(values);    
   }
 
   return(
