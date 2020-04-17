@@ -1,5 +1,6 @@
 import axios from 'axios';
-import utils from './util-api';
+import locStrg from './local-storage'; 
+import normalizeResponseErrors from './normalize-response-errors';
 import API_BASE_URL from './api-config';
 
 const usersAPI = {
@@ -16,7 +17,7 @@ const usersAPI = {
   },
 
   loginUser(username, password) {
-    // return axios.post(API_BASE_URL + '/auth/login', { username, password})
+    // return axios.post(API_BASE_URL + '/auth/login', { username, password })
     return fetch(`${API_BASE_URL}/auth/login`, {
       method: 'POST',
       mode: 'cors',
@@ -28,9 +29,10 @@ const usersAPI = {
         password
       })
     })
-    .then((res) => utils.normalizeResponseErrors(res))
+    .then((res) => normalizeResponseErrors(res))
     .then((res) => res.json())
-    .then(({ authToken }) => utils.storeAuthInfo(authToken))
+    .then(({ authToken }) => locStrg.saveAuthToken(authToken))
+    // .then(({authToken}) => console.log(authToken))
     .catch((err) => {
       console.error(err)
       const status = err;

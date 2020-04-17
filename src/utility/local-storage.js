@@ -1,4 +1,6 @@
-const saveAuthToken = authToken => {
+import jwtDecode from 'jwt-decode';
+
+function saveAuthToken(authToken) {
   try {
     // .setItem method saves key/value pairs in the local storage in the browser, both as strings.
     // .setItem(key, value);
@@ -7,18 +9,28 @@ const saveAuthToken = authToken => {
 };
 
 // .getItem(value) gets the value from the localStorage, if it exists, otherwise, it returns null.
-const loadAuthToken = () => {
+function loadAuthToken() {
   return localStorage.getItem('authToken');
 };
 
-const clearAuthToken = () => {
+function clearAuthToken() {
   try {
     localStorage.removeItem('authToken');
   } catch(e) {}
 };
 
-export default {
+function storeAuthInfo(authToken) {
+  const decodedToken = jwtDecode(authToken);
+  console.log(authToken)
+  console.log(decodedToken)
+  saveAuthToken(authToken);
+}
+
+const locStrg = {
   saveAuthToken,
   loadAuthToken,
-  clearAuthToken
+  clearAuthToken,
+  storeAuthInfo
 }
+
+export default locStrg;
