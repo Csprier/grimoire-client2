@@ -2,7 +2,7 @@ import axios from 'axios';
 import utils from './util-api';
 
 const usersAPI = {
-  createUser = (username, email, password) => {
+  createUser(username, email, password) {
     return axios.post('/user', {
       username,
       email,
@@ -14,7 +14,7 @@ const usersAPI = {
     .catch((err) => console.error(err));
   },
 
-  loginUser = (username, password) => {
+  loginUser(username, password) {
     return axios.post('/auth/login')
       .then((res) => utils.normalizeResponseErrors(res))
       .then((res) => res.json())
@@ -25,6 +25,7 @@ const usersAPI = {
         const message = (status === 401) 
           ? 'Unauthorized login'
           : 'Incorrect username or password';
+          return message;
       });
   },
   

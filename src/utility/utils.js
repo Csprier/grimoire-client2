@@ -1,13 +1,14 @@
-
-import userAPI from './utils-api';
+import userAPI from './util-api';
 import normalizeResponseErrors from './normalize-response-errors';
-import { saveAuthToken, loadAuthToken, clearAuthToken } from './local-storage';
+import saveAuthToken from './local-storage'; 
+import loadAuthToken from './local-storage';
+import clearAuthToken from './local-storage';
 
 const utils = {
   normalizeResponseErrors,
   userAPI,
   saveAuthToken, 
-  loadAuthToken, 
+  loadAuthToken,
   clearAuthToken
 };
 

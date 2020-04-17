@@ -1,4 +1,4 @@
-export const normalizeResponseErrors = (res) => {
+const normalizeResponseErrors = (res) => {
 	if (!res.ok) {
 		if (res.headers.has('content-type') && res.headers.get('content-type').startsWith('application/json')) {
 			return res.json().then(err => {
@@ -12,3 +12,5 @@ export const normalizeResponseErrors = (res) => {
 	}
 	return res;
 };
+
+export default normalizeResponseErrors;
