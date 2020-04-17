@@ -24,13 +24,13 @@ function storeAuthInfo(authToken) {
   console.log(authToken)
   console.log(decodedToken)
   saveAuthToken(authToken);
-}
+};
 
 const locStrg = {
   saveAuthToken,
   loadAuthToken,
   clearAuthToken,
   storeAuthInfo
-}
+};
 
 export default locStrg;
