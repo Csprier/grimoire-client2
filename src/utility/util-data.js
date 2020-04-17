@@ -26,11 +26,28 @@ function storeAuthInfo(authToken) {
   saveAuthToken(authToken);
 };
 
-const locStrg = {
+/** NORMALIZE RESPONSE ERRORS */
+function normalizeResponseErrors(res) {
+	if (!res.ok) {
+		if (res.headers.has('content-type') && res.headers.get('content-type').startsWith('application/json')) {
+			return res.json().then(err => {
+				return Promise.reject(err);
+			});
+		}
+		return Promise.reject({
+			code: res.status,
+			message: res.statusText
+		});
+	}
+	return res;
+};
+
+const utilDATA = {
   saveAuthToken,
   loadAuthToken,
   clearAuthToken,
-  storeAuthInfo
+  storeAuthInfo,
+  normalizeResponseErrors
 };
 
-export default locStrg;
+export default utilDATA;

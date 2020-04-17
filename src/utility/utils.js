@@ -1,11 +1,9 @@
 import userAPI from './util-api';
-import normalizeResponseErrors from './normalize-response-errors';
-import locStrg from './local-storage';
+import utilDATA from './util-data';
 
 const utils = {
-  normalizeResponseErrors,
   userAPI,
-  locStrg
+  utilDATA
 };
 
 export default utils;
