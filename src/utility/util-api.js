@@ -1,8 +1,7 @@
-// import axios from 'axios';
-import utilDATA from './util-data'; 
+import UtilDATA from './util-data'; 
 import API_BASE_URL from './api-config';
 
-function registerUser(username, email, password) {
+function _registerUser(username, email, password) {
   return fetch(`${API_BASE_URL}/users`, {
     method: 'POST',
     mode: 'cors',
@@ -16,13 +15,15 @@ function registerUser(username, email, password) {
       password
     })
   })
-  .then((res) => utilDATA.normalizeResponseErrors(res))
+  .then((res) => UtilDATA.normalizeResponseErrors(res))
   .then((res) => res.json())
   .then((res) => console.log('Registerd new user: ', res))
   .catch((err) => console.error(err));
 };
 
-function loginUser(username, password) {
+function _loginUser(data) {
+  const { username, password } = data;
+
   return fetch(`${API_BASE_URL}/auth/login`, {
     method: 'POST',
     mode: 'cors',
@@ -34,22 +35,39 @@ function loginUser(username, password) {
       password
     })
   })
-  .then((res) => utilDATA.normalizeResponseErrors(res))
+  .then((res) => UtilDATA.normalizeResponseErrors(res))
   .then((res) => res.json())
-  .then(({ authToken }) => utilDATA.saveAuthToken(authToken))
+  .then(({ authToken }) => UtilDATA.saveAuthToken(authToken))
   .catch((err) => {
-    console.error(err)
     const status = err;
     const message = (status === 401) 
       ? 'Unauthorized login'
       : 'Incorrect username or password';
-      return err + message;
+      console.error(err + message);
   });
 };
 
-const utilAPI = {
-  registerUser,
-  loginUser
+const UtilAPI = {
+  /**
+    * registerUser: description what it does in a few words
+    * @param {object}   data - 
+    * @param {string}   data.username - 
+    * @param {string}   data.password - 
+    * @param {object}   stateFunctions - 
+    * @param {function} stateFunctions.setFormValues -
+    * @param {function} stateFunctions.setFormErrors -
+  */
+  registerUser: (data, stateFunctions) => _registerUser(data, stateFunctions),
+  /**
+    * loginUser: description what it does in a few words
+    * @param {object}   data - 
+    * @param {string}   data.username - 
+    * @param {string}   data.password - 
+    * @param {object}   stateFunctions - 
+    * @param {function} stateFunctions.setFormValues -
+    * @param {function} stateFunctions.setFormErrors -
+  */
+  loginUser: (data) => _loginUser(data),
 }
 
-export default utilAPI;
+export default UtilAPI;
