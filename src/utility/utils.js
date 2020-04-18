@@ -28,9 +28,9 @@ function _handleFormChange(e, values, stateFunctions) {
 const Utils = {
   handleFormSubmit: (e, values, stateFunctions) => _handleFormSubmit(e, values, stateFunctions),
   handleFormChange: (e, values, stateFunctions) => _handleFormChange(e, values, stateFunctions),
-  UtilAPI,
-  UtilDATA,
-  UtilUI
+  API: UtilAPI,
+  DATA: UtilDATA,
+  UI: UtilUI
 };
 
 export default Utils;
