@@ -49,7 +49,7 @@ const Login = () => {
         </label>
       </div>
       <div className="button-container">
-        <button type="submit" className="login-button">Login</button>
+        <button onClick={() => console.log('Login button clicked')}type="submit" className="login-button">Login</button>
       </div>
     </form>
   );

@@ -1,21 +1,21 @@
 import React from 'react';
 import useForm from '../custom-hooks/useForm';
-// import validateRegister from '../custom-hooks/validateRegister';
+import validateRegister from '../custom-hooks/validateRegister';
 // import './css/register.css';
 
 import utils from '../utility/utils';
 
 const Register = () => {
-  const { values, handleChange, handleSubmit, errors } = useForm(login, validateLogin);
+  const { values, handleChange, handleSubmit, errors } = useForm(register, validateRegister);
 
-  const register = () => {
+  function register() {
     console.log(values);
     let username = values.username,
         email = values.email,
         password = values.password;
-    // utils.userAPI.registerUser(username, email, password);
+    utils.userAPI.registerUser(username, email, password);
   }
-
+  
   return (
     <form className="register-form" onSubmit={handleSubmit}>
       <h1>Register</h1>
@@ -40,7 +40,7 @@ const Register = () => {
             type="text"
             name="email"
             onChange={handleChange}
-            value={values.username || ''}
+            value={values.email || ''}
             placeholder="Email..."
             required
           />
@@ -64,8 +64,10 @@ const Register = () => {
         </label>
       </div>
       <div className="button-container">
-        <button type="submit" className="Register-button">Register</button>
+        <button onClick={() => console.log('Register button clicked')} type="submit" className="register-button">Register</button>
       </div>
     </form>
   )
 };
+
+export default Register;
