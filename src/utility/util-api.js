@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import utilDATA from './util-data'; 
+import UtilDATA from './util-data'; 
 import API_BASE_URL from './api-config';
 
 function registerUser(username, email, password) {
@@ -16,7 +16,7 @@ function registerUser(username, email, password) {
       password
     })
   })
-  .then((res) => utilDATA.normalizeResponseErrors(res))
+  .then((res) => UtilDATA.normalizeResponseErrors(res))
   .then((res) => res.json())
   .then((res) => console.log('Registerd new user: ', res))
   .catch((err) => console.error(err));
@@ -34,9 +34,9 @@ function loginUser(username, password) {
       password
     })
   })
-  .then((res) => utilDATA.normalizeResponseErrors(res))
+  .then((res) => UtilDATA.normalizeResponseErrors(res))
   .then((res) => res.json())
-  .then(({ authToken }) => utilDATA.saveAuthToken(authToken))
+  .then(({ authToken }) => UtilDATA.saveAuthToken(authToken))
   .catch((err) => {
     console.error(err)
     const status = err;
@@ -47,9 +47,9 @@ function loginUser(username, password) {
   });
 };
 
-const utilAPI = {
+const UtilAPI = {
   registerUser,
   loginUser
 }
 
-export default utilAPI;
+export default UtilAPI;

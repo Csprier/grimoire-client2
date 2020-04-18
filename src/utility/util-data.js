@@ -42,7 +42,7 @@ function normalizeResponseErrors(res) {
 	return res;
 };
 
-const utilDATA = {
+const UtilDATA = {
   saveAuthToken,
   loadAuthToken,
   clearAuthToken,
@@ -50,4 +50,4 @@ const utilDATA = {
   normalizeResponseErrors
 };
 
-export default utilDATA;
+export default UtilDATA;

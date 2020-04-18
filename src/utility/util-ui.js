@@ -41,8 +41,8 @@ const validators = {
 	}
 };
 
-const utilUI = {
+const UtilUI = {
   validators
 };
 
-export default utilUI;
+export default UtilUI;

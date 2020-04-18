@@ -3,7 +3,7 @@ import useForm from '../custom-hooks/useForm';
 import validateRegister from '../custom-hooks/validateRegister';
 // import './css/register.css';
 
-import utils from '../utility/utils';
+import Util from '../utility/Util';
 
 const Register = () => {
   const { values, handleChange, handleSubmit, errors } = useForm(register, validateRegister);
@@ -13,7 +13,7 @@ const Register = () => {
     let username = values.username,
         email = values.email,
         password = values.password;
-    utils.userAPI.registerUser(username, email, password);
+    Util.API.registerUser(username, email, password);
   }
   
   return (
@@ -64,7 +64,7 @@ const Register = () => {
         </label>
       </div>
       <div className="button-container">
-        <button onClick={() => console.log('Register button clicked')} type="submit" className="register-button">Register</button>
+        <button type="submit" className="register-button">Register</button>
       </div>
     </form>
   )
