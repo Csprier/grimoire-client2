@@ -9,7 +9,9 @@ const Register = () => {
 
   function register() {
     console.log(values);
-    Util.API.registerUser(values);
+    return Util.API.registerUser(values)
+      .then(() => Util.UI.redirectToDashboard())
+      .catch(err => console.error(err));
   }
   
   return (

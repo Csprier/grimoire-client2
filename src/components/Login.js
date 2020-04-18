@@ -3,19 +3,14 @@ import useForm from '../custom-hooks/useForm';
 import './css/login.css';
 
 import Util from '../utility/util';
-import history from '../history';
 
 const Login = () => {
   const { values, handleChange, handleSubmit, errors } = useForm(login, Util.USER.validateLogin);
 
-  function _redirectToDashboard() {
-    history.push('/dashboard');
-  }
-
   function login() {
     console.log(values);
     return Util.API.loginUser(values)
-      .then(() => _redirectToDashboard())
+      .then(() => Util.UI.redirectToDashboard())
       .catch(err => console.error(err));
   }
 

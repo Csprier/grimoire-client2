@@ -1,3 +1,5 @@
+import history from '../history';
+
 // VADLIDATION ERRORS MASTER OBJECT
 const validators = {
 	required: (value) => (value) ? undefined : '*Required',
@@ -41,7 +43,16 @@ const validators = {
 	}
 };
 
+function _redirectToDashboard() {
+	history.push('/dashboard');
+}
+
 const UtilUI = {
+	 /**
+    * redirectToDashboard: pushes a url to the history object for component redirection on the vDOM
+    * @param {object}   history - 
+  */
+	redirectToDashboard: () => _redirectToDashboard(),
 	 /**
     * validators: Master object designed to have methods for various validation checks in Login/Register forms
     * @param {object}   validators - 

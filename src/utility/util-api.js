@@ -49,7 +49,7 @@ function _registerUser(data) {
   .then((res) => res.json())
   .then((res) => {
     console.log('Registerd new user: ', res)
-    // _loginUser(data);
+    _loginUser(data);
   })
   .catch((err) => console.error(err));
 };
