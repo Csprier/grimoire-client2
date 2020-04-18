@@ -42,6 +42,10 @@ const validators = {
 };
 
 const UtilUI = {
+	 /**
+    * validators: Master object designed to have methods for various validation checks in Login/Register forms
+    * @param {object}   validators - 
+  */
   validators
 };
 
