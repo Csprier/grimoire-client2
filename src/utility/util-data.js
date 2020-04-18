@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
 
-function saveAuthToken(authToken) {
+function _saveAuthToken(authToken) {
   try {
     // .setItem method saves key/value pairs in the local storage in the browser, both as strings.
     // .setItem(key, value);
@@ -9,25 +9,25 @@ function saveAuthToken(authToken) {
 };
 
 // .getItem(value) gets the value from the localStorage, if it exists, otherwise, it returns null.
-function loadAuthToken() {
+function _loadAuthToken() {
   return localStorage.getItem('authToken');
 };
 
-function clearAuthToken() {
+function _clearAuthToken() {
   try {
     localStorage.removeItem('authToken');
   } catch(e) {}
 };
 
-function storeAuthInfo(authToken) {
+function _storeAuthInfo(authToken) {
   const decodedToken = jwtDecode(authToken);
   console.log(authToken)
   console.log(decodedToken)
-  saveAuthToken(authToken);
+  _saveAuthToken(authToken);
 };
 
 /** NORMALIZE RESPONSE ERRORS */
-function normalizeResponseErrors(res) {
+function _normalizeResponseErrors(res) {
 	if (!res.ok) {
 		if (res.headers.has('content-type') && res.headers.get('content-type').startsWith('application/json')) {
 			return res.json().then(err => {
@@ -43,11 +43,11 @@ function normalizeResponseErrors(res) {
 };
 
 const UtilDATA = {
-  saveAuthToken,
-  loadAuthToken,
-  clearAuthToken,
-  storeAuthInfo,
-  normalizeResponseErrors
+  saveAuthToken: (authToken) => _saveAuthToken(authToken),
+  loadAuthToken: () => _loadAuthToken(),
+  clearAuthToken: () => _clearAuthToken(),
+  storeAuthInfo: (authToken) => _storeAuthInfo(authToken),
+  normalizeResponseErrors: (res) => _normalizeResponseErrors(res)
 };
 
 export default UtilDATA;
