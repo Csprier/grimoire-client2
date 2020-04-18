@@ -2,26 +2,6 @@
 import UtilDATA from './util-data'; 
 import API_BASE_URL from './api-config';
 
-function registerUser(username, email, password) {
-  return fetch(`${API_BASE_URL}/users`, {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      username,
-      email,
-      password
-    })
-  })
-  .then((res) => UtilDATA.normalizeResponseErrors(res))
-  .then((res) => res.json())
-  .then((res) => console.log('Registerd new user: ', res))
-  .catch((err) => console.error(err));
-};
-
 function _loginUser(data) {
   const { username, password } = data;
 
@@ -49,9 +29,31 @@ function _loginUser(data) {
   });
 };
 
+function _registerUser(data) {
+  const { username, email, password } = data;
+  
+  return fetch(`${API_BASE_URL}/users`, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      username,
+      email,
+      password
+    })
+  })
+  .then((res) => UtilDATA.normalizeResponseErrors(res))
+  .then((res) => res.json())
+  .then((res) => console.log('Registerd new user: ', res))
+  .catch((err) => console.error(err));
+};
+
 const UtilAPI = {
   loginUser: (data) => _loginUser(data),
-  registerUser,
+  registerUser: (data) => _registerUser(data),
 }
 
 export default UtilAPI;

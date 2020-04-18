@@ -9,10 +9,7 @@ const Register = () => {
 
   function register() {
     console.log(values);
-    let username = values.username,
-        email = values.email,
-        password = values.password;
-    Util.API.registerUser(username, email, password);
+    Util.API.registerUser(values);
   }
   
   return (
