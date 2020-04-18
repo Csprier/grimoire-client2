@@ -45,14 +45,23 @@ const validators = {
 
 function _redirectToDashboard() {
 	history.push('/dashboard');
-}
+};
+
+function _redirectToLandingPage() {
+	history.push('/')
+};
 
 const UtilUI = {
-	 /**
-    * redirectToDashboard: pushes a url to the history object for component redirection on the vDOM
+	/**
+    * redirectToDashboard: pushes a url to the history object for component redirection on the vDOM to "/dashboard"
     * @param {object}   history - 
   */
 	redirectToDashboard: () => _redirectToDashboard(),
+	/**
+    * redirectLandingPage: pushes a url to the history object for component redirection on the vDOM to "/"
+    * @param {object}   history - 
+  */
+	redirectToLandingPage: () => _redirectToLandingPage(),
 	 /**
     * validators: Master object designed to have methods for various validation checks in Login/Register forms
     * @param {object}   validators - 
