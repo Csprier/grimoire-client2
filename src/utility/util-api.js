@@ -47,13 +47,34 @@ function _registerUser(data) {
   })
   .then((res) => UtilDATA.normalizeResponseErrors(res))
   .then((res) => res.json())
-  .then((res) => console.log('Registerd new user: ', res))
+  .then((res) => {
+    console.log('Registerd new user: ', res)
+    // _loginUser(data);
+  })
   .catch((err) => console.error(err));
 };
 
 const UtilAPI = {
+  /**
+    * loginUser: Logins in an existing user and stores the authToken to localStorage
+    * @param {object}   data - 
+    * @param {string}   data.username - 
+    * @param {string}   data.password - 
+    * @param {object}   stateFunctions - 
+    * @param {function} stateFunctions.setFormValues -
+    * @param {function} stateFunctions.setFormErrors -
+  */
   loginUser: (data) => _loginUser(data),
+  /**
+    * registerUser: Registers the creation of a new user account, and logs the newly created user in
+    * @param {object}   data - 
+    * @param {string}   data.username - 
+    * @param {string}   data.password - 
+    * @param {object}   stateFunctions - 
+    * @param {function} stateFunctions.setFormValues -
+    * @param {function} stateFunctions.setFormErrors -
+  */
   registerUser: (data) => _registerUser(data),
-}
+};
 
 export default UtilAPI;
