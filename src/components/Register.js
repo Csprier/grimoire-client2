@@ -1,12 +1,11 @@
 import React from 'react';
 import useForm from '../custom-hooks/useForm';
-import validateRegister from '../custom-hooks/validateRegister';
 // import './css/register.css';
 
-import Util from '../utility/Util';
+import Util from '../utility/util';
 
 const Register = () => {
-  const { values, handleChange, handleSubmit, errors } = useForm(register, validateRegister);
+  const { values, handleChange, handleSubmit, errors } = useForm(register, Util.USER.validateRegister);
 
   function register() {
     console.log(values);
