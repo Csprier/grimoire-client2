@@ -2,14 +2,13 @@ import jwtDecode from 'jwt-decode';
 
 function _saveAuthToken(authToken) {
   try {
-    // .setItem method saves key/value pairs in the local storage in the browser, both as strings.
-    // .setItem(key, value);
+    /** .setItem(key, value) */
     localStorage.setItem('authToken', authToken);
   } catch(e) {}
 };
 
-// .getItem(value) gets the value from the localStorage, if it exists, otherwise, it returns null.
 function _loadAuthToken() {
+  /** .getItem(value) */
   return localStorage.getItem('authToken');
 };
 
@@ -21,12 +20,11 @@ function _clearAuthToken() {
 
 function _storeAuthInfo(authToken) {
   const decodedToken = jwtDecode(authToken);
-  console.log(authToken)
-  console.log(decodedToken)
+  console.log(authToken);
+  console.log(decodedToken);
   _saveAuthToken(authToken);
 };
 
-/** NORMALIZE RESPONSE ERRORS */
 function _normalizeResponseErrors(res) {
 	if (!res.ok) {
 		if (res.headers.has('content-type') && res.headers.get('content-type').startsWith('application/json')) {
@@ -43,10 +41,28 @@ function _normalizeResponseErrors(res) {
 };
 
 const UtilDATA = {
+  /**
+    * saveAuthToken: Saves authToken to localStorage as a string { authToken: '<authToken>' }
+    * @param {object}   authToken - 
+  */
   saveAuthToken: (authToken) => _saveAuthToken(authToken),
+  /**
+    * loadAuthToken: gets the value from the localStorage, if it exists, otherwise, it returns null.
+  */
   loadAuthToken: () => _loadAuthToken(),
+  /**
+    * clearAuthToken: Removes authToken from localStorage
+  */
   clearAuthToken: () => _clearAuthToken(),
+  /**
+    * storeAuthInfo: 
+    * @param {object}   authToken - 
+  */
   storeAuthInfo: (authToken) => _storeAuthInfo(authToken),
+  /**
+    * normalizeResponseErrors: 
+    * @param {object}   res - 
+  */
   normalizeResponseErrors: (res) => _normalizeResponseErrors(res)
 };
 

@@ -60,19 +60,14 @@ const UtilAPI = {
     * @param {object}   data - 
     * @param {string}   data.username - 
     * @param {string}   data.password - 
-    * @param {object}   stateFunctions - 
-    * @param {function} stateFunctions.setFormValues -
-    * @param {function} stateFunctions.setFormErrors -
   */
   loginUser: (data) => _loginUser(data),
   /**
     * registerUser: Registers the creation of a new user account, and logs the newly created user in
     * @param {object}   data - 
     * @param {string}   data.username - 
+    * @param {string}   data.email -
     * @param {string}   data.password - 
-    * @param {object}   stateFunctions - 
-    * @param {function} stateFunctions.setFormValues -
-    * @param {function} stateFunctions.setFormErrors -
   */
   registerUser: (data) => _registerUser(data),
 };
