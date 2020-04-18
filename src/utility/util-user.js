@@ -61,7 +61,20 @@ function _validateRegister(values) {
 };
 
 const UtilUSER = {
+  /**
+    * validateLogin: Validation checks on values for Login form submission
+    * @param {object}   values - 
+    * @param {string}   values.username -
+    * @param {string}   values.password -
+  */
   validateLogin: values => _validateLogin(values),
+  /**
+    * validateLogin: Validation checks on values for Login form submission
+    * @param {object}   values - 
+    * @param {string}   values.username -
+    * @param {string}   values.email -
+    * @param {string}   values.password -
+  */
   validateRegister: values => _validateRegister(values)
 };
 
