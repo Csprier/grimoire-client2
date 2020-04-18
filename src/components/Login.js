@@ -3,13 +3,20 @@ import useForm from '../custom-hooks/useForm';
 import './css/login.css';
 
 import Util from '../utility/util';
+import history from '../history';
 
 const Login = () => {
   const { values, handleChange, handleSubmit, errors } = useForm(login, Util.USER.validateLogin);
 
+  function _redirectToDashboard() {
+    history.push('/dashboard');
+  }
+
   function login() {
     console.log(values);
-    Util.API.loginUser(values);    
+    return Util.API.loginUser(values)
+      .then(() => _redirectToDashboard())
+      .catch(err => console.error(err));
   }
 
   return(
@@ -46,7 +53,7 @@ const Login = () => {
         </label>
       </div>
       <div className="button-container">
-        <button onClick={() => console.log('Login button clicked')}type="submit" className="login-button">Login</button>
+        <button type="submit" className="login-button">Login</button>
       </div>
     </form>
   );
