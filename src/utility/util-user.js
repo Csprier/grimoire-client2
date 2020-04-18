@@ -1,6 +1,6 @@
 import UtilUI from '../utility/util-ui';
 
-function validateLogin(values) {
+function _validateLogin(values) {
   let errors = {};
 
   if (UtilUI.validators.required(values.username) === '*Required') {
@@ -24,7 +24,7 @@ function validateLogin(values) {
 };
 
 
-function validateRegister(values) {
+function _validateRegister(values) {
   let errors = {};
 
   if (UtilUI.validators.required(values.username) === '*Required') {
@@ -60,3 +60,9 @@ function validateRegister(values) {
   return errors;
 };
 
+const UtilUSER = {
+  validateLogin: values => _validateLogin(values),
+  validateRegister: values => _validateRegister(values)
+};
+
+export default UtilUSER;
