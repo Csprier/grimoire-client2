@@ -9,9 +9,7 @@ const Login = () => {
 
   function login() {
     console.log(values);
-    let username = values.username;
-    let password = values.password;
-    Util.API.loginUser(username, password);    
+    Util.API.loginUser(values);    
   }
 
   return(

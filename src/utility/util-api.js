@@ -22,7 +22,9 @@ function registerUser(username, email, password) {
   .catch((err) => console.error(err));
 };
 
-function loginUser(username, password) {
+function _loginUser(data) {
+  const { username, password } = data;
+
   return fetch(`${API_BASE_URL}/auth/login`, {
     method: 'POST',
     mode: 'cors',
@@ -48,8 +50,8 @@ function loginUser(username, password) {
 };
 
 const UtilAPI = {
+  loginUser: (data) => _loginUser(data),
   registerUser,
-  loginUser
 }
 
 export default UtilAPI;
