@@ -51,6 +51,10 @@ function _redirectToLandingPage() {
 	history.push('/')
 };
 
+function _redirectToLogin() {
+	history.push('/login');
+};
+
 function _redirectToRegister() {
 	history.push('/register');
 };
@@ -72,7 +76,12 @@ const UtilUI = {
   */
 	redirectToLandingPage: () => _redirectToLandingPage(),
 	/**
-    * redirectRegister: pushes a url to the history object for component redirection on the vDOM to "/register"
+    * redirectToLogin: pushes a url to the history object for component redirection on the vDOM to "/login"
+    * @param {object}   history - 
+  */
+	redirectToLogin: () => _redirectToLogin(),
+	/**
+    * redirectToRegister: pushes a url to the history object for component redirection on the vDOM to "/register"
     * @param {object}   history - 
   */
 	redirectToRegister: () => _redirectToRegister(),
