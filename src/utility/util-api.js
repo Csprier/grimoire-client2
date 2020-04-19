@@ -54,6 +54,10 @@ function _registerUser(data) {
   .catch((err) => console.error(err));
 };
 
+function _refreshAuthToken() {
+  
+};
+
 const UtilAPI = {
   /**
     * loginUser: Logins in an existing user and stores the authToken to localStorage
@@ -70,6 +74,10 @@ const UtilAPI = {
     * @param {string}   data.password - 
   */
   registerUser: (data) => _registerUser(data),
+  /**
+    * refreshAuthToken: API POST request to /auth/refresh to get a new authToken for a logged in user
+  */
+  refreshAuthToken: () => _refreshAuthToken()
 };
 
 export default UtilAPI;
