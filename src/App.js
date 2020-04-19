@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Router, Switch, Route } from "react-router-dom";
+import { Router, Switch, Route, Link } from "react-router-dom";
 
 // UTIL
 import Util from './utility/util';
@@ -28,7 +28,9 @@ function App() {
     <Router history={history}>
       <div className="App">
         <header className="App-header">
-          Grimoire
+          <h1>
+            <Link to="/">Grimoire</Link>
+          </h1>
         </header>
         <Switch>
           <Route exact path="/" component={LandingPage} />
