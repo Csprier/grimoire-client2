@@ -18,7 +18,7 @@ function _loginUser(data) {
   })
   .then((res) => UtilDATA.normalizeResponseErrors(res))
   .then((res) => res.json())
-  .then(({ authToken }) => UtilDATA.saveAuthToken(authToken))
+  .then(({ authToken }) => UtilDATA.storeAuthInfo(authToken))
   .catch((err) => {
     console.error(err)
     const status = err;
@@ -55,7 +55,18 @@ function _registerUser(data) {
 };
 
 function _refreshAuthToken() {
-  
+  const authToken = UtilDATA.loadAuthToken();
+  return fetch(`${API_BASE_URL}/auth/refresh`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${authToken}` }
+  })
+  .then((res) => UtilDATA.normalizeResponseErrors(res))
+  .then((res) => res.json())
+  .then(({ authToken }) => UtilDATA.storeAuthInfo(authToken))
+  .catch((err) => {
+    console.error(err);
+    UtilDATA.clearAuthToken();
+  });
 };
 
 const UtilAPI = {
@@ -76,6 +87,7 @@ const UtilAPI = {
   registerUser: (data) => _registerUser(data),
   /**
     * refreshAuthToken: API POST request to /auth/refresh to get a new authToken for a logged in user
+    * @param {string}   authToken -
   */
   refreshAuthToken: () => _refreshAuthToken()
 };
