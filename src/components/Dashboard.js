@@ -7,6 +7,7 @@ const Dashboard = () => {
   function logout() {
     console.log('Logging out.');
     Util.DATA.stopPeriodicRefresh();
+    Util.DATA.clearAuthToken();
     Util.UI.redirectToLandingPage();
   }
 

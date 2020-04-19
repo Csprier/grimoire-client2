@@ -10,8 +10,9 @@ const Login = () => {
   function login() {
     console.log(values);
     return Util.API.loginUser(values)
-      .then(() => Util.UI.redirectToDashboard())
-      .catch(err => console.error(err));
+    .then(() => Util.UI.redirectToDashboard())
+    .then(() => Util.DATA.startPeriodicRefresh())
+    .catch(err => console.error(err));
   }
 
   return(

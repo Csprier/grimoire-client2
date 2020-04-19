@@ -1,6 +1,9 @@
 import jwtDecode from 'jwt-decode';
 import UtilAPI from './util-api';
 
+// Global variables
+let refreshInterval;
+
 function _saveAuthToken(authToken) {
   try {
     /** .setItem(key, value) */
@@ -9,8 +12,8 @@ function _saveAuthToken(authToken) {
 };
 
 function _loadAuthToken() {
-  /** .getItem(value) */
-  return localStorage.getItem('authToken');
+  const authToken = localStorage.getItem('authToken');
+  return authToken ? authToken : false;
 };
 
 function _clearAuthToken() {
@@ -42,15 +45,14 @@ function _normalizeResponseErrors(res) {
 };
 
 function _startPeriodicRefresh() {
-  let refreshInterval = setInterval(
-    () => UtilAPI.refreshAuthToken(),
-    60 * 60 * 1000 // 1h
-  );
-  return refreshInterval;
+  const oneHour = 3600000;
+  refreshInterval = setInterval(() => {
+    UtilAPI.refreshAuthToken()
+  }, oneHour);
 };
 
-function _stopPeriodicRefresh(refreshInterval) {
-  if (!refreshInterval) return;
+function _stopPeriodicRefresh() {
+  console.log('refreshInterval STOP: ', refreshInterval);
   clearInterval(refreshInterval);
 };
 
@@ -86,7 +88,7 @@ const UtilDATA = {
     * stopPeriodicRefresh: Clears the authToken from localStorage if there is a refreshInterval, otherwise it returns out of the function
     * @param {object}   res - 
   */
-  stopPeriodicRefresh: (refreshInterval) => _stopPeriodicRefresh(refreshInterval),
+  stopPeriodicRefresh: () => _stopPeriodicRefresh(),
 };
 
 export default UtilDATA;
