@@ -23,7 +23,6 @@ function _validateLogin(values) {
   return errors;
 };
 
-
 function _validateRegister(values) {
   let errors = {};
 

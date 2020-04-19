@@ -6,7 +6,7 @@ import Util from '../utility/util';
 const Dashboard = () => {
   function logout() {
     console.log('Logging out.');
-    Util.DATA.clearAuthToken();
+    Util.DATA.stopPeriodicRefresh();
     Util.UI.redirectToLandingPage();
   }
 

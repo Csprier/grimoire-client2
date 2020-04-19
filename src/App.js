@@ -1,9 +1,9 @@
-import React from 'react';
-import {
-  Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import React, { useEffect } from 'react';
+import { Router, Switch, Route } from "react-router-dom";
+
+// UTIL
+import Util from './utility/util';
+
 // CSS
 import './App.css';
 
@@ -17,6 +17,10 @@ import Dashboard from './components/Dashboard';
 import history from './history';
 
 function App() {
+  useEffect(() => {
+    Util.DATA.startPeriodicRefresh();
+  });
+
   return (
     <Router history={history}>
       <div className="App">
@@ -32,6 +36,6 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
