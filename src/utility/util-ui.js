@@ -51,7 +51,16 @@ function _redirectToLandingPage() {
 	history.push('/')
 };
 
+function _redirectToRegister() {
+	history.push('/register');
+};
+
 const UtilUI = {
+	/**
+	 * validators: Master object designed to have methods for various validation checks in Login/Register forms
+	 * @param {object}   validators - 
+	*/
+	validators,
 	/**
     * redirectToDashboard: pushes a url to the history object for component redirection on the vDOM to "/dashboard"
     * @param {object}   history - 
@@ -62,11 +71,11 @@ const UtilUI = {
     * @param {object}   history - 
   */
 	redirectToLandingPage: () => _redirectToLandingPage(),
-	 /**
-    * validators: Master object designed to have methods for various validation checks in Login/Register forms
-    * @param {object}   validators - 
+	/**
+    * redirectRegister: pushes a url to the history object for component redirection on the vDOM to "/register"
+    * @param {object}   history - 
   */
-  validators
+	redirectToRegister: () => _redirectToRegister(),
 };
 
 export default UtilUI;
