@@ -12,8 +12,8 @@ function Accordion({ children, className = "", onToggle, title }) {
   return(
     <div className="accordion-container">
       <h2 
-        // className={className}
-        className="accordion"
+        className={visibility ? "accordion open" : "accordion closed"}
+        // className="accordion"
         onClick={() => {
           setVisibility(!visibility);
           if (!onToggle) {
