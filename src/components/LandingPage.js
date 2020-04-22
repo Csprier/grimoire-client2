@@ -15,7 +15,6 @@ const LandingPage = () => {
   return(
     <div className="landing-page-container">
       <Accordion 
-        className="login-accordion" 
         title="Login" 
         onToggle={(visibility) => console.log("Login visibility -->", visibility)}
       >
@@ -23,7 +22,6 @@ const LandingPage = () => {
       </Accordion>
 
       <Accordion 
-        className="register-accordion" 
         title="Register" 
         onToggle={(visibility) => console.log("Register visibility -->", visibility)}
       >

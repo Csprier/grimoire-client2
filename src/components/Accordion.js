@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import './css/accordion.css';
 
 
-function Accordion({ children, className = "", onToggle, title }) {
+function Accordion({ children, onToggle, title }) {
   useEffect(() => {
     console.log('Accordion loaded!');
   });
