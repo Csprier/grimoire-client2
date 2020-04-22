@@ -11,16 +11,18 @@ function Accordion({ children, className = "", onToggle, title }) {
 
   return(
     <div className="accordion-container">
-      <h2 
-        className={visibility ? "accordion open" : "accordion closed"}
-        // className="accordion"
+      <button
+        className="accordion-button"
         onClick={() => {
           setVisibility(!visibility);
           if (!onToggle) {
             onToggle(visibility);
           };
-        }}>{title}</h2>
+        }}
+      >{title}</button>
+      <div className={visibility ? "accordion" : "accordion closed"}>
         {visibility ? <Fragment>{children}</Fragment> : null}
+      </div>
     </div>
   );
 };
