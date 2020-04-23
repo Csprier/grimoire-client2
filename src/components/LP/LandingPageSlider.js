@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LandingPageSlider() {
+function LandingPageSlider(props) {
   return(
     <div className="slider-container">
       <ul className="slider">{props.children}</ul>
