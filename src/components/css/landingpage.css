@@ -6,4 +6,5 @@
   display: flex;
   flex: row;
   justify-content: space-evenly;
+  border: 1px solid lightgray;
 }
