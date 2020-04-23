@@ -1,0 +1,23 @@
+.form-portal-container {
+  width: 50%;
+  height: 350px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #242526;
+  border-bottom: 1px solid black;
+}
+
+.form-portal {
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.form-portal a {
+  text-decoration: none;
+  color: white;
+}

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Router, Switch, Route, Link } from "react-router-dom";
+import { Router, Switch, Route } from "react-router-dom";
 
 // UTIL
 import Util from './utility/util';
@@ -9,8 +9,6 @@ import './App.css';
 
 // COMPONENTS
 import LandingPage from './components/LandingPage';
-import Login from './components/Login';
-import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 
 // History object
@@ -28,14 +26,10 @@ function App() {
     <Router history={history}>
       <div className="App">
         <header className="App-header">
-          <h1>
-            <Link to="/">Grimoire</Link>
-          </h1>
+          <h1>Grimoire</h1>
         </header>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
           <Route exact path="/dashboard" component={Dashboard} />
         </Switch>
       </div>

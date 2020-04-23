@@ -1,0 +1,11 @@
+.background-container {
+  background: url(images/spellbook.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+}
