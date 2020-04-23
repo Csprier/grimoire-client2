@@ -3,10 +3,6 @@ import './css/accordion.css';
 
 
 function Accordion({ children, onToggle, title }) {
-  useEffect(() => {
-    console.log('Accordion loaded!');
-  });
-
   const [visibility, setVisibility] = useState(false);
 
   return(

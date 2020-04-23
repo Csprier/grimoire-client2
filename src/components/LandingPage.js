@@ -1,5 +1,7 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
+import './css/landingpage.css';
+
 
 import Accordion from './Accordion';
 import Login from './Login';
