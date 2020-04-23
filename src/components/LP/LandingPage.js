@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import Util from '../../utility/util';
 import LandingPageSlider from './LandingPageSlider';
+import SliderItem from './SliderItem';
+
 
 const LandingPage = () => {
   if (Util.DATA.loadAuthToken()) {
@@ -11,9 +13,10 @@ const LandingPage = () => {
 
   return(
     <div className="landing-page-container">
-      <LandingPageSlider />
-      {/* <Link to="/login">Login</Link>
-      <Link to="/register">Register</Link> */}
+      <LandingPageSlider>
+        <SliderItem icon="L" />
+        <SliderItem icon="R" />
+      </LandingPageSlider>
     </div>
   );
 };

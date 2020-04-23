@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../css/css-LP/slider-item.css';
 
 function SliderItem(props) {
   const [open, setOpen] = useState(false);

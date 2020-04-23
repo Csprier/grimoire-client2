@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/css-LP/slider.css';
 
 function LandingPageSlider(props) {
   return(
