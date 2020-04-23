@@ -1,6 +1,6 @@
 import React from 'react';
 import useForm from '../custom-hooks/useForm';
-// import './css/register.css';
+import './css/register.css';
 
 import Util from '../utility/util';
 
@@ -16,9 +16,8 @@ const Register = () => {
   
   return (
     <form className="register-form" onSubmit={handleSubmit}>
-      <h1>Register</h1>
       <div className="input-container">
-        <label>Username
+        <label className="label">Username
           <input 
             className="input"
             type="text"

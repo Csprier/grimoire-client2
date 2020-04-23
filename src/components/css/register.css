@@ -1,4 +1,4 @@
-.login-form {
+.register-form {
   font-family: Arial, Helvetica, sans-serif; 
   max-width: 250px;
   height: auto;
@@ -39,7 +39,7 @@
   text-align: center;
 }
 
-.login-button {
+.register-button {
   width: 100px;
   margin: 0 auto;
   padding: 6px 8px;
