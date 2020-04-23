@@ -8,7 +8,7 @@ import Util from './utility/util';
 import './App.css';
 
 // COMPONENTS
-import LandingPage from './components/LandingPage';
+import LandingPage from './components/LP/LandingPage';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
