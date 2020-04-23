@@ -2,8 +2,13 @@ import React from 'react';
 import { Redirect } from "react-router-dom";
 import './css/landingpage.css';
 
+import DropDown from './Dropdown';
 import FormPortal from './FormPortal';
+import FormItem from './FormItem';
+import Login from './Login';
+import Register from './Register';
 
+// UTIL
 import Util from '../utility/util';
 
 const LandingPage = () => {
@@ -14,7 +19,15 @@ const LandingPage = () => {
   return(
     <div className="landing-page-container">
       <FormPortal>
-        
+
+        <FormItem portal="Login">
+          <Login />
+        </FormItem>
+
+        <FormItem portal="Register">
+          <Register />
+        </FormItem>
+
       </FormPortal>
     </div>
   );

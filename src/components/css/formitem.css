@@ -1,0 +1,23 @@
+.form-portal-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portal-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  margin: 0 auto;
+  padding: 6px 8px;
+  background-color: slateblue;
+  color: white;
+  border-radius: 3px;
+  font-size: 14px;
+  transition: filter 300ms;
+}
+
+.portal-button:hover {
+  filter: brightness(1.2);
+}
