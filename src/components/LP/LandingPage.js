@@ -16,6 +16,11 @@ const LandingPage = () => {
       <LandingPageSlider>
         <SliderItem icon="L" />
         <SliderItem icon="R" />
+        
+        <SliderItem icon="&#8659;">
+          <p>Hello world!</p>
+        </SliderItem>
+
       </LandingPageSlider>
     </div>
   );
