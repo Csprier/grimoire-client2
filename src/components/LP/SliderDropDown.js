@@ -24,6 +24,7 @@ function SliderDropDown() {
    * unmountOnExit: removes children when they are not active
    * timeout: duration of animation
    * classNames: menu - prefix
+   * onEnter: (life cycle hook) - calls a callback as soon as the 'enter class' is first added to the element
    * 
    * Description of transitions: When the 'in' prop becomes truthy
    *  it will add the 'menu-primary-enter' class to the 'menu' div. 

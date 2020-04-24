@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom";
 
 import Util from '../../utility/util';
 import LandingPageSlider from './LandingPageSlider';
-import SliderItem from './SliderItem';
 import SliderDropDown from './SliderDropDown';
 
 
@@ -22,9 +21,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-
-/* 
-<SliderItem icon="&#8659;">
-  <SliderDropDown />
-</SliderItem> 
-*/
