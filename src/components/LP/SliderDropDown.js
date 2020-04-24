@@ -14,6 +14,7 @@ function SliderDropDown() {
     setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
   }, []);
 
+  /** Dynamically calculate the height of the animated elements prior to their render for smooth animations */
   function calcHeight(el) {
     const height = el.offsetHeight;
     setMenuHeight(height);
