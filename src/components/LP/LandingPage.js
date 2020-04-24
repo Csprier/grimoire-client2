@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import Util from '../../utility/util';
 import LandingPageSlider from './LandingPageSlider';
 import SliderItem from './SliderItem';
+import SliderDropDown from './SliderDropDown';
 
 
 const LandingPage = () => {
@@ -18,7 +19,7 @@ const LandingPage = () => {
         <SliderItem icon="R" />
         
         <SliderItem icon="&#8659;">
-          <p>Hello world!</p>
+          <SliderDropDown />
         </SliderItem>
 
       </LandingPageSlider>
