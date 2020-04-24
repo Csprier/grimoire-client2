@@ -15,14 +15,16 @@ const LandingPage = () => {
   return(
     <div className="landing-page-container">
       <LandingPageSlider>
-
-        <SliderItem icon="&#8659;">
-          <SliderDropDown />
-        </SliderItem>
-
+        <SliderDropDown />
       </LandingPageSlider>
     </div>
   );
 };
 
 export default LandingPage;
+
+/* 
+<SliderItem icon="&#8659;">
+  <SliderDropDown />
+</SliderItem> 
+*/

@@ -1,5 +1,8 @@
 .slider-container {
-  height: 60px;
+  width: 250px;
+  height: auto; /* 264 */
+  margin: 0 auto;
+  padding: 0;
   background-color: #242526;
   padding: 0 1rem;
   border-bottom: 1px solid #474a4d;
@@ -9,5 +12,4 @@
   max-width: 100%;
   height: 100%;
   display: flex;
-  justify-content: flex-end;
 }
