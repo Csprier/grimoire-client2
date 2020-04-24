@@ -27,11 +27,6 @@ function App() {
   return (
     <Router history={history}>
       <div className="App">
-        <header className="App-header">
-          <h1>
-            <Link to="/">Grimoire</Link>
-          </h1>
-        </header>
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/login" component={Login} />
