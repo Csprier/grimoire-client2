@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../css/css-LP/slider-dropdown.css';
 import { CSSTransition } from 'react-transition-group';
 
@@ -7,6 +7,17 @@ import Register from '../Register';
 
 function SliderDropDown() {
   const [activeMenu, setActiveMenu] = useState('main');
+  const [menuHeight, setMenuHeight] = useState(null);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
+  }, []);
+
+  function calcHeight(el) {
+    const height = el.offsetHeight;
+    setMenuHeight(height);
+  }
 
   function DropDownItem(props) {
     return(
@@ -32,16 +43,17 @@ function SliderDropDown() {
    * When 'in' prop becomes false, it does the opposite.
    */
   return(
-    <div className="dropdown">
+    <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
       <CSSTransition 
         in={activeMenu === 'main'} 
         unmountOnExit 
         timeout={500}
         classNames="menu-primary"
+        onEnter={calcHeight}
       >
         <div className="menu">
-          <DropDownItem leftIcon="&#x4c;" goToMenu="login">Login</DropDownItem>
-          <DropDownItem leftIcon="&#x52;" goToMenu="register">Register</DropDownItem>
+          <DropDownItem leftIcon="&#x4c;" goToMenu="login"> Login</DropDownItem>
+          <DropDownItem leftIcon="&#x52;" goToMenu="register"> Register</DropDownItem>
         </div>
       </CSSTransition>
 
@@ -50,6 +62,7 @@ function SliderDropDown() {
         unmountOnExit 
         timeout={500}
         classNames="menu-secondary"
+        onEnter={calcHeight}
       >
         <div className="menu">
           <DropDownItem leftIcon="&#x21e6;" goToMenu="main"></DropDownItem>
@@ -62,6 +75,7 @@ function SliderDropDown() {
         unmountOnExit 
         timeout={500}
         classNames="menu-secondary"
+        onEnter={calcHeight}
       >
         <div className="menu">
           <DropDownItem leftIcon="&#x21e6;" goToMenu="main"></DropDownItem>
