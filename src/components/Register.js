@@ -1,6 +1,6 @@
 import React from 'react';
 import useForm from '../custom-hooks/useForm';
-// import './css/register.css';
+import './css/register.css';
 
 import Util from '../utility/util';
 
