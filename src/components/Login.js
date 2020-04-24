@@ -17,7 +17,6 @@ const Login = () => {
 
   return(
     <form className="login-form" onSubmit={handleSubmit}>
-      <h1>Login</h1>
       <div className="input-container">
         <label className="label">Username
           <input 
@@ -50,7 +49,6 @@ const Login = () => {
       </div>
       <div className="button-container">
         <button type="submit" className="login-button">Login</button>
-        <button onClick={() => Util.UI.redirectToRegister()} type="button" className="redirect-to-register">Not Registered?</button>
       </div>
     </form>
   );

@@ -51,7 +51,7 @@ function SliderDropDown() {
         classNames="menu-secondary"
       >
         <div className="menu">
-          <DropDownItem leftIcon="&#x21e6;" goToMenu="main">Login</DropDownItem>
+          <DropDownItem leftIcon="&#x21e6;" goToMenu="main"></DropDownItem>
           <Login />
         </div>
       </CSSTransition>
@@ -63,7 +63,7 @@ function SliderDropDown() {
         classNames="menu-secondary"
       >
         <div className="menu">
-          <DropDownItem leftIcon="&#x21e6;" goToMenu="main">Login</DropDownItem>
+          <DropDownItem leftIcon="&#x21e6;" goToMenu="main"></DropDownItem>
           <Register />
         </div>
       </CSSTransition>
