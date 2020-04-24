@@ -51,14 +51,6 @@ function _redirectToLandingPage() {
 	history.push('/')
 };
 
-function _redirectToLogin() {
-	history.push('/login');
-};
-
-function _redirectToRegister() {
-	history.push('/register');
-};
-
 const UtilUI = {
 	/**
 	 * validators: Master object designed to have methods for various validation checks in Login/Register forms
@@ -79,12 +71,6 @@ const UtilUI = {
     * redirectToLogin: pushes a url to the history object for component redirection on the vDOM to "/login"
     * @param {object}   history - 
   */
-	redirectToLogin: () => _redirectToLogin(),
-	/**
-    * redirectToRegister: pushes a url to the history object for component redirection on the vDOM to "/register"
-    * @param {object}   history - 
-  */
-	redirectToRegister: () => _redirectToRegister(),
 };
 
 export default UtilUI;
