@@ -1,0 +1,21 @@
+.form-container {
+  width: 50%;
+  height: 400px;
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid black;
+}
+
+.form-display {
+  transition: height 500ms ease-in-out;
+  width: 98%;
+  height: 0px;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+}
+
+.expand {
+  transition: height 500ms ease-in-out;
+  height: 180px;
+}
