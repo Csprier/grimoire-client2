@@ -2,8 +2,8 @@ import React from 'react';
 import { Redirect } from "react-router-dom";
 
 import Util from '../../utility/util';
-import LandingPageSlider from './LandingPageSlider';
-import SliderDropDown from './SliderDropDown';
+// import LandingPageSlider from './LandingPageSlider';
+// import SliderDropDown from './SliderDropDown';
 
 
 const LandingPage = () => {
@@ -13,11 +13,13 @@ const LandingPage = () => {
 
   return(
     <div className="landing-page-container">
-      <LandingPageSlider>
-        <SliderDropDown />
-      </LandingPageSlider>
+      
     </div>
   );
 };
 
 export default LandingPage;
+
+/* <LandingPageSlider>
+  <SliderDropDown />
+</LandingPageSlider> */
