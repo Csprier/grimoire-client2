@@ -1,6 +1,9 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
 
+// CSS
+import '../css/css-LP/landingpage.css';
+
 import Util from '../../utility/util';
 // import LandingPageSlider from './LandingPageSlider';
 // import SliderDropDown from './SliderDropDown';
