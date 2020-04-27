@@ -12,18 +12,35 @@
   margin: 0;
   padding: 0;
   text-align: center;
+  border: 1px solid purple;
 }
 
 .form-display {
-  position: absolute;
-  transform: translateX(-110%);
   transition: transform 500ms ease;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  border: 1px solid orange;
 }
 
+/* LOGIN */
+.login-display {
+  position: absolute;
+  transform: translateX(-110%);
+  transition: transform 500ms ease;
+}
 .login-slide-right {
+  transform: translateX(0%);
+  transition: all 500ms ease;
+}
+
+/* REGISTER */
+.register-display {
+  position: absolute;
+  transform: translateX(110%);
+  transition: transform 500ms ease;
+}
+.register-slide-left {
   transform: translateX(0%);
   transition: all 500ms ease;
 }
