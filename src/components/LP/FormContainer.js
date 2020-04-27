@@ -6,7 +6,12 @@ function FormContainer(props) {
   const [open, setOpen] = useState(false);
   return(
     <div className="form-container">
-      <button onClick={() => setOpen(!open)}>{props.name}</button>
+      <div 
+        className="animation-toggle"
+        onClick={() => setOpen(!open)}
+      >
+        {props.name}
+      </div>
       <div className={open ? "form-display expand" : "form-display"}>{props.children}</div>
     </div>
   );
