@@ -10,19 +10,23 @@ function FormContainer(props) {
   return(
     <div className="form-container">
       
-      
-      <div 
-        className="animation-toggle"
-        onClick={() => setLoginMenu(!loginMenu)}
-      >Login</div>
+      <div className="animation-button-container">
+        <div 
+          className="animation-toggle"
+          onClick={() => setLoginMenu(!loginMenu)}
+        >Login</div>
+
+        <div 
+          className="animation-toggle"
+          onClick={() => setRegisterMenu(!registerMenu)}
+        >Register</div>
+      </div>
+
+
       <div className={loginMenu ? "login-display login-slide-right" : "login-display"}>
         <Login />
       </div>
 
-      <div 
-        className="animation-toggle"
-        onClick={() => setRegisterMenu(!registerMenu)}
-      >Register</div>
       <div className={registerMenu ? "register-display register-slide-left" : "register-display"}>
         <Register />
       </div>
