@@ -5,7 +5,6 @@ import { Redirect } from "react-router-dom";
 import '../css/css-LP/landingpage.css';
 
 import Util from '../../utility/util';
-import FormContainer from './FormContainer';
 
 const LandingPage = () => {
   if (Util.DATA.loadAuthToken()) {
@@ -20,7 +19,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-
-/* <LandingPageSlider>
-  <SliderDropDown />
-</LandingPageSlider> */
