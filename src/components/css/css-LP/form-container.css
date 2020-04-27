@@ -15,15 +15,15 @@
 }
 
 .form-display {
-  transition: height 500ms ease-in-out;
-  width: 98%;
-  height: 0px;
-  margin: 0 auto;
+  position: absolute;
+  transform: translateX(-110%);
+  transition: transform 500ms ease;
+  margin: 0;
   padding: 0;
   overflow: hidden;
 }
 
-.expand {
-  transition: height 500ms ease-in-out;
-  height: 180px;
+.login-slide-right {
+  transform: translateX(0%);
+  transition: all 500ms ease;
 }
