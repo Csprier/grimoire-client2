@@ -8,7 +8,7 @@ import Util from './utility/util';
 import './App.css';
 
 // COMPONENTS
-import LandingPage from './components/LP/LandingPage';
+import LandingPage from './components/LandingPage/LandingPage';
 import Dashboard from './components/Dashboard';
 
 // History object

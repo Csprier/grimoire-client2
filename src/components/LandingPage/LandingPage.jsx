@@ -1,10 +1,12 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
 
-// CSS
-import '../css/css-LP/landingpage.css';
-
+/** Util */
 import Util from '../../utility/util';
+
+/** Styles */
+import LandingPageContainer from './LandingPage.styled';
+
 
 const LandingPage = () => {
   if (Util.DATA.loadAuthToken()) {
@@ -12,9 +14,9 @@ const LandingPage = () => {
   }
 
   return(
-    <div className="landing-page-container">
+    <LandingPageContainer>
       
-    </div>
+    </LandingPageContainer>
   );
 };
 
