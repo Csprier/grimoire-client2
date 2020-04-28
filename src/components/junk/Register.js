@@ -1,8 +1,8 @@
 import React from 'react';
-import useForm from '../custom-hooks/useForm';
+import useForm from '../../custom-hooks/useForm';
 import './css/register.css';
 
-import Util from '../utility/util';
+import Util from '../../utility/util';
 
 const Register = () => {
   const { values, handleChange, handleSubmit, errors } = useForm(register, Util.USER.validateRegister);

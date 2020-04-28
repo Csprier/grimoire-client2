@@ -9,6 +9,7 @@ import LandingPageContainer from './LandingPage.styled';
 
 /** Components */
 import Login from '../Login/Login';
+import Register from '../Register/Register';
 
 const LandingPage = () => {
   if (Util.DATA.loadAuthToken()) {
@@ -18,6 +19,7 @@ const LandingPage = () => {
   return(
     <LandingPageContainer>
       <Login />
+      <Register />
     </LandingPageContainer>
   );
 };
