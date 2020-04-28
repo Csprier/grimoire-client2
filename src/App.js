@@ -9,7 +9,7 @@ import './App.css';
 
 // COMPONENTS
 import LandingPage from './components/LandingPage/LandingPage';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 
 // History object
 import history from './history';

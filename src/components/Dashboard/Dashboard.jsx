@@ -1,7 +1,10 @@
 import React from 'react';
-import './css/dashboard.css';
 
-import Util from '../utility/util';
+/** Util */
+import Util from '../../utility/util';
+
+/** Styles */
+import DashboardContainer from './Dashboard.styled';
 
 const Dashboard = () => {
   function logout() {
@@ -12,10 +15,10 @@ const Dashboard = () => {
   }
 
   return(
-    <div className="dashboard-container">
+    <DashboardContainer>
       <h1>Dashboard</h1>
       <button onClick={() => logout()}>Logout</button>
-    </div>
+    </DashboardContainer>
   )
 };
 
