@@ -1,8 +1,8 @@
 import React from 'react';
-import useForm from '../custom-hooks/useForm';
+import useForm from '../../custom-hooks/useForm';
 import './css/login.css';
 
-import Util from '../utility/util';
+import Util from '../../utility/util';
 
 const Login = () => {
   const { values, handleChange, handleSubmit, errors } = useForm(login, Util.USER.validateLogin);
