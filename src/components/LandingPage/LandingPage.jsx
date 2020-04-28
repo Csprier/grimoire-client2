@@ -7,6 +7,8 @@ import Util from '../../utility/util';
 /** Styles */
 import LandingPageContainer from './LandingPage.styled';
 
+/** Components */
+import Login from '../Login/Login';
 
 const LandingPage = () => {
   if (Util.DATA.loadAuthToken()) {
@@ -15,7 +17,7 @@ const LandingPage = () => {
 
   return(
     <LandingPageContainer>
-      
+      <Login />
     </LandingPageContainer>
   );
 };
