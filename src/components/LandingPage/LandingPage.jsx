@@ -8,8 +8,7 @@ import Util from '../../utility/util';
 import LandingPageContainer from './LandingPage.styled';
 
 /** Components */
-import Login from '../Login/Login';
-import Register from '../Register/Register';
+import AnimatedFormComponent from './components/AnimatedFormComponent';
 
 const LandingPage = () => {
   if (Util.DATA.loadAuthToken()) {
@@ -18,8 +17,7 @@ const LandingPage = () => {
 
   return(
     <LandingPageContainer>
-      <Login />
-      <Register />
+      <AnimatedFormComponent />
     </LandingPageContainer>
   );
 };
