@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 /** Styles */
 import { 
   FormComponentContainer,
+  LoginDisplay,
+  RegisterDisplay,
   ToggleButton,
-  ToggleButtonsContainer
+  ToggleButtonsContainer 
 } from './AnimatedFormComponent.styled';
 
 /** Components */
@@ -15,23 +17,34 @@ function AnimatedFormComponent() {
   const [loginMenu, setLoginMenu] = useState(false);
   const [registerMenu, setRegisterMenu] = useState(false);
   return(
-    <FormComponentContainer>
+    <FormComponentContainer loginMenu registerMenu>
+      
       <ToggleButtonsContainer>
         <ToggleButton onClick={() => {
           if (registerMenu) {
             setRegisterMenu(!registerMenu);
           }
           setLoginMenu(!loginMenu);
+          console.log(loginMenu);
         }}>Login</ToggleButton>
+      
         <ToggleButton onClick={() => {
           if (loginMenu) {
             setLoginMenu(!loginMenu);
           }
           setRegisterMenu(!registerMenu);
-        }}>Register</ToggleButton>
+          console.log(registerMenu);
+        }}>Register</ToggleButton>     
       </ToggleButtonsContainer>
-      <Login />
-      <Register />
+
+      <LoginDisplay loginMenu>
+        <Login />
+      </LoginDisplay>
+
+      <RegisterDisplay registerMenu>
+        <Register />
+      </RegisterDisplay>
+
     </FormComponentContainer>
   );
 };
