@@ -9,4 +9,15 @@ const LandingPageContainer = styled.div`
   background-color: #242526;
 `;
 
-export default LandingPageContainer;
+const HeaderOne = styled.h1`
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: goldenrod;
+  font-size: 50px;
+`;
+
+export { 
+  HeaderOne,
+  LandingPageContainer 
+};

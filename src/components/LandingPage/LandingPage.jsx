@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import Util from '../../utility/util';
 
 /** Styles */
-import LandingPageContainer from './LandingPage.styled';
+import { HeaderOne, LandingPageContainer } from './LandingPage.styled';
 
 /** Components */
 import AnimatedFormComponent from './components/AnimatedFormComponent';
@@ -17,6 +17,7 @@ const LandingPage = () => {
 
   return(
     <LandingPageContainer>
+      <HeaderOne>ɢʀɨʍօɨʀɛ</HeaderOne>
       <AnimatedFormComponent />
     </LandingPageContainer>
   );

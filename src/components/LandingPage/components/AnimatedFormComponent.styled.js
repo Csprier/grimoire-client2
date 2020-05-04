@@ -1,32 +1,10 @@
 import styled from 'styled-components';
 
-// height: ${props => props.loginMenu || props.registerMenu ? "height: 300px" : "height: 0px"}
-// transform: ${props => props.loginMenu ? "translateX(-110%)" : "translateX(0%)"};
-// transform: "translateX(${props => props.loginMenu ? "0%" : "-110%"})";
-// transform: ${props => props.registerMenu ? "translateX(0%)" : "translateX(-110%)"};
-// transform: "translateX(${props => props.registerMenu ? "0%" : "-110%"})";
-// overflow: hidden;
-// transition-property: transform;
-// transition-duration: .5s;
-// transition-delay: .5s;
-
-/**
- transform: translateX(${props => {
-    console.log('Login:', props.loginMenu);
-    return props.loginMenu ? "0%" : "-110%"}
-  }});
- transform: translateX(${props => {
-    console.log('Register:', props.registerMenu);
-    return props.registerMenu ? "0%" : "110%"}
-  }});
- */
-
 const FormComponentContainer = styled.div`
   position: relative;
   width: 300px;
   margin: 0 auto;
   padding: 0;
-  background-color: #474256;
   transition-property: transform, height;
   transition-duration: .5s;
   transition-delay: .5s;
