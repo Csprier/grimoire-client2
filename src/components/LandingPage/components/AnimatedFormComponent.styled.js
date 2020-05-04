@@ -52,6 +52,7 @@ const ToggleButton = styled.button`
   margin: 0 auto;
   padding: 6px 8px;
   background-color: ${props => props.loginMenu || props.registerMenu ? "darkslateblue" : "slateblue"};
+  border: ${props => props.loginMenu || props.registerMenu ? "1px solid slateblue" : "1px solid darkslateblue"};
   color: white;
   border-radius: 3px;
   font-size: 14px;
