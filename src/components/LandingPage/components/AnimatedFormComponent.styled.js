@@ -31,7 +31,7 @@ const FormComponentContainer = styled.div`
   transition-duration: .5s;
   transition-delay: .5s;
   overflow: hidden;
-  height: ${props => props.loginMenu || props.registerMenu ? "300px" : "40px"}
+  height: ${props => props.loginMenu || props.registerMenu ? "240px" : "40px"}
 `;
 
 const ToggleButtonsContainer = styled.div`
@@ -60,18 +60,24 @@ const ToggleButton = styled.button`
 
 const LoginDisplay = styled.div`
   position: absolute;
-  transform: ${props => props.loginMenu ? "translateX(0%)" : "translateX(-110%)"};
-  transition-property: transform;
+  width: 98%;
+  transition-property: transform, margin;
   transition-duration: .5s;
   transition-delay: .5s;
+  transform: ${props => props.loginMenu ? "translateX(0%)" : "translateX(-110%)"};
+  margin: ${props => props.registerMenu ? "0 auto" : "0"}
+  border: 1px solid red;
 `;
 
 const RegisterDisplay = styled.div`
   position: absolute;
-  transform: ${props => props.registerMenu ? "translateX(0%)" : "translateX(110%)"};
-  transition-property: transform;
+  width: 98%;
+  transition-property: transform, margin;
   transition-duration: .5s;
   transition-delay: .5s;
+  transform: ${props => props.registerMenu ? "translateX(0%)" : "translateX(110%)"};
+  margin: ${props => props.registerMenu ? "0 auto" : "0"}
+  border: 1px solid red;
 `;
 
 export { 
