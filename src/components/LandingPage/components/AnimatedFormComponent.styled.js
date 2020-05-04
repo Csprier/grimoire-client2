@@ -44,8 +44,7 @@ const LoginDisplay = styled.div`
   transition-duration: .5s;
   transition-delay: .5s;
   transform: ${props => props.loginMenu ? "translateX(0%)" : "translateX(-110%)"};
-  margin: ${props => props.registerMenu ? "0 auto" : "0"}
-  border: 1px solid red;
+  margin: ${props => props.registerMenu ? "0 auto" : "0"};
 `;
 
 const RegisterDisplay = styled.div`
@@ -55,8 +54,7 @@ const RegisterDisplay = styled.div`
   transition-duration: .5s;
   transition-delay: .5s;
   transform: ${props => props.registerMenu ? "translateX(0%)" : "translateX(110%)"};
-  margin: ${props => props.registerMenu ? "0 auto" : "0"}
-  border: 1px solid red;
+  margin: ${props => props.registerMenu ? "0 auto" : "0"};
 `;
 
 export { 
