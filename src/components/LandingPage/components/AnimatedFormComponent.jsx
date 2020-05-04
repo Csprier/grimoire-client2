@@ -26,26 +26,30 @@ function AnimatedFormComponent() {
     <FormComponentContainer loginMenu={loginMenu} registerMenu={registerMenu}>
       
       <ToggleButtonsContainer>
-        <ToggleButton onClick={() => {
-          if (!loginMenu) {
-            console.log('Change login from closed to open');
-            setLoginMenu(true);
-          }
-          if (loginMenu) {
-            console.log('Change login from open to closed');
-            setLoginMenu(false);
-          }
+        <ToggleButton 
+          loginMenu={loginMenu}
+          onClick={() => {
+            if (!loginMenu) {
+              console.log('Change login from closed to open');
+              setLoginMenu(true);
+            }
+            if (loginMenu) {
+              console.log('Change login from open to closed');
+              setLoginMenu(false);
+            }
         }}>Login</ToggleButton>
       
-        <ToggleButton onClick={() => {
-          if (!registerMenu) {
-            console.log('Change register from closed to open');
-            setRegisterMenu(true);
-          }
-          if (registerMenu) {
-            console.log('Change register from open to closed');
-            setRegisterMenu(false);
-          }
+        <ToggleButton 
+          registerMenu={registerMenu}
+          onClick={() => {
+            if (!registerMenu) {
+              console.log('Change register from closed to open');
+              setRegisterMenu(true);
+            }
+            if (registerMenu) {
+              console.log('Change register from open to closed');
+              setRegisterMenu(false);
+            }
         }}>Register</ToggleButton>     
       </ToggleButtonsContainer>
 

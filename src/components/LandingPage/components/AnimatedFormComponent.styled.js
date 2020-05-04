@@ -30,17 +30,17 @@ const FormComponentContainer = styled.div`
   transition-property: transform, height;
   transition-duration: .5s;
   transition-delay: .5s;
-  border: 1px solid red;
   overflow: hidden;
-  height: ${props => props.loginMenu || props.registerMenu ? "300px" : "65px"}
+  height: ${props => props.loginMenu || props.registerMenu ? "300px" : "40px"}
 `;
 
 const ToggleButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
   width: 100%;
   height: auto;
   margin: 0;
   padding: 0;
-  border: 1px solid orange;
 `;
 
 const ToggleButton = styled.button`
@@ -48,12 +48,14 @@ const ToggleButton = styled.button`
   align-items: center;
   justify-content: center;
   width: 100px;
+  height: 33px;
   margin: 0 auto;
   padding: 6px 8px;
-  background-color: slateblue;
+  background-color: ${props => props.loginMenu || props.registerMenu ? "darkslateblue" : "slateblue"};
   color: white;
   border-radius: 3px;
   font-size: 14px;
+  &:focus { outline: none; }
 `;
 
 const LoginDisplay = styled.div`
@@ -62,7 +64,6 @@ const LoginDisplay = styled.div`
   transition-property: transform;
   transition-duration: .5s;
   transition-delay: .5s;
-  border: 1px solid green;
 `;
 
 const RegisterDisplay = styled.div`
@@ -71,7 +72,6 @@ const RegisterDisplay = styled.div`
   transition-property: transform;
   transition-duration: .5s;
   transition-delay: .5s;
-  border: 1px solid pink;
 `;
 
 export { 
