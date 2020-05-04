@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 /** Styles */
 import { 
@@ -16,32 +16,44 @@ import Register from '../../Register/Register';
 function AnimatedFormComponent() {
   const [loginMenu, setLoginMenu] = useState(false);
   const [registerMenu, setRegisterMenu] = useState(false);
+
+  useEffect(() => {
+    console.log('Login:', loginMenu);
+    console.log('Register', registerMenu);
+  });
+
   return(
     <FormComponentContainer loginMenu registerMenu>
       
       <ToggleButtonsContainer>
         <ToggleButton onClick={() => {
-          if (registerMenu) {
-            setRegisterMenu(!registerMenu);
+          if (!loginMenu) {
+            console.log('Change login from closed to open');
+            setLoginMenu(true);
           }
-          setLoginMenu(!loginMenu);
-          console.log(loginMenu);
+          if (loginMenu) {
+            console.log('Change login from open to closed');
+            setLoginMenu(false);
+          }
         }}>Login</ToggleButton>
       
         <ToggleButton onClick={() => {
-          if (loginMenu) {
-            setLoginMenu(!loginMenu);
+          if (!registerMenu) {
+            console.log('Change register from closed to open');
+            setRegisterMenu(false);
           }
-          setRegisterMenu(!registerMenu);
-          console.log(registerMenu);
+          if (registerMenu) {
+            console.log('Change register from open to closed');
+            setRegisterMenu(false);
+          }
         }}>Register</ToggleButton>     
       </ToggleButtonsContainer>
 
-      <LoginDisplay loginMenu>
+      <LoginDisplay loginMenu={loginMenu}>
         <Login />
       </LoginDisplay>
 
-      <RegisterDisplay registerMenu>
+      <RegisterDisplay registerMenu={registerMenu}>
         <Register />
       </RegisterDisplay>
 
@@ -50,3 +62,27 @@ function AnimatedFormComponent() {
 };
 
 export default AnimatedFormComponent;
+
+/*
+<ToggleButton onClick={() => {
+  if (loginMenu === 'closed') {
+    console.log('Change login from closed to open');
+    setLoginMenu('open');
+  }
+  if (loginMenu === 'open') {
+    console.log('Change login from open to closed');
+    setLoginMenu('closed');
+  }
+}}>Login</ToggleButton>
+
+<ToggleButton onClick={() => {
+  if (registerMenu === 'closed') {
+    console.log('Change register from closed to open');
+    setRegisterMenu('open');
+  }
+  if (registerMenu === 'open') {
+    console.log('Change register from open to closed');
+    setRegisterMenu('closed');
+  }
+}}>Register</ToggleButton>
+*/
