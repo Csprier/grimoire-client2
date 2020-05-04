@@ -10,16 +10,29 @@ import styled from 'styled-components';
 // transition-duration: .5s;
 // transition-delay: .5s;
 
+/**
+ transform: translateX(${props => {
+    console.log('Login:', props.loginMenu);
+    return props.loginMenu ? "0%" : "-110%"}
+  }});
+ transform: translateX(${props => {
+    console.log('Register:', props.registerMenu);
+    return props.registerMenu ? "0%" : "110%"}
+  }});
+ */
+
 const FormComponentContainer = styled.div`
   position: relative;
   width: 300px;
-  height: 300px;
   margin: 0 auto;
   padding: 0;
   background-color: #474256;
   transition-property: transform, height;
-  transition: all .15s ease;
+  transition-duration: .5s;
+  transition-delay: .5s;
   border: 1px solid red;
+  overflow: hidden;
+  height: ${props => props.loginMenu || props.registerMenu ? "300px" : "65px"}
 `;
 
 const ToggleButtonsContainer = styled.div`
@@ -45,21 +58,19 @@ const ToggleButton = styled.button`
 
 const LoginDisplay = styled.div`
   position: absolute;
-  transform: translateX(${props => {
-    console.log('Login:', props.loginMenu);
-    return props.loginMenu ? "0%" : "-110%"}
-  }});
-  transition: transform .15s ease;
+  transform: ${props => props.loginMenu ? "translateX(0%)" : "translateX(-110%)"};
+  transition-property: transform;
+  transition-duration: .5s;
+  transition-delay: .5s;
   border: 1px solid green;
 `;
 
 const RegisterDisplay = styled.div`
   position: absolute;
-  transform: translateX(${props => {
-    console.log('Register:', props.registerMenu);
-    return props.registerMenu ? "0%" : "110%"}
-  }});
-  transition: transform .15s ease;
+  transform: ${props => props.registerMenu ? "translateX(0%)" : "translateX(110%)"};
+  transition-property: transform;
+  transition-duration: .5s;
+  transition-delay: .5s;
   border: 1px solid pink;
 `;
 

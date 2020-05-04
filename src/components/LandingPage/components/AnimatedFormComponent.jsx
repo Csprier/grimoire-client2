@@ -23,7 +23,7 @@ function AnimatedFormComponent() {
   });
 
   return(
-    <FormComponentContainer loginMenu registerMenu>
+    <FormComponentContainer loginMenu={loginMenu} registerMenu={registerMenu}>
       
       <ToggleButtonsContainer>
         <ToggleButton onClick={() => {
@@ -40,7 +40,7 @@ function AnimatedFormComponent() {
         <ToggleButton onClick={() => {
           if (!registerMenu) {
             console.log('Change register from closed to open');
-            setRegisterMenu(false);
+            setRegisterMenu(true);
           }
           if (registerMenu) {
             console.log('Change register from open to closed');
