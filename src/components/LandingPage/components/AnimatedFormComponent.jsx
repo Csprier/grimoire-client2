@@ -24,11 +24,15 @@ function AnimatedFormComponent() {
 
   return(
     <FormComponentContainer loginMenu={loginMenu} registerMenu={registerMenu}>
-      
+
       <ToggleButtonsContainer>
         <ToggleButton 
           loginMenu={loginMenu}
           onClick={() => {
+            if (registerMenu) {
+              console.log('Change register to closed before opening login');
+              setRegisterMenu(false);
+            }
             if (!loginMenu) {
               console.log('Change login from closed to open');
               setLoginMenu(true);
@@ -42,6 +46,10 @@ function AnimatedFormComponent() {
         <ToggleButton 
           registerMenu={registerMenu}
           onClick={() => {
+            if (loginMenu) {
+              console.log('Change login to closed before opening register');
+              setLoginMenu(false);
+            }
             if (!registerMenu) {
               console.log('Change register from closed to open');
               setRegisterMenu(true);
