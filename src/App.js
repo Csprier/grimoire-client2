@@ -17,7 +17,6 @@ import history from './history';
 function App() {
   useEffect(() => {
     if (Util.DATA.loadAuthToken()) {
-      console.log(Util.DATA.loadAuthToken())
       Util.DATA.startPeriodicRefresh();
     }
   });

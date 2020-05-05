@@ -7,7 +7,8 @@ import Util from '../../utility/util';
 import { 
   DashboardContainer,
   DashboardNavBar,
-  LogOutButton
+  LogOutButton,
+  UsernameHeader
 } from './Dashboard.styled';
 
 const Dashboard = () => {
@@ -26,8 +27,8 @@ const Dashboard = () => {
 
   return(
     <DashboardContainer>
-      <h1>Welcome back, {activeUser}!</h1>  
       <DashboardNavBar>
+        <UsernameHeader>Welcome back, {activeUser}!</UsernameHeader>  
         <LogOutButton onClick={() => logout()}>Logout</LogOutButton>
       </DashboardNavBar>
 
