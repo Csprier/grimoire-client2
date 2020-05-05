@@ -23,7 +23,7 @@ const DashboardNavBar = styled.div`
 const UsernameHeader = styled.h1`
   display: flex;
   align-items: center;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 100;
   margin: 0px 0px 0px 10px;
   padding: 0;
