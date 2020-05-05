@@ -8,4 +8,14 @@ const DashboardContainer = styled.div`
   border: 1px solid orange;
 `;
 
-export default DashboardContainer;
+const DashboardNavBar = styled.div`
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+`;
+
+export {
+  DashboardContainer,
+  DashboardNavBar
+};

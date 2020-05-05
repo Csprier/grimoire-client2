@@ -4,7 +4,10 @@ import React from 'react';
 import Util from '../../utility/util';
 
 /** Styles */
-import DashboardContainer from './Dashboard.styled';
+import { 
+  DashboardContainer,
+  DashboardNavBar
+} from './Dashboard.styled';
 
 const Dashboard = () => {
   function logout() {
@@ -16,8 +19,12 @@ const Dashboard = () => {
 
   return(
     <DashboardContainer>
-      <h1>Dashboard</h1>
-      <button onClick={() => logout()}>Logout</button>
+      
+      <DashboardNavBar>
+        <h1>Dashboard</h1>
+        <button onClick={() => logout()}>Logout</button>
+      </DashboardNavBar>
+
     </DashboardContainer>
   )
 };
