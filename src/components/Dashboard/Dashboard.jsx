@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 /** Util */
 import Util from '../../utility/util';
@@ -6,7 +6,8 @@ import Util from '../../utility/util';
 /** Styles */
 import { 
   DashboardContainer,
-  DashboardNavBar
+  DashboardNavBar,
+  LogOutButton
 } from './Dashboard.styled';
 
 const Dashboard = () => {
@@ -21,8 +22,7 @@ const Dashboard = () => {
     <DashboardContainer>
       
       <DashboardNavBar>
-        <h1>Dashboard</h1>
-        <button onClick={() => logout()}>Logout</button>
+        <LogOutButton onClick={() => logout()}>Logout</LogOutButton>
       </DashboardNavBar>
 
     </DashboardContainer>

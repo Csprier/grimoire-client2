@@ -29,6 +29,14 @@ function _storeAuthInfo(authToken) {
   _saveAuthToken(authToken);
 };
 
+function _getUsernameFromLocalStorage() {
+  const authToken = _loadAuthToken();
+  const decodedToken = jwtDecode(authToken);
+  const username = decodedToken.user.username;
+  console.log('Current user: ', username);
+  return username;
+}
+
 function _normalizeResponseErrors(res) {
 	if (!res.ok) {
 		if (res.headers.has('content-type') && res.headers.get('content-type').startsWith('application/json')) {
@@ -75,6 +83,10 @@ const UtilDATA = {
     * @param {object}   authToken - 
   */
   storeAuthInfo: (authToken) => _storeAuthInfo(authToken),
+  /**
+   * getUsernameFromLocalStorage: Use jwtDecode to get the currently logged in user
+   */
+  getUsernameFromLocalStorage: () => _getUsernameFromLocalStorage(),
   /**
     * normalizeResponseErrors: 
     * @param {object}   res - 
