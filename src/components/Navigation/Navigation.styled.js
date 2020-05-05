@@ -37,8 +37,33 @@ const LogOutButton = styled.button`
   }
 `;
 
+const NavigationButtonContainer = styled.div`
+  width: auto;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+`;
+
+const IconButton = styled.button`
+  width: 200px;
+  height: 100%;
+  margin: 0px 10px 0px 0px;
+  padding: 6px 8px;
+  font-size: 22px;
+  text-align: center;
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  &:focus { outline: none; }
+  &:hover { 
+    color: goldenrod;
+  }
+`;
+
 export {
+  IconButton,
   Navigation,
+  NavigationButtonContainer,
   LogOutButton,
   UsernameHeader
 };
