@@ -5,11 +5,14 @@ import { DashboardContainer } from './Dashboard.styled';
 
 /** Components */
 import NavigationBar from '../Navigation/Navigation';
+import EditorTest from '../EditorTest/EditorTest';
 
 const Dashboard = () => {
   return(
     <DashboardContainer>
       <NavigationBar />
+      
+      <EditorTest />
 
     </DashboardContainer>
   )
