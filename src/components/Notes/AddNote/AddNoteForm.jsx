@@ -5,15 +5,38 @@ import Util from '../../../utility/util';
 
 /** Styles */
 import {
-  AddNoteFormContainer
+  AddNoteForm,
+  AddNoteFormContainer,
+  ContentTextArea,
+  Label,
+  TitleInput
 } from './AddNoteForm.styled';
 
-const AddNoteForm = () => {
+const AddNoteFormComponent = () => {
   return(
     <AddNoteFormContainer>
+
+      <AddNoteForm>
+
+        <Label>Title:
+          <TitleInput 
+            type="text"
+            placeholder="Title..."
+          />
+        </Label>
+
+        <Label>Content:
+          <ContentTextArea 
+            type="text"
+            placeholder="Content..."
+            rows="10" cols="40"
+          />
+        </Label>
+
+      </AddNoteForm>
 
     </AddNoteFormContainer>
   );
 };
 
-export default AddNoteForm;
+export default AddNoteFormComponent;
