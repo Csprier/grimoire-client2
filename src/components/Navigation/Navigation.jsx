@@ -17,7 +17,7 @@ const NavigationBar = () => {
 
   useEffect(() => {
     setActiveUser(Util.DATA.getUsernameFromLocalStorage());
-  });
+  }, []);
 
   function logout() {
     console.log('Logging out.');
