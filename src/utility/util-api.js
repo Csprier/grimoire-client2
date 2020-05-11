@@ -88,8 +88,22 @@ function _notePOST(data) {
   })
   .then(res => console.log(res))
   .catch(err => console.error(err));
-}
+};
 
+function _noteGET() {
+  const authToken = UtilDATA.loadAuthToken();
+  const url = `${API_BASE_URL}/notes`;
+  return fetch(url, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Authorization': 'bearer ' + authToken
+    }
+  })
+  .then(res => res.json())
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
+};
 
 const UtilAPI = {
   /**
@@ -116,7 +130,12 @@ const UtilAPI = {
    * notePOST: API POST request to /api/notes to create a new Note record in the database
    * @param {string}    data - title, content, tags, folders
    */
-  notePOST: (data) => _notePOST(data)
+  notePOST: (data) => _notePOST(data),
+  /**
+   * noteGET: API GET request to /api/notes to get a list of Notes in the database
+   * @param 
+   */
+  noteGET: () => _noteGET()
 };
 
 export default UtilAPI;
