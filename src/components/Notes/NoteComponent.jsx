@@ -15,6 +15,8 @@ import {
   Label,
   NoteComponentContainer,
   NoteForm,
+  NoteComponentHeader,
+  NoteTitle,
   SubmitButton,
   ToggleButton
 } from './NoteComponent.styled';
@@ -49,7 +51,10 @@ const NoteComponent = () => {
 
   return(
     <NoteComponentContainer toggle={toggle}>
-      <ToggleButton onClick={_toggleOpenClose}>{toggle ? 'open' : 'closed'}</ToggleButton>
+      <NoteComponentHeader>
+        <NoteTitle>Note Title</NoteTitle>
+        <ToggleButton onClick={_toggleOpenClose}>{toggle ? 'open' : 'closed'}</ToggleButton>
+      </NoteComponentHeader>
       <NoteForm onSubmit={handleSubmit}>
         <Label>Title
           <Input

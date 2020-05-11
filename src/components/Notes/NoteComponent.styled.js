@@ -7,10 +7,27 @@ const NoteComponentContainer = styled.div`
   border: 1px solid black;
   overflow-y: auto;
   overflow: hidden;
-  transition-property: transform, height;
+  transition-property: height;
   transition-duration: .5s;
   transition-delay: .5s;
   height: ${props => props.toggle ? '600px' : "30px"}
+`;
+
+const NoteComponentHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  top: 0%;
+  width: 100%;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid green;
+`;
+
+const NoteTitle = styled.h2`
+  display: flex;
 `;
 
 const NoteForm = styled.form`
@@ -68,6 +85,8 @@ export {
   Label,
   NoteComponentContainer,
   NoteForm,
+  NoteComponentHeader,
+  NoteTitle,
   SubmitButton,
   ToggleButton
 };
