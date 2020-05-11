@@ -1,6 +1,7 @@
 import UtilUI from '../utility/util-ui';
 import { RichUtils, convertToRaw } from 'draft-js';
 
+/** EDITOR FUNCTIONS */
 function handleKeyCommand(command, editorState) {
   const newState = RichUtils.handleKeyCommand(editorState, command);
   if (newState) {
@@ -24,6 +25,7 @@ function _saveContent(content) {
   window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
 }
 
+/** FORM VALIDATIONS */
 function _validateNote(values) {
   let errors = {};
 
@@ -33,6 +35,9 @@ function _validateNote(values) {
   return errors;
 };
 
+/**
+ * EXPORTS
+ */
 const UtilNOTE = {
   /**
    * handleKeyCommand: Uses RichUtils to monitor fancy key commands like cmd+b for bold, cmd+i for italic, etc

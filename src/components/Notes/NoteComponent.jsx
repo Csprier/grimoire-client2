@@ -35,6 +35,9 @@ const NoteComponent = () => {
 
   function _addNote() {
     console.log(values);
+    return Util.API.notePOST(values)
+      .then(() => console.log('POST request sent'))
+      .catch((err) => console.error(err));
   };
 
   return(

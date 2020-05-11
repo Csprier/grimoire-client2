@@ -2,6 +2,7 @@
 import UtilDATA from './util-data'; 
 import API_BASE_URL from './api-config';
 
+/** USER API FUNCTIONS - Login, Register, AuthToken Refresh */
 function _loginUser(data) {
   const { username, password } = data;
 
@@ -69,6 +70,27 @@ function _refreshAuthToken() {
   });
 };
 
+/** NOTE API FUNCTIONS - POST */
+function _notePOST(data) {
+  const authToken = UtilDATA.loadAuthToken();
+  const url = `${API_BASE_URL}/notes`;
+  console.log(authToken);
+  console.log(url);
+  console.log(data);
+  return fetch(url, {
+    method: 'POST',
+    headers: { 
+      Authorization: `Bearer ${authToken}`,
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
+}
+
+
 const UtilAPI = {
   /**
     * loginUser: Logins in an existing user and stores the authToken to localStorage
@@ -89,7 +111,12 @@ const UtilAPI = {
     * refreshAuthToken: API POST request to /auth/refresh to get a new authToken for a logged in user
     * @param {string}   authToken -
   */
-  refreshAuthToken: () => _refreshAuthToken()
+  refreshAuthToken: () => _refreshAuthToken(),
+  /**
+   * notePOST: API POST request to /api/notes to create a new Note record in the database
+   * @param {string}    data - title, content, tags, folders
+   */
+  notePOST: (data) => _notePOST(data)
 };
 
 export default UtilAPI;
