@@ -34,6 +34,10 @@ const Label = styled.label`
   padding: 0;
 `;
 
+const ToggleButton = styled.button`
+
+`;
+
 const SubmitButton = styled.button`
   width: 100px;
   margin: 0 auto;
@@ -55,5 +59,6 @@ export {
   Label,
   NoteComponentContainer,
   NoteForm,
-  SubmitButton
+  SubmitButton,
+  ToggleButton
 };
