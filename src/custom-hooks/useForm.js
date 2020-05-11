@@ -23,11 +23,19 @@ const useForm = (callback, validate) => {
     setValues((values) => ({
       ...values,
       [e.target.name]: e.target.value
-    }))
-  }
+    }));
+  };
+
+  const handleContent = (content) => {
+    setValues(values => ({
+      ...values,
+      content: content
+    }));
+  };
 
   return {
     handleChange,
+    handleContent,
     handleSubmit,
     values,
     errors,
