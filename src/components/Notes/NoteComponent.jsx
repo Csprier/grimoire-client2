@@ -48,8 +48,8 @@ const NoteComponent = () => {
   };
 
   return(
-    <NoteComponentContainer>
-      <ToggleButton onClick={_toggleOpenClose}>{toggle ? `&#8624;` : `&#8626;`}</ToggleButton>
+    <NoteComponentContainer toggle={toggle}>
+      <ToggleButton onClick={_toggleOpenClose}>{toggle ? 'open' : 'closed'}</ToggleButton>
       <NoteForm onSubmit={handleSubmit}>
         <Label>Title
           <Input

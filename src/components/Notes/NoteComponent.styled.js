@@ -2,11 +2,15 @@ import styled from 'styled-components';
 
 const NoteComponentContainer = styled.div`
   width: 400px;
-  height: 600px;
   margin: 0 auto;
   padding: 0;
   border: 1px solid black;
   overflow-y: auto;
+  overflow: hidden;
+  transition-property: transform, height;
+  transition-duration: .5s;
+  transition-delay: .5s;
+  height: ${props => props.toggle ? '600px' : "30px"}
 `;
 
 const NoteForm = styled.form`
@@ -35,7 +39,12 @@ const Label = styled.label`
 `;
 
 const ToggleButton = styled.button`
-
+  width: 100px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  background-color: ${props => props.toggle ? "darkslateblue" : "slateblue"};
+  &:focus { outline: none; }
 `;
 
 const SubmitButton = styled.button`
