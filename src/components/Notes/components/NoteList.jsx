@@ -12,18 +12,17 @@ const NoteList = () => {
   const [listOfNotes, setListOfNotes] = useState([]);
   
   useEffect(() => {
-    GETNotes();
-    console.log(listOfNotes);
+    _GETNotes();
   }, []);
 
-  function GETNotes() {
+  function _GETNotes() {
     let notes = Util.API.noteGET();
     setListOfNotes(notes);
   };
 
   return(
     <NoteListContainer>
-            
+
     </NoteListContainer>
   );
 };
