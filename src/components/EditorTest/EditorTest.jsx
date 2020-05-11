@@ -34,12 +34,19 @@ function EditorTest() {
     return 'Not handled';
   };
 
+  /**
+   * Can the Editor go into a Form element?
+   */
+
   return(
+    // Title input
     <Editor 
       editorState={editorState} 
       onChange={onChange}
       handleKeyCommand={handleKeyCommand}
     />
+    // Tags input & chips
+    // Folders input & chips
   );
 };
 
