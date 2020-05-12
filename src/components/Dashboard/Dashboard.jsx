@@ -14,7 +14,7 @@ const Dashboard = () => {
   return(
     <DashboardContainer>
       <NavigationBar />
-      <NoteComponent />
+      {/* <NoteComponent /> */}
       {/* <EditorTest /> */}
       <NoteList />
     </DashboardContainer>

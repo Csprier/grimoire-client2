@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 /** Util */
 import Util from '../../../utility/util';
 
+/** Components */
+import NoteComponent from '../NoteComponent';
+
 /** Styles */
 import {
   NoteListContainer
@@ -10,21 +13,33 @@ import {
 
 const NoteList = () => {
   const [listOfNotes, setListOfNotes] = useState([]);
-  
+
   useEffect(() => {
     _GETNotes();
   }, []);
 
   function _GETNotes() {
-    let notes = Util.API.noteGET();
-    setListOfNotes(notes);
+    Util.API.noteGET()
+      .then(res => {
+        let notes = res;
+        console.log(notes);
+        setListOfNotes(notes);
+        _viewNotesInConsole();
+      })
+      .catch(err => console.error(err));
   };
 
+  function _viewNotesInConsole() {
+    console.log('List of Notes: ', listOfNotes);
+  }
+  
   return(
     <NoteListContainer>
-
+      {listOfNotes.length ? listOfNotes.map(note => <NoteComponent key={note._id} note={note} />) : null}
     </NoteListContainer>
   );
 };
 
 export default NoteList;
+
+// Expiration date on a Note to prevent duplicates

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Editor, EditorState, convertFromRaw } from 'draft-js';
 
 /** Custom Hooks */
@@ -22,20 +22,17 @@ import {
 } from './NoteComponent.styled';
 
 
-const NoteComponent = () => {
+const NoteComponent = (props) => {
   /** Initial State */
   let setupState = EditorState.createEmpty();
-
   /** Hook state */
   const { values, handleChange, handleContent, handleSubmit, errors } = useForm(_addNote, Util.NOTE.validateNote);
   let [editorState, setEditorState] = useState(setupState);
   let [toggle, setToggle] = useState(false);
 
-  /** Persisted Data */
-  const content = window.localStorage.getItem('content');
-  if (content) {
-    setupState = EditorState.createWithContent(convertFromRaw(JSON.parse(content)));
-  } 
+  useEffect(() => {
+    console.log('Note props: ', props);
+  }, [])
 
   function _toggleOpenClose() {
     setToggle(!toggle);
@@ -87,26 +84,10 @@ const NoteComponent = () => {
 
 export default NoteComponent;
 
-
-  // function _saveContent(content) {
-  //   window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
+  /** Initial State */
+  // let setupState = EditorState.createEmpty();
+  /** Persisted Data */
+  // const content = window.localStorage.getItem('content');
+  // if (content) {
+  //   setupState = EditorState.createWithContent(convertFromRaw(JSON.parse(content)));
   // }
-
-  // function _onEditorChange(editorState) {
-  //   const contentState = editorState.getCurrentContent();
-  //   // console.log('content state', convertToRaw(contentState));
-  //   const contentJSON = JSON.stringify(convertToRaw(contentState), null, 2);
-  //   console.log(contentJSON);
-  //   _saveContent(contentState);
-  //   setEditorState(editorState);
-  //   handleContent(contentJSON);
-  // };
-
-  // function handleKeyCommand(command) {
-  //   const newState = RichUtils.handleKeyCommand(editorState, command);
-  //   if (newState) {
-  //     _onEditorChange(newState);
-  //     return 'Handled';
-  //   }
-  //   return 'Not handled';
-  // };
