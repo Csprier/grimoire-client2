@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Editor, EditorState, convertFromRaw } from 'draft-js';
 
 /** Custom Hooks */
@@ -30,13 +30,14 @@ const NoteComponent = (props) => {
   let [editorState, setEditorState] = useState(setupState);
   let [toggle, setToggle] = useState(false);
 
-  useEffect(() => {
-    console.log('Note props: ', props);
-  }, [])
+  const content = props.note.content;
+  if (content) {
+    setupState = EditorState.createWithContent(convertFromRaw(content));
+  }
 
   function _toggleOpenClose() {
     setToggle(!toggle);
-    console.log('Toggle state:', toggle);
+    // console.log('Toggle state:', toggle);
   };
 
   function _addNote() {
@@ -58,7 +59,7 @@ const NoteComponent = (props) => {
             type="text"
             name="title"
             onChange={handleChange}
-            value={values.title || ''}
+            value={props.note.title || values.title || ''}
             placeholder="Title..."
             required
           />
@@ -69,7 +70,7 @@ const NoteComponent = (props) => {
 
         <Label>Content
           <Editor 
-            editorState={editorState} 
+            editorState={setupState} 
             onChange={editorState => Util.NOTE.onEditorChange(editorState, setEditorState, handleContent)}
             handleKeyCommand={command => Util.NOTE.handleKeyCommand(command)}
             value={values.content || ''}

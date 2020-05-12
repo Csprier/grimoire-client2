@@ -22,7 +22,8 @@ const NoteList = () => {
     Util.API.noteGET()
       .then(res => {
         let notes = res;
-        console.log(notes);
+        notes.map(note => note.content = JSON.parse(note.content));
+        console.log('notes: ', notes);
         setListOfNotes(notes);
         _viewNotesInConsole();
       })

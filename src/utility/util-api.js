@@ -2,6 +2,7 @@
 import UtilDATA from './util-data'; 
 import API_BASE_URL from './api-config';
 
+/** ============================================== */
 /** USER API FUNCTIONS - Login, Register, AuthToken Refresh */
 function _loginUser(data) {
   const { username, password } = data;
@@ -70,7 +71,8 @@ function _refreshAuthToken() {
   });
 };
 
-/** NOTE API FUNCTIONS - POST */
+/** ============================================== */
+/** NOTE API FUNCTIONS - POST, GET */
 function _notePOST(data) {
   const authToken = UtilDATA.loadAuthToken();
   const url = `${API_BASE_URL}/notes`;
@@ -104,6 +106,9 @@ function _noteGET() {
   .catch(err => console.error(err));
 };
 
+
+/** ============================================== */
+/** EXPORTS & DOCUMENATION */
 const UtilAPI = {
   /**
     * loginUser: Logins in an existing user and stores the authToken to localStorage
