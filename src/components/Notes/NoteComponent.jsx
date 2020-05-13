@@ -31,9 +31,9 @@ const NoteComponent = (props) => {
   let [toggle, setToggle] = useState(false);
 
   /** ======================================================================== */
-  let content = props.note.content;
+  let content = convertFromRaw(JSON.parse(props.note.content));
   if (content) {
-    setupState = EditorState.createWithContent(ContentState.createFromText(content));
+    setupState = EditorState.createWithContent(content);
   }
 
 
