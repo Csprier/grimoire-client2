@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Editor, EditorState, convertFromRaw } from 'draft-js';
+import React, { useEffect, useState } from 'react';
+import { Editor, EditorState, ContentState, convertFromRaw, convertToRaw } from 'draft-js';
 
 /** Custom Hooks */
 import useForm from '../../custom-hooks/useForm';
@@ -30,14 +30,18 @@ const NoteComponent = (props) => {
   let [editorState, setEditorState] = useState(setupState);
   let [toggle, setToggle] = useState(false);
 
-  const content = props.note.content;
+  /** ======================================================================== */
+  let content = props.note.content;
   if (content) {
-    setupState = EditorState.createWithContent(convertFromRaw(content));
+    setupState = EditorState.createWithContent(ContentState.createFromText(content));
   }
 
+
+
+  /** ======================================================================== */
+  /** Functions that will eventually be put in Util.NOTE */
   function _toggleOpenClose() {
     setToggle(!toggle);
-    // console.log('Toggle state:', toggle);
   };
 
   function _addNote() {
@@ -59,7 +63,7 @@ const NoteComponent = (props) => {
             type="text"
             name="title"
             onChange={handleChange}
-            value={props.note.title || values.title || ''}
+            value={values.title || ''}
             placeholder="Title..."
             required
           />
@@ -71,6 +75,7 @@ const NoteComponent = (props) => {
         <Label>Content
           <Editor 
             editorState={setupState} 
+            // editorState={editorState}
             onChange={editorState => Util.NOTE.onEditorChange(editorState, setEditorState, handleContent)}
             handleKeyCommand={command => Util.NOTE.handleKeyCommand(command)}
             value={values.content || ''}

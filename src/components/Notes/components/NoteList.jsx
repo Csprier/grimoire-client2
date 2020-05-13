@@ -22,18 +22,14 @@ const NoteList = () => {
     Util.API.noteGET()
       .then(res => {
         let notes = res;
-        notes.map(note => note.content = JSON.parse(note.content));
-        console.log('notes: ', notes);
+        // notes.map(note => note.content = JSON.parse(note.content));
+        // console.log('notes: ', notes);
         setListOfNotes(notes);
-        _viewNotesInConsole();
       })
       .catch(err => console.error(err));
   };
-
-  function _viewNotesInConsole() {
-    console.log('List of Notes: ', listOfNotes);
-  }
   
+  console.log('List of Notes: ', listOfNotes);
   return(
     <NoteListContainer>
       {listOfNotes.length ? listOfNotes.map(note => <NoteComponent key={note._id} note={note} />) : null}

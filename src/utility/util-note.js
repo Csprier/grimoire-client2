@@ -13,12 +13,12 @@ function handleKeyCommand(command, editorState) {
 
 function _onEditorChange(editorState, setEditorState, handleContent) {
   const contentState = editorState.getCurrentContent();
-  // console.log('content state', convertToRaw(contentState));
-  const contentJSON = JSON.stringify(convertToRaw(contentState), null, 2);
-  console.log(contentJSON);
-  _saveContent(contentState);
-  setEditorState(editorState);
-  handleContent(contentJSON);
+  console.log('contentState OEC: ', convertToRaw(contentState));
+  // const contentJSON = JSON.stringify(convertToRaw(contentState));
+  // console.log(contentJSON);
+  // _saveContent(contentState);
+  setEditorState(contentState);
+  // handleContent(contentJSON);
 };
 
 function _saveContent(content) {
