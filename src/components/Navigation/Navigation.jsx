@@ -5,9 +5,9 @@ import Util from '../../utility/util';
 
 /** Styles */
 import {
-  IconButton,
+  // IconButton,
   Navigation,
-  NavigationButtonContainer,
+  // NavigationButtonContainer,
   LogOutButton,
   UsernameHeader
 } from './Navigation.styled';
@@ -30,11 +30,11 @@ const NavigationBar = () => {
     <Navigation>
       <UsernameHeader>Welcome back, {activeUser}!</UsernameHeader>  
       
-      <NavigationButtonContainer>
+      {/* <NavigationButtonContainer>
         <IconButton title="Create a note">&#9998;</IconButton>
         <IconButton title="Go to Tags">&#9744;</IconButton>
         <IconButton title="Go to Folders">&#10063;</IconButton>
-      </NavigationButtonContainer>
+      </NavigationButtonContainer> */}
 
       <LogOutButton onClick={() => logout()}>Logout</LogOutButton>
     </Navigation>
