@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useNote = () => {
+const useNote = (callback) => {
   const [values, setValues] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 

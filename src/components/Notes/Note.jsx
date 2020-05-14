@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-// import { Editor, EditorState, ContentState, convertFromRaw, convertToRaw } from 'draft-js';
+import React, { useState } from 'react';
+import { Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
 
 /** Custom Hooks */
 import useNote from '../../custom-hooks/useNote';
 
 /** Util */
-// import Util from '../../utility/util';
+import Util from '../../utility/util';
 
 /** Styles */
 import './note-editor.css';
@@ -22,6 +22,14 @@ import {
 const Note = (props) => {
   const [toggle, setToggle] = useState(false);
   const { values, handleChange, handleContent, handleSubmit } = useNote();
+  
+  /** Initial Editor State */
+  let setupState = EditorState.createEmpty();
+  let [editorState, setEditorState] = useState(setupState);
+  let content = convertFromRaw(JSON.parse(props.note.content));
+  if (content) {
+    setupState = EditorState.createWithContent(content);
+  }
 
   return(
     <NoteComponentContainer toggle={toggle}>
@@ -37,6 +45,15 @@ const Note = (props) => {
             onChange={handleChange}
             value={props.note.title || values.title || ''}
             placeholder="Title..."
+          />
+        </Label>
+
+        <Label>Content
+          <Editor 
+            editorState={setupState}
+            onChange={editorState => Util.NOTE.onEditorChange(editorState, setEditorState, handleContent)}
+            handleKeyCommand={command => Util.NOTE.handleKeyCommand(command)}
+            value={values.content || ''}
           />
         </Label>
       </NoteForm>
