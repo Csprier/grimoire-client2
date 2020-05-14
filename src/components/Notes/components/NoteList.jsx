@@ -4,7 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Util from '../../../utility/util';
 
 /** Components */
-import NoteComponent from '../NoteComponent';
+// import NoteComponent from '../NoteComponent';
+import Note from '../Note';
 
 /** Styles */
 import {
@@ -22,8 +23,6 @@ const NoteList = () => {
     Util.API.noteGET()
       .then(res => {
         let notes = res;
-        // notes.map(note => note.content = JSON.parse(note.content));
-        // console.log('notes: ', notes);
         setListOfNotes(notes);
       })
       .catch(err => console.error(err));
@@ -32,7 +31,8 @@ const NoteList = () => {
   console.log('List of Notes: ', listOfNotes);
   return(
     <NoteListContainer>
-      {listOfNotes.length ? listOfNotes.map(note => <NoteComponent key={note._id} note={note} />) : null}
+      {/* {listOfNotes.length ? listOfNotes.map(note => <NoteComponent key={note._id} note={note} />) : null} */}
+      {listOfNotes.length ? listOfNotes.map(note => <Note key={note._id} note={note} />) : null}
     </NoteListContainer>
   );
 };
