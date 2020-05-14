@@ -36,8 +36,6 @@ const NoteComponent = (props) => {
     setupState = EditorState.createWithContent(content);
   }
 
-
-
   /** ======================================================================== */
   /** Functions that will eventually be put in Util.NOTE */
   function _toggleOpenClose() {
@@ -50,6 +48,7 @@ const NoteComponent = (props) => {
       .then(() => console.log('POST request sent'))
       .catch((err) => console.error(err));
   };
+  /** ======================================================================== */
 
   return(
     <NoteComponentContainer toggle={toggle}>
@@ -75,7 +74,6 @@ const NoteComponent = (props) => {
         <Label>Content
           <Editor 
             editorState={setupState} 
-            // editorState={editorState}
             onChange={editorState => Util.NOTE.onEditorChange(editorState, setEditorState, handleContent)}
             handleKeyCommand={command => Util.NOTE.handleKeyCommand(command)}
             value={values.content || ''}
@@ -89,6 +87,18 @@ const NoteComponent = (props) => {
 };
 
 export default NoteComponent;
+
+  /** ========================================================================
+   * WHERE I LEFT OFF
+   * 
+   * The data populates into the editor, but I cannot
+   * add any content to the populated content
+   * 
+   * _debounceSave() <--- custom function in Util
+   * setTimeout / clearTimeout pattern to debounce API calls to 
+   * save on the LAST keystroke. Basically throw away all but the 
+   * last keystroke, then save with API POST request.
+  */
 
   /** Initial State */
   // let setupState = EditorState.createEmpty();

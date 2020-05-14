@@ -21,6 +21,7 @@ const useForm = (callback, validate) => {
 
   const handleChange = (e) => {
     e.persist();
+    console.log('HCV: ', e.target.value);
     setValues((values) => ({
       ...values,
       [e.target.name]: e.target.value
