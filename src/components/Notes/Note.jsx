@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
 
 /** Custom Hooks */
@@ -22,14 +22,8 @@ import {
 const Note = (props) => {
   const [toggle, setToggle] = useState(false);
   const { values, handleChange, handleContent, handleSubmit } = useNote();
-  
-  /** Initial Editor State */
-  let setupState = EditorState.createEmpty();
-  let [editorState, setEditorState] = useState(setupState);
-  let content = convertFromRaw(JSON.parse(props.note.content));
-  if (content) {
-    setupState = EditorState.createWithContent(content);
-  }
+  const [editorState, setEditorState] = useState();
+
 
   return(
     <NoteComponentContainer toggle={toggle}>
@@ -50,7 +44,7 @@ const Note = (props) => {
 
         <Label>Content
           <Editor 
-            editorState={setupState}
+            editorState={editorState}
             onChange={editorState => Util.NOTE.onEditorChange(editorState, setEditorState, handleContent)}
             handleKeyCommand={command => Util.NOTE.handleKeyCommand(command)}
             value={values.content || ''}
@@ -62,3 +56,17 @@ const Note = (props) => {
 };
 
 export default Note;
+
+/**
+ * debounce onBlur, on the form, 
+ * to save the content and title of the form's values
+ * after finishing typing
+ */
+
+  /** Initial Editor State */
+  // let setupState = EditorState.createEmpty();
+  // let [editorState, setEditorState] = useState(setupState);
+  // let content = convertFromRaw(JSON.parse(props.note.content));
+  // if (content) {
+  //   setupState = EditorState.createWithContent(content);
+  // }

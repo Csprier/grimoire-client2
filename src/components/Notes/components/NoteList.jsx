@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import Util from '../../../utility/util';
 
 /** Components */
-// import NoteComponent from '../NoteComponent';
 import Note from '../Note';
 
 /** Styles */
@@ -17,7 +16,6 @@ const NoteList = () => {
 
   useEffect(() => {
     Util.API.debounce(_GETNotes, 2000);
-    // _GETNotes();
   }, []);
 
   function _GETNotes() {
