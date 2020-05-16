@@ -3,6 +3,15 @@ import UtilDATA from './util-data';
 import API_BASE_URL from './api-config';
 
 /** ============================================== */
+/** Custom debounce function for API calls */
+function _debounce(callback, timeDelay) {
+  let timerId;
+  clearTimeout(timerId);
+
+  timerId = setTimeout(callback, timeDelay);
+};
+
+/** ============================================== */
 /** USER API FUNCTIONS - Login, Register, AuthToken Refresh */
 function _loginUser(data) {
   const { username, password } = data;
@@ -110,6 +119,12 @@ function _noteGET() {
 /** ============================================== */
 /** EXPORTS & DOCUMENATION */
 const UtilAPI = {
+  /**
+   * debounce: delays the invoking of the callback function
+   * @param {function}  callback - function to execute
+   * @param {integer}   timeDelay - delay in  milliseconds 
+   */
+  debounce: (callback, timeDelay) => _debounce(callback, timeDelay),
   /**
     * loginUser: Logins in an existing user and stores the authToken to localStorage
     * @param {object}   data - 

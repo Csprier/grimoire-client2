@@ -16,7 +16,8 @@ const NoteList = () => {
   const [listOfNotes, setListOfNotes] = useState([]);
 
   useEffect(() => {
-    _GETNotes();
+    Util.API.debounce(_GETNotes, 2000);
+    // _GETNotes();
   }, []);
 
   function _GETNotes() {
@@ -31,8 +32,7 @@ const NoteList = () => {
   console.log('List of Notes: ', listOfNotes);
   return(
     <NoteListContainer>
-      {/* {listOfNotes.length ? listOfNotes.map(note => <NoteComponent key={note._id} note={note} />) : null} */}
-      {listOfNotes.length ? listOfNotes.map(note => <Note key={note._id} note={note} />) : null}
+      {listOfNotes.length ? listOfNotes.map(note => <Note key={note._id} note={note} />) : <h1>Loading...</h1>}      
     </NoteListContainer>
   );
 };
