@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
+import React, { useState } from 'react';
+import { convertToRaw } from 'draft-js';
 
 /** Custom Hooks */
 import useNote from '../../custom-hooks/useNote';
@@ -7,8 +7,10 @@ import useNote from '../../custom-hooks/useNote';
 /** Util */
 import Util from '../../utility/util';
 
+/** Components */
+import NoteEditor from './components/Editor/NoteEditor';
+
 /** Styles */
-import './note-editor.css';
 import {
   Input,
   Label,
@@ -21,8 +23,20 @@ import {
 
 const Note = (props) => {
   const [toggle, setToggle] = useState(false);
-  const { values, handleChange, handleContent } = useNote();
-  const [editorState, setEditorState] = useState();
+  const { values, handleChange } = useNote();
+  const [contentValue, setContentValue] = useState({});
+  let [editorState, setEditorState] = useState({});
+
+  function handleContentChange() {
+    setContentValue(contentValue);
+  };
+
+  function _onChange(editorState) {
+    const contentState = editorState.getCurrentContent();
+    handleContentChange(convertToRaw(contentState));
+    // Util.EDITOR._saveContent(contentState);
+    setEditorState(contentState);
+  };
 
   return(
     <NoteComponentContainer toggle={toggle}>
@@ -42,12 +56,10 @@ const Note = (props) => {
         </Label>
 
         <Label>Content
-          <Editor 
-            // editorState={setupState}
+          <NoteEditor 
             editorState={editorState}
-            onChange={editorState => Util.NOTE.onEditorChange(editorState, setEditorState, handleContent)}
-            // handleKeyCommand={command => Util.NOTE.handleKeyCommand(command)}
-            // value={values.content || ''}
+            onChange={_onChange}
+            handleContentChange={handleContentChange}
           />
         </Label>
       </NoteForm>
@@ -71,15 +83,10 @@ export default Note;
   //   setupState = EditorState.createWithContent(content);
   // }
 
-  /** Initial Editor State */
-  // let intialEditorState = EditorState.createEmpty();
-  // let [editorState, setEditorState] = useState(intialEditorState);
-  // // let content = convertFromRaw(JSON.parse(props.note.content));
-  
-  // let contentState = editorState.getCurrentContent();
-  // let rawContentState = convertToRaw(contentState);
-  // // console.log('contentState: ', contentState);
-
-  // if (contentState) {
-  //   intialEditorState = EditorState.createWithContent(convertFromRaw(rawContentState));
-  // }
+/* <Editor 
+  // editorState={setupState}
+  editorState={editorState}
+  onChange={editorState => Util.NOTE.onEditorChange(editorState, setEditorState, handleContent)}
+  // handleKeyCommand={command => Util.NOTE.handleKeyCommand(command)}
+  // value={values.content || ''}
+/> */
