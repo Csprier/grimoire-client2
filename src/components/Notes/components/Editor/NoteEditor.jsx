@@ -1,36 +1,49 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import { 
   Editor,
   EditorState,
-  convertFromRaw,
-  // convertToRaw 
+  // convertFromRaw,
+  convertToRaw 
 } from 'draft-js';
 
 /** Util */
-// import Util from '../../../../utility/util';
+import Util from '../../../../utility/util';
 
 /** Styles */
 import '../../note-editor.css';
 
-const NoteEditor = (props) => {
-  let [editorState, setEditorState] = useState();
+class NoteTextEditor extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      editorState: EditorState.createEmpty()
+    };
+    this.onChange = this.onChange.bind(this);
+  };
 
-  return (
-    <Editor 
-      editorState={editorState}
-      onChange={props.onChange}
-    />
-  );
-};
+  onChange = (editorState) => {
+    const contentState = editorState.getCurrentContent();
+    this.props.handleContentChange(convertToRaw(contentState));
+    this._saveContent(contentState);
+    this.setState({ editorState });
+  };
 
-export default NoteEditor;
+  _saveContent = (content) => {
+    Util.API.debounce(window.localStorage.setItem('content', JSON.stringify(convertToRaw(content))), 1000);
+  }
 
-/*
-function _onChange(editorState) {
-  const contentState = editorState.getCurrentContent();
-  console.log('contentState:', contentState);
-  props.handleContentChange(convertToRaw(contentState));
-  Util.EDITOR._saveContent(contentState);
-  setEditorState(contentState);
-};
-*/
+  render() {
+    const { editorState } = this.state;
+
+    return(
+      <div onClick={this.focus}>
+        <Editor 
+          editorState={editorState}
+          onChange={this.onChange}
+        />
+      </div>
+    );
+  }
+}
+
+export default NoteTextEditor;

@@ -8,7 +8,7 @@ import useNote from '../../custom-hooks/useNote';
 import Util from '../../utility/util';
 
 /** Components */
-import NoteEditor from './components/Editor/NoteEditor';
+import NoteTextEditor from './components/Editor/NoteEditor';
 
 /** Styles */
 import {
@@ -27,20 +27,9 @@ const Note = (props) => {
   const [contentValue, setContentValue] = useState({});
   let [editorState, setEditorState] = useState({});
 
-  function handleContentChange(contentValue) {
-    setContentValue(contentValue);
-  };
-
-  function _saveContent(content) {
-    Util.API.debounce(window.localStorage.setItem('content', JSON.stringify((convertToRaw(content)))), 1000);
-  };
-
-  function _onChange() {
-    const contentState = editorState.getCurrentContent();
-    // handleContentChange(convertToRaw(contentState));
-    // _saveContent(contentState);
-    setEditorState(contentState);
-  };
+  function handleContentChange() {
+    setContentValue(editorState);
+  } 
 
   return(
     <NoteComponentContainer toggle={toggle}>
@@ -60,9 +49,7 @@ const Note = (props) => {
         </Label>
 
         <Label>Content
-          <NoteEditor 
-            editorState={editorState}
-            onChange={_onChange}
+          <NoteTextEditor
             handleContentChange={handleContentChange}
           />
         </Label>
