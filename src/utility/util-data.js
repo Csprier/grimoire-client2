@@ -35,7 +35,15 @@ function _getUsernameFromLocalStorage() {
   const username = decodedToken.user.username;
   console.log('Current user: ', username);
   return username;
-}
+};
+
+function _getUserIdFromLocalStorage() {
+  const authToken = _loadAuthToken();
+  const decodedToken = jwtDecode(authToken);
+  const user_id = decodedToken.user.id;
+  console.log('Current id: ', user_id);
+  return user_id;
+};
 
 function _normalizeResponseErrors(res) {
 	if (!res.ok) {
@@ -87,6 +95,10 @@ const UtilDATA = {
    * getUsernameFromLocalStorage: Use jwtDecode to get the currently logged in user
    */
   getUsernameFromLocalStorage: () => _getUsernameFromLocalStorage(),
+  /**
+   * getUserIdFromLocalStorage: Uses jwtDecode to get the currently logged in user's id
+   */
+  getUserIdFromLocalStorage: () => _getUserIdFromLocalStorage(),
   /**
     * normalizeResponseErrors: 
     * @param {object}   res - 

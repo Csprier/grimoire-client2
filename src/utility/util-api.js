@@ -115,6 +115,21 @@ function _noteGET() {
   .catch(err => console.error(err));
 };
 
+function _notePUT(id, data) {
+  const url = `${API_BASE_URL}/notes/${id}`;
+  const authToken = UtilDATA.loadAuthToken();
+  return fetch(url, {
+    method: 'PUT',
+    headers: { 
+      Authorization: `Bearer ${authToken}`,
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
+};
 
 /** ============================================== */
 /** EXPORTS & DOCUMENATION */
@@ -154,7 +169,13 @@ const UtilAPI = {
    * noteGET: API GET request to /api/notes to get a list of Notes in the database
    * @param 
    */
-  noteGET: () => _noteGET()
+  noteGET: () => _noteGET(),
+  /**
+   * notePUT: API PUT request to /api/notes/:id to replace a record in the database
+   * @param {string}    id - id of note
+   * @param {object}    note - new note object
+   */
+  notePUT: (id, note) => _notePUT(id, note)
 };
 
 export default UtilAPI;

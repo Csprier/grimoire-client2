@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 /** Util */
-// import Util from '../../../../utility/util';
+import Util from '../../utility/util';
 
 /** Components */
 import NoteTextEditor from './components/Editor/NoteEditor';
@@ -37,6 +37,7 @@ class NoteFormComponent extends Component {
     this.setState({ toggle: !this.state.toggle })
     console.log('Toggling Note:', this.state.note_id, this.state.toggle);
   };
+
   _handleChange = (e) => {
     e.persist();
     this.setState({
@@ -44,14 +45,22 @@ class NoteFormComponent extends Component {
       title: e.target.value
     });
   };
+
   _handleContentChange = (editorState) => this.setState({ content: editorState });
+
   _submitNote = (e) => {
     e.preventDefault();
+    const note_id = this.state.note_id;
+    const user_id = Util.DATA.getUserIdFromLocalStorage();
     let payload = {
+      userId: user_id,
       title: this.state.title,
       content: JSON.stringify(this.state.content)
     };
     console.log('Payload: ', payload);
+    return Util.API.notePUT(note_id, payload)
+      .then(res => console.log(res))
+      .catch(err => console.error(err));
   };
 
   render() {
