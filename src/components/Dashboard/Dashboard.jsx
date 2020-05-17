@@ -5,7 +5,7 @@ import { DashboardContainer } from './Dashboard.styled';
 
 /** Components */
 import NavigationBar from '../Navigation/Navigation';
-import NoteList from '../Notes/components/NoteList';
+import NoteList from '../Notes/NoteList';
 
 
 const Dashboard = () => {

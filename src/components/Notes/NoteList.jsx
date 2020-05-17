@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
 /** Util */
-import Util from '../../../utility/util';
+import Util from '../../utility/util';
 
 /** Components */
 // import Note from '../Note';
-import NoteFormComponent from '../NoteForm';
+import NoteFormComponent from './components/NoteForm';
 
 /** Styles */
 import {

@@ -8,7 +8,7 @@ import useNote from '../../custom-hooks/useNote';
 import Util from '../../utility/util';
 
 /** Components */
-import NoteTextEditor from './components/Editor/NoteEditor';
+import NoteTextEditor from '../../components/Notes/components/Editor/NoteEditor';
 
 /** Styles */
 import {

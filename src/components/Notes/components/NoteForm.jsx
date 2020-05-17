@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 /** Util */
-import Util from '../../utility/util';
+import Util from '../../../utility/util';
 
 /** Components */
-import NoteTextEditor from './components/Editor/NoteEditor';
+import NoteTextEditor from './Editor/NoteEditor';
 
 /** Styles */
 import {
