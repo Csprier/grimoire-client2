@@ -21,7 +21,7 @@ const NoteList = () => {
 
   useEffect(() => {
     if (reRender) {
-      Util.API.debounce(_GETNotes, 2000);
+      Util.API.debounce(_GETNotes, 2000)
       forceUpdate();
       console.log('Rerendering Note List and resetting toggle');
       toggleReRender(!reRender);
@@ -44,6 +44,7 @@ const NoteList = () => {
 
   // console.log('Note List RR toggle:', reRender);
   // console.log('List of Notes: ', listOfNotes);
+  // console.log('lon[0]', listOfNotes.length && JSON.parse(listOfNotes[0].content));
   return(
     <NoteListContainer>
       {listOfNotes.length ? listOfNotes.map(note => <NoteFormComponent key={note._id} note={note} reRender={_reRenderNoteList} />) : <h1>Loading...</h1>}      
