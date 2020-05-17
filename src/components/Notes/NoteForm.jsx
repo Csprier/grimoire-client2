@@ -24,7 +24,7 @@ class NoteFormComponent extends Component {
     this.state = {
       note_id: this.props.note._id,
       title: this.props.note.title || '',
-      content: {},
+      content: this.props.note.content || {},
       toggle: false
     };
     this._toggle = this._toggle.bind(this);
@@ -49,7 +49,7 @@ class NoteFormComponent extends Component {
     e.preventDefault();
     let payload = {
       title: this.state.title,
-      content: this.state.content
+      content: JSON.stringify(this.state.content)
     };
     console.log('Payload: ', payload);
   };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { 
   Editor,
   EditorState,
-  // convertFromRaw,
+  convertFromRaw,
   convertToRaw 
 } from 'draft-js';
 
@@ -16,7 +16,7 @@ class NoteTextEditor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editorState: EditorState.createEmpty()
+      editorState: (this.props.editorState) ? EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.editorState))) : EditorState.createEmpty()
     };
     this.onChange = this.onChange.bind(this);
   };
@@ -34,7 +34,7 @@ class NoteTextEditor extends Component {
 
   render() {
     const { editorState } = this.state;
-
+    // console.log('Note props:', this.props);
     return(
       <div onClick={this.focus}>
         <Editor 
