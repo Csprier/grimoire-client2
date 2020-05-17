@@ -60,6 +60,7 @@ class NoteFormComponent extends Component {
     console.log('Payload: ', payload);
     return Util.API.notePUT(note_id, payload)
       .then(res => console.log(res))
+      .then(() => this.props.reRender())
       .catch(err => console.error(err));
   };
 
