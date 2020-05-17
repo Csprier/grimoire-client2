@@ -4,7 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Util from '../../../utility/util';
 
 /** Components */
-import Note from '../Note';
+// import Note from '../Note';
+import NoteFormComponent from '../NoteForm';
 
 /** Styles */
 import {
@@ -30,7 +31,7 @@ const NoteList = () => {
   // console.log('List of Notes: ', listOfNotes);
   return(
     <NoteListContainer>
-      {listOfNotes.length ? listOfNotes.map(note => <Note key={note._id} note={note} />) : <h1>Loading...</h1>}      
+      {listOfNotes.length ? listOfNotes.map(note => <NoteFormComponent key={note._id} note={note} />) : <h1>Loading...</h1>}      
     </NoteListContainer>
   );
 };

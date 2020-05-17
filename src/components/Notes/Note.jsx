@@ -29,7 +29,11 @@ const Note = (props) => {
 
   function handleContentChange() {
     setContentValue(editorState);
-  } 
+  };
+
+  function _submitNote() {
+    console.log()
+  };
 
   return(
     <NoteComponentContainer toggle={toggle}>
@@ -37,7 +41,7 @@ const Note = (props) => {
         <NoteTitle>{props.note.title}</NoteTitle>
         <ToggleButton onClick={() => setToggle(!toggle)}>{toggle ? 'open' : 'closed'}</ToggleButton>
       </NoteComponentHeader>
-      <NoteForm>
+      <NoteForm onSubmit={_submitNote}>
         <Label>Title
           <Input 
             type="text"

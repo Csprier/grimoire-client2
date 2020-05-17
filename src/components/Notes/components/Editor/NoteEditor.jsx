@@ -10,7 +10,7 @@ import {
 import Util from '../../../../utility/util';
 
 /** Styles */
-import '../../note-editor.css';
+import './note-editor.css';
 
 class NoteTextEditor extends Component {
   constructor(props) {
