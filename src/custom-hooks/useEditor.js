@@ -2,6 +2,12 @@ import { useEffect, useState } from 'react';
 import { EditorState, convertFromRaw } from 'draft-js';
 
 const modifiedEditorState = (content) => {
+  const _calculateEditorState = (content) => {
+    return content
+      ? EditorState.createWithContent(convertFromRaw(JSON.parse(content)))
+      : EditorState.createEmpty();
+  };
+  
   const [editorState, setEditorState] = useState(_calculatedEditorState(content));
 
   useEffect(() => {
@@ -9,12 +15,6 @@ const modifiedEditorState = (content) => {
   }, [content]);
 
   return [editorState, setEditorState];
-};
-
-function _calculateEditorState(content) {
-  return props
-    ? EditorState.createWithContent(convertFromRaw(JSON.parse(content)))
-    : EditorState.createEmpty();
 };
 
 export default modifiedEditorState;

@@ -21,9 +21,8 @@ import {
 
 const Note = (props) => {
   const [toggle, setToggle] = useState(false);
-  const { values, handleChange, handleContent, handleSubmit } = useNote();
+  const { values, handleChange, handleContent } = useNote();
   const [editorState, setEditorState] = useState();
-
 
   return(
     <NoteComponentContainer toggle={toggle}>
@@ -44,10 +43,11 @@ const Note = (props) => {
 
         <Label>Content
           <Editor 
+            // editorState={setupState}
             editorState={editorState}
             onChange={editorState => Util.NOTE.onEditorChange(editorState, setEditorState, handleContent)}
-            handleKeyCommand={command => Util.NOTE.handleKeyCommand(command)}
-            value={values.content || ''}
+            // handleKeyCommand={command => Util.NOTE.handleKeyCommand(command)}
+            // value={values.content || ''}
           />
         </Label>
       </NoteForm>
@@ -69,4 +69,17 @@ export default Note;
   // let content = convertFromRaw(JSON.parse(props.note.content));
   // if (content) {
   //   setupState = EditorState.createWithContent(content);
+  // }
+
+  /** Initial Editor State */
+  // let intialEditorState = EditorState.createEmpty();
+  // let [editorState, setEditorState] = useState(intialEditorState);
+  // // let content = convertFromRaw(JSON.parse(props.note.content));
+  
+  // let contentState = editorState.getCurrentContent();
+  // let rawContentState = convertToRaw(contentState);
+  // // console.log('contentState: ', contentState);
+
+  // if (contentState) {
+  //   intialEditorState = EditorState.createWithContent(convertFromRaw(rawContentState));
   // }
