@@ -16,7 +16,7 @@ import {
   NoteTitle,
   SubmitButton,
   ToggleButton
-} from './NoteComponent.styled';
+} from './NoteForm.styled';
 
 class NoteFormComponent extends Component {
   constructor(props) {
