@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { Editor, EditorState } from 'draft-js';
+import { 
+  Editor,
+  EditorState,
+  convertFromRaw,
+  // convertToRaw 
+} from 'draft-js';
 
 /** Util */
 // import Util from '../../../../utility/util';
@@ -8,7 +13,7 @@ import { Editor, EditorState } from 'draft-js';
 import '../../note-editor.css';
 
 const NoteEditor = (props) => {
-  let [editorState, setEditorState] = useState(EditorState.createEmpty());
+  let [editorState, setEditorState] = useState();
 
   return (
     <Editor 

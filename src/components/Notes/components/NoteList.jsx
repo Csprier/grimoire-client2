@@ -27,7 +27,7 @@ const NoteList = () => {
       .catch(err => console.error(err));
   };
   
-  console.log('List of Notes: ', listOfNotes);
+  // console.log('List of Notes: ', listOfNotes);
   return(
     <NoteListContainer>
       {listOfNotes.length ? listOfNotes.map(note => <Note key={note._id} note={note} />) : <h1>Loading...</h1>}      

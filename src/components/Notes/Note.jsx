@@ -27,7 +27,7 @@ const Note = (props) => {
   const [contentValue, setContentValue] = useState({});
   let [editorState, setEditorState] = useState({});
 
-  function handleContentChange() {
+  function handleContentChange(contentValue) {
     setContentValue(contentValue);
   };
 
@@ -35,10 +35,10 @@ const Note = (props) => {
     Util.API.debounce(window.localStorage.setItem('content', JSON.stringify((convertToRaw(content)))), 1000);
   };
 
-  function _onChange(editorState) {
+  function _onChange() {
     const contentState = editorState.getCurrentContent();
-    handleContentChange(convertToRaw(contentState));
-    _saveContent(contentState);
+    // handleContentChange(convertToRaw(contentState));
+    // _saveContent(contentState);
     setEditorState(contentState);
   };
 
