@@ -31,10 +31,14 @@ const Note = (props) => {
     setContentValue(contentValue);
   };
 
+  function _saveContent(content) {
+    Util.API.debounce(window.localStorage.setItem('content', JSON.stringify((convertToRaw(content)))), 1000);
+  };
+
   function _onChange(editorState) {
     const contentState = editorState.getCurrentContent();
     handleContentChange(convertToRaw(contentState));
-    // Util.EDITOR._saveContent(contentState);
+    _saveContent(contentState);
     setEditorState(contentState);
   };
 

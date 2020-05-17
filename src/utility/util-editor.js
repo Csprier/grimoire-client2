@@ -1,4 +1,5 @@
-import UtilAPI from './util-api';
+/** Util */
+import Util from '../utility/util';
 import { RichUtils, convertToRaw } from 'draft-js';
 // focus
 // getLengthOfSelectedText
@@ -10,7 +11,7 @@ import { RichUtils, convertToRaw } from 'draft-js';
 // toggleInlineStyles
 
 function _saveContent(content) {
-  UtilAPI.debounce(window.localStorage.setItem('content', JSON.stringify((convertToRaw(content)))), 1000);
+  Util.API.debounce(window.localStorage.setItem('content', JSON.stringify((convertToRaw(content)))), 1000);
 };
 
 function _onChange(editorState, setEditorState) {
