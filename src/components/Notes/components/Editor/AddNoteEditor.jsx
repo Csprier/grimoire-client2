@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { 
   Editor,
   EditorState,
-  convertFromRaw,
   convertToRaw 
 } from 'draft-js';
 
