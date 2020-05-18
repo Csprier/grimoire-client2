@@ -75,12 +75,22 @@ const SubmitButton = styled.button`
   font-size: 14px;
 `;
 
+const DeleteButton = styled.button`
+  width: 50px;
+  margin: 0;
+  padding: 6px 8px;
+  background-color: red;
+  color: white;
+  font-size: 14px;
+`;
+
 const Error = styled.p`
   font-size: 12px;
   color: red;
 `;
 
 export {
+  DeleteButton,
   Error,
   Input,
   Label,

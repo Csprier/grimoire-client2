@@ -15,7 +15,8 @@ import {
   NoteComponentHeader,
   NoteTitle,
   SubmitButton,
-  ToggleButton
+  ToggleButton,
+  DeleteButton
 } from './NoteForm.styled';
 
 class NoteFormComponent extends Component {
@@ -64,11 +65,20 @@ class NoteFormComponent extends Component {
       .catch(err => console.error(err));
   };
 
+  _deleteNote = () => {
+    const note_id = this.state.note_id;
+    return Util.API.noteDELETE(note_id)
+      .then(res => console.log(res))
+      .then(() => this.props.reRender())
+      .catch(err => console.error(err));
+  };
+
   render() {
     return(
       <NoteComponentContainer toggle={this.state.toggle}>
         <NoteComponentHeader>
           <NoteTitle>{this.props.note.title}</NoteTitle>
+          <DeleteButton onClick={() => this._deleteNote()}>X</DeleteButton>
           <ToggleButton onClick={() => this._toggle(!this.state.toggle)}>{this.state.toggle ? 'open' : 'closed'}</ToggleButton>
         </NoteComponentHeader>
         <NoteForm onSubmit={this._submitNote}>

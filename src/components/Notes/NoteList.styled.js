@@ -4,7 +4,7 @@ const NoteListContainer = styled.div`
   position: relative;
   width: 400px;
   height: 100%;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   overflow-y: scroll;
   border: 1px solid gray;

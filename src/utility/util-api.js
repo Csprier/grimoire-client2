@@ -131,6 +131,21 @@ function _notePUT(id, data) {
   .catch(err => console.error(err));
 };
 
+function _noteDELETE(id) {
+  const url = `${API_BASE_URL}/notes/${id}`;
+  const authToken = UtilDATA.loadAuthToken();
+  return fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Authorization': 'bearer ' + authToken
+    }
+  })
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
+};
+
 /** ============================================== */
 /** EXPORTS & DOCUMENATION */
 const UtilAPI = {
@@ -175,7 +190,12 @@ const UtilAPI = {
    * @param {string}    id - id of note
    * @param {object}    note - new note object
    */
-  notePUT: (id, note) => _notePUT(id, note)
+  notePUT: (id, note) => _notePUT(id, note),
+  /**
+   * noteDELETE: API DELETE request to /api/notes/:id to delete a record from the database
+   * @param {string}    id - id of note
+   */
+  noteDELETE: (id) => _noteDELETE(id)
 };
 
 export default UtilAPI;
