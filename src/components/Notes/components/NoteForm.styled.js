@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 
 const NoteComponentContainer = styled.div`
-  width: 400px;
+  width: 98%;
   margin: 0 auto;
-  padding: 0;
-  border: 1px solid black;
+  margin: 5px 0px;
+  padding: 5px;
+  border: 1px solid slategray;
+  border-radius: 10px;
   overflow-y: auto;
   overflow: hidden;
   transition-property: height;
   transition-duration: .5s;
   transition-delay: .5s;
-  height: ${props => props.toggle ? '500px' : "30px"}
+  height: ${props => props.toggle ? '500px' : "40px"}
 `;
 
 const NoteComponentHeader = styled.div`
@@ -23,7 +25,6 @@ const NoteComponentHeader = styled.div`
   height: 25px;
   margin: 0;
   padding: 0;
-  border: 1px solid green;
 `;
 
 const NoteTitle = styled.h2`

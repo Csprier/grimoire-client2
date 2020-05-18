@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import Util from '../../utility/util';
 
 /** Components */
-// import Note from '../Note';
 import NoteFormComponent from './components/NoteForm';
 
 /** Styles */
@@ -42,9 +41,6 @@ const NoteList = () => {
     toggleReRender(!reRender);
   };
 
-  // console.log('Note List RR toggle:', reRender);
-  // console.log('List of Notes: ', listOfNotes);
-  // console.log('lon[0]', listOfNotes.length && JSON.parse(listOfNotes[0].content));
   return(
     <NoteListContainer>
       {listOfNotes.length ? listOfNotes.map(note => <NoteFormComponent key={note._id} note={note} reRender={_reRenderNoteList} />) : <h1>Loading...</h1>}      
