@@ -5,8 +5,12 @@ const NoteListContainer = styled.div`
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-y: auto;
+  overflow-y: scroll;
   border: 1px solid gray;
+  background-color: #242526;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export {

@@ -7,6 +7,7 @@ const DashboardContainer = styled.div`
   margin: 0;
   padding: 0;
   font-family: Arial;
+  background-color: #242526;
 `;
 
 export {

@@ -1,11 +1,12 @@
 div.DraftEditor-root {
   position: relative;
-  width: 100%;
+  width: 98%;
   height: 250px;
   margin: 0 auto;
   border: 1px solid #000000;
   overflow-y: auto;
-  background-color: rgb(245, 245, 245);
+  background-color: #687079;
+  color: #ffdf50;
 }
 
 div.DraftEditor-editorContainer,
