@@ -10,7 +10,7 @@ const NoteComponentContainer = styled.div`
   transition-property: height;
   transition-duration: .5s;
   transition-delay: .5s;
-  height: ${props => props.toggle ? '600px' : "30px"}
+  height: ${props => props.toggle ? '500px' : "30px"}
 `;
 
 const NoteComponentHeader = styled.div`
