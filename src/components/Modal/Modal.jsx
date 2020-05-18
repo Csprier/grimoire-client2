@@ -13,7 +13,9 @@ function Modal(props) {
 
   return(
     <ModalContainer id="modal">
-      <ModalContent>{props.children}</ModalContent>
+      <h1>{props.modalHeader}</h1>
+      {/* <ModalContent>{props.children}</ModalContent> */}
+      {props.children}
     </ModalContainer>
   );
 };

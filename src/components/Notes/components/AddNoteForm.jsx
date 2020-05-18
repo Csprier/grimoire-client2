@@ -13,7 +13,7 @@ import {
   NoteComponentContainer,
   NoteForm,
   SubmitButton,
-} from './NoteForm.styled';
+} from './AddNoteForm.styled';
 
 class AddNoteFormComponent extends Component {
   constructor(props){

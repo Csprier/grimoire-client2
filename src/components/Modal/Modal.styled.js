@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const ModalContainer = styled.div`
   position: absolute;
   width: 98%;
-  height: auto;
+  height: 500px;
   z-index: 10;
   margin: 0 auto;
   margin: 5% 5% 0% 1%;
@@ -15,7 +15,7 @@ const ModalContainer = styled.div`
 const ModalContent = styled.div`
   position: relative;
   width: 98%;
-  height: auto;
+  height: 100%;
   margin: 0 auto;
   padding: 0px;
 `;
