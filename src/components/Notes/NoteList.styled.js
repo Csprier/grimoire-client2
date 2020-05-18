@@ -13,7 +13,21 @@ const NoteListContainer = styled.div`
     display: none;
   }
 `;
+// display: ${props => !props.showModal ? 'block' : 'none'};
+const ModalContainer = styled.div`
+  position: absolute;
+  width: 98%;
+  height: ${props => props.showModal ? '500px' : '0px'};
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  transition: height;
+  transition-duration: .5s;
+  transition-delay: .5s;
+  border: 1px solid red;
+`;
 
 export {
+  ModalContainer,
   NoteListContainer
 };

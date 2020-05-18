@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Util from '../../../utility/util';
 
 /** Components */
-import NoteTextEditor from './Editor/NoteEditor';
+import AddNoteTextEditor from './Editor/AddNoteEditor';
 
 /** Styles */
 import {
@@ -12,31 +12,19 @@ import {
   Label,
   NoteComponentContainer,
   NoteForm,
-  NoteComponentHeader,
-  NoteTitle,
   SubmitButton,
-  ToggleButton,
-  DeleteButton
 } from './NoteForm.styled';
 
-class NoteFormComponent extends Component {
-  constructor(props) {
+class AddNoteFormComponent extends Component {
+  constructor(props){
     super(props);
     this.state = {
-      note_id: this.props.note._id,
-      title: this.props.note.title || '',
-      content: this.props.note.content || {},
-      toggle: false
+      title: '',
+      content: {}
     };
-    this._toggle = this._toggle.bind(this);
     this._handleChange = this._handleChange.bind(this);
     this._handleContentChange = this._handleContentChange.bind(this);
     this._submitNote = this._submitNote.bind(this);
-  };
-
-  _toggle = () => {
-    this.setState({ toggle: !this.state.toggle })
-    console.log('Toggling Note:', this.state.note_id, this.state.toggle);
   };
 
   _handleChange = (e) => {
@@ -51,50 +39,35 @@ class NoteFormComponent extends Component {
 
   _submitNote = (e) => {
     e.preventDefault();
-    const note_id = this.state.note_id;
     const user_id = Util.DATA.getUserIdFromLocalStorage();
     let payload = {
       userId: user_id,
       title: this.state.title,
-      content: JSON.stringify(this.state.content)
+      content: this.state.content
     };
     console.log('Payload: ', payload);
-    return Util.API.notePUT(note_id, payload)
+    return Util.API.notePOST(payload)
       .then(res => console.log(res))
       .then(() => this.props.reRender())
       .catch(err => console.error(err));
-  };
-
-  _deleteNote = () => {
-    const note_id = this.state.note_id;
-    console.log('Deleting note:', note_id);
-    return Util.API.noteDELETE(note_id)
-      .then(res => console.log(res))
-      .then(() => this.props.reRender())
-      .catch(err => console.error(err));
-  };
+  }
 
   render() {
     return(
-      <NoteComponentContainer toggle={this.state.toggle}>
-        <NoteComponentHeader>
-          <NoteTitle>{this.props.note.title}</NoteTitle>
-          <DeleteButton onClick={() => this._deleteNote()}>X</DeleteButton>
-          <ToggleButton onClick={() => this._toggle(!this.state.toggle)}>{this.state.toggle ? 'open' : 'closed'}</ToggleButton>
-        </NoteComponentHeader>
-        <NoteForm onSubmit={this._submitNote}>
+      <NoteComponentContainer>
+        <NoteForm onSubmit={this.submitNote}>
           <Label>Title
             <Input 
               type="text"
               name="title"
               onChange={this._handleChange}
-              value={this.props.note.title || this.state.title || ''}
+              value={this.state.title || ''}
               placeholder="Title..."
             />
           </Label>
-
+          
           <Label>Content
-            <NoteTextEditor
+            <AddNoteTextEditor
               editorState={this.state.content}
               handleContentChange={this._handleContentChange}
             />
@@ -103,7 +76,7 @@ class NoteFormComponent extends Component {
         </NoteForm>
       </NoteComponentContainer>
     );
-  };
+  }
 };
 
-export default NoteFormComponent;
+export default AddNoteFormComponent;

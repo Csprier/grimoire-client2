@@ -4,10 +4,13 @@ import React, { useEffect, useState } from 'react';
 import Util from '../../utility/util';
 
 /** Components */
+// import AddNoteFormComponent from '../Notes/components/AddNoteForm';
+// import Modal from '../Modal/Modal';
 import NoteFormComponent from './components/NoteForm';
 
 /** Styles */
 import {
+  // ModalContainer,
   NoteListContainer
 } from './NoteList.styled';
 
@@ -51,3 +54,12 @@ const NoteList = () => {
 export default NoteList;
 
 // Expiration date on a Note to prevent duplicates
+
+// <button onClick={toggleModalRender}>Add Note</button>
+// <ModalContainer showModal>
+//   {!showModal
+//     ? <Modal modalHeader={'Add a Note'}>
+//         <AddNoteFormComponent showModal={showModal} reRender={_reRenderNoteList} />
+//       </Modal>
+//     : null}
+// </ModalContainer>
