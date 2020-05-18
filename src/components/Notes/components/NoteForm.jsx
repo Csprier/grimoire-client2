@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { convertToRaw } from 'draft-js';
 
 /** Util */
 import Util from '../../../utility/util';
@@ -56,7 +57,7 @@ class NoteFormComponent extends Component {
     let payload = {
       userId: user_id,
       title: this.state.title,
-      content: JSON.stringify(this.state.content)
+      content: convertToRaw(JSON.stringify(this.state.content))
     };
     console.log('Payload: ', payload);
     return Util.API.notePUT(note_id, payload)

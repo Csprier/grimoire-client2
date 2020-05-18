@@ -37,13 +37,14 @@ class AddNoteFormComponent extends Component {
 
   _handleContentChange = (editorState) => this.setState({ content: editorState });
 
-  _submitNote = (e) => {
-    e.preventDefault();
+  _submitNote = () => {
+    console.log('Submitting note!');
+    // e.preventDefault();
     const user_id = Util.DATA.getUserIdFromLocalStorage();
     let payload = {
       userId: user_id,
       title: this.state.title,
-      content: this.state.content
+      content: JSON.stringify(this.state.content)
     };
     console.log('Payload: ', payload);
     return Util.API.notePOST(payload)
@@ -55,7 +56,10 @@ class AddNoteFormComponent extends Component {
   render() {
     return(
       <NoteComponentContainer>
-        <NoteForm onSubmit={this.submitNote}>
+        <NoteForm onSubmit={(e) => {
+          e.preventDefault();
+          this._submitNote();
+        }}>
           <Label>Title
             <Input 
               type="text"
@@ -72,7 +76,7 @@ class AddNoteFormComponent extends Component {
               handleContentChange={this._handleContentChange}
             />
           </Label>
-          <SubmitButton onSubmit={this._submitNote}>Submit</SubmitButton>
+          <SubmitButton>Submit</SubmitButton>
         </NoteForm>
       </NoteComponentContainer>
     );
