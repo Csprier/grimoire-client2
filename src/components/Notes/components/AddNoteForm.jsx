@@ -49,6 +49,7 @@ class AddNoteFormComponent extends Component {
     console.log('Payload: ', payload);
     return Util.API.notePOST(payload)
       .then(res => console.log(res))
+      .then(() => this.props.closeModal())
       .then(() => this.props.reRender())
       .catch(err => console.error(err));
   }

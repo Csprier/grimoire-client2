@@ -56,7 +56,7 @@ const NoteList = () => {
       <ModalContainer showModal>
         {showModal
           ? <Modal modalHeader={'Add a Note'}>
-              <AddNoteFormComponent showModal={showModal} reRender={_reRenderNoteList}/>
+              <AddNoteFormComponent showModal={showModal} reRender={_reRenderNoteList} closeModal={toggleModalRender} />
             </Modal>
           : null}
       </ModalContainer>
