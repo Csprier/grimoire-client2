@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { 
+  convertToRaw,
   Editor,
   EditorState,
-  convertToRaw 
+  RichUtils
 } from 'draft-js';
 
 /** Util */
@@ -18,8 +19,15 @@ class AddNoteTextEditor extends Component {
       editorState: EditorState.createEmpty()
     };
     this.onChange = this.onChange.bind(this);
+    this._saveContent = this._saveContent.bind(this);
   };
 
+  /**
+   * onChange: when an onChange event happens, get the contentState of the editorState, 
+   *  pass the raw JSON into props.handleContentChange and save it to localStorage via _saveContent, 
+   *  and set the class this.state.editorState to the new editorState
+   * @param {object}  editorState - editorState of the editor
+  */
   onChange = (editorState) => {
     const contentState = editorState.getCurrentContent();
     this.props.handleContentChange(convertToRaw(contentState));
@@ -27,8 +35,29 @@ class AddNoteTextEditor extends Component {
     this.setState({ editorState });
   };
 
+  /**
+   * _saveContent: use Util.API.debounce to hold off til 1 second after the last keystroke, 
+   * then save the JSON of the content to localStorage
+   * @param {object}  content - editorState JSON
+  */
   _saveContent = (content) => {
     Util.API.debounce(window.localStorage.setItem('content', JSON.stringify(convertToRaw(content))), 1000);
+  };
+
+  /**
+   * _handleKeyCommand: Monitors key commands in the Editor, takes this.state.editorState and passes it into
+   *  RichUtils.handleKeyCommand with the command parameter. If there is a newState, invoke onChange to change the 
+   *  editorState to reflect the new contentState and return true; otherwise, return false and do nothing.
+   * @param {*} command 
+   */
+  _handleKeyCommand(command) {
+    const { editorState } = this.state;
+    const newState = RichUtils.handleKeyCommand(editorState, command);
+    if (newState) {
+      this.onChange(newState);
+      return true;
+    }
+    return false;
   }
 
   render() {
