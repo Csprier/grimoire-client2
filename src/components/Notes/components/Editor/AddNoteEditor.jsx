@@ -4,8 +4,8 @@ import {
   Editor,
   EditorState,
   RichUtils,
-  KeyBindingUtil,
-  getDefaultKeyBinding
+  // KeyBindingUtil,
+  // getDefaultKeyBinding
 } from 'draft-js';
 
 /** Util */

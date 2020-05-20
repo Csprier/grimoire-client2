@@ -52,7 +52,7 @@ class AddNoteFormComponent extends Component {
       .then(() => this.props.closeModal())
       .then(() => this.props.reRender())
       .catch(err => console.error(err));
-  }
+  };
 
   render() {
     return(
@@ -81,7 +81,7 @@ class AddNoteFormComponent extends Component {
         </NoteForm>
       </NoteComponentContainer>
     );
-  }
+  };
 };
 
 export default AddNoteFormComponent;
