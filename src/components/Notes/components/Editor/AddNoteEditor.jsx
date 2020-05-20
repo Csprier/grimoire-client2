@@ -20,6 +20,7 @@ class AddNoteTextEditor extends Component {
     };
     this.onChange = this.onChange.bind(this);
     this._saveContent = this._saveContent.bind(this);
+    this._handleKeyCommand = this._handleKeyCommand.bind(this);
   };
 
   /**
@@ -48,7 +49,7 @@ class AddNoteTextEditor extends Component {
    * _handleKeyCommand: Monitors key commands in the Editor, takes this.state.editorState and passes it into
    *  RichUtils.handleKeyCommand with the command parameter. If there is a newState, invoke onChange to change the 
    *  editorState to reflect the new contentState and return true; otherwise, return false and do nothing.
-   * @param {*} command 
+   * @param {string}  command 
    */
   _handleKeyCommand(command) {
     const { editorState } = this.state;
@@ -67,6 +68,7 @@ class AddNoteTextEditor extends Component {
         <Editor 
           editorState={editorState}
           onChange={this.onChange}
+          handleKeyCommand={this._handleKeyCommand}
         />
       </div>
     );
