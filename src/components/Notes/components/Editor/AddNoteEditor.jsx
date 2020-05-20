@@ -3,7 +3,9 @@ import {
   convertToRaw,
   Editor,
   EditorState,
-  RichUtils
+  RichUtils,
+  KeyBindingUtil,
+  getDefaultKeyBinding
 } from 'draft-js';
 
 /** Util */
@@ -21,6 +23,7 @@ class AddNoteTextEditor extends Component {
     this.onChange = this.onChange.bind(this);
     this._saveContent = this._saveContent.bind(this);
     this._handleKeyCommand = this._handleKeyCommand.bind(this);
+    // this._keyBindingFn = this._keyBindingFn.bind(this);
   };
 
   /**
@@ -53,13 +56,14 @@ class AddNoteTextEditor extends Component {
    */
   _handleKeyCommand(command) {
     const { editorState } = this.state;
-    const newState = RichUtils.handleKeyCommand(editorState, command);
+    let newState = RichUtils.handleKeyCommand(editorState, command);
+
     if (newState) {
       this.onChange(newState);
       return true;
     }
     return false;
-  }
+  };
 
   render() {
     const { editorState } = this.state;
@@ -69,6 +73,7 @@ class AddNoteTextEditor extends Component {
           editorState={editorState}
           onChange={this.onChange}
           handleKeyCommand={this._handleKeyCommand}
+          // keyBindingFn={this._keyBindingFn}
         />
       </div>
     );
@@ -76,3 +81,14 @@ class AddNoteTextEditor extends Component {
 }
 
 export default AddNoteTextEditor;
+
+  /**
+   * _keyBindingFn: maps keys we press to strings that represent some action (eg 'undo', or 'underline')
+   *  hasCommandModifier instead of checking for CTRL keyCode because different OSs have different command keys
+   * @param {event} event - 
+   */
+  // _keyBindingFn = (event) => {
+  //   if (KeyBindingUtil.hasCommandModifier(event) && event.keyCode === 66) { return 'bold'; }
+
+  //   return getDefaultKeyBinding(event);
+  // };
