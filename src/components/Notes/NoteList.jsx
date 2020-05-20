@@ -10,6 +10,7 @@ import NoteFormComponent from './components/NoteForm';
 
 /** Styles */
 import {
+  AddNoteButton,
   ModalContainer,
   NoteListContainer
 } from './NoteList.styled';
@@ -52,11 +53,11 @@ const NoteList = () => {
 
   return(
     <NoteListContainer>
-      <button onClick={() => toggleModalRender()}>Add Note</button>
-      <ModalContainer showModal>
+      <AddNoteButton onClick={() => toggleModalRender()} showModal={showModal}>Add Note</AddNoteButton>
+      <ModalContainer showModal={showModal}>
         {showModal
-          ? <Modal modalHeader={'Add a Note'}>
-              <AddNoteFormComponent showModal={showModal} reRender={_reRenderNoteList} closeModal={toggleModalRender} />
+          ? <Modal modalHeader={'Add a Note'} showModal={showModal}>
+              <AddNoteFormComponent reRender={_reRenderNoteList} closeModal={toggleModalRender} />
             </Modal>
           : null}
       </ModalContainer>

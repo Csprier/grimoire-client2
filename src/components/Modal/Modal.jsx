@@ -7,10 +7,11 @@ import {
 } from './Modal.styled';
 
 function Modal(props) {
+  console.log('props.showModal', props);
   return(
-    <ModalContainer id="modal">
+    <ModalContainer id="modal" showModal>
       <h1>{props.modalHeader}</h1>
-      <ModalContent>{props.children}</ModalContent>
+      <ModalContent showModal>{props.children}</ModalContent>
     </ModalContainer>
   );
 };

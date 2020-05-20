@@ -2,22 +2,24 @@ import styled from 'styled-components';
 
 const ModalContainer = styled.div`
   position: absolute;
-  width: 98%;
+  width: 100%;
   height: 500px;
   z-index: 10;
   margin: 0 auto;
-  margin: 5% 5% 0% 1%;
   padding: 0px;
   background-color: white;
-  box-shadow: 3px 5px 4px 5px #888888;
+  transition: transform;
+  transition-duration: 2s;
+  transition-delay: 2s;
+  transform: ${props => props.showModal ? "translateX(0%)" : "translateX(-110%)"};
+  border: 1px solid orange;
 `;
 
 const ModalContent = styled.div`
   position: relative;
   width: 98%;
-  height: 100%;
   margin: 0 auto;
-  padding: 0px;
+  padding: 0;
 `;
 
 export {

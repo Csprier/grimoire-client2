@@ -1,5 +1,18 @@
 import styled from 'styled-components';
 
+const AddNoteButton = styled.button`
+  width: 100px;
+  height: 33px;
+  margin: 0;
+  padding: 6px 8px;
+  background-color: ${props => props.showModal ? "darkslateblue" : "slateblue"};
+  border: ${props => props.showModal ? "1px solid slateblue" : "1px solid darkslateblue"};
+  color: white;
+  border-radius: 3px;
+  font-size: 14px;
+  &:focus { outline: none };
+`;
+
 const NoteListContainer = styled.div`
   position: relative;
   width: 400px;
@@ -13,21 +26,21 @@ const NoteListContainer = styled.div`
     display: none;
   }
 `;
-// display: ${props => !props.showModal ? 'block' : 'none'};
+
 const ModalContainer = styled.div`
   position: absolute;
   width: 98%;
-  height: ${props => props.showModal ? '500px' : '0px'};
   margin: 0 auto;
   padding: 0;
   overflow: hidden;
-  transition: height;
+  transition: height, transform;
   transition-duration: .5s;
   transition-delay: .5s;
-  border: 1px solid red;
+  height: ${props => props.showModal ? '450px' : '0px'};
 `;
 
 export {
+  AddNoteButton,
   ModalContainer,
   NoteListContainer
 };
