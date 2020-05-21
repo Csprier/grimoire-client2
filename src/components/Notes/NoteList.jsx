@@ -53,19 +53,18 @@ const NoteList = () => {
 
   return(
     <NoteListContainer>
-      <AddNoteButton onClick={() => toggleModalRender()} showModal={showModal}>Add Note</AddNoteButton>
-      <ModalContainer showModal={showModal}>
-        {showModal
-          ? <Modal modalHeader={'Add a Note'} showModal={showModal}>
+      <div>
+        <AddNoteButton onClick={() => toggleModalRender()} showModal={showModal}>Add Note</AddNoteButton>
+        <ModalContainer showModal={showModal}>
+          {showModal &&
+            <Modal modalHeader={'Add a Note'} showModal={showModal}>
               <AddNoteFormComponent reRender={_reRenderNoteList} closeModal={toggleModalRender} />
-            </Modal>
-          : null}
-      </ModalContainer>
-      {listOfNotes.length ? listOfNotes.map(note => <NoteFormComponent key={note._id} note={note} reRender={_reRenderNoteList} />) : <h1>Loading...</h1>}      
+            </Modal>}
+        </ModalContainer>
+      </div>
+      {listOfNotes.length ? listOfNotes.map(note => <NoteFormComponent key={note._id} note={note} reRender={_reRenderNoteList} />) : <h1>Loading...</h1>}
     </NoteListContainer>
   );
 };
 
 export default NoteList;
-
-// Expiration date on a Note to prevent duplicates

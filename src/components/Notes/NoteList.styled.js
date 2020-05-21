@@ -17,7 +17,7 @@ const NoteListContainer = styled.div`
   position: relative;
   width: 400px;
   height: 100%;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   overflow-y: scroll;
   border: 1px solid gray;
@@ -29,13 +29,13 @@ const NoteListContainer = styled.div`
 
 const ModalContainer = styled.div`
   position: relative;
-  width: 100%;
+  width: 98%;
   margin: 0 auto;
   padding: 0;
   transition-property: height;
   transition-duration: .5s;
   transition-delay: .5s;
-  height: ${props => props.showModal ? "500px" : "0px"};
+  height: ${props => props.showModal ? "390px" : "0px"};
   overflow: hidden;
   border: 1px solid red;
 `;
