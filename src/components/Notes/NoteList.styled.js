@@ -32,6 +32,11 @@ const ModalContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 0;
+  transition-property: height;
+  transition-duration: .5s;
+  transition-delay: .5s;
+  height: ${props => props.showModal ? "500px" : "0px"};
+  overflow: hidden;
   border: 1px solid red;
 `;
 
