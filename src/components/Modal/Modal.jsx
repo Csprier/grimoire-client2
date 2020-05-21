@@ -10,9 +10,9 @@ import {
 function Modal(props) {
   console.log('props.showModal', props);
   return(
-    <ModalContainer id="modal" showModal>
+    <ModalContainer id="modal" showModal={props.showModal}>
       <ModalHeader>{props.modalHeader}</ModalHeader>
-      <ModalContent showModal>{props.children}</ModalContent>
+      <ModalContent showModal={props.showModal}>{props.children}</ModalContent>
     </ModalContainer>
   );
 };

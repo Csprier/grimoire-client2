@@ -24,19 +24,15 @@ const NoteListContainer = styled.div`
   background-color: #242526;
   &::-webkit-scrollbar {
     display: none;
-  }
+  };
 `;
 
 const ModalContainer = styled.div`
-  position: absolute;
-  width: 98%;
+  position: relative;
+  width: 100%;
   margin: 0 auto;
   padding: 0;
-  overflow: hidden;
-  transition: height, transform;
-  transition-duration: .5s;
-  transition-delay: .5s;
-  height: ${props => props.showModal ? '450px' : '0px'};
+  border: 1px solid red;
 `;
 
 export {
