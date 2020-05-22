@@ -16,19 +16,24 @@ const useForceUpdate = () => useState()[1];
 const Dashboard = () => {
   const forceUpdate = useForceUpdate();
   const [reRender, toggleReRender] = useState(false);
+  const [animate, setAnimation] = useState(false);
 
   function _reRender() {
     toggleReRender(!reRender);
   };
 
+  function toggleAnimation() {
+    setAnimation(!animate);
+  };
+
   return(
     <DashboardContainer>
       
-      <NavigationBar />
+      <NavigationBar toggleAnimation={toggleAnimation} animate={animate} />
       
       <DashboardContent>
         <NoteList />
-        <AddNoteDisplay reRender={_reRender} forceUpdate={forceUpdate} />
+        <AddNoteDisplay reRender={_reRender} forceUpdate={forceUpdate} animate={animate} />
       </DashboardContent>
 
     </DashboardContainer>

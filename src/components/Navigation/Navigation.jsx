@@ -5,14 +5,13 @@ import Util from '../../utility/util';
 
 /** Styles */
 import {
-  // IconButton,
   Navigation,
-  // NavigationButtonContainer,
   LogOutButton,
   UsernameHeader
 } from './Navigation.styled';
+import { AddNoteButton } from '../Dashboard/components/AddNoteDisplay.styled';
 
-const NavigationBar = () => {
+const NavigationBar = (props) => {
   const [activeUser, setActiveUser] = useState('');
 
   useEffect(() => {
@@ -30,11 +29,7 @@ const NavigationBar = () => {
     <Navigation>
       <UsernameHeader>Welcome back, {activeUser}!</UsernameHeader>  
       
-      {/* <NavigationButtonContainer>
-        <IconButton title="Create a note">&#9998;</IconButton>
-        <IconButton title="Go to Tags">&#9744;</IconButton>
-        <IconButton title="Go to Folders">&#10063;</IconButton>
-      </NavigationButtonContainer> */}
+      <AddNoteButton onClick={() => props.toggleAnimation()} animate={props.animate}>Add Note</AddNoteButton>
 
       <LogOutButton onClick={() => logout()}>Logout</LogOutButton>
     </Navigation>

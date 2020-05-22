@@ -15,7 +15,7 @@ const AddNoteButton = styled.button`
 
 const DisplayContainer = styled.div`
   width: 500px;
-  height: ${props => props.animate ? "500px" : "0px"};
+  height: ${props => props.animate ? "500px" : "40px"};
   margin: 0;
   padding: 0;
   transition-property: transform, height;
