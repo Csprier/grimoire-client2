@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
+// border: 1px solid lightgray;
 const NoteComponentContainer = styled.div`
   width: 98%;
   margin: 0 auto;
   padding: 5px;
-  border: 1px solid lightgray;
   transition-property: height;
   transition-duration: .5s;
   transition-delay: .5s;

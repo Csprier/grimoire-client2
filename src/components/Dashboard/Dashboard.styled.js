@@ -10,6 +10,17 @@ const DashboardContainer = styled.div`
   background-color: #242526;
 `;
 
+const DashboardContent = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+`;
+
 export {
-  DashboardContainer
+  DashboardContainer,
+  DashboardContent
 };
