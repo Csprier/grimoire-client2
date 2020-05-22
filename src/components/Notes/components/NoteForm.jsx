@@ -9,6 +9,7 @@ import NoteTextEditor from './Editor/NoteEditor';
 
 /** Styles */
 import {
+  ButtonContainer,
   Input,
   Label,
   NoteComponentContainer,
@@ -79,10 +80,12 @@ class NoteFormComponent extends Component {
       <NoteComponentContainer toggle={this.state.toggle}>
         <NoteComponentHeader>
           <NoteTitle>{this.props.note.title}</NoteTitle>
-          <DeleteButton onClick={() => this._deleteNote()}>X</DeleteButton>
-          <ToggleButton onClick={() => this._toggle(!this.state.toggle)}>{this.state.toggle ? 'open' : 'closed'}</ToggleButton>
+          <ButtonContainer>
+            <ToggleButton onClick={() => this._toggle(!this.state.toggle)} toggle={this.state.toggle}>{this.state.toggle ? 'open' : 'closed'}</ToggleButton>
+            <DeleteButton onClick={() => this._deleteNote()}>X</DeleteButton>
+          </ButtonContainer>
         </NoteComponentHeader>
-        <NoteForm onSubmit={this._submitNote}>
+        <NoteForm onSubmit={this._submitNote} toggle={this.state.toggle}>
           <Label>Title
             <Input 
               type="text"
