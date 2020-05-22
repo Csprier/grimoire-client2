@@ -70,7 +70,6 @@ class NoteFormComponent extends Component {
     const note_id = this.state.note_id;
     console.log('Deleting note:', note_id);
     return Util.API.noteDELETE(note_id)
-      .then(res => console.log(res))
       .then(() => this.props.reRender())
       .catch(err => console.error(err));
   };

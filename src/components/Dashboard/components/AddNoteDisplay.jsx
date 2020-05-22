@@ -13,7 +13,10 @@ const AddNoteDisplay = (props) => {
   return(
     <DisplayContainer animate={props.animate}>
       <DisplayContent animate={props.animate}>
-        <AddNoteFormComponent reRender={props._reRender} />
+        <AddNoteFormComponent 
+          toggleAnimation={props.toggleAnimation}
+          reRenderFunction={props.reRenderFunction}
+        />
       </DisplayContent>
     </DisplayContainer>
   );

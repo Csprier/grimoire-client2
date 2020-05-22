@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from 'react';
-
-/** Util */
-import Util from '../../utility/util';
+import React, { useEffect } from 'react';
 
 /** Components */
 import NoteFormComponent from './components/NoteForm';
@@ -11,40 +8,19 @@ import {
   NoteListContainer
 } from './NoteList.styled';
 
-const useForceUpdate = () => useState()[1]  
-
-const NoteList = () => {
-  const [listOfNotes, setListOfNotes] = useState([]);
-  const [reRender, toggleReRender] = useState(false);
-  const forceUpdate = useForceUpdate();
-
+const NoteList = (props) => {
   useEffect(() => {
-    if (reRender) {
-      Util.API.debounce(_GETNotes, 2000)
-      forceUpdate();
+    if (props.reRender) {
+      props.reRenderFunction();
       console.log('Rerendering Note List and resetting toggle');
-      toggleReRender(!reRender);
+      props.toggleReRender(!props.reRender);
     }
-    Util.API.debounce(_GETNotes, 2000);
-  }, [reRender, forceUpdate]);
-
-  function _GETNotes() {
-    Util.API.noteGET()
-      .then(res => {
-        let notes = res;
-        setListOfNotes(notes);
-      })
-      .catch(err => console.error(err));
-  };
-
-  function _reRenderNoteList() {
-    toggleReRender(!reRender);
-  };
+  }, [props]);
 
   return(
     <NoteListContainer>
-      {listOfNotes.length 
-        ? listOfNotes.map(note => <NoteFormComponent key={note._id} note={note} reRender={_reRenderNoteList} />) 
+      {props.listOfNotes.length 
+        ? props.listOfNotes.map(note => <NoteFormComponent key={note._id} note={note} reRender={props.reRenderFunction} />) 
         : <h1>Loading...</h1>}
     </NoteListContainer>
   );

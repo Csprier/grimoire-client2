@@ -9,6 +9,7 @@ const NoteComponentContainer = styled.div`
   transition-duration: .5s;
   transition-delay: .5s;
   height: 100%;
+  color: white;
 `;
 
 const NoteForm = styled.form`

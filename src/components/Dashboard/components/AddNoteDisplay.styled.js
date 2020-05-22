@@ -15,15 +15,16 @@ const AddNoteButton = styled.button`
 
 const DisplayContainer = styled.div`
   width: 500px;
-  height: ${props => props.animate ? "500px" : "40px"};
+  height: ${props => props.animate ? "500px" : "0px"};
   margin: 0;
   padding: 0;
   transition-property: transform, height;
   transition-duration: .5s;
   transition-delay: .5s;
   overflow: hidden;
-  border: 1px solid red;
-`;
+  background-color: #242526;
+  `;
+  // border: 1px solid red;
 
 const DisplayContent = styled.div`
   width: 100%;

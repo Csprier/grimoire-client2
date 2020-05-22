@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+/** Util */
+import Util from '../../utility/util';
 
 /** Styles */
 import { 
@@ -11,15 +14,37 @@ import NavigationBar from '../Navigation/Navigation';
 import NoteList from '../Notes/NoteList';
 import AddNoteDisplay from './components/AddNoteDisplay';
 
-const useForceUpdate = () => useState()[1];
+/** Force rerender */
+const useForceUpdate = () => useState()[1]; 
 
 const Dashboard = () => {
-  const forceUpdate = useForceUpdate();
-  const [reRender, toggleReRender] = useState(false);
   const [animate, setAnimation] = useState(false);
+  const [listOfNotes, setListOfNotes] = useState([]);
+  const [reRender, toggleReRender] = useState(false);
+  const forceUpdate = useForceUpdate();
 
-  function _reRender() {
+  useEffect(() => {
+    if (reRender) {
+      Util.API.debounce(_GETNotes, 2000)
+      forceUpdate();
+      console.log('Rerendering Note List and resetting toggle');
+      toggleReRender(!reRender);
+    }
+    Util.API.debounce(_GETNotes, 2000);
+  }, [reRender, forceUpdate]);
+
+  function _GETNotes() {
+    Util.API.noteGET()
+      .then(res => {
+        let notes = res;
+        setListOfNotes(notes);
+      })
+      .catch(err => console.error(err));
+  };
+
+  function _reRenderNoteList() {
     toggleReRender(!reRender);
+    console.log('Toggling reRender:', reRender);
   };
 
   function toggleAnimation() {
@@ -32,8 +57,17 @@ const Dashboard = () => {
       <NavigationBar toggleAnimation={toggleAnimation} animate={animate} />
       
       <DashboardContent>
-        <NoteList />
-        <AddNoteDisplay reRender={_reRender} forceUpdate={forceUpdate} animate={animate} />
+        <NoteList
+          listOfNotes={listOfNotes}
+          reRenderFunction={_reRenderNoteList}
+          toggleReRender={toggleReRender}
+          reRender={reRender}
+        />
+        <AddNoteDisplay 
+          toggleAnimation={toggleAnimation} 
+          animate={animate} 
+          reRenderFunction={_reRenderNoteList}
+        />
       </DashboardContent>
 
     </DashboardContainer>
@@ -41,3 +75,5 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+/* <button onClick={() => _reRenderNoteList()}>ReRender</button> */

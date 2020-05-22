@@ -39,7 +39,6 @@ class AddNoteFormComponent extends Component {
 
   _submitNote = () => {
     console.log('Submitting note!');
-    // e.preventDefault();
     const user_id = Util.DATA.getUserIdFromLocalStorage();
     let payload = {
       userId: user_id,
@@ -48,9 +47,8 @@ class AddNoteFormComponent extends Component {
     };
     console.log('Payload: ', payload);
     return Util.API.notePOST(payload)
-      .then(res => console.log(res))
-      .then(() => this.props.closeModal())
-      .then(() => this.props.reRender())
+      .then(() => this.props.toggleAnimation())
+      .then(() => this.props.reRenderFunction())
       .catch(err => console.error(err));
   };
 
