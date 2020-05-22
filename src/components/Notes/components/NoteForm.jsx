@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { convertToRaw } from 'draft-js';
 
 /** Util */
 import Util from '../../../utility/util';
@@ -58,7 +57,7 @@ class NoteFormComponent extends Component {
     let payload = {
       userId: user_id,
       title: this.state.title,
-      content: convertToRaw(JSON.stringify(this.state.content))
+      content: JSON.stringify(this.state.content)
     };
     console.log('Payload: ', payload);
     return Util.API.notePUT(note_id, payload)
@@ -76,6 +75,7 @@ class NoteFormComponent extends Component {
   };
 
   render() {
+    console.log('WTF: ', this.state.content);
     return(
       <NoteComponentContainer toggle={this.state.toggle}>
         <NoteComponentHeader>
@@ -91,7 +91,7 @@ class NoteFormComponent extends Component {
               type="text"
               name="title"
               onChange={this._handleChange}
-              value={this.props.note.title || this.state.title || ''}
+              defaultValue={this.props.note.title || this.state.title || ''}
               placeholder="Title..."
             />
           </Label>

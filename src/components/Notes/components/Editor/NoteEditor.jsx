@@ -16,7 +16,9 @@ class NoteTextEditor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editorState: (this.props.editorState) ? EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.editorState))) : EditorState.createEmpty()
+      editorState: (this.props.editorState) 
+        ? EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.editorState)))
+        : EditorState.createEmpty()
     };
     this.onChange = this.onChange.bind(this);
   };
@@ -34,7 +36,7 @@ class NoteTextEditor extends Component {
 
   render() {
     const { editorState } = this.state;
-    // console.log('Note props:', this.props);
+    console.log('EDITOR STATE:', this.state);
     return(
       <div onClick={this.focus}>
         <Editor 
