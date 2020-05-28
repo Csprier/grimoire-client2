@@ -13,9 +13,9 @@ const AddNoteButton = styled.button`
   &:focus { outline: none };
 `;
 
+// position: relative;
 const NoteListContainer = styled.div`
-  position: relative;
-  width: 400px;
+  width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;

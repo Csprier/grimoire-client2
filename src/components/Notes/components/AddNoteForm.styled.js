@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 // border: 1px solid lightgray;
 const NoteComponentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 98%;
   margin: 0 auto;
   padding: 5px;

@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 const NoteComponentContainer = styled.div`
-  width: 98%;
-  margin: 0 auto;
-  margin: 5px 0px;
+  width: 320px;
+  margin: 5px auto;
   padding: 5px;
   border: 1px solid slategray;
   border-radius: 5px;

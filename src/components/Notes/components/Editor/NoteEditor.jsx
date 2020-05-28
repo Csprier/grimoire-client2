@@ -36,7 +36,7 @@ class NoteTextEditor extends Component {
 
   render() {
     const { editorState } = this.state;
-    console.log('EDITOR STATE:', this.state);
+    // console.log('EDITOR STATE:', this.state);
     return(
       <div onClick={this.focus}>
         <Editor 

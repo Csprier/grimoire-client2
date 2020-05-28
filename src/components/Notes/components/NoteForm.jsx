@@ -75,7 +75,6 @@ class NoteFormComponent extends Component {
   };
 
   render() {
-    console.log('WTF: ', this.state.content);
     return(
       <NoteComponentContainer toggle={this.state.toggle}>
         <NoteComponentHeader>
