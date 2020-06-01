@@ -14,8 +14,8 @@ const AddNoteButton = styled.button`
 `;
 
 const DisplayContainer = styled.div`
-  width: 500px;
-  height: ${props => props.animate ? "500px" : "0px"};
+  width: 320px;
+  height: ${props => props.animate ? "290px" : "0px"};
   margin: 0;
   padding: 0;
   transition-property: transform, height;
@@ -23,8 +23,8 @@ const DisplayContainer = styled.div`
   transition-delay: .5s;
   overflow: hidden;
   background-color: #242526;
-  `;
-  // border: 1px solid red;
+  border: 1px solid red;
+`;
 
 const DisplayContent = styled.div`
   width: 100%;
@@ -35,6 +35,7 @@ const DisplayContent = styled.div`
   transition-delay: .5s;
   transform: ${props => props.animate ? "translateX(0%)" : "translateX(-110%)"};
   margin: ${props => props.animate ? "0 auto" : "0"};
+  border: 1px solid blue;
 `;
 
 export {
