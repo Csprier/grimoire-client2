@@ -8,6 +8,11 @@ const TestComponent = styled.div`
   border: 2px solid orange;
 `;
 
+const TestHeader = styled.h1`
+  color: goldenrod;
+`;
+
 export {
-  TestComponent
+  TestComponent,
+  TestHeader
 };

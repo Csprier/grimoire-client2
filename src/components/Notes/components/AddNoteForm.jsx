@@ -7,13 +7,14 @@ import Util from '../../../utility/util';
 import AddNoteTextEditor from './Editor/AddNoteEditor';
 
 /** Styles */
-import {
-  AddNoteInput,
-  AddNoteLabel,
-  AddNoteComponentContainer,
-  AddNoteForm,
-  AddNoteSubmitButton,
-} from './AddNoteForm.styled';
+// import {
+//   AddNoteInput,
+//   AddNoteLabel,
+//   AddNoteComponentContainer,
+//   AddNoteForm,
+//   AddNoteSubmitButton,
+// } from './AddNoteForm.styled';
+import "./add-note.css";
 
 class AddNoteFormComponent extends Component {
   constructor(props){
@@ -54,33 +55,64 @@ class AddNoteFormComponent extends Component {
 
   render() {
     return(
-      <AddNoteComponentContainer>
-        <AddNoteForm onSubmit={(e) => {
-          e.preventDefault();
-          this._submitNote();
+      <div className="add-note-component-container">
+        <form 
+          className="add-note-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            this._submitNote();
         }}>
-          <AddNoteLabel>Title
-            <AddNoteInput 
+          <label className="add-note-label">Title
+            <input
+              className="add-note-input" 
               type="text"
               name="title"
               onChange={this._handleChange}
               value={this.state.title || ''}
               placeholder="Title..."
             />
-          </AddNoteLabel>
+          </label>
           
-          <AddNoteLabel>Content
+          <label className="add-note-label">Content
             <AddNoteTextEditor
               editorState={this.state.content}
               handleContentChange={this._handleContentChange}
             />
-          </AddNoteLabel>
-          
-          <AddNoteSubmitButton>Submit</AddNoteSubmitButton>
-        </AddNoteForm>
-      </AddNoteComponentContainer>
+          </label>
+        
+         <button className="add-note-submit-button">Submit</button>
+        </form>
+      </div>
     );
   };
 };
 
 export default AddNoteFormComponent;
+
+/**
+ <AddNoteComponentContainer>
+  <AddNoteForm onSubmit={(e) => {
+    e.preventDefault();
+    this._submitNote();
+  }}>
+    <AddNoteLabel>Title
+      <AddNoteInput 
+        type="text"
+        name="title"
+        onChange={this._handleChange}
+        value={this.state.title || ''}
+        placeholder="Title..."
+      />
+    </AddNoteLabel>
+    
+    <AddNoteLabel>Content
+      <AddNoteTextEditor
+        editorState={this.state.content}
+        handleContentChange={this._handleContentChange}
+      />
+    </AddNoteLabel>
+    
+    <AddNoteSubmitButton>Submit</AddNoteSubmitButton>
+  </AddNoteForm>
+</AddNoteComponentContainer>
+ */

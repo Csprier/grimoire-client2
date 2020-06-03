@@ -1,8 +1,8 @@
 import React from 'react';
 
 /** Components */
-// import AddNoteFormComponent from '../../Notes/components/AddNoteForm';
-import AddNote from '../../Notes/components/AddNote';
+import AddNoteFormComponent from '../../Notes/components/AddNoteForm';
+// import AddNote from '../../Notes/components/AddNote';
 
 /** Styles */
 import {
@@ -14,7 +14,11 @@ const AddNoteDisplay = (props) => {
   return(
     <DisplayContainer animate={props.animate}>
       <DisplayContent animate={props.animate}>
-        <AddNote />
+        {/* <AddNote /> */}
+        <AddNoteFormComponent 
+          reRenderFunction={props.reRenderFunction}
+          toggleAnimation={props.toggleAnimation}
+        />
       </DisplayContent>
     </DisplayContainer>
   );
