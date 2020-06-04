@@ -4,7 +4,7 @@ import React from 'react';
 // import Util from '../../../utility/util';
 
 /** Components */
-import AddNoteTextEditor from './Editor/AddNoteEditor';
+import AddNoteTextEditor from '../components/Notes/components/Editor/AddNoteEditor';
 
 /** Styles */
 // import {

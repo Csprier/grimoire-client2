@@ -7,13 +7,6 @@ import Util from '../../../utility/util';
 import AddNoteTextEditor from './Editor/AddNoteEditor';
 
 /** Styles */
-// import {
-//   AddNoteInput,
-//   AddNoteLabel,
-//   AddNoteComponentContainer,
-//   AddNoteForm,
-//   AddNoteSubmitButton,
-// } from './AddNoteForm.styled';
 import "./add-note.css";
 
 class AddNoteFormComponent extends Component {
@@ -88,31 +81,3 @@ class AddNoteFormComponent extends Component {
 };
 
 export default AddNoteFormComponent;
-
-/**
- <AddNoteComponentContainer>
-  <AddNoteForm onSubmit={(e) => {
-    e.preventDefault();
-    this._submitNote();
-  }}>
-    <AddNoteLabel>Title
-      <AddNoteInput 
-        type="text"
-        name="title"
-        onChange={this._handleChange}
-        value={this.state.title || ''}
-        placeholder="Title..."
-      />
-    </AddNoteLabel>
-    
-    <AddNoteLabel>Content
-      <AddNoteTextEditor
-        editorState={this.state.content}
-        handleContentChange={this._handleContentChange}
-      />
-    </AddNoteLabel>
-    
-    <AddNoteSubmitButton>Submit</AddNoteSubmitButton>
-  </AddNoteForm>
-</AddNoteComponentContainer>
- */

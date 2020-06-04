@@ -75,5 +75,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-/* <button onClick={() => _reRenderNoteList()}>ReRender</button> */
