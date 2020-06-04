@@ -13,6 +13,7 @@ import {
 import NavigationBar from '../Navigation/Navigation';
 import NoteList from '../Notes/NoteList';
 import AddNoteDisplay from './components/AddNoteDisplay';
+import DesktopViewComponent from '../DesktopView/DesktopViewComponent';
 
 /** Force rerender */
 const useForceUpdate = () => useState()[1]; 
@@ -57,7 +58,7 @@ const Dashboard = () => {
       <NavigationBar toggleAnimation={toggleAnimation} animate={animate} />
       
       <DashboardContent>
-        <NoteList
+        {/* <NoteList
           listOfNotes={listOfNotes}
           reRenderFunction={_reRenderNoteList}
           toggleReRender={toggleReRender}
@@ -67,7 +68,9 @@ const Dashboard = () => {
           toggleAnimation={toggleAnimation} 
           animate={animate} 
           reRenderFunction={_reRenderNoteList}
-        />
+        /> */}
+
+        <DesktopViewComponent />
       </DashboardContent>
 
     </DashboardContainer>
