@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 /** Util */
-import Util from '../../utility/util';
+// import Util from '../../utility/util';
 
 /** Styles */
 import { 
@@ -14,7 +14,9 @@ import DesktopViewNoteList from './components/DVNoteList';
 const DesktopViewComponent = (props) => {
   return(
     <DesktopViewContainer>
-      <DesktopViewNoteList />
+      <DesktopViewNoteList 
+        notes={props.notes}
+      />
     </DesktopViewContainer>
   );
 };

@@ -11,8 +11,8 @@ import {
 
 /** Components */
 import NavigationBar from '../Navigation/Navigation';
-import NoteList from '../Notes/NoteList';
-import AddNoteDisplay from './components/AddNoteDisplay';
+// import NoteList from '../Notes/NoteList';
+// import AddNoteDisplay from './components/AddNoteDisplay';
 import DesktopViewComponent from '../DesktopView/DesktopViewComponent';
 
 /** Force rerender */
@@ -70,7 +70,10 @@ const Dashboard = () => {
           reRenderFunction={_reRenderNoteList}
         /> */}
 
-        <DesktopViewComponent />
+        <DesktopViewComponent 
+          notes={listOfNotes} 
+          reRenderFunction={_reRenderNoteList}
+        />
       </DashboardContent>
 
     </DashboardContainer>
