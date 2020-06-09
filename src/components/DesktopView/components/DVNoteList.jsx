@@ -20,7 +20,10 @@ const DesktopViewNoteList = (props) => {
             return(
               <div 
                 key={note._id}
-                onClick={() => showNoteId(note)}
+                onClick={() => {
+                  showNoteId(note)
+                  props.openNoteEditor(note)
+                }}
               >
                 <h1>{note.title}</h1>
               </div>

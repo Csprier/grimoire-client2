@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const DesktopViewContainer = styled.div`
+  display: flex;
+  flex-direction: row;
   width: 98%;
   height: 600px;
   margin: 0 auto;
