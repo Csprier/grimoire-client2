@@ -21,7 +21,7 @@ const DVNote = styled.div`
 
 const DVNoteTitle = styled.h2`
   display: flex;
-  color: white;
+  color: lightgray;
   margin: 0px 4px;
   padding: 0;
   cursor: pointer;
