@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 /** Util */
 // import Util from '../../../utility/util';
@@ -12,6 +12,8 @@ import {
 } from './DVNoteList.styled';
 
 const DesktopViewNoteList = (props) => {
+  const [clicked, setClicked] = useState(false);
+
   function showNoteId(note) {
     console.log(note._id);
   };
@@ -23,14 +25,14 @@ const DesktopViewNoteList = (props) => {
           let contentSnippet = JSON.parse(note.content);
           let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
             return(
-              <DVNote 
-                key={note._id}
-                onClick={() => {
-                  showNoteId(note);
-                  props.openNoteEditor(note);
-                }}
-              >
-                <DVNoteTitle>{note.title}</DVNoteTitle>
+              <DVNote key={note._id} clicked={clicked}>
+                <DVNoteTitle
+                  onClick={() => {
+                    showNoteId(note);
+                    props.openNoteEditor(note);
+                    setClicked(!clicked);
+                  }}
+                >{note.title}</DVNoteTitle>
                 <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
               </DVNote>
             )

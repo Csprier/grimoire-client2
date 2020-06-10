@@ -13,16 +13,18 @@ const DVNote = styled.div`
   flex-direction: column;
   width: 98%;
   height: auto;
-  margin: 0 auto;
+  margin: 2px auto;
   padding: 0;
   border: 1px solid gray;
+  background-color: ${props => props.clicked ? 'lightslategray' : '#242526'}
 `;
 
 const DVNoteTitle = styled.h2`
   display: flex;
-  color: lightslategray;
+  color: white;
   margin: 0px 4px;
   padding: 0;
+  cursor: pointer;
 `;
 
 const DNNoteSnippet = styled.p`
