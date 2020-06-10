@@ -14,7 +14,8 @@ import DesktopViewEditorDisplay from './components/DVEditorDisplay';
 
 const DesktopViewComponent = (props) => {
   const [animate, setAnimate] = useState(false);
-  
+  const [selectedNote, setSelectedNote] = useState({});
+
   function _openNoteEditor(note) {
     if (animate === false) {
       setAnimate(true);
@@ -23,6 +24,11 @@ const DesktopViewComponent = (props) => {
       setAnimate(false);
       console.log('Closing Editor.');
     }
+    _selectNote(note);
+  };
+
+  function _selectNote(note) {
+    setSelectedNote(note);
   };
 
   return(
@@ -30,8 +36,12 @@ const DesktopViewComponent = (props) => {
       <DesktopViewNoteList 
         notes={props.notes}
         openNoteEditor={_openNoteEditor}
+        selectNote={_selectNote}
       />
-      <DesktopViewEditorDisplay animate={animate} />
+      <DesktopViewEditorDisplay 
+        animate={animate}
+        note={selectedNote}
+      />
     </DesktopViewContainer>
   );
 };

@@ -9,6 +9,7 @@ const DVEditorContainer = styled.div`
   transition-property: height;
   transition-duration: .5s;
   transition-delay: .5s;
+  overflow: hidden;
 `;
 
 export {

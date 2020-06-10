@@ -24,7 +24,7 @@ class NoteFormComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note_id: this.props.note._id,
+      note_id: this.props.note._id || '',
       title: this.props.note.title || '',
       content: this.props.note.content || {},
       toggle: false
@@ -75,6 +75,8 @@ class NoteFormComponent extends Component {
   };
 
   render() {
+    // console.log('Note Form Props:', this.props);
+    // console.log('Note Form State:', this.state);
     return(
       <NoteComponentContainer toggle={this.state.toggle}>
         <NoteComponentHeader>
