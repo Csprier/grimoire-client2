@@ -73,6 +73,8 @@ const Dashboard = () => {
         <DesktopViewComponent 
           notes={listOfNotes} 
           reRenderFunction={_reRenderNoteList}
+          toggleAnimation={toggleAnimation} 
+          animate={animate} 
         />
       </DashboardContent>
 

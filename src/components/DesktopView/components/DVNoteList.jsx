@@ -5,7 +5,10 @@ import React from 'react';
 
 /** Styles */
 import {
-  DVNoteListContainer
+  DVNote,
+  DVNoteListContainer,
+  DVNoteTitle,
+  DNNoteSnippet
 } from './DVNoteList.styled';
 
 const DesktopViewNoteList = (props) => {
@@ -17,16 +20,19 @@ const DesktopViewNoteList = (props) => {
     <DVNoteListContainer>
       {props.notes 
         ? props.notes.map(note => {
+          let contentSnippet = JSON.parse(note.content);
+          let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
             return(
-              <div 
+              <DVNote 
                 key={note._id}
                 onClick={() => {
                   showNoteId(note);
                   props.openNoteEditor(note);
                 }}
               >
-                <h1>{note.title}</h1>
-              </div>
+                <DVNoteTitle>{note.title}</DVNoteTitle>
+                <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
+              </DVNote>
             )
           })
         : null

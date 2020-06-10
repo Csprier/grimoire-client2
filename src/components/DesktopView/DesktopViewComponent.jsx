@@ -38,6 +38,7 @@ const DesktopViewComponent = (props) => {
         openNoteEditor={_openNoteEditor}
         selectNote={_selectNote}
       />
+
       <DesktopViewEditorDisplay 
         animate={animate}
         note={selectedNote}
