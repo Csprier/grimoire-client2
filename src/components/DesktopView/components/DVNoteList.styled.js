@@ -16,7 +16,18 @@ const DVNote = styled.div`
   margin: 2px auto;
   padding: 0;
   border: 1px solid gray;
-  background-color: ${props => props.clicked ? 'lightslategray' : '#242526'}
+  background-color: #242526;
+`;
+
+const DVSelectedNote = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  height: auto;
+  margin: 2px auto;
+  padding: 0;
+  border: 1px solid gray;
+  background-color: lightslategray;
 `;
 
 const DVNoteTitle = styled.h2`
@@ -38,5 +49,6 @@ export {
   DVNote,
   DVNoteListContainer,
   DVNoteTitle,
-  DNNoteSnippet
+  DNNoteSnippet,
+  DVSelectedNote
 };
