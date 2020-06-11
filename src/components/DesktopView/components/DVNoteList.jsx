@@ -26,26 +26,27 @@ const DesktopViewNoteList = (props) => {
         ? props.notes.map(note => {
             let contentSnippet = JSON.parse(note.content);
             let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
-            let unSelectedNote = <DVNote key={note._id}>
-                                  <DVNoteTitle
-                                    onClick={() => {
-                                      showNoteId(note);
-                                      props.openNoteEditor(note);
-                                      setClicked(!clicked);
-                                      setSelected(note._id);
-                                    }}
-                                  >{note.title}</DVNoteTitle>
-                                  <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
-                                </DVNote>
-            let selectedNote = <DVSelectedNote key={note._id}>
-                                <DVNoteTitle
+            let unSelectedNote = <DVNote key={note._id}
                                   onClick={() => {
                                     showNoteId(note);
                                     props.openNoteEditor(note);
                                     setClicked(!clicked);
-                                    setSelected('');
+                                    setSelected(note._id);
                                   }}
-                                >{note.title}</DVNoteTitle>
+                                 >
+                                  <DVNoteTitle>{note.title}</DVNoteTitle>
+                                  <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
+                                </DVNote>
+            let selectedNote = <DVSelectedNote 
+                                key={note._id}
+                                onClick={() => {
+                                  showNoteId(note);
+                                  props.openNoteEditor(note);
+                                  setClicked(!clicked);
+                                  setSelected('');
+                                }}
+                               >
+                                <DVNoteTitle>{note.title}</DVNoteTitle>
                                 <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
                               </DVSelectedNote>;
 

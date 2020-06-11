@@ -5,6 +5,7 @@ const DVNoteListContainer = styled.div`
   height: 100%;
   margin: 0;
   padding: 0;
+  cursor: pointer;
   border: 1px solid blue;
 `;
 
@@ -35,7 +36,6 @@ const DVNoteTitle = styled.h2`
   color: lightgray;
   margin: 0px 4px;
   padding: 0;
-  cursor: pointer;
 `;
 
 const DNNoteSnippet = styled.p`
