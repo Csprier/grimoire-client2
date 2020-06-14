@@ -42,6 +42,8 @@ const DesktopViewComponent = (props) => {
       <DesktopViewEditorDisplay 
         animate={animate}
         note={selectedNote}
+        reRenderFunction={props.reRenderFunction}
+        toggleAnimation={props.toggleAnimation}
       />
     </DesktopViewContainer>
   );
