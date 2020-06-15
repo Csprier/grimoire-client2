@@ -75,8 +75,8 @@ class NoteFormComponent extends Component {
   };
 
   render() {
-    // console.log('Note Form Props:', this.props);
-    // console.log('Note Form State:', this.state);
+    console.log('Note Form Props:', this.props);
+    console.log('Note Form State:', this.state);
     return(
       <NoteComponentContainer toggle={this.state.toggle}>
         <NoteComponentHeader>
