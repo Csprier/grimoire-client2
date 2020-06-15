@@ -2,16 +2,24 @@ import React, { Component } from 'react';
 
 /** Styles */
 import {
-  DVNoteEditorContainer
+  // DVNoteEditorButtonContainer,
+  DVNoteEditorContainer,
+  // DVNoteEditorDeleteButton,
+  DVNoteEditorForm,
+  DVNoteEditorHeader,
+  DVNoteEditorInput,
+  DVNoteEditorLabel,
+  DVNoteEditorSubmitButton,
+  DVNoteEditorTitle
 } from './DVNoteEditor.styled';
 
 class DVNoteEditor extends Component { 
   constructor(props) {
     super(props);
     this.state = {
-      note_id: this.props.note._id || '',
+      id: this.props.note._id || '',
       title: this.props.note.title || '',
-      content: this.props.note.content || ''
+      content: this.props.note.content || {}
     };
     this._handleChange = this._handleChange.bind(this);
     this._handleContentChange = this._handleContentChange.bind(this);
@@ -29,10 +37,31 @@ class DVNoteEditor extends Component {
 
 
   render() {
-    console.log('this.props.note', this.props.note);
+    // console.log('this.props.note', this.props.note);
+    console.log(this.state);
     return(
       <DVNoteEditorContainer>
+        <DVNoteEditorHeader>
+          <DVNoteEditorTitle>{this.props.note.title}</DVNoteEditorTitle>
+        </DVNoteEditorHeader>
 
+        <DVNoteEditorForm>
+          <DVNoteEditorLabel>Title
+            <DVNoteEditorInput 
+              type="text"
+              name="title"
+              onChange={this._handleChange}
+              defaultValue={this.props.note.title}
+              placeholder="Title..."
+            />
+          </DVNoteEditorLabel>
+
+          <DVNoteEditorLabel>Content
+            
+          </DVNoteEditorLabel>
+
+          <DVNoteEditorSubmitButton>Submit</DVNoteEditorSubmitButton>
+        </DVNoteEditorForm>
       </DVNoteEditorContainer>
     );
   };

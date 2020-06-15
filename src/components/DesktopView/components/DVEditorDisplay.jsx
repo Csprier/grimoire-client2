@@ -13,10 +13,12 @@ import {
 
 const DesktopViewEditorDisplay = (props) => {
   // console.log('props.note', props.note);
+  const { note } = props;
+  console.log('n', note);
   return(
     <DVEditorContainer animate={props.animate}>
       <DVNoteEditor 
-        note={props.note}
+        note={note}
         reRenderFunction={props.reRenderFunction}
         toggleAnimation={props.toggleAnimation}
       />
