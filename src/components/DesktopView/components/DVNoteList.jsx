@@ -26,9 +26,20 @@ const DesktopViewNoteList = (props) => {
               <DVNote 
                 key={note._id}
                 onClick={() => {
-                  setClicked(!clicked);
-                  setSelected(note._id);
-                  props.manageEditors(note);
+                  // Is selected === '' ?
+                  if (selected === '') {
+                    setClicked(!clicked);
+                    setSelected(note._id);
+                    props.selectNote(note);
+                    props.openNoteEditor(note);
+                  }
+                  // Is clicked true, and selected !== note._id ?
+                  if (clicked && selected !== note._id) {
+                    // console.log('Clicked:', clicked, '&& note._id:', note._id, '-- selected:', selected);
+                    props.closeNoteEdtior();
+                    setSelected('');
+                    props.openNoteEditor(note);
+                  }
                 }}
               >
                 <DVNoteTitle>{note.title}</DVNoteTitle>
@@ -39,9 +50,9 @@ const DesktopViewNoteList = (props) => {
               <DVSelectedNote 
                 key={note._id}
                 onClick={() => {
-                  // setClicked(!clicked);
-                  // setSelected('');
-                  props.manageEditors(note);
+                  setClicked(!clicked);
+                  setSelected('');
+                  props.closeNoteEdtior();
                 }}
               >
                 <DVNoteTitle>{note.title}</DVNoteTitle>

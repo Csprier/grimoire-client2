@@ -20,34 +20,15 @@ const DesktopViewComponent = (props) => {
     if (animate === false) {
       setAnimate(true);
       console.log('Opening Editor with ID:', note._id);
-    } else if (animate === true) {
-      setAnimate(false);
-      console.log('Closing Editor.');
+      _selectNote(note);
+      console.log('Selected Note for Editor:', selectedNote);
     }
-    _selectNote(note);
   };
 
-  function _manageEditors(note) {
-    /**
-      Editor is closed(animate === false)
-      - setAnimate to true
-      - _selectNote to note
-     */
-    if (animate === false) {
-      setAnimate(true);
-      _selectNote(note);
-    }
-
-    /**
-      Editor is open with a note
-      - setAnimate to false, to close the editor
-      - _selectNote to new note
-      - setAnimate to true, to open the editor with the new note
-     */
-    if (animate === true && note._id !== selectedNote) {
+  function _closeNoteEdtior() {
+    if (animate === true) {
       setAnimate(false);
-      _selectNote(note);
-      setTimeout(setAnimate(true), 1);
+      console.log('Closing Editor.');
     }
   };
 
@@ -60,8 +41,8 @@ const DesktopViewComponent = (props) => {
       <DesktopViewNoteList 
         notes={props.notes}
         openNoteEditor={_openNoteEditor}
+        closeNoteEdtior={_closeNoteEdtior}
         selectNote={_selectNote}
-        manageEditors={_manageEditors}
       />
 
       <DesktopViewEditorDisplay 
