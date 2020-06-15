@@ -15,7 +15,7 @@ import {
 const DesktopViewNoteList = (props) => {
   const [clicked, setClicked] = useState(false);
   const [selected, setSelected] = useState('');
-
+  // console.log('DVNL selected', selected);
   return(
     <DVNoteListContainer>
       {props.notes 
@@ -26,19 +26,19 @@ const DesktopViewNoteList = (props) => {
               <DVNote 
                 key={note._id}
                 onClick={() => {
-                  // Is selected === '' ?
                   if (selected === '') {
                     setClicked(!clicked);
                     setSelected(note._id);
-                    props.selectNote(note);
                     props.openNoteEditor(note);
                   }
-                  // Is clicked true, and selected !== note._id ?
+
                   if (clicked && selected !== note._id) {
-                    // console.log('Clicked:', clicked, '&& note._id:', note._id, '-- selected:', selected);
                     props.closeNoteEdtior();
-                    setSelected('');
-                    props.openNoteEditor(note);
+                    setSelected(note._id);
+                    setTimeout(() => {
+                      console.log('Set Timeout triggered');
+                      props.openNoteEditor(note);
+                    }, 1000);
                   }
                 }}
               >

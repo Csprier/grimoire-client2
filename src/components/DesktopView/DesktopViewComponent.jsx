@@ -18,17 +18,23 @@ const DesktopViewComponent = (props) => {
 
   function _openNoteEditor(note) {
     if (animate === false) {
-      setAnimate(true);
       console.log('Opening Editor with ID:', note._id);
-      _selectNote(note);
-      console.log('Selected Note for Editor:', selectedNote);
+      setSelectedNote(note);
+      setAnimate(true);
+    } 
+    else if (note._id !== selectedNote._id) {
+      // console.log('Note', note);
+      console.log('Opening Editor with ID:', note._id);
+      setSelectedNote(note);
+      setAnimate(true);
     }
   };
 
   function _closeNoteEdtior() {
     if (animate === true) {
-      setAnimate(false);
       console.log('Closing Editor.');
+      setSelectedNote({});
+      setAnimate(false);
     }
   };
 
@@ -36,6 +42,7 @@ const DesktopViewComponent = (props) => {
     setSelectedNote(note);
   };
 
+  // console.log('SELECTEDNOTE:', selectedNote);
   return(
     <DesktopViewContainer>
       <DesktopViewNoteList 
