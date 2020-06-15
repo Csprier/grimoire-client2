@@ -16,10 +16,6 @@ const DesktopViewNoteList = (props) => {
   const [clicked, setClicked] = useState(false);
   const [selected, setSelected] = useState('');
 
-  function showNoteId(note) {
-    console.log(note._id);
-  };
-
   return(
     <DVNoteListContainer>
       {props.notes 
@@ -30,10 +26,9 @@ const DesktopViewNoteList = (props) => {
               <DVNote 
                 key={note._id}
                 onClick={() => {
-                  showNoteId(note);
-                  props.openNoteEditor(note);
                   setClicked(!clicked);
                   setSelected(note._id);
+                  props.manageEditors(note);
                 }}
               >
                 <DVNoteTitle>{note.title}</DVNoteTitle>
@@ -44,10 +39,9 @@ const DesktopViewNoteList = (props) => {
               <DVSelectedNote 
                 key={note._id}
                 onClick={() => {
-                  showNoteId(note);
-                  props.openNoteEditor(note);
-                  setClicked(!clicked);
-                  setSelected('');
+                  // setClicked(!clicked);
+                  // setSelected('');
+                  props.manageEditors(note);
                 }}
               >
                 <DVNoteTitle>{note.title}</DVNoteTitle>

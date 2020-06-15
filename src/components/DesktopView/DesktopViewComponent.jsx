@@ -27,6 +27,30 @@ const DesktopViewComponent = (props) => {
     _selectNote(note);
   };
 
+  function _manageEditors(note) {
+    /**
+      Editor is closed(animate === false)
+      - setAnimate to true
+      - _selectNote to note
+     */
+    if (animate === false) {
+      setAnimate(true);
+      _selectNote(note);
+    }
+
+    /**
+      Editor is open with a note
+      - setAnimate to false, to close the editor
+      - _selectNote to new note
+      - setAnimate to true, to open the editor with the new note
+     */
+    if (animate === true && note._id !== selectedNote) {
+      setAnimate(false);
+      _selectNote(note);
+      setTimeout(setAnimate(true), 1);
+    }
+  };
+
   function _selectNote(note) {
     setSelectedNote(note);
   };
@@ -37,6 +61,7 @@ const DesktopViewComponent = (props) => {
         notes={props.notes}
         openNoteEditor={_openNoteEditor}
         selectNote={_selectNote}
+        manageEditors={_manageEditors}
       />
 
       <DesktopViewEditorDisplay 
