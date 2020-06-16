@@ -23,6 +23,17 @@ class DVNoteTextEditor extends Component {
     this.onChange = this.onChange.bind(this);
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log('prevProps', prevProps, 'prevState', prevState);
+    if (this.props.editorState !== prevProps.editorState) {
+      this.setState({
+        editorState: (this.props.editorState) 
+          ? EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.editorState)))
+          : EditorState.createEmpty()
+      });
+    }
+  };
+
   onChange = (editorState) => {
     const contentState = editorState.getCurrentContent();
     this.props.handleContentChange(convertToRaw(contentState));
@@ -36,7 +47,8 @@ class DVNoteTextEditor extends Component {
 
   render() {
     const { editorState } = this.state;
-    // console.log('EDITOR STATE:', this.state);
+    // console.log('EDITOR STATE:', this.state.editorState);
+    // console.log('EDITORSTATE', this.props.editorState);
     return(
       <div onClick={this.focus}>
         <Editor 

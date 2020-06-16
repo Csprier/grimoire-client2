@@ -19,7 +19,7 @@ const DesktopViewEditorDisplay = (props) => {
       <DVNoteEditor 
         note={note}
         reRenderFunction={props.reRenderFunction}
-        toggleAnimation={props.toggleAnimation}
+        // toggleAnimation={props.toggleAnimation}
       />
     </DVEditorContainer>
   );
