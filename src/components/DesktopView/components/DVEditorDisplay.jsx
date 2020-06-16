@@ -12,9 +12,8 @@ import {
 } from './DVEditorDisplay.styled';
 
 const DesktopViewEditorDisplay = (props) => {
-  // console.log('props.note', props.note);
   const { note } = props;
-  console.log('n', note);
+  // console.log('n', note);
   return(
     <DVEditorContainer animate={props.animate}>
       <DVNoteEditor 
