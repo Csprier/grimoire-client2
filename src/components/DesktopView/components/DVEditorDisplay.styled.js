@@ -7,8 +7,8 @@ const DVEditorContainer = styled.div`
   padding: 0;
   border: 1px solid blue;
   transition-property: height;
-  transition-duration: .5s;
-  transition-delay: .5s;
+  transition-duration: .1s;
+  transition-delay: .1s;
   overflow: hidden;
 `;
 
