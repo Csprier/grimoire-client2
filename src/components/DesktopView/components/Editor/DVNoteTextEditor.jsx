@@ -7,7 +7,7 @@ import {
 } from 'draft-js';
 
 /** Util */
-import Util from '../../../../../utility/util';
+import Util from '../../../../utility/util';
 
 /** Styles */
 import './dv-note-editor.css';
@@ -24,7 +24,6 @@ class DVNoteTextEditor extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    // console.log('prevProps', prevProps, 'prevState', prevState);
     if (this.props.editorState !== prevProps.editorState) {
       this.setState({
         editorState: (this.props.editorState) 
@@ -47,8 +46,6 @@ class DVNoteTextEditor extends Component {
 
   render() {
     const { editorState } = this.state;
-    // console.log('EDITOR STATE:', this.state.editorState);
-    // console.log('EDITORSTATE', this.props.editorState);
     return(
       <div onClick={this.focus}>
         <Editor 

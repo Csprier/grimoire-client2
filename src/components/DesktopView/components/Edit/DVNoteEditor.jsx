@@ -4,13 +4,11 @@ import React, { Component } from 'react';
 import Util from '../../../../utility/util';
 
 /** Components */
-import DVNoteTextEditor from './Editor/DVNoteTextEditor';
+import DVNoteTextEditor from '../Editor/DVNoteTextEditor';
 
 /** Styles */
 import {
-  // DVNoteEditorButtonContainer,
   DVNoteEditorContainer,
-  // DVNoteEditorDeleteButton,
   DVNoteEditorForm,
   DVNoteEditorHeader,
   DVNoteEditorInput,
@@ -69,8 +67,6 @@ class DVNoteEditor extends Component {
   };
 
   render() {
-    // console.log('this.props.note', this.props.note);
-    // console.log(this);
     return(
       <DVNoteEditorContainer>
         <DVNoteEditorHeader>
@@ -90,7 +86,6 @@ class DVNoteEditor extends Component {
 
           <DVNoteEditorLabel>Content
             <DVNoteTextEditor 
-              // editorState={this.state.content}
               editorState={this.props.note.content}
               handleContentChange={this._handleContentChange}
             />

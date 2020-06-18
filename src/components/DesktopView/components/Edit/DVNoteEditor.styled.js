@@ -36,10 +36,6 @@ const DVNoteEditorSubmitButton = styled.button`
 
 `;
 
-
-
-// DVNoteEditor
-
 export {
   DVNoteEditorButtonContainer,
   DVNoteEditorContainer,

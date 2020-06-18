@@ -5,7 +5,7 @@ import React from 'react';
 
 /** Components */
 import DVNoteEditor from './Edit/DVNoteEditor';
-import AddNoteFormComponent from '../../Notes/components/AddNoteForm';
+import DVAddNoteComponent from './Add/DVAddNote';
 
 /** Styles */
 import {
@@ -18,7 +18,7 @@ const DesktopViewEditorDisplay = (props) => {
   return(
     <DVEditorContainer animate={props.animate}>
       {(displayAddNoteForm) 
-        ? <AddNoteFormComponent 
+        ? <DVAddNoteComponent 
             reRenderFunction={props.reRenderFunction}
           />
         : <DVNoteEditor 
