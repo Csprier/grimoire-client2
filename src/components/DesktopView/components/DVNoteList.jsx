@@ -13,9 +13,9 @@ import {
 } from './DVNoteList.styled';
 
 const DesktopViewNoteList = (props) => {
-  const [clicked, setClicked] = useState(false);
+  const { clicked, setClicked } = props;
   const [selected, setSelected] = useState('');
-  // console.log('DVNL selected', selected);
+
   return(
     <DVNoteListContainer>
       {props.notes 

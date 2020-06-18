@@ -9,7 +9,7 @@ import {
   LogOutButton,
   UsernameHeader
 } from './Navigation.styled';
-import { AddNoteButton } from '../Dashboard/components/AddNoteDisplay.styled';
+// import { AddNoteButton } from '../Dashboard/components/AddNoteDisplay.styled';
 
 const NavigationBar = (props) => {
   const [activeUser, setActiveUser] = useState('');
@@ -29,7 +29,7 @@ const NavigationBar = (props) => {
     <Navigation>
       <UsernameHeader>Welcome back, {activeUser}!</UsernameHeader>  
       
-      <AddNoteButton onClick={() => props.toggleAnimation()} animate={props.animate}>Add Note</AddNoteButton>
+      {/* <AddNoteButton onClick={() => props.toggleAnimation()} animate={props.animate}>Add Note</AddNoteButton> */}
 
       <LogOutButton onClick={() => logout()}>Logout</LogOutButton>
     </Navigation>

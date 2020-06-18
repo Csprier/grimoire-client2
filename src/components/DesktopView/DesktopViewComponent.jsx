@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { 
   DesktopViewContainer
 } from './DesktopView.styled';
+import { AddNoteButton } from '../Dashboard/components/AddNoteDisplay.styled';
 
 /** Components */
 import DesktopViewNoteList from './components/DVNoteList';
@@ -14,7 +15,10 @@ import DesktopViewEditorDisplay from './components/DVEditorDisplay';
 
 const DesktopViewComponent = (props) => {
   const [animate, setAnimate] = useState(false);
+  const [clicked, setClicked] = useState(false);
   const [selectedNote, setSelectedNote] = useState({});
+  const [toggleAddNote, setToggleAddNote] = useState(false);
+
 
   function _openNoteEditor(note) {
     if (animate === false) {
@@ -45,8 +49,21 @@ const DesktopViewComponent = (props) => {
   // console.log('SELECTEDNOTE:', selectedNote);
   return(
     <DesktopViewContainer>
+
+      <AddNoteButton onClick={() => {
+        if (!animate && !toggleAddNote) {
+          setToggleAddNote(true);
+          setAnimate(true);
+        } else if (animate && toggleAddNote) {
+          setToggleAddNote(false);
+          setAnimate(false);
+        }
+      }}>Add Note</AddNoteButton>
+
       <DesktopViewNoteList 
         notes={props.notes}
+        clicked={clicked}
+        setClicked={setClicked}
         openNoteEditor={_openNoteEditor}
         closeNoteEdtior={_closeNoteEdtior}
         selectNote={_selectNote}
@@ -55,9 +72,12 @@ const DesktopViewComponent = (props) => {
       <DesktopViewEditorDisplay 
         animate={animate}
         note={selectedNote}
+        displayAddNoteForm={toggleAddNote}
+        addNoteToggle={toggleAddNote}
         reRenderFunction={props.reRenderFunction}
         toggleAnimation={props.toggleAnimation}
       />
+
     </DesktopViewContainer>
   );
 };

@@ -5,6 +5,7 @@ import React from 'react';
 
 /** Components */
 import DVNoteEditor from './Edit/DVNoteEditor';
+import AddNoteFormComponent from '../../Notes/components/AddNoteForm';
 
 /** Styles */
 import {
@@ -16,13 +17,23 @@ const DesktopViewEditorDisplay = (props) => {
   // console.log('n', note);
   return(
     <DVEditorContainer animate={props.animate}>
-      <DVNoteEditor 
-        note={note}
-        reRenderFunction={props.reRenderFunction}
-        // toggleAnimation={props.toggleAnimation}
-      />
+      {(props.displayAddNoteForm && props.addNoteToggle) 
+        ? <AddNoteFormComponent 
+            reRenderFunction={props.reRenderFunction}
+          />
+        : <DVNoteEditor 
+            note={note}
+            reRenderFunction={props.reRenderFunction}
+          />}
     </DVEditorContainer>
   );
 };
 
 export default DesktopViewEditorDisplay;
+
+/* 
+<DVNoteEditor 
+  note={note}
+  reRenderFunction={props.reRenderFunction}
+/> 
+*/
