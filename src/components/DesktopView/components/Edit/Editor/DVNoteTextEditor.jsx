@@ -24,7 +24,7 @@ class DVNoteTextEditor extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('prevProps', prevProps, 'prevState', prevState);
+    // console.log('prevProps', prevProps, 'prevState', prevState);
     if (this.props.editorState !== prevProps.editorState) {
       this.setState({
         editorState: (this.props.editorState) 

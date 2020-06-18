@@ -13,16 +13,21 @@ import {
 } from './DVNoteList.styled';
 
 const DesktopViewNoteList = (props) => {
-  const { clicked, setClicked, displayAddNoteForm } = props;
+  const { clicked, setClicked, displayAddNoteForm, selectedNote } = props;
   const [selected, setSelected] = useState('');
-  console.log('displayAddNoteForm', displayAddNoteForm);
+  console.log('displayAddNoteForm', displayAddNoteForm, 'selected', selected, 'selectedNote', selectedNote);
+  
+  if (displayAddNoteForm && selectedNote === {}) {
+    setSelected('');
+  }
+
   return(
     <DVNoteListContainer>
       {props.notes 
         ? props.notes.map(note => {
             let contentSnippet = JSON.parse(note.content);
             let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
-            let unSelectedNote = (
+            let unSelectedNoteListItem = (
               <DVNote 
                 key={note._id}
                 onClick={() => {
@@ -46,8 +51,9 @@ const DesktopViewNoteList = (props) => {
                 <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
               </DVNote>
             );
-            let selectedNote = (
-              <DVSelectedNote 
+
+            let selectedNoteListItem = (
+              <DVSelectedNote
                 key={note._id}
                 onClick={() => {
                   setClicked(!clicked);
@@ -60,7 +66,10 @@ const DesktopViewNoteList = (props) => {
               </DVSelectedNote>
             );
 
-            return (clicked && selected === note._id && !displayAddNoteForm) ? selectedNote : unSelectedNote;
+            // return (clicked && selected === note._id) ? selectedNote : unSelectedNote;
+            return (displayAddNoteForm && selectedNote === {})
+                ? unSelectedNoteListItem
+                : (clicked && selectedNote._id === note._id) ? selectedNoteListItem : unSelectedNoteListItem;
           })
         : null
       }

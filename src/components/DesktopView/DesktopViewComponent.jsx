@@ -82,6 +82,7 @@ const DesktopViewComponent = (props) => {
         openNoteEditor={_openNoteEditor}
         closeNoteEdtior={_closeNoteEdtior}
         selectNote={_selectNote}
+        selectedNote={selectedNote}
       />
 
       <DesktopViewEditorDisplay 
