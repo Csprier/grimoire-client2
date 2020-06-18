@@ -18,7 +18,8 @@ const DesktopViewEditorDisplay = (props) => {
   return(
     <DVEditorContainer animate={props.animate}>
       {(displayAddNoteForm) 
-        ? <DVAddNoteComponent 
+        ? <DVAddNoteComponent
+            closeNoteEdtior={props.closeNoteEdtior}
             reRenderFunction={props.reRenderFunction}
           />
         : <DVNoteEditor 

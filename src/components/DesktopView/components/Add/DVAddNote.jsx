@@ -49,6 +49,7 @@ class DVAddNoteComponent extends Component {
     return Util.API.notePOST(payload)
       .then(res => console.log(res))
       .then(() => this.props.reRenderFunction())
+      .then(() => this.props.closeNoteEdtior())
       .catch(err => console.error(err));
   };
 

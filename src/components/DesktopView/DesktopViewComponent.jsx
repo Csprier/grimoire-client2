@@ -55,7 +55,7 @@ const DesktopViewComponent = (props) => {
       setToggleAddNote(false);
       setAnimate(false);
       setClicked(false);
-      _openNoteEditor({}); // HMMMMMM
+      _openNoteEditor({});
     }
   };
 
@@ -63,7 +63,6 @@ const DesktopViewComponent = (props) => {
     setSelectedNote(note);
   };
 
-  // console.log('SELECTEDNOTE:', selectedNote);
   return(
     <DesktopViewContainer>
 
@@ -98,6 +97,7 @@ const DesktopViewComponent = (props) => {
         displayAddNoteForm={toggleAddNote}
         reRenderFunction={props.reRenderFunction}
         toggleAnimation={props.toggleAnimation}
+        closeNoteEdtior={_closeNoteEdtior}
       />
 
     </DesktopViewContainer>
