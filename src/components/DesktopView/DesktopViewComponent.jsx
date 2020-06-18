@@ -21,16 +21,21 @@ const DesktopViewComponent = (props) => {
 
 
   function _openNoteEditor(note) {
-    if (animate === false) {
+    if (animate === false && !toggleAddNote) {
       console.log('Opening Editor with ID:', note._id);
       setSelectedNote(note);
       setAnimate(true);
     } 
     else if (note._id !== selectedNote._id) {
-      // console.log('Note', note);
       console.log('Opening Editor with ID:', note._id);
+      setToggleAddNote(false);
       setSelectedNote(note);
       setAnimate(true);
+    } else if (toggleAddNote && note === {}) {
+      setSelectedNote({});
+      setToggleAddNote(true);
+      setAnimate(true);
+      setClicked(true);
     }
   };
 
@@ -39,6 +44,11 @@ const DesktopViewComponent = (props) => {
       console.log('Closing Editor.');
       setSelectedNote({});
       setAnimate(false);
+    } else if (toggleAddNote) {
+      setSelectedNote({});
+      setToggleAddNote(false);
+      setAnimate(false);
+      setClicked(false);
     }
   };
 
@@ -53,10 +63,14 @@ const DesktopViewComponent = (props) => {
       <AddNoteButton onClick={() => {
         if (!animate && !toggleAddNote) {
           setToggleAddNote(true);
-          setAnimate(true);
+          _openNoteEditor({});
         } else if (animate && toggleAddNote) {
-          setToggleAddNote(false);
-          setAnimate(false);
+          _closeNoteEdtior();
+          setTimeout(() => {
+            _openNoteEditor({});
+          }, 1500)
+        } else {
+          _closeNoteEdtior();
         }
       }}>Add Note</AddNoteButton>
 
@@ -64,6 +78,7 @@ const DesktopViewComponent = (props) => {
         notes={props.notes}
         clicked={clicked}
         setClicked={setClicked}
+        displayAddNoteForm={toggleAddNote}
         openNoteEditor={_openNoteEditor}
         closeNoteEdtior={_closeNoteEdtior}
         selectNote={_selectNote}
@@ -73,7 +88,6 @@ const DesktopViewComponent = (props) => {
         animate={animate}
         note={selectedNote}
         displayAddNoteForm={toggleAddNote}
-        addNoteToggle={toggleAddNote}
         reRenderFunction={props.reRenderFunction}
         toggleAnimation={props.toggleAnimation}
       />

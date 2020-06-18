@@ -13,9 +13,9 @@ import {
 } from './DVNoteList.styled';
 
 const DesktopViewNoteList = (props) => {
-  const { clicked, setClicked } = props;
+  const { clicked, setClicked, displayAddNoteForm } = props;
   const [selected, setSelected] = useState('');
-
+  console.log('displayAddNoteForm', displayAddNoteForm);
   return(
     <DVNoteListContainer>
       {props.notes 
@@ -60,7 +60,7 @@ const DesktopViewNoteList = (props) => {
               </DVSelectedNote>
             );
 
-            return (clicked && selected === note._id) ? selectedNote : unSelectedNote;
+            return (clicked && selected === note._id && !displayAddNoteForm) ? selectedNote : unSelectedNote;
           })
         : null
       }

@@ -13,11 +13,11 @@ import {
 } from './DVEditorDisplay.styled';
 
 const DesktopViewEditorDisplay = (props) => {
-  const { note } = props;
-  // console.log('n', note);
+  const { note, displayAddNoteForm } = props;
+  
   return(
     <DVEditorContainer animate={props.animate}>
-      {(props.displayAddNoteForm && props.addNoteToggle) 
+      {(displayAddNoteForm) 
         ? <AddNoteFormComponent 
             reRenderFunction={props.reRenderFunction}
           />
