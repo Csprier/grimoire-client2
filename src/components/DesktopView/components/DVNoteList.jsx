@@ -15,7 +15,7 @@ import {
 const DesktopViewNoteList = (props) => {
   const { clicked, setClicked, displayAddNoteForm, selectedNote } = props;
   const [selected, setSelected] = useState('');
-  console.log('displayAddNoteForm', displayAddNoteForm, 'selected', selected, 'selectedNote', selectedNote);
+  console.log('displayAddNoteForm', displayAddNoteForm, '\n', 'selected', selected, '\n', 'selectedNote', selectedNote);
   
   if (displayAddNoteForm && selectedNote === {}) {
     setSelected('');
@@ -43,7 +43,7 @@ const DesktopViewNoteList = (props) => {
                     setTimeout(() => {
                       console.log('Set Timeout triggered');
                       props.openNoteEditor(note);
-                    }, 1000);
+                    }, 500);
                   }
                 }}
               >

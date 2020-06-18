@@ -26,12 +26,15 @@ const DesktopViewComponent = (props) => {
       setSelectedNote(note);
       setAnimate(true);
     } 
-    else if (note._id !== selectedNote._id) {
+    
+    if (note._id !== selectedNote._id) {
       console.log('Opening Editor with ID:', note._id);
       setToggleAddNote(false);
       setSelectedNote(note);
       setAnimate(true);
-    } else if (toggleAddNote && note === {}) {
+    }
+    
+    if (toggleAddNote && note === {}) {
       setSelectedNote({});
       setToggleAddNote(true);
       setAnimate(true);
@@ -40,15 +43,19 @@ const DesktopViewComponent = (props) => {
   };
 
   function _closeNoteEdtior() {
-    if (animate === true) {
+    if (animate === true && !toggleAddNote) {
       console.log('Closing Editor.');
       setSelectedNote({});
       setAnimate(false);
-    } else if (toggleAddNote) {
+    }
+    
+    if (toggleAddNote && animate) {
+      console.log('toggleAddNote:', toggleAddNote, '\n', 'animate:', animate);
       setSelectedNote({});
       setToggleAddNote(false);
       setAnimate(false);
       setClicked(false);
+      _openNoteEditor({}); // HMMMMMM
     }
   };
 
@@ -64,11 +71,11 @@ const DesktopViewComponent = (props) => {
         if (!animate && !toggleAddNote) {
           setToggleAddNote(true);
           _openNoteEditor({});
-        } else if (animate && toggleAddNote) {
+        } else if (animate && !toggleAddNote) {
           _closeNoteEdtior();
           setTimeout(() => {
             _openNoteEditor({});
-          }, 1500)
+          }, 500)
         } else {
           _closeNoteEdtior();
         }
