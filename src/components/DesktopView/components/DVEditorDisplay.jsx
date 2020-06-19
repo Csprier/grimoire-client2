@@ -9,7 +9,8 @@ import DVAddNoteComponent from './Add/DVAddNote';
 
 /** Styles */
 import {
-  DVEditorContainer
+  DVEditorContainer,
+  DVEditorInnerAnimatedContainer
 } from './DVEditorDisplay.styled';
 
 const DesktopViewEditorDisplay = (props) => {
@@ -17,15 +18,17 @@ const DesktopViewEditorDisplay = (props) => {
   
   return(
     <DVEditorContainer animate={props.animate}>
-      {(displayAddNoteForm) 
-        ? <DVAddNoteComponent
-            closeNoteEdtior={props.closeNoteEdtior}
-            reRenderFunction={props.reRenderFunction}
-          />
-        : <DVNoteEditor 
-            note={note}
-            reRenderFunction={props.reRenderFunction}
-          />}
+      <DVEditorInnerAnimatedContainer animate={props.animate}>
+        {(displayAddNoteForm) 
+          ? <DVAddNoteComponent
+              closeNoteEdtior={props.closeNoteEdtior}
+              reRenderFunction={props.reRenderFunction}
+            />
+          : <DVNoteEditor 
+              note={note}
+              reRenderFunction={props.reRenderFunction}
+            />}
+      </DVEditorInnerAnimatedContainer>
     </DVEditorContainer>
   );
 };

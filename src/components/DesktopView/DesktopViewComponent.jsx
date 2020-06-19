@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 
 /** Styles */
 import { 
+  DesktopViewButtonContainer,
+  DesktopViewComponentContainer,
   DesktopViewContainer
 } from './DesktopView.styled';
 import { AddNoteButton } from '../Dashboard/components/AddNoteDisplay.styled';
@@ -66,40 +68,43 @@ const DesktopViewComponent = (props) => {
   return(
     <DesktopViewContainer>
 
-      <AddNoteButton onClick={() => {
-        if (!animate && !toggleAddNote) {
-          setToggleAddNote(true);
-          _openNoteEditor({});
-        } else if (animate && !toggleAddNote) {
-          _closeNoteEdtior();
-          setTimeout(() => {
+      <DesktopViewButtonContainer>
+        <AddNoteButton onClick={() => {
+          if (!animate && !toggleAddNote) {
+            setToggleAddNote(true);
             _openNoteEditor({});
-          }, 500)
-        } else {
-          _closeNoteEdtior();
-        }
-      }}>Add Note</AddNoteButton>
+          } else if (animate && !toggleAddNote) {
+            _closeNoteEdtior();
+            setTimeout(() => {
+              _openNoteEditor({});
+            }, 500)
+          } else {
+            _closeNoteEdtior();
+          }
+        }}>Add Note</AddNoteButton>
+      </DesktopViewButtonContainer>
 
-      <DesktopViewNoteList 
-        notes={props.notes}
-        clicked={clicked}
-        setClicked={setClicked}
-        displayAddNoteForm={toggleAddNote}
-        openNoteEditor={_openNoteEditor}
-        closeNoteEdtior={_closeNoteEdtior}
-        selectNote={_selectNote}
-        selectedNote={selectedNote}
-      />
+      <DesktopViewComponentContainer>
+        <DesktopViewNoteList 
+          notes={props.notes}
+          clicked={clicked}
+          setClicked={setClicked}
+          displayAddNoteForm={toggleAddNote}
+          openNoteEditor={_openNoteEditor}
+          closeNoteEdtior={_closeNoteEdtior}
+          selectNote={_selectNote}
+          selectedNote={selectedNote}
+        />
 
-      <DesktopViewEditorDisplay 
-        animate={animate}
-        note={selectedNote}
-        displayAddNoteForm={toggleAddNote}
-        reRenderFunction={props.reRenderFunction}
-        toggleAnimation={props.toggleAnimation}
-        closeNoteEdtior={_closeNoteEdtior}
-      />
-
+        <DesktopViewEditorDisplay 
+          animate={animate}
+          note={selectedNote}
+          displayAddNoteForm={toggleAddNote}
+          reRenderFunction={props.reRenderFunction}
+          toggleAnimation={props.toggleAnimation}
+          closeNoteEdtior={_closeNoteEdtior}
+        />
+      </DesktopViewComponentContainer>  
     </DesktopViewContainer>
   );
 };

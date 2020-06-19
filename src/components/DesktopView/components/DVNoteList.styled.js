@@ -6,7 +6,7 @@ const DVNoteListContainer = styled.div`
   margin: 0;
   padding: 0;
   cursor: pointer;
-  border: 1px solid blue;
+  // border: 1px solid blue;
   overflow-y: scroll;
   &::-webkit-scrollbar {
     display: none;
