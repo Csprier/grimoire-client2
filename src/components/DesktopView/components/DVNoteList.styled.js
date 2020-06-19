@@ -7,6 +7,10 @@ const DVNoteListContainer = styled.div`
   padding: 0;
   cursor: pointer;
   border: 1px solid blue;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  };
 `;
 
 const DVNote = styled.div`
