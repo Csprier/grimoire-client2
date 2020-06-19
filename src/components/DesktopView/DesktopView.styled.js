@@ -8,6 +8,7 @@ const DesktopViewContainer = styled.div`
   margin: 0 auto;
   padding: 0;
   border: 1px solid slategray;
+  overflow: hidden;
 `;
 
 const DesktopViewButtonContainer = styled.div`

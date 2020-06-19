@@ -43,7 +43,7 @@ const DesktopViewNoteList = (props) => {
                     setTimeout(() => {
                       console.log('Set Timeout triggered');
                       props.openNoteEditor(note);
-                    }, 500);
+                    }, 200);
                   }
                 }}
               >

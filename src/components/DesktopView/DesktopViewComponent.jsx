@@ -77,7 +77,7 @@ const DesktopViewComponent = (props) => {
             _closeNoteEdtior();
             setTimeout(() => {
               _openNoteEditor({});
-            }, 500)
+            }, 200)
           } else {
             _closeNoteEdtior();
           }

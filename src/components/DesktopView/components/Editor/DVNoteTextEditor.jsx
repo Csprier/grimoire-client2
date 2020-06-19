@@ -10,7 +10,7 @@ import {
 import Util from '../../../../utility/util';
 
 /** Styles */
-import './dv-note-editor.css';
+import './dv-note-text-editor.css';
 
 class DVNoteTextEditor extends Component {
   constructor(props) {
