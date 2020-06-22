@@ -18,7 +18,11 @@ const DesktopViewNoteList = (props) => {
   console.log('displayAddNoteForm', displayAddNoteForm, '\n', 'selected', selected, '\n', 'selectedNote', selectedNote);
   
   if (displayAddNoteForm && selectedNote === {}) {
-    setSelected('');
+    // Add Note button was clicked when there WAS NOT a previously selected note
+    setSelected({});
+  } else if (displayAddNoteForm && selectedNote !== {}) {
+    // Add Note button was clicked when there WAS a previously selected note
+    setSelected({});
   }
 
   return(
