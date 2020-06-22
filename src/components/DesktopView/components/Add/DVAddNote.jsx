@@ -7,13 +7,13 @@ import Util from '../../../../utility/util';
 import DVAddNoteTextEditor from '../Editor/DVAddNoteTextEditor';
 
 /** Styles */
-import {
-  DVAddNoteContainer,
-  DVAddNoteForm,
-  DVAddNoteInput,
-  DVAddNoteLabel,
-  DVAddNoteSubmitButton
-} from './DVAddNote.styled';
+// import {
+//   DVAddNoteContainer,
+//   DVAddNoteForm,
+//   DVAddNoteInput,
+//   DVAddNoteLabel,
+//   DVAddNoteSubmitButton
+// } from './DVAddNote.styled';
 import './dv-add-note.css';
 
 class DVAddNoteComponent extends Component {
@@ -56,28 +56,29 @@ class DVAddNoteComponent extends Component {
 
   render() {
     return(
-      <DVAddNoteContainer>
-        <DVAddNoteForm onSubmit={(e) => this._submitNote(e)}>
-          <DVAddNoteLabel>Title
-            <DVAddNoteInput 
+      <div className="dv-add-note-container">
+        <form className="dv-add-note-form" onSubmit={(e) => this._submitNote(e)}>
+          <label className="dv-add-note-label">Title
+            <input
+              className="dv-add-note-input" 
               type="text"
               name="title"
               onChange={this._handleChange}
               value={this.state.title || ''}
               placeholder="Title..."
             />
-          </DVAddNoteLabel>
+          </label>
 
-          <DVAddNoteLabel>Content
+          <label className="dv-add-note-label">Content
             <DVAddNoteTextEditor 
               editorState={JSON.stringify(this.state.content)}
               handleContentChange={this._handleContentChange}
             />
-          </DVAddNoteLabel>
+          </label>
 
-          <DVAddNoteSubmitButton>Submit</DVAddNoteSubmitButton>
-        </DVAddNoteForm>
-      </DVAddNoteContainer>
+          <button className="dv-add-note-submit-button">Submit</button>
+        </form>
+      </div>
     );
   };
 };
