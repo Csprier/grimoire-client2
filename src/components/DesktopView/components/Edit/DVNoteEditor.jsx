@@ -16,6 +16,7 @@ import {
   DVNoteEditorSubmitButton,
   DVNoteEditorTitle
 } from './DVNoteEditor.styled';
+import './dv-edit-note.css';
 
 class DVNoteEditor extends Component { 
   constructor(props) {

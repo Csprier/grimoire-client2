@@ -14,6 +14,7 @@ import {
   DVAddNoteLabel,
   DVAddNoteSubmitButton
 } from './DVAddNote.styled';
+import './dv-add-note.css';
 
 class DVAddNoteComponent extends Component {
   constructor(props){
