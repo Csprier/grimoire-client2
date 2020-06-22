@@ -7,15 +7,15 @@ import Util from '../../../../utility/util';
 import DVNoteTextEditor from '../Editor/DVNoteTextEditor';
 
 /** Styles */
-import {
-  DVNoteEditorContainer,
-  DVNoteEditorForm,
-  DVNoteEditorHeader,
-  DVNoteEditorInput,
-  DVNoteEditorLabel,
-  DVNoteEditorSubmitButton,
-  DVNoteEditorTitle
-} from './DVNoteEditor.styled';
+// import {
+//   DVNoteEditorContainer,
+//   DVNoteEditorForm,
+//   DVNoteEditorHeader,
+//   DVNoteEditorInput,
+//   DVNoteEditorLabel,
+//   DVNoteEditorSubmitButton,
+//   DVNoteEditorTitle
+// } from './DVNoteEditor.styled';
 import './dv-edit-note.css';
 
 class DVNoteEditor extends Component { 
@@ -69,32 +69,33 @@ class DVNoteEditor extends Component {
 
   render() {
     return(
-      <DVNoteEditorContainer>
-        <DVNoteEditorHeader>
-          <DVNoteEditorTitle>{this.props.note.title}</DVNoteEditorTitle>
-        </DVNoteEditorHeader>
+      <div className="dv-edit-note-container">
+        <div className="dv-edit-note-header-container">
+          <h2 className="dv-edit-note-header">{this.props.note.title}</h2>
+        </div>
 
-        <DVNoteEditorForm onSubmit={this._submitNote}>
-          <DVNoteEditorLabel>Title
-            <DVNoteEditorInput 
+        <form className="dv-edit-note-form" onSubmit={this._submitNote}>
+          <label className="dv-edit-note-label">Title
+            <input
+              className="dv-edit-note-input"
               type="text"
               name="title"
               onChange={this._handleChange}
               defaultValue={this.props.note.title}
               placeholder="Title..."
             />
-          </DVNoteEditorLabel>
+          </label>
 
-          <DVNoteEditorLabel>Content
+          <label className="dv-edit-note-label">Content
             <DVNoteTextEditor 
               editorState={this.props.note.content}
               handleContentChange={this._handleContentChange}
             />
-          </DVNoteEditorLabel>
+          </label>
 
-          <DVNoteEditorSubmitButton>Submit</DVNoteEditorSubmitButton>
-        </DVNoteEditorForm>
-      </DVNoteEditorContainer>
+          <button className="dv-edit-note-submit-button">Submit</button>
+        </form> 
+      </div>
     );
   };
 };

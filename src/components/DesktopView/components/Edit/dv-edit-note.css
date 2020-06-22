@@ -1,0 +1,48 @@
+.dv-edit-note-container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+..dv-edit-note-header-container {
+  margin: 0;
+  padding: 0;
+}
+
+.dv-edit-note-header {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.dv-edit-note-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.dv-edit-note-label {
+  width: 100%;
+  margin: 0;
+  padding: 4px;
+  color: white;
+}
+
+.dv-edit-note-input {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.dv-edit-note-submit-button {
+  width: 100px;
+  height: 33px;
+  margin: 0 auto;
+  padding: 6px 8px;
+  background-color: slateblue;
+  border: 1px solid slateblue;
+  color: white;
+  border-radius: 3px;
+  font-size: 14px;
+}
