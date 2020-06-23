@@ -58,17 +58,17 @@ const Dashboard = () => {
       <NavigationBar toggleAnimation={toggleAnimation} animate={animate} />
       
       <DashboardContent>
-          <NoteList
-            listOfNotes={listOfNotes}
-            reRenderFunction={_reRenderNoteList}
-            toggleReRender={toggleReRender}
-            reRender={reRender}
-          />
-          <AddNoteDisplay 
-            toggleAnimation={toggleAnimation} 
-            animate={animate} 
-            reRenderFunction={_reRenderNoteList}
-          />
+        <NoteList
+          listOfNotes={listOfNotes}
+          reRenderFunction={_reRenderNoteList}
+          toggleReRender={toggleReRender}
+          reRender={reRender}
+        />
+        <AddNoteDisplay 
+          toggleAnimation={toggleAnimation} 
+          animate={animate} 
+          reRenderFunction={_reRenderNoteList}
+        />
 
         {/* <DesktopViewComponent 
           notes={listOfNotes} 
