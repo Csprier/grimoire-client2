@@ -6,6 +6,7 @@ import {
   MobileViewButtonContainer,
   MobileViewComponentContainer
 } from './MobileView.styled';
+import MobileViewNoteList from './components/MVNoteList';
 
 const MobileViewComponent = (props) => {
   
@@ -18,7 +19,9 @@ const MobileViewComponent = (props) => {
       </MobileViewButtonContainer>
 
       <MobileViewComponentContainer>
-        {/** Note List component goes in here */}
+        <MobileViewNoteList 
+          notes={props.notes}
+        />
       </MobileViewComponentContainer>
 
     </MobileViewContainer>

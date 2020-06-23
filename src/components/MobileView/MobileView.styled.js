@@ -4,7 +4,7 @@ const MobileViewContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 98%;
-  height: 600px;
+  height: 100%;
   margin: 0 auto;
   padding: 0;
   border: 1px solid slategray;
