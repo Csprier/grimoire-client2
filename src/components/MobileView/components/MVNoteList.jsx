@@ -9,12 +9,10 @@ import {
 } from './MVNoteList.styled';
 
 const MobileViewNoteList = (props) => {
+  const [clicked, setClicked] = useState(false);
+
   return(
     <MVNoteListContainer>
-      {props.notes 
-        ? console.log(props.notes) 
-        : console.log('No notes.')}
-
       {props.notes 
         ? props.notes.map(note => {
             let contentSnippet = JSON.parse(note.content);
@@ -22,6 +20,8 @@ const MobileViewNoteList = (props) => {
             return (
               <MVNote 
                 key={note._id}
+                clicked={clicked}
+                id={note._id}
                 onClick={() => console.log(note._id)}
               >
                 <MVNoteTitle>{note.title}</MVNoteTitle>
