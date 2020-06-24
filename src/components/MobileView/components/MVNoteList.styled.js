@@ -16,7 +16,8 @@ const MVNote = styled.div`
   display: flex;
   flex-direction: column;
   width: 98%;
-  height: auto;
+  // height: auto;
+  height: ${props => props.clicked ? '550px' : 'auto'};
   margin: 2px auto;
   padding: 0;
   border: 1px solid gray;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 /** Util */
-import Util from '../../../utility/util';
+import Util from '../../../../utility/util';
 
 /** Components */
 import MVEditNoteTextEditor from '../Editor/MVNoteTextEditor';
@@ -79,13 +79,13 @@ class MVEditNoteFormComponent extends Component {
     // console.log('Note Form State:', this.state);
     return(
       <MVEditNoteComponentContainer toggle={this.state.toggle}>
-        <MVEditNoteComponentHeader>
+        {/* <MVEditNoteComponentHeader>
           <MVEditNoteTitle>{this.props.note.title}</MVEditNoteTitle>
           <MVEditNoteButtonContainer>
             <MVEditNoteToggleButton onClick={() => this._toggle(!this.state.toggle)} toggle={this.state.toggle}>{this.state.toggle ? 'open' : 'closed'}</MVEditNoteToggleButton>
             <MVEditNoteDeleteButton onClick={() => this._deleteNote()}>X</MVEditNoteDeleteButton>
           </MVEditNoteButtonContainer>
-        </MVEditNoteComponentHeader>
+        </MVEditNoteComponentHeader> */}
         <MVEditNoteForm onSubmit={this._submitNote} toggle={this.state.toggle}>
           <MVEditNoteLabel>Title
             <MVEditNoteInput 
@@ -103,7 +103,7 @@ class MVEditNoteFormComponent extends Component {
               handleContentChange={this._handleContentChange}
             />
           </MVEditNoteLabel>
-          <MVEditNoteSubmitButton onSubmit={this._submitNote}>Submit</MVEditNoteSubmitButton>
+          <MVEditNoteSubmitButton>Submit</MVEditNoteSubmitButton>
         </MVEditNoteForm>
       </MVEditNoteComponentContainer>
     );

@@ -7,7 +7,7 @@ import {
   MVNoteTitle,
   MVNoteSnippet
 } from './MVNoteList.styled';
-import MVNoteTextEditor from './Editor/MVNoteTextEditor';
+import MVEditNoteForm from './Edit/MVEditNoteForm';
 
 const MobileViewNoteList = (props) => {
   const [clicked, setClicked] = useState(false);
@@ -23,14 +23,10 @@ const MobileViewNoteList = (props) => {
                 key={note._id}
                 clicked={clicked}
                 id={note._id}
-                onClick={() => {
-                  console.log(note._id);
-                  setClicked(!clicked);
-                }}
               >
                 <MVNoteTitle onClick={() => setClicked(!clicked)}>{note.title}</MVNoteTitle>
                 {(clicked) 
-                  ? <MVNoteTextEditor note={note} />
+                  ? <MVEditNoteForm note={note} />
                   : <span>
                       <MVNoteSnippet>{formattedSnippet}</MVNoteSnippet>
                     </span>
