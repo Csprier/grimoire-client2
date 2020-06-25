@@ -11,7 +11,16 @@ import MVEditNoteForm from './Edit/MVEditNoteForm';
 
 const MobileViewNoteList = (props) => {
   const [clicked, setClicked] = useState(false);
+  const [selected, setSelected] = useState('');
 
+  function _viewLocalState() {
+    return { 
+      clicked: clicked, 
+      selected: selected
+    };
+  };
+
+  console.log('MV NoteList Local State:', _viewLocalState());
   return(
     <MVNoteListContainer>
       {props.notes 
@@ -24,8 +33,23 @@ const MobileViewNoteList = (props) => {
                 clicked={clicked}
                 id={note._id}
               >
-                <MVNoteTitle onClick={() => setClicked(!clicked)}>{note.title}</MVNoteTitle>
-                {(clicked) 
+                <MVNoteTitle onClick={() => {
+                  if (!clicked && selected === ''){
+                    setClicked(!clicked);
+                    setSelected(note._id);
+                  }
+
+                  if (clicked && selected !== '') {
+                    setSelected(note._id);
+                  }
+
+                  if (clicked && selected === note._id) {
+                    setClicked(false);
+                    setSelected('');
+                  }
+                }}>{note.title}</MVNoteTitle>
+
+                {(clicked && note._id === selected) 
                   ? <MVEditNoteForm note={note} />
                   : <span>
                       <MVNoteSnippet>{formattedSnippet}</MVNoteSnippet>

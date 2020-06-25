@@ -16,12 +16,14 @@ const MVNote = styled.div`
   display: flex;
   flex-direction: column;
   width: 98%;
-  // height: auto;
-  height: ${props => props.clicked ? '550px' : 'auto'};
   margin: 2px auto;
   padding: 0;
   border: 1px solid gray;
   background-color: #242526;
+  transition-property: height;
+  transition-duration: .5s;
+  transition-delay: .5s;
+  height: ${props => props.clicked ? '550px' : 'auto'};
 `;
 
 const MVNoteTitle = styled.h2`

@@ -8,16 +8,16 @@ import MVEditNoteTextEditor from '../Editor/MVNoteTextEditor';
 
 /** Styles */
 import {
-  MVEditNoteButtonContainer,
+  // MVEditNoteButtonContainer,
   MVEditNoteInput,
   MVEditNoteLabel,
   MVEditNoteComponentContainer,
   MVEditNoteForm,
-  MVEditNoteComponentHeader,
-  MVEditNoteTitle,
+  // MVEditNoteComponentHeader,
+  // MVEditNoteTitle,
   MVEditNoteSubmitButton,
-  MVEditNoteToggleButton,
-  MVEditNoteDeleteButton
+  // MVEditNoteToggleButton,
+  // MVEditNoteDeleteButton
 } from './MVEditNoteForm.styled';
 
 class MVEditNoteFormComponent extends Component {
@@ -79,13 +79,6 @@ class MVEditNoteFormComponent extends Component {
     // console.log('Note Form State:', this.state);
     return(
       <MVEditNoteComponentContainer toggle={this.state.toggle}>
-        {/* <MVEditNoteComponentHeader>
-          <MVEditNoteTitle>{this.props.note.title}</MVEditNoteTitle>
-          <MVEditNoteButtonContainer>
-            <MVEditNoteToggleButton onClick={() => this._toggle(!this.state.toggle)} toggle={this.state.toggle}>{this.state.toggle ? 'open' : 'closed'}</MVEditNoteToggleButton>
-            <MVEditNoteDeleteButton onClick={() => this._deleteNote()}>X</MVEditNoteDeleteButton>
-          </MVEditNoteButtonContainer>
-        </MVEditNoteComponentHeader> */}
         <MVEditNoteForm onSubmit={this._submitNote} toggle={this.state.toggle}>
           <MVEditNoteLabel>Title
             <MVEditNoteInput 
