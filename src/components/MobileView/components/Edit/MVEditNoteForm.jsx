@@ -29,15 +29,9 @@ class MVEditNoteFormComponent extends Component {
       content: this.props.note.content || {},
       toggle: false
     };
-    this._toggle = this._toggle.bind(this);
     this._handleChange = this._handleChange.bind(this);
     this._handleContentChange = this._handleContentChange.bind(this);
     this._submitNote = this._submitNote.bind(this);
-  };
-
-  _toggle = () => {
-    this.setState({ toggle: !this.state.toggle })
-    console.log('Toggling Note:', this.state.note_id, this.state.toggle);
   };
 
   _handleChange = (e) => {
@@ -78,8 +72,8 @@ class MVEditNoteFormComponent extends Component {
     // console.log('Note Form Props:', this.props);
     // console.log('Note Form State:', this.state);
     return(
-      <MVEditNoteComponentContainer toggle={this.state.toggle}>
-        <MVEditNoteForm onSubmit={this._submitNote} toggle={this.state.toggle}>
+      <MVEditNoteComponentContainer>
+        <MVEditNoteForm onSubmit={this._submitNote}>
           <MVEditNoteLabel>Title
             <MVEditNoteInput 
               type="text"
@@ -92,7 +86,7 @@ class MVEditNoteFormComponent extends Component {
 
           <MVEditNoteLabel>Content
             <MVEditNoteTextEditor
-              editorState={this.state.content}
+              editorState={this.props.note.content}
               handleContentChange={this._handleContentChange}
             />
           </MVEditNoteLabel>

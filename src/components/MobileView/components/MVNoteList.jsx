@@ -50,7 +50,7 @@ const MobileViewNoteList = (props) => {
                 }}>{note.title}</MVNoteTitle>
 
                 {(clicked && note._id === selected) 
-                  ? <MVEditNoteForm note={note} />
+                  ? <MVEditNoteForm note={note} reRender={props.reRenderFunction} />
                   : <span>
                       <MVNoteSnippet>{formattedSnippet}</MVNoteSnippet>
                     </span>

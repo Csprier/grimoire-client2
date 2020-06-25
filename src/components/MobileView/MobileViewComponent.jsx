@@ -21,6 +21,7 @@ const MobileViewComponent = (props) => {
       <MobileViewComponentContainer>
         <MobileViewNoteList 
           notes={props.notes}
+          reRenderFunction={props.reRenderFunction}
         />
       </MobileViewComponentContainer>
 
