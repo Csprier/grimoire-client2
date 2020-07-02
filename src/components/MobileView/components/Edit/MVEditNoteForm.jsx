@@ -24,14 +24,23 @@ class MVEditNoteFormComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note_id: this.props.note._id || '',
-      title: this.props.note.title || '',
-      content: this.props.note.content || {},
-      toggle: false
+      note_id: '',
+      title: '',
+      content: {}
     };
     this._handleChange = this._handleChange.bind(this);
     this._handleContentChange = this._handleContentChange.bind(this);
     this._submitNote = this._submitNote.bind(this);
+  };
+
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      this.setState({
+        note_id: this.props.note._id,
+        title: this.props.note.title,
+        content: this.props.note.content
+      })
+    }
   };
 
   _handleChange = (e) => {
@@ -46,7 +55,7 @@ class MVEditNoteFormComponent extends Component {
 
   _submitNote = (e) => {
     e.preventDefault();
-    const note_id = this.state.note_id;
+    const note_id = this.props.note._id;
     const user_id = Util.DATA.getUserIdFromLocalStorage();
     let payload = {
       userId: user_id,
@@ -55,7 +64,7 @@ class MVEditNoteFormComponent extends Component {
     };
     console.log('Payload: ', payload);
     return Util.API.notePUT(note_id, payload)
-      .then(res => console.log(res))
+      .then(res => console.log('notePUT res:', res))
       .then(() => this.props.reRender())
       .catch(err => console.error(err));
   };
@@ -69,8 +78,7 @@ class MVEditNoteFormComponent extends Component {
   };
 
   render() {
-    // console.log('Note Form Props:', this.props);
-    // console.log('Note Form State:', this.state);
+    // console.log('props:', this.props, '\n', 'state:', this.state);
     return(
       <MVEditNoteComponentContainer>
         <MVEditNoteForm onSubmit={this._submitNote}>

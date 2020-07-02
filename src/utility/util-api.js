@@ -122,7 +122,7 @@ function _notePUT(id, data) {
     method: 'PUT',
     headers: { 
       Authorization: `Bearer ${authToken}`,
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': '*, PUT',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)

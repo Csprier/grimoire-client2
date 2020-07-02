@@ -16,14 +16,12 @@ const MVNote = styled.div`
   display: flex;
   flex-direction: column;
   width: 98%;
+  height: 50px;
   margin: 2px auto;
   padding: 0;
   border: 1px solid gray;
   background-color: #242526;
-  transition-property: height;
-  transition-duration: .5s;
-  transition-delay: .5s;
-  height: ${props => props.clicked ? '550px' : 'auto'};
+  overflow: hidden;
 `;
 
 const MVNoteTitle = styled.h2`
@@ -40,9 +38,25 @@ const MVNoteSnippet = styled.p`
   padding: 0;
 `;
 
+const MVNoteListAnimatedContainer = styled.div`
+  // position: relative;
+  // top: 0px;
+  // left: 0px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  transition-property: height;
+  transition-duration: .5s;
+  transition-delay: .5s;
+  height: ${props => props.clicked ? '550px' : '0px'};
+  border: 1px solid red;
+`;
+
 export {
   MVNote,
   MVNoteListContainer,
+  MVNoteListAnimatedContainer,
   MVNoteTitle,
   MVNoteSnippet
 };
