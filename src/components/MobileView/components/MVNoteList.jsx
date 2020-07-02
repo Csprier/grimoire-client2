@@ -16,8 +16,8 @@ const MobileViewNoteList = (props) => {
       { /** Render the note list with styled-components */
         props.notes 
           ? props.notes.map(note => {
-              // let contentSnippet = JSON.parse(note.content);
-              // let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
+              let contentSnippet = JSON.parse(note.content);
+              let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
               // console.log(note);
               return (
                 <MVNote key={note._id} id={note._id}
@@ -28,7 +28,7 @@ const MobileViewNoteList = (props) => {
                   }}
                 >
                   <MVNoteTitle>{note.title}</MVNoteTitle>
-                  {/* <MVNoteSnippet>{formattedSnippet}</MVNoteSnippet> */}
+                  <MVNoteSnippet>{formattedSnippet}</MVNoteSnippet>
                 </MVNote>
               );
           }) 
