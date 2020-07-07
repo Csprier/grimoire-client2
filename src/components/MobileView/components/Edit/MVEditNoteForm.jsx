@@ -98,7 +98,7 @@ class MVEditNoteFormComponent extends Component {
               handleContentChange={this._handleContentChange}
             />
           </MVEditNoteLabel>
-          <MVEditNoteSubmitButton>Submit</MVEditNoteSubmitButton>
+          <MVEditNoteSubmitButton>Save</MVEditNoteSubmitButton>
         </MVEditNoteForm>
       </MVEditNoteComponentContainer>
     );

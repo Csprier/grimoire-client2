@@ -3,6 +3,7 @@ import React from 'react';
 /** Styles */
 import {
   MVNote,
+  MVNoteListh1,
   MVNoteListContainer,
   // MVNoteListAnimatedContainer,
   MVNoteTitle,
@@ -13,6 +14,7 @@ const MobileViewNoteList = (props) => {
   const { setClicked, setSelected, setShowModal } = props;
   return(
     <MVNoteListContainer>
+      <MVNoteListh1>Notes</MVNoteListh1>
       { /** Render the note list with styled-components */
         props.notes 
           ? props.notes.map(note => {

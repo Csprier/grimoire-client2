@@ -8,7 +8,7 @@ const ModalContainer = styled.div`
   margin: 0 auto;
   padding: 0px;
   background-color: white;
-  border: 1px solid red;
+  // border: 1px solid red;
   overflow: hidden;
   transition-property: height;
   transition-duration: .1s;

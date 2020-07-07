@@ -62,7 +62,7 @@ const MVEditNoteSubmitButton = styled.button`
   padding: 6px 8px;
   background-color: slateblue;
   color: white;
-  border: 1px solid slateblue";
+  border: 1px solid slateblue;
   border-radius: 3px;
   font-size: 14px;
 `;

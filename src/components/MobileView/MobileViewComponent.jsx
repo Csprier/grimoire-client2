@@ -4,7 +4,8 @@ import React, { useState }  from 'react';
 import {
   MobileViewContainer,
   // MobileViewButtonContainer,
-  MobileViewComponentContainer
+  MobileViewComponentContainer,
+  ModalCloseButton
 } from './MobileView.styled';
 import MobileViewNoteList from './components/MVNoteList';
 import Modal from '../Modal/Modal';
@@ -20,12 +21,12 @@ const MobileViewComponent = (props) => {
 
       <MobileViewComponentContainer>
         <Modal showModal={showModal}>
-          <button onClick={() => {
+          <ModalCloseButton onClick={() => {
             setClicked(false);
             setSelected({});
             setShowModal(false);
             console.log('Closing modal');
-          }}>CLOSE X</button>
+          }}>CLOSE X</ModalCloseButton>
           <MVEditNoteForm 
             note={selected} 
             reRender={props.reRenderFunction}
