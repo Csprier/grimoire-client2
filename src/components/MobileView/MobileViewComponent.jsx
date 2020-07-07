@@ -24,21 +24,19 @@ const MobileViewComponent = (props) => {
       <MobileViewComponentContainer>
         <Modal showModal={showModal}>
           <ModalCloseButton onClick={() => {
+            if (addNote) {
+              setAddNote(false);
+              setShowModal(false);
+              setClicked(false);
+              setSelected({});
+            }
             setClicked(false);
             setSelected({});
             setShowModal(false);
             console.log('Closing modal');
           }}>CLOSE X</ModalCloseButton>
-          {/* <MVEditNoteForm 
-            note={selected} 
-            reRender={props.reRenderFunction}
-            setShowModal={setShowModal}
-          /> */}
-          <MVAddNoteForm 
-            reRender={props.reRenderFunction}
-            setShowModal={setShowModal}
-          />
-          {/* {(addNote) 
+          
+          {(addNote) 
             ? <MVAddNoteForm 
                 reRender={props.reRenderFunction}
                 setShowModal={setShowModal}
@@ -48,7 +46,7 @@ const MobileViewComponent = (props) => {
                 reRender={props.reRenderFunction}
                 setShowModal={setShowModal}
               />
-          } */}
+          }
         </Modal>
 
         <MobileViewNoteList 

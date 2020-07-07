@@ -56,8 +56,20 @@ const MVNoteListh1 = styled.h1`
   padding: 0;
 `;
 
+const MVAddNoteButton = styled.button`
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  color: white;
+  background-color: green;
+  border: 1px solid white;
+`;
+
 export {
   MVNote,
+  MVAddNoteButton,
   MVNoteListh1,
   MVNoteListContainer,
   MVNoteListAnimatedContainer,

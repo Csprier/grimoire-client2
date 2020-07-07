@@ -3,6 +3,7 @@ import React from 'react';
 /** Styles */
 import {
   MVNote,
+  MVAddNoteButton,
   MVNoteListh1,
   MVNoteListContainer,
   // MVNoteListAnimatedContainer,
@@ -11,10 +12,17 @@ import {
 } from './MVNoteList.styled';
 
 const MobileViewNoteList = (props) => {
-  const { setClicked, setSelected, setShowModal } = props;
+  const { setAddNote, setClicked, setSelected, setShowModal } = props;
   return(
     <MVNoteListContainer>
       <MVNoteListh1>Notes</MVNoteListh1>
+      <MVAddNoteButton 
+        onClick={() => {
+          setAddNote(true);
+          setShowModal(true);
+          console.log('Add a note!');
+      }}>+</MVAddNoteButton>
+
       { /** Render the note list with styled-components */
         props.notes 
           ? props.notes.map(note => {

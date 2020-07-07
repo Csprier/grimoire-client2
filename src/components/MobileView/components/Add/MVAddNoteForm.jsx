@@ -54,10 +54,13 @@ class MVAddNoteFormComponent extends Component {
     return Util.API.notePOST(payload)
       .then(res => console.log(res))
       .then(() => this.props.reRender())
+      .then(() => this.props.setShowModal())
+      .then(() => this.setState({ title: '', content: {} }))
       .catch(err => console.error(err));
   };
 
   render() {
+    console.log('MVAddNote State:', this.state);
     return(
       <MVAddNoteComponentContainer>
         <MVAddNoteForm onSubmit={this._submitNote}>
