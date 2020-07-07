@@ -9,12 +9,14 @@ import {
 } from './MobileView.styled';
 import MobileViewNoteList from './components/MVNoteList';
 import Modal from '../Modal/Modal';
+import MVAddNoteForm from './components/Add/MVAddNoteForm';
 import MVEditNoteForm from './components/Edit/MVEditNoteForm';
 
 const MobileViewComponent = (props) => {
   const [clicked, setClicked] = useState(false);
   const [selected, setSelected] = useState({});
   const [showModal, setShowModal] = useState(false);
+  const [addNote, setAddNote] = useState(false);
 
   return(
     <MobileViewContainer>
@@ -27,21 +29,37 @@ const MobileViewComponent = (props) => {
             setShowModal(false);
             console.log('Closing modal');
           }}>CLOSE X</ModalCloseButton>
-          <MVEditNoteForm 
+          {/* <MVEditNoteForm 
             note={selected} 
             reRender={props.reRenderFunction}
             setShowModal={setShowModal}
+          /> */}
+          <MVAddNoteForm 
+            reRender={props.reRenderFunction}
+            setShowModal={setShowModal}
           />
+          {/* {(addNote) 
+            ? <MVAddNoteForm 
+                reRender={props.reRenderFunction}
+                setShowModal={setShowModal}
+              />
+            : <MVEditNoteForm 
+                note={selected} 
+                reRender={props.reRenderFunction}
+                setShowModal={setShowModal}
+              />
+          } */}
         </Modal>
 
         <MobileViewNoteList 
-          notes={props.notes}
           clicked={clicked}
-          setClicked={setClicked}
+          notes={props.notes}
+          reRenderFunction={props.reRenderFunction}
           selected={selected}
+          setAddNote={setAddNote}
+          setClicked={setClicked}
           setSelected={setSelected}
           setShowModal={setShowModal}
-          reRenderFunction={props.reRenderFunction}
         />
       </MobileViewComponentContainer>
 
