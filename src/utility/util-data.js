@@ -8,8 +8,18 @@ function _saveAuthToken(authToken) {
   try {
     /** .setItem(key, value) */
     localStorage.setItem('authToken', authToken);
-  } catch(e) {}
+  } catch(e) {
+    console.error(e);
+  };
 };
+
+function _clearLocalStorageContent() {
+  try {
+    localStorage.removeItem('content');
+  } catch(e) {
+    console.error(e);
+  };
+}
 
 function _loadAuthToken() {
   const authToken = localStorage.getItem('authToken');
@@ -78,6 +88,11 @@ const UtilDATA = {
     * @param {object}   authToken - 
   */
   saveAuthToken: (authToken) => _saveAuthToken(authToken),
+  /**
+   * clearLocalStorageContent: Uses LocalStorage.removeItem('content) to clear the local storage's content key/value
+   * @param 
+   */
+  clearLocalStorageContent: () => _clearLocalStorageContent(),
   /**
     * loadAuthToken: gets the value from the localStorage, if it exists, otherwise, it returns null.
   */

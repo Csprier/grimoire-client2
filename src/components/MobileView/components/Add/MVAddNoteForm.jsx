@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {
+  EditorState
+} from 'draft-js';
 
 /** Util */
 import Util from '../../../../utility/util';
@@ -8,16 +11,11 @@ import MVAddNoteTextEditor from '../Editor/MVAddNoteTextEditor';
 
 /** Styles */
 import {
-  // MVAddNoteButtonContainer,
   MVAddNoteInput,
   MVAddNoteLabel,
   MVAddNoteComponentContainer,
   MVAddNoteForm,
-  // MVAddNoteComponentHeader,
-  // MVAddNoteTitle,
   MVAddNoteSubmitButton,
-  // MVAddNoteToggleButton,
-  // MVAddNoteDeleteButton
 } from './MVAddNoteForm.styled';
 
 class MVAddNoteFormComponent extends Component {
@@ -25,7 +23,7 @@ class MVAddNoteFormComponent extends Component {
     super(props);
     this.state = {
       title: '',
-      content: {}      
+      content: EditorState.createEmpty()
     };
     this._handleChange = this._handleChange.bind(this);
     this._handleContentChange = this._handleContentChange.bind(this);
@@ -55,12 +53,18 @@ class MVAddNoteFormComponent extends Component {
       .then(res => console.log(res))
       .then(() => this.props.reRender())
       .then(() => this.props.setShowModal())
-      .then(() => this.setState({ title: '', content: {} }))
+      .then(() => {
+        this.setState({ 
+          title: '', 
+          content: {}
+        })
+      })
+      .then(() => Util.DATA.clearLocalStorageContent())
+      .then(() => this.props.setInit(true))
       .catch(err => console.error(err));
   };
 
   render() {
-    console.log('MVAddNote State:', this.state);
     return(
       <MVAddNoteComponentContainer>
         <MVAddNoteForm onSubmit={this._submitNote}>
@@ -69,6 +73,7 @@ class MVAddNoteFormComponent extends Component {
               type="text"
               name="title"
               onChange={this._handleChange}
+              value={this.state.title}
               placeholder="Title..."
             />
           </MVAddNoteLabel>

@@ -1,4 +1,4 @@
-import React, { useState }  from 'react';
+import React, { useEffect, useState }  from 'react';
 
 /** Styles */
 import {
@@ -12,16 +12,29 @@ import Modal from '../Modal/Modal';
 import MVAddNoteForm from './components/Add/MVAddNoteForm';
 import MVEditNoteForm from './components/Edit/MVEditNoteForm';
 
+/** Force ReRender */
+const useForceUpdate = () => useState()[1];
+
 const MobileViewComponent = (props) => {
   const [clicked, setClicked] = useState(false);
   const [selected, setSelected] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [addNote, setAddNote] = useState(false);
+  const [init, setInit] = useState(false);
+  const forceUpdate = useForceUpdate();
+
+  useEffect(() => {
+    if (init) {
+      forceUpdate();
+      console.log('Init is true, forcing update!');
+      setInit(false);
+    }
+  }, [forceUpdate, init, setInit]);
 
   return(
     <MobileViewContainer>
-
       <MobileViewComponentContainer>
+
         <Modal showModal={showModal}>
           <ModalCloseButton onClick={() => {
             if (addNote) {
@@ -29,10 +42,12 @@ const MobileViewComponent = (props) => {
               setShowModal(false);
               setClicked(false);
               setSelected({});
+              setInit(false);
             }
             setClicked(false);
             setSelected({});
             setShowModal(false);
+            setInit(false);
             console.log('Closing modal');
           }}>CLOSE X</ModalCloseButton>
           
@@ -40,6 +55,7 @@ const MobileViewComponent = (props) => {
             ? <MVAddNoteForm 
                 reRender={props.reRenderFunction}
                 setShowModal={setShowModal}
+                setInit={setInit}
               />
             : <MVEditNoteForm 
                 note={selected} 
@@ -59,8 +75,8 @@ const MobileViewComponent = (props) => {
           setSelected={setSelected}
           setShowModal={setShowModal}
         />
-      </MobileViewComponentContainer>
 
+      </MobileViewComponentContainer>
     </MobileViewContainer>
   );
 };

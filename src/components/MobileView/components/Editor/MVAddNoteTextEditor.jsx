@@ -53,6 +53,7 @@ class MVAddNoteTextEditor extends Component {
           editorState={editorState}
           onChange={this.onChange}
           handleKeyCommand={this._handleKeyCommand}
+          placeholder="Type here..."
         />
       </div>
     );
