@@ -56,6 +56,7 @@ const MobileViewComponent = (props) => {
                 reRender={props.reRenderFunction}
                 setShowModal={setShowModal}
                 setInit={setInit}
+                init={init}
               />
             : <MVEditNoteForm 
                 note={selected} 

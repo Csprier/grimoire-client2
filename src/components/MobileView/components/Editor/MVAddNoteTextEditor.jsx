@@ -45,8 +45,17 @@ class MVAddNoteTextEditor extends Component {
     return false;
   };
 
+  fu = () => {
+    this.forceUpdate();
+    console.log('forceUpdating the Editor');
+  };
+
   render() {
     const { editorState } = this.state;
+    // if (this.props.init) {
+    //   this.fu(); // <-- does not work!!!
+    //   console.log('forceUpdating the Editor');
+    // }
     return(
       <div onClick={this.focus}>
         <Editor 

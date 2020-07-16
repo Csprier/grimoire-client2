@@ -82,6 +82,7 @@ class MVAddNoteFormComponent extends Component {
             <MVAddNoteTextEditor 
               editorState={this.state.content}
               handleContentChange={this._handleContentChange}
+              init={this.props.init}
             />
           </MVAddNoteLabel>
           <MVAddNoteSubmitButton>Save</MVAddNoteSubmitButton>
