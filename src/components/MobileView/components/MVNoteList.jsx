@@ -37,17 +37,23 @@ const MobileViewNoteList = (props) => {
               let updatedAt = note.updatedAt.slice(0, 10);
               // console.log(note);
               return (
-                <MVNote key={note._id} id={note._id}
-                  onClick={() => {
-                    setClicked(true);
-                    setSelected(note);
-                    setShowModal(true);
-                  }}
-                >
+                <MVNote key={note._id} id={note._id}>
+                  <MVNoteDeleteButton
+                    onClick={() => {
+                      console.log('Deleting:', note._id);
+                      Util.API.noteDELETE(note._id)
+                        .then(() => props.reRenderFunction())
+                        .catch(err => console.error(err)); 
+                    }}
+                  >X</MVNoteDeleteButton>
 
-                  <MVNoteDeleteButton>X</MVNoteDeleteButton>
-                  
-                  <MVNoteInfoContainer>
+                  <MVNoteInfoContainer
+                    onClick={() => {
+                      setClicked(true);
+                      setSelected(note);
+                      setShowModal(true);
+                    }}
+                  >
                     <MVNoteTitle>{note.title}</MVNoteTitle>
                     <MVNoteUpdatedAt>{updatedAt}</MVNoteUpdatedAt>
                     <MVNoteSnippet>{formattedSnippet}</MVNoteSnippet>
