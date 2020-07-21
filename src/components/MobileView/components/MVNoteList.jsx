@@ -8,7 +8,9 @@ import {
   MVNoteListContainer,
   // MVNoteListAnimatedContainer,
   MVNoteTitle,
-  MVNoteSnippet
+  MVNoteSnippet,
+  MVNoteUpdatedAt,
+  MVNoteInfoContainer
 } from './MVNoteList.styled';
 
 const MobileViewNoteList = (props) => {
@@ -28,6 +30,7 @@ const MobileViewNoteList = (props) => {
           ? props.notes.map(note => {
               let contentSnippet = JSON.parse(note.content);
               let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
+              let updatedAt = note.updatedAt.slice(0, 10);
               // console.log(note);
               return (
                 <MVNote key={note._id} id={note._id}
@@ -37,8 +40,11 @@ const MobileViewNoteList = (props) => {
                     setShowModal(true);
                   }}
                 >
-                  <MVNoteTitle>{note.title}</MVNoteTitle>
-                  <MVNoteSnippet>{formattedSnippet}</MVNoteSnippet>
+                  <MVNoteInfoContainer>
+                    <MVNoteTitle>{note.title}</MVNoteTitle>
+                    <MVNoteUpdatedAt>{updatedAt}</MVNoteUpdatedAt>
+                    <MVNoteSnippet>{formattedSnippet}</MVNoteSnippet>
+                  </MVNoteInfoContainer>
                 </MVNote>
               );
           }) 

@@ -16,7 +16,7 @@ const MVNote = styled.div`
   display: flex;
   flex-direction: column;
   width: 98%;
-  height: 50px;
+  height: 75px;
   margin: 2px auto;
   padding: 0;
   border: 1px solid gray;
@@ -30,6 +30,14 @@ const MVNoteTitle = styled.h2`
   color: black;
   margin: 0px 4px;
   padding: 0;
+`;
+
+const MVNoteUpdatedAt = styled.p`
+  display: flex;  
+  color: gray;
+  margin: 0px 10px;
+  padding: 4px;
+  font-size: 10px;
 `;
 
 const MVNoteSnippet = styled.p`
@@ -67,6 +75,15 @@ const MVAddNoteButton = styled.button`
   border: 1px solid white;
 `;
 
+const MVNoteInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  height: 50px;
+  margin: 2px auto;
+  padding: 0;
+`;
+
 export {
   MVNote,
   MVAddNoteButton,
@@ -74,5 +91,7 @@ export {
   MVNoteListContainer,
   MVNoteListAnimatedContainer,
   MVNoteTitle,
-  MVNoteSnippet
+  MVNoteSnippet,
+  MVNoteUpdatedAt,
+  MVNoteInfoContainer
 };
