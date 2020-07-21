@@ -15,6 +15,7 @@ const MVNoteListContainer = styled.div`
 const MVNote = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   width: 98%;
   height: 75px;
   margin: 2px auto;
@@ -75,6 +76,18 @@ const MVAddNoteButton = styled.button`
   border: 1px solid white;
 `;
 
+const MVNoteDeleteButton = styled.button`
+  position: absolute;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  color: white;
+  background-color: red;
+  border: 1px solid white;
+`;
+
 const MVNoteInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -93,5 +106,6 @@ export {
   MVNoteTitle,
   MVNoteSnippet,
   MVNoteUpdatedAt,
-  MVNoteInfoContainer
+  MVNoteInfoContainer,
+  MVNoteDeleteButton
 };

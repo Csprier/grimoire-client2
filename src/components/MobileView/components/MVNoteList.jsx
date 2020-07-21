@@ -1,5 +1,8 @@
 import React from 'react';
 
+/** Utility */
+import Util from '../../../utility/util';
+
 /** Styles */
 import {
   MVNote,
@@ -10,7 +13,8 @@ import {
   MVNoteTitle,
   MVNoteSnippet,
   MVNoteUpdatedAt,
-  MVNoteInfoContainer
+  MVNoteInfoContainer,
+  MVNoteDeleteButton
 } from './MVNoteList.styled';
 
 const MobileViewNoteList = (props) => {
@@ -40,6 +44,9 @@ const MobileViewNoteList = (props) => {
                     setShowModal(true);
                   }}
                 >
+
+                  <MVNoteDeleteButton>X</MVNoteDeleteButton>
+                  
                   <MVNoteInfoContainer>
                     <MVNoteTitle>{note.title}</MVNoteTitle>
                     <MVNoteUpdatedAt>{updatedAt}</MVNoteUpdatedAt>
