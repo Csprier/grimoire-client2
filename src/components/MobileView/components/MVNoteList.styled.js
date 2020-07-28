@@ -14,7 +14,7 @@ const MVNoteListContainer = styled.div`
 
 const MVNote = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: relative;
   width: 98%;
   height: 75px;
@@ -76,18 +76,6 @@ const MVAddNoteButton = styled.button`
   border: 1px solid white;
 `;
 
-const MVNoteDeleteButton = styled.button`
-  position: absolute;
-  right: 0;
-  width: 25px;
-  height: 25px;
-  margin: 0;
-  padding: 0;
-  color: white;
-  background-color: red;
-  border: 1px solid white;
-`;
-
 const MVNoteInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -95,6 +83,28 @@ const MVNoteInfoContainer = styled.div`
   height: 50px;
   margin: 2px auto;
   padding: 0;
+`;
+
+/** DELETE BUTTON */
+const MVNoteDeleteButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  // border: 1px solid red;
+`;
+
+const MVNoteDeleteButton = styled.button`
+  position: relative;
+  width: 25px;
+  height: 25px;
+  margin: 0 auto;
+  padding: 0;
+  color: red;
+  background-color: white;
+  border: 1px solid white;
 `;
 
 export {
@@ -107,5 +117,6 @@ export {
   MVNoteSnippet,
   MVNoteUpdatedAt,
   MVNoteInfoContainer,
-  MVNoteDeleteButton
+  MVNoteDeleteButton,
+  MVNoteDeleteButtonContainer
 };

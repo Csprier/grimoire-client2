@@ -9,12 +9,12 @@ import {
   MVAddNoteButton,
   MVNoteListh1,
   MVNoteListContainer,
-  // MVNoteListAnimatedContainer,
   MVNoteTitle,
   MVNoteSnippet,
   MVNoteUpdatedAt,
   MVNoteInfoContainer,
-  MVNoteDeleteButton
+  MVNoteDeleteButton,
+  MVNoteDeleteButtonContainer
 } from './MVNoteList.styled';
 
 const MobileViewNoteList = (props) => {
@@ -38,15 +38,6 @@ const MobileViewNoteList = (props) => {
               // console.log(note);
               return (
                 <MVNote key={note._id} id={note._id}>
-                  <MVNoteDeleteButton
-                    onClick={() => {
-                      console.log('Deleting:', note._id);
-                      Util.API.noteDELETE(note._id)
-                        .then(() => props.reRenderFunction())
-                        .catch(err => console.error(err)); 
-                    }}
-                  >X</MVNoteDeleteButton>
-
                   <MVNoteInfoContainer
                     onClick={() => {
                       setClicked(true);
@@ -58,6 +49,17 @@ const MobileViewNoteList = (props) => {
                     <MVNoteUpdatedAt>{updatedAt}</MVNoteUpdatedAt>
                     <MVNoteSnippet>{formattedSnippet}</MVNoteSnippet>
                   </MVNoteInfoContainer>
+
+                  <MVNoteDeleteButtonContainer>
+                    <MVNoteDeleteButton
+                      onClick={() => {
+                        console.log('Deleting:', note._id);
+                        Util.API.noteDELETE(note._id)
+                          .then(() => props.reRenderFunction())
+                          .catch(err => console.error(err)); 
+                      }}
+                    >X</MVNoteDeleteButton>
+                  </MVNoteDeleteButtonContainer>
                 </MVNote>
               );
           }) 
