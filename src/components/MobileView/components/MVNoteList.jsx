@@ -1,5 +1,8 @@
 import React from 'react';
 
+/** Libraries */
+import moment from 'moment';
+
 /** Utility */
 import Util from '../../../utility/util';
 
@@ -27,12 +30,6 @@ const MobileViewNoteList = (props) => {
   return(
     <MVNoteListContainer>
       <MVNoteListh1>{props.notes ? `${props.notes.length} Notes` : 'Notes'}</MVNoteListh1>
-      {/* <MVAddNoteButton 
-        onClick={() => {
-          setAddNote(true);
-          setShowModal(true);
-          console.log('Add a note!');
-      }}>Add</MVAddNoteButton> */}
         <MVNoteAddIcon 
           src={addIcon}
           alt="Add a note"
@@ -48,7 +45,8 @@ const MobileViewNoteList = (props) => {
           ? props.notes.map(note => {
               let contentSnippet = JSON.parse(note.content);
               let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
-              let updatedAt = note.updatedAt.slice(0, 10);
+              let updatedAt = moment(note.updatedAt); // note.updatedAt.slice(0, 10);
+              let date = updatedAt.format('MMMM Do YYYY, h:mm:ss a')
               // console.log(note);
               return (
                 <MVNote key={note._id} id={note._id}>
@@ -60,7 +58,7 @@ const MobileViewNoteList = (props) => {
                     }}
                   >
                     <MVNoteTitle>{note.title}</MVNoteTitle>
-                    <MVNoteUpdatedAt>{updatedAt}</MVNoteUpdatedAt>
+                    <MVNoteUpdatedAt>{date}</MVNoteUpdatedAt>
                     <MVNoteSnippet>{formattedSnippet}</MVNoteSnippet>
                   </MVNoteInfoContainer>
 
@@ -137,3 +135,11 @@ if (clicked && selected._id === note._id) {
     }}
   >Delete</MVNoteDeleteButton>
  */
+
+/*  <MVAddNoteButton 
+      onClick={() => {
+        setAddNote(true);
+        setShowModal(true);
+        console.log('Add a note!');
+    }}>Add</MVAddNoteButton> 
+*/
