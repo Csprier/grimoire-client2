@@ -30,15 +30,15 @@ const MobileViewNoteList = (props) => {
   return(
     <MVNoteListContainer>
       <MVNoteListh1>{props.notes ? `${props.notes.length} Notes` : 'Notes'}</MVNoteListh1>
-        <MVNoteAddIcon 
-          src={addIcon}
-          alt="Add a note"
-          onClick={() => {
-            setAddNote(true);
-            setShowModal(true);
-            console.log('Add a note!');
-          }}  
-        />
+      <MVNoteAddIcon 
+        src={addIcon}
+        alt="Add a note"
+        onClick={() => {
+          setAddNote(true);
+          setShowModal(true);
+          console.log('Add a note!');
+        }}  
+      />
 
       { /** Render the note list with styled-components */
         props.notes 
@@ -58,7 +58,7 @@ const MobileViewNoteList = (props) => {
                     }}
                   >
                     <MVNoteTitle>{note.title}</MVNoteTitle>
-                    <MVNoteUpdatedAt>{date}</MVNoteUpdatedAt>
+                    <MVNoteUpdatedAt>Last updated: {date}</MVNoteUpdatedAt>
                     <MVNoteSnippet>{formattedSnippet}</MVNoteSnippet>
                   </MVNoteInfoContainer>
 

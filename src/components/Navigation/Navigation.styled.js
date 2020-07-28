@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 
 const Navigation = styled.div`
-display: flex;
-justify-content: space-between;
-width: 100%;
-height: 35px;
-margin: 0;
-padding: 0;
-background-color: #000000;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 35px;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
 `;
 
 const UsernameHeader = styled.h1`
   display: flex;
   align-items: center;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 100;
   margin: 0px 0px 0px 10px;
   padding: 0;
@@ -35,6 +35,15 @@ const LogOutButton = styled.button`
     background-color: darkslateblue; 
     color: goldenrod;
   }
+`;
+
+const LogOutIcon = styled.img`
+  display: flex;
+  align-self: center;
+  width: 30px;
+  height: 25px;
+  margin: 0px 5px 0px 0px;
+  padding: 0;
 `;
 
 const NavigationButtonContainer = styled.div`
@@ -65,5 +74,6 @@ export {
   Navigation,
   NavigationButtonContainer,
   LogOutButton,
+  LogOutIcon,
   UsernameHeader
 };

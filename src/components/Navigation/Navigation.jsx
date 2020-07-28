@@ -3,11 +3,15 @@ import React, { useEffect, useState } from 'react';
 /** Util */
 import Util from '../../utility/util';
 
+/** Icon */
+import logoutIcon from './LOGOUTICON.png';
+
 /** Styles */
 import {
   Navigation,
-  LogOutButton,
-  UsernameHeader
+  // LogOutButton,
+  UsernameHeader,
+  LogOutIcon
 } from './Navigation.styled';
 // import { AddNoteButton } from '../Dashboard/components/AddNoteDisplay.styled';
 
@@ -28,10 +32,12 @@ const NavigationBar = (props) => {
   return(
     <Navigation>
       <UsernameHeader>Welcome back, {activeUser}!</UsernameHeader>  
-      
-      {/* <AddNoteButton onClick={() => props.toggleAnimation()} animate={props.animate}>Add Note</AddNoteButton> */}
-
-      <LogOutButton onClick={() => logout()}>Logout</LogOutButton>
+      {/* <LogOutButton onClick={() => logout()}>Logout</LogOutButton> */}
+      <LogOutIcon 
+        src={logoutIcon} 
+        alt="logout button" 
+        onClick={() => logout()} 
+      />
     </Navigation>
   );
 };
