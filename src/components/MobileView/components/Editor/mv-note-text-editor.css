@@ -7,7 +7,7 @@ div.DraftEditor-root {
   overflow-y: auto;
   /* background-color: #687079; */
   /* color: #ffdf50; */
-  color: darkgray;
+  color: rgb(85, 85, 85);
 }
 
 div.DraftEditor-editorContainer,

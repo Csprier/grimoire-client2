@@ -32,12 +32,13 @@ const MVAddNoteForm = styled.form`
 `;
 
 const MVAddNoteInput = styled.input`
-  width: 98%;
+  width: 100%;
   height: 25px;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
-  border: 1px solid gray;
+  border: 1px solid lightgray;
   border-radius: 3px;
+  color: rgb(85, 85, 85);
 `;
 
 const MVAddNoteLabel = styled.label`
