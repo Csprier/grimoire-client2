@@ -5,11 +5,12 @@ import Util from '../../../utility/util';
 
 /** Icon */
 import trashcan from './TRASHCANICON.png';
+import addIcon from './ADDICON.png';
 
 /** Styles */
 import {
   MVNote,
-  MVAddNoteButton,
+  // MVAddNoteButton,
   MVNoteListh1,
   MVNoteListContainer,
   MVNoteTitle,
@@ -17,7 +18,8 @@ import {
   MVNoteUpdatedAt,
   MVNoteInfoContainer,
   MVNoteDeleteButtonContainer,
-  MVNoteTrashCan
+  MVNoteTrashCan,
+  MVNoteAddIcon
 } from './MVNoteList.styled';
 
 const MobileViewNoteList = (props) => {
@@ -25,12 +27,21 @@ const MobileViewNoteList = (props) => {
   return(
     <MVNoteListContainer>
       <MVNoteListh1>{props.notes ? `${props.notes.length} Notes` : 'Notes'}</MVNoteListh1>
-      <MVAddNoteButton 
+      {/* <MVAddNoteButton 
         onClick={() => {
           setAddNote(true);
           setShowModal(true);
           console.log('Add a note!');
-      }}>Add</MVAddNoteButton>
+      }}>Add</MVAddNoteButton> */}
+        <MVNoteAddIcon 
+          src={addIcon}
+          alt="Add a note"
+          onClick={() => {
+            setAddNote(true);
+            setShowModal(true);
+            console.log('Add a note!');
+          }}  
+        />
 
       { /** Render the note list with styled-components */
         props.notes 

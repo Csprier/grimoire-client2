@@ -18,7 +18,7 @@ const MVNote = styled.div`
   position: relative;
   width: 98%;
   height: 75px;
-  margin: 2px auto;
+  margin: 1px auto;
   padding: 0;
   border: 1px solid lightgray;
   // background-color: #242526;
@@ -116,6 +116,12 @@ const MVNoteTrashCan = styled.img`
   padding: 0;
 `;
 
+const MVNoteAddIcon = styled.img`
+  width: 30px;
+  margin: 0px 0px 0px 10px;
+  padding: 0;
+`;
+
 export {
   MVNote,
   MVAddNoteButton,
@@ -128,5 +134,6 @@ export {
   MVNoteInfoContainer,
   MVNoteDeleteButton,
   MVNoteDeleteButtonContainer,
-  MVNoteTrashCan
+  MVNoteTrashCan,
+  MVNoteAddIcon
 };
