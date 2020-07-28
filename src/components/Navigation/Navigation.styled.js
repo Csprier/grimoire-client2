@@ -4,18 +4,18 @@ const Navigation = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 35px;
+  height: 40px;
   margin: 0;
   padding: 0;
   background-color: #000000;
 `;
 
-const UsernameHeader = styled.h1`
+const UsernameHeader = styled.h3`
   display: flex;
   align-items: center;
   font-size: 16px;
   font-weight: 100;
-  margin: 0px 0px 0px 10px;
+  margin: 0px 0px 0px 5px;
   padding: 0;
   color: white;
 `;
@@ -40,7 +40,7 @@ const LogOutButton = styled.button`
 const LogOutIcon = styled.img`
   display: flex;
   align-self: center;
-  width: 30px;
+  width: 28px;
   height: 25px;
   margin: 0px 5px 0px 0px;
   padding: 0;

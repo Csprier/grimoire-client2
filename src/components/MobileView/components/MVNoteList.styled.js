@@ -16,19 +16,18 @@ const MVNote = styled.div`
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 98%;
+  width: 100%;
   height: 75px;
-  margin: 1px auto;
-  padding: 0;
-  border: 1px solid lightgray;
-  // background-color: #242526;
+  margin: 0;
+  padding: 4px 10px;
+  border-top: 1px solid lightgray;
   overflow: hidden;
 `;
 
 const MVNoteTitle = styled.h1`
   display: flex;
   color: #444;
-  margin: 0px 4px;
+  margin: 0;
   padding: 0;
   font-size: 20px;
 `;
@@ -36,16 +35,17 @@ const MVNoteTitle = styled.h1`
 const MVNoteUpdatedAt = styled.p`
   display: flex;  
   color: gray;
-  margin: 0px 10px;
-  padding: 4px;
+  margin: 0;
+  padding: 2px;
   font-size: 10px;
 `;
 
 const MVNoteSnippet = styled.p`
   display: flex;  
   color: goldenrod;
-  margin: 0px 10px;
-  padding: 0;
+  margin: 0;
+  padding: 3px 8px;
+  font-size: 14px;
 `;
 
 const MVNoteListAnimatedContainer = styled.div`
@@ -84,7 +84,7 @@ const MVNoteInfoContainer = styled.div`
   width: 98%;
   height: 50px;
   margin: 2px auto;
-  padding: 6px;
+  padding: 0;
 `;
 
 /** DELETE BUTTON */
@@ -94,7 +94,7 @@ const MVNoteDeleteButtonContainer = styled.div`
   width: 50px;
   height: 100%;
   margin: 0;
-  padding: 6px;
+  padding: 0;
   // border: 1px solid red;
 `;
 
