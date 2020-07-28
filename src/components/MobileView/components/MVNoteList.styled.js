@@ -20,7 +20,7 @@ const MVNote = styled.div`
   height: 75px;
   margin: 2px auto;
   padding: 0;
-  border: 1px solid gray;
+  border: 1px solid lightgray;
   // background-color: #242526;
   overflow: hidden;
 `;

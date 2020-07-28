@@ -21,7 +21,7 @@ const MobileViewNoteList = (props) => {
   const { setAddNote, setClicked, setSelected, setShowModal } = props;
   return(
     <MVNoteListContainer>
-      <MVNoteListh1>Notes</MVNoteListh1>
+      <MVNoteListh1>{props.notes ? `${props.notes.length} Notes` : 'Notes'}</MVNoteListh1>
       <MVAddNoteButton 
         onClick={() => {
           setAddNote(true);
