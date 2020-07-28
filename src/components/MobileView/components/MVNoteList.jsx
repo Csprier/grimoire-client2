@@ -3,6 +3,9 @@ import React from 'react';
 /** Utility */
 import Util from '../../../utility/util';
 
+/** Icon */
+import trashcan from './TRASHCANICON.png';
+
 /** Styles */
 import {
   MVNote,
@@ -13,8 +16,8 @@ import {
   MVNoteSnippet,
   MVNoteUpdatedAt,
   MVNoteInfoContainer,
-  MVNoteDeleteButton,
-  MVNoteDeleteButtonContainer
+  MVNoteDeleteButtonContainer,
+  MVNoteTrashCan
 } from './MVNoteList.styled';
 
 const MobileViewNoteList = (props) => {
@@ -27,7 +30,7 @@ const MobileViewNoteList = (props) => {
           setAddNote(true);
           setShowModal(true);
           console.log('Add a note!');
-      }}>+</MVAddNoteButton>
+      }}>Add</MVAddNoteButton>
 
       { /** Render the note list with styled-components */
         props.notes 
@@ -51,14 +54,16 @@ const MobileViewNoteList = (props) => {
                   </MVNoteInfoContainer>
 
                   <MVNoteDeleteButtonContainer>
-                    <MVNoteDeleteButton
-                      onClick={() => {
-                        console.log('Deleting:', note._id);
-                        Util.API.noteDELETE(note._id)
-                          .then(() => props.reRenderFunction())
-                          .catch(err => console.error(err)); 
-                      }}
-                    >X</MVNoteDeleteButton>
+                      <MVNoteTrashCan 
+                        src={trashcan} 
+                        alt="delete icon" 
+                        onClick={() => {
+                          console.log('Deleting:', note._id);
+                          Util.API.noteDELETE(note._id)
+                            .then(() => props.reRenderFunction())
+                            .catch(err => console.error(err)); 
+                        }}  
+                      />
                   </MVNoteDeleteButtonContainer>
                 </MVNote>
               );
@@ -110,3 +115,14 @@ if (clicked && selected._id === note._id) {
   console.log('A previous selected Note was clicked. Changing Clicked, Selected, and ShowModal: OFF');
 }
 */
+
+/**
+  <MVNoteDeleteButton
+    onClick={() => {
+      console.log('Deleting:', note._id);
+      Util.API.noteDELETE(note._id)
+        .then(() => props.reRenderFunction())
+        .catch(err => console.error(err)); 
+    }}
+  >Delete</MVNoteDeleteButton>
+ */

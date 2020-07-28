@@ -25,12 +25,12 @@ const MVNote = styled.div`
   overflow: hidden;
 `;
 
-const MVNoteTitle = styled.h2`
+const MVNoteTitle = styled.h1`
   display: flex;
-  // color: lightgray;
-  color: black;
+  color: gray;
   margin: 0px 4px;
   padding: 0;
+  font-size: 20px;
 `;
 
 const MVNoteUpdatedAt = styled.p`
@@ -61,8 +61,10 @@ const MVNoteListAnimatedContainer = styled.div`
 `;
 
 const MVNoteListh1 = styled.h1`
-  margin: 0 auto;
-  padding: 0;
+  margin: 0;
+  padding: 4px;
+  font-size: 24px;
+  color: gray;
 `;
 
 const MVAddNoteButton = styled.button`
@@ -71,8 +73,8 @@ const MVAddNoteButton = styled.button`
   height: 25px;
   margin: 0;
   padding: 0;
-  color: white;
-  background-color: green;
+  color: green;
+  background-color: white;
   border: 1px solid white;
 `;
 
@@ -82,17 +84,17 @@ const MVNoteInfoContainer = styled.div`
   width: 98%;
   height: 50px;
   margin: 2px auto;
-  padding: 0;
+  padding: 6px;
 `;
 
 /** DELETE BUTTON */
 const MVNoteDeleteButtonContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 100px;
+  width: 50px;
   height: 100%;
   margin: 0;
-  padding: 0;
+  padding: 6px;
   // border: 1px solid red;
 `;
 
@@ -107,6 +109,13 @@ const MVNoteDeleteButton = styled.button`
   border: 1px solid white;
 `;
 
+const MVNoteTrashCan = styled.img`
+  position: relative;
+  width: 30px;
+  margin: 0 auto;
+  padding: 0;
+`;
+
 export {
   MVNote,
   MVAddNoteButton,
@@ -118,5 +127,6 @@ export {
   MVNoteUpdatedAt,
   MVNoteInfoContainer,
   MVNoteDeleteButton,
-  MVNoteDeleteButtonContainer
+  MVNoteDeleteButtonContainer,
+  MVNoteTrashCan
 };
