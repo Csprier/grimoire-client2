@@ -27,7 +27,7 @@ const MVNote = styled.div`
 
 const MVNoteTitle = styled.h1`
   display: flex;
-  color: gray;
+  color: #444;
   margin: 0px 4px;
   padding: 0;
   font-size: 20px;
@@ -64,7 +64,7 @@ const MVNoteListh1 = styled.h1`
   margin: 0;
   padding: 4px;
   font-size: 24px;
-  color: gray;
+  color: #444;
 `;
 
 const MVAddNoteButton = styled.button`
