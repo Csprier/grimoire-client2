@@ -2,6 +2,7 @@ import React from 'react';
 
 /** Styles */
 import {
+  NoteCounter,
   SearchInput,
   SearchNotesInputContainer
 } from './SearchNotes.styled.js';
@@ -14,6 +15,7 @@ const SearchNotes = (props) => {
 
   return(
     <SearchNotesInputContainer>
+      <NoteCounter>{props.notes ? `${props.notes.length} Notes` : 'Notes'}</NoteCounter>
       <SearchInput 
         type="text"
         name="searchterm"

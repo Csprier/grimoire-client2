@@ -1,11 +1,20 @@
 import styled from 'styled-components';
 
-const SearchNotesInputContainer = styled.div`
-  width: 100%;
-  height: 50px;
+const NoteCounter = styled.h1`
   margin: 0;
+  padding: 4px;
+  font-size: 24px;
+  color: #444;
+`;
+
+const SearchNotesInputContainer = styled.div`
+  position: relative;
+  display: block;
+  width: 98%;
+  height: 70px;
+  margin: 0 auto;
   padding: 0;
-  border: 1px solid red;
+  // border: 1px solid red;
 `;
 
 const SearchInput = styled.input`
@@ -17,6 +26,7 @@ const SearchInput = styled.input`
 `;
 
 export {
+  NoteCounter,
   SearchInput,
   SearchNotesInputContainer
 };

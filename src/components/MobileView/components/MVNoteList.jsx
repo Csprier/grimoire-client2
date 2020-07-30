@@ -14,7 +14,7 @@ import addIcon from './ADDICON.png';
 import {
   MVNote,
   // MVAddNoteButton,
-  MVNoteListh1,
+  // MVNoteListh1,
   MVNoteListContainer,
   MVNoteTitle,
   MVNoteSnippet,
@@ -40,7 +40,7 @@ const MobileViewNoteList = (props) => {
 
   return(
     <MVNoteListContainer>
-      <MVNoteListh1>{props.notes ? `${props.notes.length} Notes` : 'Notes'}</MVNoteListh1>
+      {/* <MVNoteListh1>{props.notes ? `${props.notes.length} Notes` : 'Notes'}</MVNoteListh1> */}
       <MVNoteAddIcon 
         src={addIcon}
         alt="Add a note"

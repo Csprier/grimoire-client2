@@ -60,6 +60,7 @@ const Dashboard = () => {
       <NavigationBar toggleAnimation={toggleAnimation} animate={animate} />
       
       <SearchNotes 
+        notes={listOfNotes}
         setSearchTerm={setSearchTerm} 
       />
 
