@@ -11,10 +11,9 @@ import {
 
 /** Components */
 import NavigationBar from '../Navigation/Navigation';
-// import NoteList from '../Notes/NoteList';
-// import AddNoteDisplay from './components/AddNoteDisplay';
 // import DesktopViewComponent from '../DesktopView/DesktopViewComponent';
 import MobileViewComponent from '../MobileView/MobileViewComponent';
+import SearchNotes from '../SearchNotes/SearchNotes';
 
 /** Force rerender */
 const useForceUpdate = () => useState()[1]; 
@@ -23,6 +22,7 @@ const Dashboard = () => {
   const [animate, setAnimation] = useState(false);
   const [listOfNotes, setListOfNotes] = useState([]);
   const [reRender, toggleReRender] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const forceUpdate = useForceUpdate();
 
   useEffect(() => {
@@ -52,18 +52,24 @@ const Dashboard = () => {
   function toggleAnimation() {
     setAnimation(!animate);
   };
-
+  
+  console.log(searchTerm);
   return(
     <DashboardContainer>
       
       <NavigationBar toggleAnimation={toggleAnimation} animate={animate} />
       
+      <SearchNotes 
+        setSearchTerm={setSearchTerm} 
+      />
+
       <DashboardContent>
         <MobileViewComponent 
           notes={listOfNotes} 
           reRenderFunction={_reRenderNoteList}
           toggleAnimation={toggleAnimation} 
           animate={animate} 
+          searchTerm={searchTerm}
         />
 
         {/* <DesktopViewComponent 
