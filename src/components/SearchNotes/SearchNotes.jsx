@@ -20,7 +20,7 @@ const SearchNotes = (props) => {
         type="search"
         name="searchterm"
         onChange={modifySearchTerm}
-        placeholder="Search notes..."
+        placeholder="Search..."
       />
     </SearchNotesInputContainer>
   );
