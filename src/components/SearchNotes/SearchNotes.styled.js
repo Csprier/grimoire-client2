@@ -14,14 +14,13 @@ const SearchNotesInputContainer = styled.div`
   height: 70px;
   margin: 0 auto;
   padding: 0;
-  // border: 1px solid red;
 `;
 
 const SearchInput = styled.input`
   width: 100%;
   height: 25px;
   margin: 0;
-  padding: 0;
+  padding: 0px 16px 0px 0px;
   border: 1px solid lightgray;
 `;
 

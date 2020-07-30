@@ -17,7 +17,7 @@ const SearchNotes = (props) => {
     <SearchNotesInputContainer>
       <NoteCounter>{props.notes ? `${props.notes.length} Notes` : 'Notes'}</NoteCounter>
       <SearchInput 
-        type="text"
+        type="search"
         name="searchterm"
         onChange={modifySearchTerm}
         placeholder="Search notes..."
