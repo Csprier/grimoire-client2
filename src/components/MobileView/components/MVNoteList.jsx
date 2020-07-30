@@ -27,6 +27,17 @@ import {
 
 const MobileViewNoteList = (props) => {
   const { setAddNote, setClicked, setSelected, setShowModal, searchTerm } = props;
+
+  let notes = props.notes;
+  let filteredListOfNotes = notes.filter(note => note.title.includes(searchTerm))
+  let listOfNotesToRender = notes;
+
+  if (searchTerm !== '') {
+    listOfNotesToRender = filteredListOfNotes;
+  } else {
+    listOfNotesToRender = notes;
+  }
+
   return(
     <MVNoteListContainer>
       <MVNoteListh1>{props.notes ? `${props.notes.length} Notes` : 'Notes'}</MVNoteListh1>
@@ -40,14 +51,13 @@ const MobileViewNoteList = (props) => {
         }}  
       />
 
-      { /** Render the note list with styled-components */
+      { /** Render filtered list of notes if there is a searchTerm */
         props.notes 
-          ? props.notes.map(note => {
+          ? listOfNotesToRender.map(note => {
               let contentSnippet = JSON.parse(note.content);
               let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
-              let updatedAt = moment(note.updatedAt); // note.updatedAt.slice(0, 10);
+              let updatedAt = moment(note.updatedAt);
               let date = updatedAt.format('MMMM Do YYYY, h:mm:ss a')
-              // console.log(note);
               return (
                 <MVNote key={note._id} id={note._id}>
                   <MVNoteInfoContainer
@@ -61,7 +71,7 @@ const MobileViewNoteList = (props) => {
                     <MVNoteUpdatedAt>Last updated: {date}</MVNoteUpdatedAt>
                     <MVNoteSnippet>{formattedSnippet}</MVNoteSnippet>
                   </MVNoteInfoContainer>
-
+          
                   <MVNoteDeleteButtonContainer>
                       <MVNoteTrashCan 
                         src={trashcan} 
@@ -76,10 +86,9 @@ const MobileViewNoteList = (props) => {
                   </MVNoteDeleteButtonContainer>
                 </MVNote>
               );
-          }) 
-        : <h2>No notes...</h2>
+            })
+          : <span>No notes...</span>
       }
-
     </MVNoteListContainer>
   );
 };
@@ -142,4 +151,44 @@ if (clicked && selected._id === note._id) {
         setShowModal(true);
         console.log('Add a note!');
     }}>Add</MVAddNoteButton> 
+*/
+
+/* // Render the note list with styled-components
+  props.notes 
+    ? props.notes.map(note => {
+        let contentSnippet = JSON.parse(note.content);
+        let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
+        let updatedAt = moment(note.updatedAt); // note.updatedAt.slice(0, 10);
+        let date = updatedAt.format('MMMM Do YYYY, h:mm:ss a')
+        // console.log(note);
+        return (
+          <MVNote key={note._id} id={note._id}>
+            <MVNoteInfoContainer
+              onClick={() => {
+                setClicked(true);
+                setSelected(note);
+                setShowModal(true);
+              }}
+            >
+              <MVNoteTitle>{note.title}</MVNoteTitle>
+              <MVNoteUpdatedAt>Last updated: {date}</MVNoteUpdatedAt>
+              <MVNoteSnippet>{formattedSnippet}</MVNoteSnippet>
+            </MVNoteInfoContainer>
+
+            <MVNoteDeleteButtonContainer>
+                <MVNoteTrashCan 
+                  src={trashcan} 
+                  alt="delete icon" 
+                  onClick={() => {
+                    console.log('Deleting:', note._id);
+                    Util.API.noteDELETE(note._id)
+                      .then(() => props.reRenderFunction())
+                      .catch(err => console.error(err)); 
+                  }}  
+                />
+            </MVNoteDeleteButtonContainer>
+          </MVNote>
+        );
+    }) 
+  : <h2>No notes...</h2>
 */
