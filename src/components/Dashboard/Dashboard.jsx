@@ -13,7 +13,7 @@ import {
 import NavigationBar from '../Navigation/Navigation';
 // import DesktopViewComponent from '../DesktopView/DesktopViewComponent';
 import MobileViewComponent from '../MobileView/MobileViewComponent';
-import SearchNotes from '../SearchNotes/SearchNotes';
+// import SearchNotes from '../SearchNotes/SearchNotes';
 
 /** Force rerender */
 const useForceUpdate = () => useState()[1]; 
@@ -59,10 +59,10 @@ const Dashboard = () => {
       
       <NavigationBar toggleAnimation={toggleAnimation} animate={animate} />
       
-      <SearchNotes 
+      {/*<SearchNotes 
         notes={listOfNotes}
         setSearchTerm={setSearchTerm} 
-      />
+      />*/}
 
       <DashboardContent>
         <MobileViewComponent 
@@ -71,6 +71,7 @@ const Dashboard = () => {
           toggleAnimation={toggleAnimation} 
           animate={animate} 
           searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm} 
         />
 
         {/* <DesktopViewComponent 

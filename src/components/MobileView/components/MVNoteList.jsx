@@ -10,6 +10,9 @@ import Util from '../../../utility/util';
 import trashcan from './TRASHCANICON.png';
 import addIcon from './ADDICON.png';
 
+/** Components */
+import SearchNotes from '../../SearchNotes/SearchNotes';
+
 /** Styles */
 import {
   MVNote,
@@ -40,7 +43,12 @@ const MobileViewNoteList = (props) => {
 
   return(
     <MVNoteListContainer>
-      {/* <MVNoteListh1>{props.notes ? `${props.notes.length} Notes` : 'Notes'}</MVNoteListh1> */}
+
+      <SearchNotes 
+        notes={props.notes}
+        setSearchTerm={props.setSearchTerm} 
+      />
+
       <MVNoteAddIcon 
         src={addIcon}
         alt="Add a note"

@@ -51,6 +51,7 @@ const MobileViewComponent = (props) => {
             console.log('Closing modal');
           }}>CLOSE X</ModalCloseButton>
           
+
           {(addNote) 
             ? <MVAddNoteForm 
                 reRender={props.reRenderFunction}
@@ -76,6 +77,7 @@ const MobileViewComponent = (props) => {
           setSelected={setSelected}
           setShowModal={setShowModal}
           searchTerm={props.searchTerm}
+          setSearchTerm={props.setSearchTerm}
         />
 
       </MobileViewComponentContainer>
