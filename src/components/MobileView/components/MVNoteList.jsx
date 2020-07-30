@@ -26,7 +26,7 @@ import {
 } from './MVNoteList.styled';
 
 const MobileViewNoteList = (props) => {
-  const { setAddNote, setClicked, setSelected, setShowModal } = props;
+  const { setAddNote, setClicked, setSelected, setShowModal, searchTerm } = props;
   return(
     <MVNoteListContainer>
       <MVNoteListh1>{props.notes ? `${props.notes.length} Notes` : 'Notes'}</MVNoteListh1>

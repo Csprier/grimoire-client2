@@ -75,6 +75,7 @@ const MobileViewComponent = (props) => {
           setClicked={setClicked}
           setSelected={setSelected}
           setShowModal={setShowModal}
+          searchTerm={props.searchTerm}
         />
 
       </MobileViewComponentContainer>
