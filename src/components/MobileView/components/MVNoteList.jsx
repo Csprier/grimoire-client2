@@ -81,16 +81,16 @@ const MobileViewNoteList = (props) => {
                   </MVNoteInfoContainer>
           
                   <MVNoteDeleteButtonContainer>
-                      <MVNoteTrashCan 
-                        src={trashcan} 
-                        alt="delete icon" 
-                        onClick={() => {
-                          console.log('Deleting:', note._id);
-                          Util.API.noteDELETE(note._id)
-                            .then(() => props.reRenderFunction())
-                            .catch(err => console.error(err)); 
-                        }}  
-                      />
+                    <MVNoteTrashCan 
+                      src={trashcan} 
+                      alt="delete icon" 
+                      onClick={() => {
+                        console.log('Deleting:', note._id);
+                        Util.API.noteDELETE(note._id)
+                          .then(() => props.reRenderFunction())
+                          .catch(err => console.error(err)); 
+                      }}  
+                    />
                   </MVNoteDeleteButtonContainer>
                 </MVNote>
               );
