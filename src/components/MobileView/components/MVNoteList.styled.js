@@ -24,6 +24,16 @@ const MVNote = styled.div`
   overflow: hidden;
 `;
 
+/** NOTE INFORMATION */
+const MVNoteInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  height: 50px;
+  margin: 2px auto;
+  padding: 0;
+`;
+
 const MVNoteTitle = styled.h1`
   display: flex;
   color: #444;
@@ -76,15 +86,6 @@ const MVAddNoteButton = styled.button`
   color: green;
   background-color: white;
   border: 1px solid white;
-`;
-
-const MVNoteInfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 98%;
-  height: 50px;
-  margin: 2px auto;
-  padding: 0;
 `;
 
 /** DELETE BUTTON */

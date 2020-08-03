@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 
+/** Libraries */
+import moment from 'moment';
+
 /** Util */
-// import Util from '../../../utility/util';
+import Util from '../../../utility/util';
+
+/** Icon */
+import trashcan from '../../icons/TRASHCANICON.png';
+// import addIcon from '../../icons/ADDICON.png';
 
 /** Styles */
 import {
@@ -9,7 +16,12 @@ import {
   DVNoteListContainer,
   DVNoteTitle,
   DNNoteSnippet,
-  DVSelectedNote
+  DVSelectedNote,
+  DVNoteUpdatedAt,
+  DVNoteInfoContainer,
+  DVNoteDeleteButtonContainer,
+  DVNoteTrashCan,
+  DVNoteAddIcon
 } from './DVNoteList.styled';
 
 const DesktopViewNoteList = (props) => {
@@ -42,6 +54,9 @@ const DesktopViewNoteList = (props) => {
         ? listOfNotesToRender.map(note => {
             let contentSnippet = JSON.parse(note.content);
             let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
+            let updatedAt = moment(note.updatedAt);
+            let date = updatedAt.format('MMMM Do YYYY, h:mm:ss a')
+            
             let unSelectedNoteListItem = (
               <DVNote 
                 key={note._id}
@@ -62,8 +77,24 @@ const DesktopViewNoteList = (props) => {
                   }
                 }}
               >
-                <DVNoteTitle>{note.title}</DVNoteTitle>
-                <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
+                <DVNoteInfoContainer>
+                  <DVNoteTitle>{note.title}</DVNoteTitle>
+                  <DVNoteUpdatedAt>Last updated: {date}</DVNoteUpdatedAt>
+                  <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
+                </DVNoteInfoContainer>
+
+                <DVNoteDeleteButtonContainer>
+                  <DVNoteTrashCan 
+                    src={trashcan} 
+                    alt="delete icon" 
+                    onClick={() => {
+                      console.log('Deleting:', note._id);
+                      Util.API.noteDELETE(note._id)
+                        .then(() => props.reRenderFunction())
+                        .catch(err => console.error(err)); 
+                    }}  
+                  />
+                </DVNoteDeleteButtonContainer>
               </DVNote>
             );
 
@@ -76,12 +107,14 @@ const DesktopViewNoteList = (props) => {
                   props.closeNoteEdtior();
                 }}
               >
-                <DVNoteTitle>{note.title}</DVNoteTitle>
-                <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
+                <DVNoteInfoContainer>
+                  <DVNoteTitle>{note.title}</DVNoteTitle>
+                  <DVNoteUpdatedAt>Last updated: {date}</DVNoteUpdatedAt>
+                  <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
+                </DVNoteInfoContainer>
               </DVSelectedNote>
             );
 
-            // return (clicked && selected === note._id) ? selectedNote : unSelectedNote;
             return (displayAddNoteForm && selectedNote === {})
                 ? unSelectedNoteListItem
                 : (clicked && selectedNote._id === note._id) ? selectedNoteListItem : unSelectedNoteListItem;
