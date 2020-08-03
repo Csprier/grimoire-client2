@@ -11,8 +11,8 @@ import {
 
 /** Components */
 import NavigationBar from '../Navigation/Navigation';
-// import DesktopViewComponent from '../DesktopView/DesktopViewComponent';
-import MobileViewComponent from '../MobileView/MobileViewComponent';
+import DesktopViewComponent from '../DesktopView/DesktopViewComponent';
+// import MobileViewComponent from '../MobileView/MobileViewComponent';
 
 /** Force rerender */
 const useForceUpdate = () => useState()[1]; 
@@ -59,7 +59,16 @@ const Dashboard = () => {
       <NavigationBar toggleAnimation={toggleAnimation} animate={animate} />
 
       <DashboardContent>
-        <MobileViewComponent 
+        {/* <MobileViewComponent 
+          notes={listOfNotes} 
+          reRenderFunction={_reRenderNoteList}
+          toggleAnimation={toggleAnimation} 
+          animate={animate} 
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm} 
+        /> */}
+
+        <DesktopViewComponent 
           notes={listOfNotes} 
           reRenderFunction={_reRenderNoteList}
           toggleAnimation={toggleAnimation} 
@@ -67,13 +76,6 @@ const Dashboard = () => {
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm} 
         />
-
-        {/* <DesktopViewComponent 
-          notes={listOfNotes} 
-          reRenderFunction={_reRenderNoteList}
-          toggleAnimation={toggleAnimation} 
-          animate={animate} 
-        /> */}
       </DashboardContent>
 
     </DashboardContainer>
