@@ -25,6 +25,7 @@ const DesktopViewNoteList = (props) => {
     setSelected({});
   }
 
+  /** SEARCH TERM FILTER */
   let notes = props.notes;
   let filteredListOfNotes = notes.filter(note => note.title.includes(searchTerm))
   let listOfNotesToRender = notes;
