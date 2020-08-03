@@ -13,9 +13,9 @@ import {
 } from './DVNoteList.styled';
 
 const DesktopViewNoteList = (props) => {
-  const { clicked, setClicked, displayAddNoteForm, selectedNote } = props;
+  const { clicked, setClicked, displayAddNoteForm, selectedNote, searchTerm  } = props;
   const [selected, setSelected] = useState('');
-  console.log('displayAddNoteForm', displayAddNoteForm, '\n', 'selected', selected, '\n', 'selectedNote', selectedNote);
+  // console.log('displayAddNoteForm', displayAddNoteForm, '\n', 'selected', selected, '\n', 'selectedNote', selectedNote);
   
   if (displayAddNoteForm && selectedNote === {}) {
     // Add Note button was clicked when there WAS NOT a previously selected note
@@ -25,10 +25,20 @@ const DesktopViewNoteList = (props) => {
     setSelected({});
   }
 
+  let notes = props.notes;
+  let filteredListOfNotes = notes.filter(note => note.title.includes(searchTerm))
+  let listOfNotesToRender = notes;
+
+  if (searchTerm !== '') {
+    listOfNotesToRender = filteredListOfNotes;
+  } else {
+    listOfNotesToRender = notes;
+  }
+
   return(
     <DVNoteListContainer>
       {props.notes 
-        ? props.notes.map(note => {
+        ? listOfNotesToRender.map(note => {
             let contentSnippet = JSON.parse(note.content);
             let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
             let unSelectedNoteListItem = (
