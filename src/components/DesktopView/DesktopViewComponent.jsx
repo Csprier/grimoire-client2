@@ -1,20 +1,14 @@
 import React, { useState } from 'react';
 
-/** Util */
-// import Util from '../../utility/util';
-
 /** Styles */
 import { 
-  DesktopViewButtonContainer,
   DesktopViewComponentContainer,
   DesktopViewContainer
 } from './DesktopView.styled';
-import { AddNoteButton } from '../Dashboard/components/AddNoteDisplay.styled';
 
 /** Components */
 import DesktopViewNoteList from './components/DVNoteList';
 import DesktopViewEditorDisplay from './components/DVEditorDisplay';
-import SearchNotes from '../SearchNotes/SearchNotes';
 
 const DesktopViewComponent = (props) => {
   const [animate, setAnimate] = useState(false);
@@ -68,28 +62,6 @@ const DesktopViewComponent = (props) => {
 
   return(
     <DesktopViewContainer>
-
-        <SearchNotes 
-          notes={props.notes}
-          setSearchTerm={props.setSearchTerm} 
-        />
-
-      {/* <DesktopViewButtonContainer>
-        <AddNoteButton onClick={() => {
-          if (!animate && !toggleAddNote) {
-            setToggleAddNote(true);
-            _openNoteEditor({});
-          } else if (animate && !toggleAddNote) {
-            _closeNoteEdtior();
-            setTimeout(() => {
-              _openNoteEditor({});
-            }, 200)
-          } else {
-            _closeNoteEdtior();
-          }
-        }}>Add Note</AddNoteButton>
-      </DesktopViewButtonContainer> */}
-
       <DesktopViewComponentContainer>
         <DesktopViewNoteList 
           notes={props.notes}
@@ -102,6 +74,11 @@ const DesktopViewComponent = (props) => {
           selectedNote={selectedNote}
           searchTerm={props.searchTerm}
           setSearchTerm={props.setSearchTerm}
+          openNoteEditor={_openNoteEditor}
+          closeNoteEdtior={_closeNoteEdtior}
+          animate={animate}
+          toggleAddNote={toggleAddNote}
+          setToggleAddNote={setToggleAddNote}
         />
 
         <DesktopViewEditorDisplay 

@@ -8,7 +8,10 @@ import Util from '../../../utility/util';
 
 /** Icon */
 import trashcan from '../../icons/TRASHCANICON.png';
-// import addIcon from '../../icons/ADDICON.png';
+import addIcon from '../../icons/ADDICON.png';
+
+/** Components */
+import SearchNotes from '../../SearchNotes/SearchNotes';
 
 /** Styles */
 import {
@@ -25,7 +28,18 @@ import {
 } from './DVNoteList.styled';
 
 const DesktopViewNoteList = (props) => {
-  const { clicked, setClicked, displayAddNoteForm, selectedNote, searchTerm  } = props;
+  const { 
+    clicked, 
+    setClicked, 
+    displayAddNoteForm, 
+    selectedNote, 
+    searchTerm,
+    openNoteEditor,
+    closeNoteEdtior,
+    animate,
+    toggleAddNote,
+    setToggleAddNote
+  } = props;
   const [selected, setSelected] = useState('');
   // console.log('displayAddNoteForm', displayAddNoteForm, '\n', 'selected', selected, '\n', 'selectedNote', selectedNote);
   
@@ -50,7 +64,36 @@ const DesktopViewNoteList = (props) => {
 
   return(
     <DVNoteListContainer>
-      {props.notes 
+      
+      <SearchNotes 
+        notes={props.notes}
+        setSearchTerm={props.setSearchTerm} 
+      />
+
+      <DVNoteAddIcon 
+        src={addIcon}
+        alt="Add a note"
+        onClick={() => {
+          console.log('Button to Add a note was clicked!');
+          if (!animate && !toggleAddNote) {
+            // setToggleAddNote(true);
+            openNoteEditor({});
+            console.log('Props:', props);
+          } 
+          // else if (animate && !toggleAddNote) {
+          //   closeNoteEdtior();
+          //   setTimeout(() => {
+          //     openNoteEditor({});
+          //   }, 200)
+          // } 
+          else {
+            closeNoteEdtior();
+          }
+        }}
+      />
+
+      { /** Render filtered list of notes if there is a search term */
+        props.notes 
         ? listOfNotesToRender.map(note => {
             let contentSnippet = JSON.parse(note.content);
             let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';

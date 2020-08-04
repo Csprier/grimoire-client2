@@ -7,13 +7,6 @@ import Util from '../../../../utility/util';
 import DVAddNoteTextEditor from '../Editor/DVAddNoteTextEditor';
 
 /** Styles */
-// import {
-//   DVAddNoteContainer,
-//   DVAddNoteForm,
-//   DVAddNoteInput,
-//   DVAddNoteLabel,
-//   DVAddNoteSubmitButton
-// } from './DVAddNote.styled';
 import './dv-add-note.css';
 
 class DVAddNoteComponent extends Component {
