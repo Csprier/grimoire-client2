@@ -1,8 +1,28 @@
 import styled from 'styled-components';
 
 const DVNoteListContainer = styled.div`
+  position: relative;
   width: 400px;
   height: 100%;
+  margin: 0;
+  padding: 0;
+`;
+
+const DVNoteListFixedContainer = styled.div`
+  position: relative;
+  display: block;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+`;
+
+const DVNoteList = styled.div`
+  position: relative;
+  width: 100%;
+  max-height: 500px;
   margin: 0;
   padding: 0;
   cursor: pointer;
@@ -97,7 +117,9 @@ const DVNoteAddIcon = styled.img`
 
 export {
   DVNote,
+  DVNoteList,
   DVNoteListContainer,
+  DVNoteListFixedContainer,
   DVNoteTitle,
   DNNoteSnippet,
   DVNoteUpdatedAt,
