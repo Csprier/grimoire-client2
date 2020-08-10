@@ -46,11 +46,9 @@ const DesktopViewComponent = (props) => {
   };
 
   function _closeNoteEdtior() {
-    // if (animate === true && !toggleAddNote) {
-    //   console.log('Closing Editor.');
-    //   setSelectedNote({});
-    //   setAnimate(false);
-    // }
+    console.log('Closing Editor.');
+    setSelectedNote({});
+    setAnimate(false);
     
     // if (toggleAddNote && animate) {
     //   console.log('toggleAddNote:', toggleAddNote, '\n', 'animate:', animate);
