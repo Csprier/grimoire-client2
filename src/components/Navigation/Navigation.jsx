@@ -15,7 +15,7 @@ import {
 } from './Navigation.styled';
 // import { AddNoteButton } from '../Dashboard/components/AddNoteDisplay.styled';
 
-const NavigationBar = (props) => {
+const NavigationBar = () => {
   const [activeUser, setActiveUser] = useState('');
 
   useEffect(() => {
@@ -32,7 +32,6 @@ const NavigationBar = (props) => {
   return(
     <Navigation>
       <UsernameHeader>Welcome back, {activeUser}!</UsernameHeader>  
-      {/* <LogOutButton onClick={() => logout()}>Logout</LogOutButton> */}
       <LogOutIcon 
         src={logoutIcon} 
         alt="logout button" 

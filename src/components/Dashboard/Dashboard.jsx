@@ -56,7 +56,7 @@ const Dashboard = () => {
   return(
     <DashboardContainer>
       
-      <NavigationBar toggleAnimation={toggleAnimation} animate={animate} />
+      <NavigationBar />
 
       <DashboardContent>
         {/* <MobileViewComponent 
@@ -72,7 +72,6 @@ const Dashboard = () => {
           notes={listOfNotes} 
           reRenderFunction={_reRenderNoteList}
           toggleAnimation={toggleAnimation} 
-          // animate={animate} 
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm} 
         />

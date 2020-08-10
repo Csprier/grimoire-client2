@@ -22,13 +22,7 @@ const DesktopViewComponent = (props) => {
       console.log('Empty object recognized, opening AddNoteEditor');
       setAnimate(true);
       setSelectedNote({});
-      // console.log('props', props);
     }
-    // if (!animate && !toggleAddNote) {
-    //   console.log('Opening Editor with ID:', note._id);
-    //   setSelectedNote(note);
-    //   setAnimate(true);
-    // } 
     
     // if (note._id !== selectedNote._id) {
     //   console.log('Opening Editor with ID:', note._id);
