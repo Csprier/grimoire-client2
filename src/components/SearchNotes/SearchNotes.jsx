@@ -15,7 +15,7 @@ const SearchNotes = (props) => {
 
   return(
     <SearchNotesInputContainer>
-      <NoteCounter>{props.notes ? `${props.notes.length} Notes` : 'Notes'}</NoteCounter>
+      <NoteCounter>{props.notes ? `${props.notes.length} Notes` : 'Loading...'}</NoteCounter>
       <SearchInput 
         type="search"
         name="searchterm"

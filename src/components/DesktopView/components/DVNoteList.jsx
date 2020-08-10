@@ -31,6 +31,9 @@ import {
 } from './DVNoteList.styled';
 
 const DesktopViewNoteList = (props) => {
+  /** ================================================================================ */
+  /** PROP IMPORTS 
+  /** ================================= */
   const { 
     clicked, 
     setClicked, 
@@ -42,6 +45,9 @@ const DesktopViewNoteList = (props) => {
     setToggleAddNote
   } = props;
   
+  /** ================================================================================ */
+  /** Add Note Button functions 
+  /** ================================= */
   function modifyToggleAddNote(boolean) {
     console.log('Modifying boolean:', boolean);
     setToggleAddNote(!boolean);
@@ -77,9 +83,10 @@ const DesktopViewNoteList = (props) => {
   } else {
     listOfNotesToRender = notes;
   };
+  
   /** ================================================================================ */
-
   /** Component */
+  /** ================================= */
   return(
     <DVNoteListContainer>
       
@@ -106,82 +113,82 @@ const DesktopViewNoteList = (props) => {
 
       <DVNoteList>
         { /** Render filtered list of notes if there is a search term */
-          props.notes 
-          ? listOfNotesToRender.map(note => {
-              let { 
-                selectNote, 
-                openNoteEditor, 
-                closeNoteEdtior 
-              } = props;
-              let contentSnippet = JSON.parse(note.content);
-              let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
-              let updatedAt = moment(note.updatedAt);
-              let date = updatedAt.format('MMMM Do YYYY, h:mm:ss a')
-              
-              let unSelectedNoteListItem = (
-                <DVNote 
-                  key={note._id}
-                  onClick={() => {
-                    console.log('Clicked:', note._id);
-                    setClicked(true);
-                    selectNote(note);
-                    openNoteEditor(note);
+          (props.notes) 
+            ? listOfNotesToRender.map(note => {
+                let { 
+                  selectNote, 
+                  openNoteEditor, 
+                  closeNoteEdtior 
+                } = props;
+                let contentSnippet = JSON.parse(note.content);
+                let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
+                let updatedAt = moment(note.updatedAt);
+                let date = updatedAt.format('MMMM Do YYYY, h:mm:ss a')
+                
+                let unSelectedNoteListItem = (
+                  <DVNote 
+                    key={note._id}
+                    onClick={() => {
+                      console.log('Clicked:', note._id);
+                      setClicked(true);
+                      selectNote(note);
+                      openNoteEditor(note);
 
-                    if (clicked && selectedNote._id !== note._id) {
-                      closeNoteEdtior(); // wipes slate clean
-                      selectNote(note); // selects new note
-                      setTimeout(() => {
-                        console.log('New note recognized...');
-                        openNoteEditor(note); // open editor with new note
-                      }, 200);
-                    }
-                  }}
-                >
-                  <DVNoteInfoContainer>
-                    <DVNoteTitle>{note.title}</DVNoteTitle>
-                    <DVNoteUpdatedAt>Last updated: {date}</DVNoteUpdatedAt>
-                    <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
-                  </DVNoteInfoContainer>
+                      if (clicked && selectedNote._id !== note._id) {
+                        closeNoteEdtior(); // wipes slate clean
+                        selectNote(note); // selects new note
+                        setTimeout(() => {
+                          console.log('New note recognized...');
+                          openNoteEditor(note); // open editor with new note
+                        }, 200);
+                      }
+                    }}
+                  >
+                    <DVNoteInfoContainer>
+                      <DVNoteTitle>{note.title}</DVNoteTitle>
+                      <DVNoteUpdatedAt>Last updated: {date}</DVNoteUpdatedAt>
+                      <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
+                    </DVNoteInfoContainer>
 
-                  <DVNoteDeleteButtonContainer>
-                    <DVNoteTrashCan 
-                      src={trashcan} 
-                      alt="delete icon" 
-                      onClick={() => {
-                        console.log('Deleting:', note._id);
-                        Util.API.noteDELETE(note._id)
-                          .then(() => props.reRenderFunction())
-                          .catch(err => console.error(err)); 
-                      }}  
-                    />
-                  </DVNoteDeleteButtonContainer>
-                </DVNote>
-              );
+                    <DVNoteDeleteButtonContainer>
+                      <DVNoteTrashCan 
+                        src={trashcan} 
+                        alt="delete icon" 
+                        onClick={() => {
+                          console.log('Deleting:', note._id);
+                          Util.API.noteDELETE(note._id)
+                            .then(() => props.reRenderFunction())
+                            .catch(err => console.error(err)); 
+                        }}  
+                      />
+                    </DVNoteDeleteButtonContainer>
+                  </DVNote>
+                );
 
-              let selectedNoteListItem = (
-                <DVSelectedNote
-                  key={note._id}
-                  onClick={() => {
-                    setClicked(!clicked);
-                    selectNote({});
-                    props.closeNoteEdtior();
-                  }}
-                >
-                  <DVNoteInfoContainer>
-                    <DVNoteTitle>{note.title}</DVNoteTitle>
-                    <DVNoteUpdatedAt>Last updated: {date}</DVNoteUpdatedAt>
-                    <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
-                  </DVNoteInfoContainer>
-                </DVSelectedNote>
-              );
+                let selectedNoteListItem = (
+                  <DVSelectedNote
+                    key={note._id}
+                    onClick={() => {
+                      setClicked(!clicked);
+                      selectNote({});
+                      props.closeNoteEdtior();
+                    }}
+                  >
+                    <DVNoteInfoContainer>
+                      <DVNoteTitle>{note.title}</DVNoteTitle>
+                      <DVNoteUpdatedAt>Last updated: {date}</DVNoteUpdatedAt>
+                      <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
+                    </DVNoteInfoContainer>
+                  </DVSelectedNote>
+                );
 
-              return (selectedNote === {})
-                ? unSelectedNoteListItem
-                : (clicked && selectedNote._id === note._id) 
-                    ? selectedNoteListItem 
-                    : unSelectedNoteListItem
-            })
-          : null
+                return (selectedNote === {})
+                  ? unSelectedNoteListItem
+                  : (clicked && selectedNote._id === note._id) 
+                      ? selectedNoteListItem 
+                      : unSelectedNoteListItem
+              })
+          : <p>No notes...</p>
         }
       </DVNoteList>
     </DVNoteListContainer>
