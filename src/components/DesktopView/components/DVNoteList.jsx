@@ -39,7 +39,6 @@ const DesktopViewNoteList = (props) => {
     toggleAddNote,
     setToggleAddNote
   } = props;
-  // const [selected, setSelected] = useState('');
   
   function modifyToggleAddNote(boolean) {
     console.log('Modifying boolean:', boolean);
@@ -101,7 +100,6 @@ const DesktopViewNoteList = (props) => {
         props.notes 
         ? listOfNotesToRender.map(note => {
             let { 
-              selected, 
               selectNote, 
               openNoteEditor, 
               closeNoteEdtior 
@@ -115,18 +113,16 @@ const DesktopViewNoteList = (props) => {
               <DVNote 
                 key={note._id}
                 onClick={() => {
-                  if (selected === '' || selected === undefined) {
-                    console.log('Processing... opening editor with:', note);
-                    setClicked(!clicked);
-                    selectNote(note);
-                    openNoteEditor(note);
-                  }
+                  console.log('Clicked:', note._id);
+                  setClicked(true);
+                  selectNote(note);
+                  openNoteEditor(note);
 
-                  if (clicked && selected !== note._id) {
+                  if (clicked && selectedNote._id !== note._id) {
                     closeNoteEdtior(); // wipes slate clean
                     selectNote(note); // selects new note
                     setTimeout(() => {
-                      console.log('New note recognized:', note);
+                      console.log('New note recognized...');
                       openNoteEditor(note); // open editor with new note
                     }, 200);
                   }

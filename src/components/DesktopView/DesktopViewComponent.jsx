@@ -11,29 +11,28 @@ import DesktopViewNoteList from './components/DVNoteList';
 import DesktopViewEditorDisplay from './components/DVEditorDisplay';
 
 const DesktopViewComponent = (props) => {
-  const [animate, setAnimate] = useState(false);
+  const [animate, _setAnimate] = useState(false);
   const [clicked, setClicked] = useState(false);
-  const [selectedNote, setSelectedNote] = useState({});
+  const [selectedNote, _setSelectedNote] = useState({});
   const [toggleAddNote, _setToggleAddNote] = useState(false);
 
   function _openNoteEditor(note) {
-    // console.log('Opening Note Editor based on note:', note);
     if (note === {} || note._id === undefined) {
-      console.log('Empty object recognized, opening AddNoteEditor');
-      setAnimate(true);
+      console.log('Empty object recognized, opening AddNoteEditor...');
+      _setAnimate(true);
       _selectNote({});
     }
 
     if (note !== {} || note._id !== undefined) {
       console.log('Selecting note...', note);
-      setAnimate(true);
+      _setAnimate(true);
       _selectNote(note);
     }
     
     if (note._id !== selectedNote._id) {
       console.log('A new note has been selected...', note);
       _setToggleAddNote(false);
-      setAnimate(true);
+      _setAnimate(true);
       _selectNote(note);
     }
   };
@@ -41,12 +40,12 @@ const DesktopViewComponent = (props) => {
   function _closeNoteEdtior() {
     console.log('Closing Editor.');
     _setToggleAddNote(false);
+    _setAnimate(false);
     _selectNote({});
-    setAnimate(false);
   };
 
   function _selectNote(note) {
-    setSelectedNote(note);
+    _setSelectedNote(note);
   };
 
   return(
