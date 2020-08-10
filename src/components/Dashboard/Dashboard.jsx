@@ -72,7 +72,7 @@ const Dashboard = () => {
           notes={listOfNotes} 
           reRenderFunction={_reRenderNoteList}
           toggleAnimation={toggleAnimation} 
-          animate={animate} 
+          // animate={animate} 
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm} 
         />

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+// import React, { useState } from 'react';
 
 /** Libraries */
 import moment from 'moment';
@@ -31,25 +32,37 @@ const DesktopViewNoteList = (props) => {
   const { 
     clicked, 
     setClicked, 
-    displayAddNoteForm, 
     selectedNote, 
     searchTerm,
     openNoteEditor,
     closeNoteEdtior,
-    animate,
     toggleAddNote,
     setToggleAddNote
   } = props;
-  const [selected, setSelected] = useState('');
-  // console.log('displayAddNoteForm', displayAddNoteForm, '\n', 'selected', selected, '\n', 'selectedNote', selectedNote);
+  // const [selected, setSelected] = useState('');
   
-  if (displayAddNoteForm && selectedNote === {}) {
-    // Add Note button was clicked when there WAS NOT a previously selected note
-    setSelected({});
-  } else if (displayAddNoteForm && selectedNote !== {}) {
-    // Add Note button was clicked when there WAS a previously selected note
-    setSelected({});
-  }
+  function modifyToggleAddNote(boolean) {
+    console.log('Modifying boolean:', boolean);
+    setToggleAddNote(!boolean);
+  };
+
+  function handleTheEditor(boolean) {
+    console.log('Handling Editor based on boolean:', boolean);
+    if (!boolean) {
+      openNoteEditor({});
+    } else {
+      closeNoteEdtior();
+    }
+  };
+
+  function addNoteButtonLogic() {
+    console.log('AddNoteButton has been clicked; handling logic...');
+    modifyToggleAddNote(toggleAddNote);
+    setTimeout(() => {
+      console.log('toggleAddNote was modified, handling editor...')
+      handleTheEditor(toggleAddNote);
+    }, 1000);
+  };
 
   /** SEARCH TERM FILTER */
   let notes = props.notes;
@@ -70,31 +83,24 @@ const DesktopViewNoteList = (props) => {
         setSearchTerm={props.setSearchTerm} 
       />
 
+      {/**
+       * This button is on DVNoteList, and effects DVEditorDisplay.jsx.
+       * addNoteButtonLogic handles modifying * toggleAddNote * and after a 1s timeout, passes to the next function.
+       * handleTheEditor handles a boolean, in this case ^^^^.
+       * It processes the value of the boolean, and handles opening the editor via props.openNoteEditor
+       */}
       <DVNoteAddIcon 
         src={addIcon}
         alt="Add a note"
         onClick={() => {
-          console.log('Button to Add a note was clicked!');
-          if (!animate && !toggleAddNote) {
-            // setToggleAddNote(true);
-            openNoteEditor({});
-            console.log('Props:', props);
-          } 
-          // else if (animate && !toggleAddNote) {
-          //   closeNoteEdtior();
-          //   setTimeout(() => {
-          //     openNoteEditor({});
-          //   }, 200)
-          // } 
-          else {
-            closeNoteEdtior();
-          }
+          addNoteButtonLogic();
         }}
       />
 
       { /** Render filtered list of notes if there is a search term */
         props.notes 
         ? listOfNotesToRender.map(note => {
+          let { selected, setSelected } = props;
             let contentSnippet = JSON.parse(note.content);
             let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
             let updatedAt = moment(note.updatedAt);
@@ -158,7 +164,7 @@ const DesktopViewNoteList = (props) => {
               </DVSelectedNote>
             );
 
-            return (displayAddNoteForm && selectedNote === {})
+            return (toggleAddNote && selectedNote === {})
                 ? unSelectedNoteListItem
                 : (clicked && selectedNote._id === note._id) ? selectedNoteListItem : unSelectedNoteListItem;
           })

@@ -14,30 +14,36 @@ import {
 } from './DVEditorDisplay.styled';
 
 const DesktopViewEditorDisplay = (props) => {
-  const { note, displayAddNoteForm } = props;
-  
+  const { 
+    animate, 
+    note, 
+    toggleAddNote, 
+    closeNoteEdtior, 
+    reRenderFunction 
+  } = props;
+  // console.log('DesktopViewEditorDisplay props:', props);
+
   return(
-    <DVEditorContainer animate={props.animate}>
-      <DVEditorInnerAnimatedContainer animate={props.animate}>
-        {(displayAddNoteForm) 
+    <DVEditorContainer animate={animate}>
+      <DVEditorInnerAnimatedContainer animate={animate}>
+        {(toggleAddNote) 
           ? <DVAddNoteComponent
-              closeNoteEdtior={props.closeNoteEdtior}
-              reRenderFunction={props.reRenderFunction}
+              closeNoteEdtior={closeNoteEdtior}
+              reRenderFunction={reRenderFunction}
             />
-          : <DVNoteEditor 
-              note={note}
-              reRenderFunction={props.reRenderFunction}
-            />}
+          : null
+          // ? <DVAddNoteComponent
+          //     closeNoteEdtior={closeNoteEdtior}
+          //     reRenderFunction={reRenderFunction}
+          //   />
+          // : <DVNoteEditor 
+          //     note={note}
+          //     reRenderFunction={reRenderFunction}
+          //   />
+        }
       </DVEditorInnerAnimatedContainer>
     </DVEditorContainer>
   );
 };
 
 export default DesktopViewEditorDisplay;
-
-/* 
-<DVNoteEditor 
-  note={note}
-  reRenderFunction={props.reRenderFunction}
-/> 
-*/

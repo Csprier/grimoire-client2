@@ -3,10 +3,10 @@ div.DraftEditor-root {
   width: 98%;
   height: 400px;
   margin: 0 auto;
-  border: 1px solid #000000;
+  /* border: 1px solid #000000; */
   overflow-y: auto;
-  background-color: #687079;
-  color: #ffdf50;
+  /* background-color: #687079; */
+  color: rgb(85, 85, 85);
 }
 
 div.DraftEditor-editorContainer,
