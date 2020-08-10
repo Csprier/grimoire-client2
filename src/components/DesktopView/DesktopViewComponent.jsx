@@ -55,6 +55,7 @@ const DesktopViewComponent = (props) => {
           notes={props.notes}
           clicked={clicked}
           setClicked={setClicked}
+          setAnimate={_setAnimate}
           openNoteEditor={_openNoteEditor}
           closeNoteEdtior={_closeNoteEdtior}
           selectNote={_selectNote}

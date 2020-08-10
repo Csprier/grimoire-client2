@@ -60,10 +60,12 @@ const DesktopViewNoteList = (props) => {
     setTimeout(() => {
       console.log('toggleAddNote was modified, handling editor...')
       handleTheEditor(toggleAddNote);
-    }, 1000);
+    }, 200);
   };
 
-  /** SEARCH TERM FILTER */
+  /** ================================================================================ */
+  /** SEARCH TERM FILTER 
+  /** ================================= */
   let notes = props.notes;
   let filteredListOfNotes = notes.filter(note => note.title.includes(searchTerm))
   let listOfNotesToRender = notes;
@@ -72,8 +74,10 @@ const DesktopViewNoteList = (props) => {
     listOfNotesToRender = filteredListOfNotes;
   } else {
     listOfNotesToRender = notes;
-  }
+  };
+  /** ================================================================================ */
 
+  /** Component */
   return(
     <DVNoteListContainer>
       
