@@ -31,15 +31,10 @@ const DesktopViewEditorDisplay = (props) => {
               closeNoteEdtior={closeNoteEdtior}
               reRenderFunction={reRenderFunction}
             />
-          : null
-          // ? <DVAddNoteComponent
-          //     closeNoteEdtior={closeNoteEdtior}
-          //     reRenderFunction={reRenderFunction}
-          //   />
-          // : <DVNoteEditor 
-          //     note={note}
-          //     reRenderFunction={reRenderFunction}
-          //   />
+          : <DVNoteEditor 
+              note={note}
+              reRenderFunction={reRenderFunction}
+            />
         }
       </DVEditorInnerAnimatedContainer>
     </DVEditorContainer>

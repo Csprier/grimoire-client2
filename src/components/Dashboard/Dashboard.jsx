@@ -18,7 +18,6 @@ import DesktopViewComponent from '../DesktopView/DesktopViewComponent';
 const useForceUpdate = () => useState()[1]; 
 
 const Dashboard = () => {
-  const [animate, setAnimation] = useState(false);
   const [listOfNotes, setListOfNotes] = useState([]);
   const [reRender, toggleReRender] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -47,10 +46,6 @@ const Dashboard = () => {
     toggleReRender(!reRender);
     console.log('Toggling reRender:', reRender);
   };
-
-  function toggleAnimation() {
-    setAnimation(!animate);
-  };
   
   console.log(searchTerm);
   return(
@@ -71,7 +66,6 @@ const Dashboard = () => {
         <DesktopViewComponent 
           notes={listOfNotes} 
           reRenderFunction={_reRenderNoteList}
-          toggleAnimation={toggleAnimation} 
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm} 
         />

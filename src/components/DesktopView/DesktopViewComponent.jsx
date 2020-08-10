@@ -14,44 +14,35 @@ const DesktopViewComponent = (props) => {
   const [animate, setAnimate] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [selectedNote, setSelectedNote] = useState({});
-  const [toggleAddNote, setToggleAddNote] = useState(false);
+  const [toggleAddNote, _setToggleAddNote] = useState(false);
 
   function _openNoteEditor(note) {
-    console.log('Opening Note Editor based on note:', note);
+    // console.log('Opening Note Editor based on note:', note);
     if (note === {} || note._id === undefined) {
       console.log('Empty object recognized, opening AddNoteEditor');
       setAnimate(true);
-      setSelectedNote({});
+      _selectNote({});
+    }
+
+    if (note !== {} || note._id !== undefined) {
+      console.log('Selecting note...', note);
+      setAnimate(true);
+      _selectNote(note);
     }
     
-    // if (note._id !== selectedNote._id) {
-    //   console.log('Opening Editor with ID:', note._id);
-    //   setToggleAddNote(false);
-    //   setSelectedNote(note);
-    //   setAnimate(true);
-    // }
-    
-    // if (toggleAddNote && note === {}) {
-    //   setSelectedNote({});
-    //   setToggleAddNote(true);
-    //   setAnimate(true);
-    //   setClicked(true);
-    // }
+    if (note._id !== selectedNote._id) {
+      console.log('A new note has been selected...', note);
+      _setToggleAddNote(false);
+      setAnimate(true);
+      _selectNote(note);
+    }
   };
 
   function _closeNoteEdtior() {
     console.log('Closing Editor.');
-    setSelectedNote({});
+    _setToggleAddNote(false);
+    _selectNote({});
     setAnimate(false);
-    
-    // if (toggleAddNote && animate) {
-    //   console.log('toggleAddNote:', toggleAddNote, '\n', 'animate:', animate);
-    //   setSelectedNote({});
-    //   setToggleAddNote(false);
-    //   setAnimate(false);
-    //   setClicked(false);
-    //   _openNoteEditor({});
-    // }
   };
 
   function _selectNote(note) {
@@ -73,7 +64,7 @@ const DesktopViewComponent = (props) => {
           setSearchTerm={props.setSearchTerm}
           animate={animate}
           toggleAddNote={toggleAddNote}
-          setToggleAddNote={setToggleAddNote}
+          setToggleAddNote={_setToggleAddNote}
           reRenderFunction={props.reRenderFunction}
         />
 
@@ -82,7 +73,6 @@ const DesktopViewComponent = (props) => {
           note={selectedNote}
           toggleAddNote={toggleAddNote}
           reRenderFunction={props.reRenderFunction}
-          toggleAnimation={props.toggleAnimation}
           closeNoteEdtior={_closeNoteEdtior}
         />
       </DesktopViewComponentContainer>  

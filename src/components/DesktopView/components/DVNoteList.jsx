@@ -100,7 +100,12 @@ const DesktopViewNoteList = (props) => {
       { /** Render filtered list of notes if there is a search term */
         props.notes 
         ? listOfNotesToRender.map(note => {
-          let { selected, setSelected } = props;
+            let { 
+              selected, 
+              selectNote, 
+              openNoteEditor, 
+              closeNoteEdtior 
+            } = props;
             let contentSnippet = JSON.parse(note.content);
             let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
             let updatedAt = moment(note.updatedAt);
@@ -110,18 +115,19 @@ const DesktopViewNoteList = (props) => {
               <DVNote 
                 key={note._id}
                 onClick={() => {
-                  if (selected === '') {
+                  if (selected === '' || selected === undefined) {
+                    console.log('Processing... opening editor with:', note);
                     setClicked(!clicked);
-                    setSelected(note._id);
-                    props.openNoteEditor(note);
+                    selectNote(note);
+                    openNoteEditor(note);
                   }
 
                   if (clicked && selected !== note._id) {
-                    props.closeNoteEdtior();
-                    setSelected(note._id);
+                    closeNoteEdtior(); // wipes slate clean
+                    selectNote(note); // selects new note
                     setTimeout(() => {
-                      console.log('Set Timeout triggered');
-                      props.openNoteEditor(note);
+                      console.log('New note recognized:', note);
+                      openNoteEditor(note); // open editor with new note
                     }, 200);
                   }
                 }}
@@ -152,7 +158,7 @@ const DesktopViewNoteList = (props) => {
                 key={note._id}
                 onClick={() => {
                   setClicked(!clicked);
-                  setSelected('');
+                  selectNote({});
                   props.closeNoteEdtior();
                 }}
               >
@@ -164,9 +170,11 @@ const DesktopViewNoteList = (props) => {
               </DVSelectedNote>
             );
 
-            return (toggleAddNote && selectedNote === {})
-                ? unSelectedNoteListItem
-                : (clicked && selectedNote._id === note._id) ? selectedNoteListItem : unSelectedNoteListItem;
+            return (selectedNote === {})
+              ? unSelectedNoteListItem
+              : (clicked && selectedNote._id === note._id) 
+                  ? selectedNoteListItem 
+                  : unSelectedNoteListItem
           })
         : null
       }
