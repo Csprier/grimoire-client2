@@ -112,7 +112,13 @@ const DVNoteTrashCan = styled.img`
 const DVNoteAddIcon = styled.img`
   width: 30px;
   margin: 0px 0px 0px 10px;
-  padding: 0;
+  padding: 0px;
+  &:hover {
+    padding: 2px;
+    background-color: rgb(223, 253, 223);
+    border: 1px solid lightgreen;
+    border-radius: 4px;
+  }
 `;
 
 export {
