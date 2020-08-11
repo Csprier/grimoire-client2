@@ -5,7 +5,15 @@
   padding: 0;
 }
 
-..dv-edit-note-header-container {
+.left-arrow-icon {
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+
+.dv-edit-note-header-container {
   margin: 0;
   padding: 0;
 }

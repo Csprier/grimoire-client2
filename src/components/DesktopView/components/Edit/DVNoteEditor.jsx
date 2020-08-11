@@ -3,19 +3,13 @@ import React, { Component } from 'react';
 /** Util */
 import Util from '../../../../utility/util';
 
+/** Icons */
+import leftArrowIcon from '../../../icons/leftarrowicon.png';
+
 /** Components */
 import DVNoteTextEditor from '../Editor/DVNoteTextEditor';
 
 /** Styles */
-// import {
-//   DVNoteEditorContainer,
-//   DVNoteEditorForm,
-//   DVNoteEditorHeader,
-//   DVNoteEditorInput,
-//   DVNoteEditorLabel,
-//   DVNoteEditorSubmitButton,
-//   DVNoteEditorTitle
-// } from './DVNoteEditor.styled';
 import './dv-edit-note.css';
 
 class DVNoteEditor extends Component { 
@@ -70,6 +64,12 @@ class DVNoteEditor extends Component {
   render() {
     return(
       <div className="dv-edit-note-container">
+        <img 
+          src={leftArrowIcon} 
+          alt="close editor" 
+          className="left-arrow-icon"
+          onClick={() => this.props.closeNoteEdtior()} 
+        />
         <div className="dv-edit-note-header-container">
           <h2 className="dv-edit-note-header">{this.props.note.title}</h2>
         </div>

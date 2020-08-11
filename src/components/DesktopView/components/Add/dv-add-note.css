@@ -5,6 +5,13 @@
   padding: 0;
 }
 
+.left-arrow-icon {
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+}
+
 .dv-add-note-form {
   display: flex;
   flex-direction: column;

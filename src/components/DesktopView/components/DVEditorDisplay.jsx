@@ -33,6 +33,7 @@ const DesktopViewEditorDisplay = (props) => {
             />
           : <DVNoteEditor 
               note={note}
+              closeNoteEdtior={closeNoteEdtior}
               reRenderFunction={reRenderFunction}
             />
         }
