@@ -42,6 +42,10 @@ const DVNote = styled.div`
   padding: 4px 10px;
   border-top: 1px solid lightgray;
   overflow: hidden;
+  &:hover {
+    background-color: darkgray;
+    border-top: 1px solid darkgray;
+  }
 `;
 
 const DVSelectedNote = styled.div`
@@ -52,9 +56,14 @@ const DVSelectedNote = styled.div`
   height: 75px;
   margin: 0;
   padding: 4px 10px;
-  border-top: 1px solid lightgray;
   overflow: hidden;
   background-color: lightgray;
+  border-top: 1px solid lightgray;
+  &:hover {
+    color: white;
+    border-top: 1px solid lightgray;
+    background-color: lightgray;
+  }
 `;
 
 /** NOTE INFORMATION */
@@ -107,6 +116,12 @@ const DVNoteTrashCan = styled.img`
   width: 30px;
   margin: 0 auto;
   padding: 0;
+  &:hover {
+    padding: 2px;
+    border: 1px solid red;
+    background-color: #ff726f;
+    border-radius: 4px;
+  }
 `;
 
 const DVNoteAddIcon = styled.img`

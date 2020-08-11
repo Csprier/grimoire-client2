@@ -103,7 +103,6 @@ const DesktopViewNoteList = (props) => {
          * It processes the value of the boolean, and handles opening the editor via props.openNoteEditor
          */}
         <DVNoteAddIcon 
-          clicked={clicked}
           src={addIcon}
           alt="Add a note"
           onClick={() => {
