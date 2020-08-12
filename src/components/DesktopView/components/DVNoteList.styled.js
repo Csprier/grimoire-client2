@@ -43,8 +43,9 @@ const DVNote = styled.div`
   border-top: 1px solid lightgray;
   overflow: hidden;
   &:hover {
-    background-color: darkgray;
-    border-top: 1px solid darkgray;
+    padding: 4px;
+    background-color: rgb(223, 253, 223);
+    border-top: 1px solid rgb(223, 253, 223);
   }
 `;
 
@@ -57,12 +58,12 @@ const DVSelectedNote = styled.div`
   margin: 0;
   padding: 4px 10px;
   overflow: hidden;
-  background-color: lightgray;
-  border-top: 1px solid lightgray;
+  background-color: rgb(225, 255, 225);
+  border-top: 1px solid rgb(225, 255, 225);
   &:hover {
     color: white;
-    border-top: 1px solid lightgray;
-    background-color: lightgray;
+    background-color: rgb(223, 253, 223);
+    border-top: 1px solid rgb(223, 253, 223);
   }
 `;
 
