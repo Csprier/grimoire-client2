@@ -71,12 +71,11 @@ class DVAddNoteComponent extends Component {
             />
           </label>
 
-          <label className="dv-add-note-label">Content
-            <DVAddNoteTextEditor 
-              editorState={JSON.stringify(this.state.content)}
-              handleContentChange={this._handleContentChange}
-            />
-          </label>
+          <label className="dv-add-note-label">Content</label>
+          <DVAddNoteTextEditor 
+            editorState={JSON.stringify(this.state.content)}
+            handleContentChange={this._handleContentChange}
+          />
 
           <button className="dv-add-note-submit-button">Submit</button>
         </form>
