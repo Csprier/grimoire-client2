@@ -64,14 +64,14 @@ class DVNoteEditor extends Component {
   render() {
     return(
       <div className="dv-edit-note-container">
-        <img 
-          src={leftArrowIcon} 
-          alt="close editor" 
-          className="left-arrow-icon"
-          onClick={() => this.props.closeNoteEdtior()} 
-        />
         <div className="dv-edit-note-header-container">
-          <h2 className="dv-edit-note-header">{this.props.note.title}</h2>
+          <img 
+            src={leftArrowIcon} 
+            alt="close editor" 
+            className="left-arrow-icon"
+            onClick={() => this.props.closeNoteEdtior()} 
+          />
+          <h2 className="dv-edit-note-header">Editing: {this.props.note.title}</h2>
         </div>
 
         <form className="dv-edit-note-form" onSubmit={this._submitNote}>
@@ -86,12 +86,11 @@ class DVNoteEditor extends Component {
             />
           </label>
 
-          <label className="dv-edit-note-label">Content
-            <DVNoteTextEditor 
-              editorState={this.props.note.content}
-              handleContentChange={this._handleContentChange}
-            />
-          </label>
+          <label className="dv-edit-note-label">Content</label>
+          <DVNoteTextEditor 
+            editorState={this.props.note.content}
+            handleContentChange={this._handleContentChange}
+          />
 
           <button className="dv-edit-note-submit-button">Submit</button>
         </form> 
