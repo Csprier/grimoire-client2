@@ -3,7 +3,7 @@
   height: 100%;
   margin: 0;
   padding: 0;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .left-arrow-icon {
@@ -37,7 +37,7 @@
 }
 
 .dv-add-note-input {
-  width: 90%;
+  width: 95%;
   height: 30px;
   margin: 0 auto;
   padding: 0;
