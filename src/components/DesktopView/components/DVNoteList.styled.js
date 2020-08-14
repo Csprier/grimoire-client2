@@ -58,8 +58,8 @@ const DVSelectedNote = styled.div`
   margin: 0;
   padding: 4px 10px;
   overflow: hidden;
-  background-color: rgb(225, 255, 225);
-  border-top: 1px solid rgb(225, 255, 225);
+  background-color: rgb(223, 253, 223);
+  border-top: 1px solid rgb(223, 253, 223);
   &:hover {
     color: white;
     background-color: rgb(223, 253, 223);
@@ -126,11 +126,11 @@ const DVNoteTrashCan = styled.img`
 `;
 
 const DVNoteAddIcon = styled.img`
-  width: 30px;
+  width: 50px;
   margin: 0px 0px 0px 10px;
   padding: 0px;
   &:hover {
-    padding: 2px;
+    padding: 10px;
     background-color: rgb(223, 253, 223);
     border: 1px solid lightgreen;
     border-radius: 4px;

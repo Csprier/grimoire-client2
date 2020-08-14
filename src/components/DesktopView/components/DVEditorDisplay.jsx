@@ -26,16 +26,22 @@ const DesktopViewEditorDisplay = (props) => {
   return(
     <DVEditorContainer animate={animate}>
       <DVEditorInnerAnimatedContainer animate={animate}>
-        {(toggleAddNote) 
-          ? <DVAddNoteComponent
-              closeNoteEdtior={closeNoteEdtior}
-              reRenderFunction={reRenderFunction}
-            />
-          : <DVNoteEditor 
-              note={note}
-              closeNoteEdtior={closeNoteEdtior}
-              reRenderFunction={reRenderFunction}
-            />
+        {(toggleAddNote) && <p>Add Note</p>}
+        {(note) && <p>`Edit note: ${JSON.stringify(note, null, 2)}`</p>}
+        {// : (note) 
+         //   && <p>`Edit note: ${JSON.stringify(note, null, 2)}`</p>
+
+            // ? <DVAddNoteComponent
+          //     closeNoteEdtior={closeNoteEdtior}
+          //     reRenderFunction={reRenderFunction}
+          //   />
+          // : (note) 
+            // ? <DVNoteEditor 
+            //     note={note}
+            //     closeNoteEdtior={closeNoteEdtior}
+            //     reRenderFunction={reRenderFunction}
+            //   />
+            // : null
         }
       </DVEditorInnerAnimatedContainer>
     </DVEditorContainer>

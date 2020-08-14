@@ -136,7 +136,8 @@ const DesktopViewNoteList = (props) => {
 
                       if (clicked && selectedNote._id !== note._id) {
                         closeNoteEdtior(); // wipes slate clean
-                        selectNote(note); // selects new note
+                        selectNote(note);
+                        setClicked(!clicked); // selects new note
                         setTimeout(() => {
                           console.log('New note recognized...');
                           openNoteEditor(note); // open editor with new note

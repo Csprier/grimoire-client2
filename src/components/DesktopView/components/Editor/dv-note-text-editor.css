@@ -2,8 +2,8 @@ div.DraftEditor-root {
   position: relative;
   width: 98%;
   height: 400px;
-  margin: 0 auto;
-  /* border: 1px solid #000000; */
+  margin: 4px auto;
+  border: 1px solid lightgray;
   overflow-y: auto;
   /* background-color: #687079; */
   color: rgb(85, 85, 85);
