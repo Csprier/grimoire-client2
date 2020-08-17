@@ -53,12 +53,15 @@ class DVAddNoteComponent extends Component {
   render() {
     return(
       <div className="dv-add-note-container">
-        <img 
-          src={leftArrowIcon} 
-          alt="close editor" 
-          className="left-arrow-icon"
-          onClick={() => this.props.closeNoteEdtior()} 
-        />
+        <div className="dv-add-note-header-container">
+          <img 
+            src={leftArrowIcon} 
+            alt="close editor" 
+            className="left-arrow-icon"
+            onClick={() => this.props.closeNoteEdtior()} 
+          />
+          <h2 className="dv-add-note-header">Add a new note!</h2>
+        </div>
         <form className="dv-add-note-form" onSubmit={(e) => this._submitNote(e)}>
           <label className="dv-add-note-label">Title
             <input

@@ -35,14 +35,13 @@ const DesktopViewNoteList = (props) => {
   /** PROP IMPORTS 
   /** ================================= */
   const {
+    ADDLogic,
+    EDITLogic,
     selectNote,
     selectedNote, 
     searchTerm,
     // openNoteEditor,
     // closeNoteEdtior,
-    toggleADD,
-    // EDIT,
-    // toggleEDIT
   } = props;
 
   /** ================================================================================ */
@@ -56,14 +55,6 @@ const DesktopViewNoteList = (props) => {
     listOfNotesToRender = filteredListOfNotes;
   } else {
     listOfNotesToRender = notes;
-  };
-
-  /** ================================================================================ */
-  /** EDIT NOTE */
-  /** ================================= */
-  function EDITLogic(note) {
-    console.log('Clicked:', note._id);
-    selectNote(note);
   };
 
   return(
@@ -85,8 +76,7 @@ const DesktopViewNoteList = (props) => {
           src={addIcon}
           alt="Add a note"
           onClick={() => {
-            toggleADD(true);
-            // addNoteButtonLogic();
+            ADDLogic();
           }}
         />
       </DVNoteListFixedContainer>
@@ -107,7 +97,7 @@ const DesktopViewNoteList = (props) => {
                   <DVNote 
                     key={note._id}
                     onClick={() => {
-                      props.EDITLogic(note);
+                      EDITLogic(note);
                     }}
                   >
                     <DVNoteInfoContainer>

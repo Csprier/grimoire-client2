@@ -22,15 +22,21 @@ const DesktopViewEditorDisplay = (props) => {
     reRenderFunction 
   } = props;
 
-  console.log('ED SN:', selectedNote);
   return(
     <DVEditorContainer>
       <DVEditorInnerAnimatedContainer>
-        
+
         {(ADD) 
-          ? <p>ADD</p>
-          : (EDIT && selectedNote) 
-            ? <p>EDIT</p>
+          ? <DVAddNoteComponent
+              closeNoteEdtior={closeNoteEdtior}
+              reRenderFunction={reRenderFunction}
+            />
+          : (EDIT) 
+            ? <DVNoteEditor 
+                note={selectedNote}
+                closeNoteEdtior={closeNoteEdtior}
+                reRenderFunction={reRenderFunction}
+              />
             : null
         }
 

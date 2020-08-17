@@ -19,6 +19,20 @@
   border-radius: 4px;
 }
 
+.dv-add-note-header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.dv-add-note-header {
+  margin: 0px 0px 0px 10px;
+  padding: 0;
+  color: #444;
+}
+
 .dv-add-note-form {
   display: flex;
   flex-direction: column;

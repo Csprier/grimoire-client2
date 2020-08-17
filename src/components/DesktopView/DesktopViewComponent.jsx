@@ -35,6 +35,16 @@ const DesktopViewComponent = (props) => {
     _selectNote(note);
   };
 
+  /** ================================================================================ */
+  /** ADD NOTE */
+  /** ================================= */
+  function ADDLogic() {
+    console.log('Add a note!');
+    _toggleADD(true);
+    _toggleEDIT(false);
+    _selectNote({});
+  }
+
 
   return(
     <DesktopViewContainer>
@@ -45,6 +55,7 @@ const DesktopViewComponent = (props) => {
           selectedNote={props.selectedNote}
           searchTerm={props.searchTerm}
           setSearchTerm={props.setSearchTerm}
+          ADDLogic={ADDLogic}
           EDITLogic={EDITLogic}
           openNoteEditor={props._openNoteEditor}
           closeNoteEdtior={props._closeNoteEdtior}
