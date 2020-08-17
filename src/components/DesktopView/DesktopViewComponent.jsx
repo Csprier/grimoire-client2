@@ -27,8 +27,9 @@ const DesktopViewComponent = (props) => {
   // }, [props, animate, clicked, toggleAddNote, selectedNote]);
 
   function _openNoteEditor(note) {
+    console.log('NOTE OE:', note);
     // there is no note
-    if (note === {} || note._id === undefined || note.hasOwnProperty('id') === false) {
+    if (!note.hasOwnProperty('_id')) {
       console.log('Empty object recognized, opening AddNoteEditor...');
       _setToggleAddNote(true);
       _setToggleEditNote(false);

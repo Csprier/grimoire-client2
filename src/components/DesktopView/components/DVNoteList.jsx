@@ -37,6 +37,7 @@ const DesktopViewNoteList = (props) => {
   const { 
     clicked, 
     setClicked, 
+    selectNote,
     selectedNote, 
     searchTerm,
     openNoteEditor,
@@ -46,44 +47,6 @@ const DesktopViewNoteList = (props) => {
     toggleEditNote,
     setToggleEditNote
   } = props;
-  
-  /** ================================================================================ */
-  /** Edit Note functions 
-  /** ================================= */
-  
-  function modifyToggleEditNote(boolean) {
-    setClicked(true);
-    setToggleEditNote(!boolean);
-  }
-  
-  // This is the function to invoke when a note is clicked in the list
-  function editNoteLogic() {
-    console.log('A note in the NoteList has been clicked.');
-    modifyToggleEditNote(toggleEditNote);
-    setTimeout(() => {
-      console.log('Handling the editor...');
-      console.log('Opening Editor with the selected note.');
-      openNoteEditor(selectedNote);
-    })
-  };
-
-  /** ================================================================================ */
-  /** Add Note Button functions 
-   /** ================================= */
-  function modifyToggleAddNote(boolean) {
-    setClicked(true);
-    setToggleAddNote(!boolean);
-  };
-
-  function addNoteButtonLogic() {
-    console.log('AddNoteButton has been clicked; handling logic...');
-    modifyToggleAddNote(toggleAddNote);
-    setTimeout(() => {
-      console.log('Handling the editor...');
-      console.log('Opening Editor to add a note.');
-      openNoteEditor({});
-    }, 200);
-  };
 
   /** ================================================================================ */
   /** SEARCH TERM FILTER 
@@ -97,10 +60,45 @@ const DesktopViewNoteList = (props) => {
   } else {
     listOfNotesToRender = notes;
   };
-  
+
   /** ================================================================================ */
-  /** Component */
+  /** Add Note Button functions 
+   /** ================================= */
+  function modifyToggleAddNote(boolean) {
+    setClicked(true);
+    setToggleAddNote(!boolean);
+  };
+
+  function addNoteButtonLogic(toggleAddNote) {
+    console.log('AddNoteButton has been clicked; handling logic...');
+    modifyToggleAddNote(toggleAddNote);
+    setTimeout(() => {
+      console.log('Handling the editor...');
+      console.log('Opening Editor to add a note.');
+      openNoteEditor({});
+    }, 200);
+  };
+
+  /** ================================================================================ */
+  /** Edit Note functions 
   /** ================================= */
+  function modifyToggleEditNote(boolean) {
+    setClicked(true);
+    setToggleEditNote(!boolean);
+  }
+  
+  // This is the function to invoke when a note is clicked in the list
+  function editNoteLogic(note, toggleEditNote) {
+    console.log('A note in the NoteList has been clicked.');
+    modifyToggleEditNote(toggleEditNote);
+    setTimeout(() => {
+      console.log('Handling the editor...');
+      console.log('Opening Editor with the selected note.');
+      openNoteEditor(note);
+    });
+  };
+  
+  /** ====================================================== */
   return(
     <DVNoteListContainer>
       
@@ -130,6 +128,7 @@ const DesktopViewNoteList = (props) => {
           (props.notes) 
             ? listOfNotesToRender.map(note => {
                 let { 
+                  toggleEditNote,
                   selectNote, 
                   closeNoteEdtior 
                 } = props;
@@ -144,8 +143,10 @@ const DesktopViewNoteList = (props) => {
                     onClick={() => {
                       console.log('Clicked:', note._id);
                       setClicked(true);
+                      console.log('1', selectedNote);
                       selectNote(note);
-                      editNoteLogic(selectedNote);
+                      console.log('2', selectedNote);
+                      editNoteLogic(note, toggleEditNote);
 
                       if (clicked && selectedNote._id !== note._id) {
                         closeNoteEdtior(); // wipes slate clean
@@ -153,8 +154,12 @@ const DesktopViewNoteList = (props) => {
                         selectNote(note);
                         setTimeout(() => {
                           console.log('New note recognized...');
-                          editNoteLogic(selectedNote);
+                          editNoteLogic(note, toggleEditNote);
                         }, 200);
+                      }
+
+                      if (clicked && selectedNote._id === note._id) {
+                        closeNoteEdtior();
                       }
                     }}
                   >
@@ -196,7 +201,7 @@ const DesktopViewNoteList = (props) => {
                   </DVSelectedNote>
                 );
 
-                return (selectedNote === {})
+                return (!selectedNote.hasOwnProperty('id'))
                   ? unSelectedNoteListItem
                   : (clicked && selectedNote._id === note._id) 
                       ? selectedNoteListItem 
