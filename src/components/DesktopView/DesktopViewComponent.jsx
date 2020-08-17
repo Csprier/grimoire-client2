@@ -12,6 +12,7 @@ import DesktopViewNoteList from './components/DVNoteList';
 import DesktopViewEditorDisplay from './components/DVEditorDisplay';
 
 const DesktopViewComponent = (props) => {
+  const [CLICKED, _toggleCLICKED] = useState(false);
   const [ADD, _toggleADD] = useState(false);
   const [EDIT, _toggleEDIT] = useState(false);
   const [selectedNote, _selectNote] = useState({});
@@ -19,17 +20,19 @@ const DesktopViewComponent = (props) => {
   /** Monitor state in the console, if something changes... */
   useEffect(() => {
     console.log('----------------');
+    console.log('CLICKED:', CLICKED);
     console.log('ADD:', ADD);
     console.log('EDIT:', EDIT);
     console.log('SELECTEDNOTE', selectedNote);
     console.log('----------------');
-  }, [ADD, EDIT, selectedNote]);
+  }, [CLICKED, ADD, EDIT, selectedNote]);
 
   /** ================================================================================ */
   /** EDIT NOTE */
   /** ================================= */
   function EDITLogic(note) {
     console.log('Clicked:', note._id);
+    _toggleCLICKED(true);
     _toggleADD(false);
     _toggleEDIT(true);
     _selectNote(note);
@@ -40,6 +43,7 @@ const DesktopViewComponent = (props) => {
   /** ================================= */
   function ADDLogic() {
     console.log('Add a note!');
+    _toggleCLICKED(true);
     _toggleADD(true);
     _toggleEDIT(false);
     _selectNote({});
@@ -49,6 +53,7 @@ const DesktopViewComponent = (props) => {
   /** OPEN/CLOSE THE EDITOR */
   /** ================================= */
   function _closeNoteEditor() {
+    _toggleCLICKED(false);
     _toggleADD(false);
     _toggleEDIT(false);
     _selectNote({});
@@ -65,11 +70,12 @@ const DesktopViewComponent = (props) => {
           setSearchTerm={props.setSearchTerm}
           ADDLogic={ADDLogic}
           EDITLogic={EDITLogic}
+          CLICKED={CLICKED}
           closeNoteEditor={_closeNoteEditor}
           reRenderFunction={props.reRenderFunction}
         />
 
-        <DesktopViewEditorDisplay 
+        <DesktopViewEditorDisplay
           ADD={ADD}
           EDIT={EDIT}
           selectedNote={selectedNote}

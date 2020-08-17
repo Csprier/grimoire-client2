@@ -37,7 +37,7 @@ const DesktopViewNoteList = (props) => {
   const {
     ADDLogic,
     EDITLogic,
-    selectNote,
+    CLICKED,
     selectedNote, 
     searchTerm,
   } = props;
@@ -121,7 +121,6 @@ const DesktopViewNoteList = (props) => {
                   <DVSelectedNote
                     key={note._id}
                     onClick={() => {
-                      selectNote({});
                       props.closeNoteEditor();
                     }}
                   >
@@ -133,11 +132,11 @@ const DesktopViewNoteList = (props) => {
                   </DVSelectedNote>
                 );
                     
-                return (note)
-                    ? unSelectedNoteListItem
-                    : (selectedNote._id === note._id)
-                      ? selectedNoteListItem
-                      : unSelectedNoteListItem
+                return (note && !CLICKED)
+                  ? unSelectedNoteListItem
+                  : (CLICKED && selectedNote._id === note._id)
+                    ? selectedNoteListItem
+                    : unSelectedNoteListItem
               })
           : <p>No notes...</p>
         }
