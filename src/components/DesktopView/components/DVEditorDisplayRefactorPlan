@@ -1,0 +1,54 @@
+/** ================================================ */
+  * Q: DVEditorDisplay Refactor
+/** ===================== */
+- DesktopViewComponent.jsx (state)
+    - animate: used for animating the EditorDisplay, via styled-component's props.
+    - clicked: used for DVNoteList.
+    - selectedNote: used for DVNoteList, parent state used to know which note was clicked in DVNoteList.
+        * _selectNote()
+    - toggleAddNote: used for AddNoteButton to know to render the AddNoteForm component.
+    - toggleEditNote: used for DVNote in DVNoteList to render the NoteEditorComponent in the display
+    * _openNoteEditor
+    * _closeNoteEditor
+
+- DVEditorDisplay.jsx (props)
+    - Handles rendering, in DesktopViewComponent, which Editor is relevant.
+     { DVNoteEditor
+     { DVAddNoteComponent
+
+- DVNoteList.jsx (props)
+    - Handles NoteListSearch component as a child; this functionality is local to this file.
+    - Handles opening the AddNote Editor in DVEditorDisplay
+    - Renders, in DesktopViewComponent, the list of notes, and the selectedNote.
+    {() => {
+      // Nothing has been clicked
+      // State is clear prior to click
+        setClicked(true);
+        selectedNote(note);
+        toggleEditNote(true);
+        toggleAddNote(false);
+        setAnimate(true);
+
+      // If a note has been clicked but selectedNote._id does not match note._id
+      // (clicked && selectedNote._id !== note._id)
+        closeNoteEditor() // Wipe slate clean
+          - setClicked(false);
+          - setToggleAddNote(false);
+          - setAnimate(false);
+          - selectNote({});
+        selectNote(note) // Select new note
+        setClicked(true); // Capture the new note being clicked
+        toggleEditNote(true); // Open the NoteEditor
+        openNoteEditor(note); // Open the editor with the new note
+
+      // If a note has been clicked, and exists as selectedNote, 
+      // and the addNoteButton is clicked...
+      // (clicked && toggleAddNote)
+        closeNoteEditor() // Wipe slate clean
+          - setClicked(false);
+          - setToggleAddNote(false);
+          - setAnimate(false);
+          - selectNote({});
+        openNoteEditor({});
+      }} 
+    />

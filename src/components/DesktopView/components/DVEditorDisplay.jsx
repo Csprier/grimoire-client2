@@ -18,34 +18,55 @@ const DesktopViewEditorDisplay = (props) => {
     animate, 
     note, 
     toggleAddNote, 
+    toggleEditNote,
     closeNoteEdtior, 
     reRenderFunction 
   } = props;
   // console.log('DesktopViewEditorDisplay props:', props);
 
+  function RenderTheEditor({ note }) {
+    return (toggleAddNote) 
+      ? <DVAddNoteComponent
+          closeNoteEdtior={closeNoteEdtior}
+          reRenderFunction={reRenderFunction}
+        />
+      : (toggleEditNote) 
+        ? <DVNoteEditor 
+            note={note}
+            closeNoteEdtior={closeNoteEdtior}
+            reRenderFunction={reRenderFunction}
+          />
+        : null;
+  };
+
   return(
     <DVEditorContainer animate={animate}>
       <DVEditorInnerAnimatedContainer animate={animate}>
-        {(toggleAddNote) && <p>Add Note</p>}
-        {(note) && <p>`Edit note: ${JSON.stringify(note, null, 2)}`</p>}
-        {// : (note) 
-         //   && <p>`Edit note: ${JSON.stringify(note, null, 2)}`</p>
-
-            // ? <DVAddNoteComponent
-          //     closeNoteEdtior={closeNoteEdtior}
-          //     reRenderFunction={reRenderFunction}
-          //   />
-          // : (note) 
-            // ? <DVNoteEditor 
-            //     note={note}
-            //     closeNoteEdtior={closeNoteEdtior}
-            //     reRenderFunction={reRenderFunction}
-            //   />
-            // : null
-        }
+        
+        <RenderTheEditor 
+          note={note}
+          toggleAddNote={toggleAddNote}
+          toggleEditNote={toggleEditNote} 
+        />
+        
       </DVEditorInnerAnimatedContainer>
     </DVEditorContainer>
   );
 };
 
 export default DesktopViewEditorDisplay;
+
+// {(toggleAddNote) 
+//   ? (<p>Add Note</p>) 
+//   : (<p>`Edit note: ${JSON.stringify(note, null, 2)}`</p>)
+// }
+// {(toggleAddNote) 
+// ? <DVAddNoteComponent
+//     closeNoteEdtior={closeNoteEdtior}
+//     reRenderFunction={reRenderFunction}
+//   />
+// : <DVNoteEditor 
+//     note={note}
+//     closeNoteEdtior={closeNoteEdtior}
+//     reRenderFunction={reRenderFunction}
+//   />}
