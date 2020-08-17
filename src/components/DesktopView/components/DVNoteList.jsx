@@ -40,8 +40,6 @@ const DesktopViewNoteList = (props) => {
     selectNote,
     selectedNote, 
     searchTerm,
-    // openNoteEditor,
-    // closeNoteEdtior,
   } = props;
 
   /** ================================================================================ */
@@ -85,9 +83,6 @@ const DesktopViewNoteList = (props) => {
         { /** Render filtered list of notes if there is a search term */
           (props.notes) 
             ? listOfNotesToRender.map(note => {
-                let {
-                  closeNoteEdtior 
-                } = props;
                 let contentSnippet = JSON.parse(note.content);
                 let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
                 let updatedAt = moment(note.updatedAt);
@@ -114,6 +109,7 @@ const DesktopViewNoteList = (props) => {
                           console.log('Deleting:', note._id);
                           Util.API.noteDELETE(note._id)
                             .then(() => props.reRenderFunction())
+                            .then(() => props.closeNoteEditor())
                             .catch(err => console.error(err)); 
                         }}  
                       />
@@ -126,7 +122,7 @@ const DesktopViewNoteList = (props) => {
                     key={note._id}
                     onClick={() => {
                       selectNote({});
-                      props.closeNoteEdtior();
+                      props.closeNoteEditor();
                     }}
                   >
                     <DVNoteInfoContainer>

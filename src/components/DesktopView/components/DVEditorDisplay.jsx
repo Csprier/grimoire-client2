@@ -18,7 +18,7 @@ const DesktopViewEditorDisplay = (props) => {
     selectedNote, 
     ADD, 
     EDIT,
-    closeNoteEdtior, 
+    closeNoteEditor, 
     reRenderFunction 
   } = props;
 
@@ -28,13 +28,13 @@ const DesktopViewEditorDisplay = (props) => {
 
         {(ADD) 
           ? <DVAddNoteComponent
-              closeNoteEdtior={closeNoteEdtior}
+              closeNoteEditor={closeNoteEditor}
               reRenderFunction={reRenderFunction}
             />
           : (EDIT) 
             ? <DVNoteEditor 
                 note={selectedNote}
-                closeNoteEdtior={closeNoteEdtior}
+                closeNoteEditor={closeNoteEditor}
                 reRenderFunction={reRenderFunction}
               />
             : null
@@ -65,13 +65,13 @@ export default DesktopViewEditorDisplay;
 
 // return (ADD) 
 //  ? <DVAddNoteComponent
-//      closeNoteEdtior={closeNoteEdtior}
+//      closeNoteEditor={closeNoteEditor}
 //      reRenderFunction={reRenderFunction}
 //    />
 //  : (EDIT) 
 //    ? <DVNoteEditor 
 //        note={note}
-//        closeNoteEdtior={closeNoteEdtior}
+//        closeNoteEditor={closeNoteEditor}
 //        reRenderFunction={reRenderFunction}
 //      />
 //    : null;

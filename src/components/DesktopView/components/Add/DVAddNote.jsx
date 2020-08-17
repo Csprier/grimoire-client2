@@ -46,7 +46,7 @@ class DVAddNoteComponent extends Component {
     return Util.API.notePOST(payload)
       .then(res => console.log(res))
       .then(() => this.props.reRenderFunction())
-      .then(() => this.props.closeNoteEdtior())
+      .then(() => this.props.closeNoteEditor())
       .catch(err => console.error(err));
   };
 
@@ -58,7 +58,7 @@ class DVAddNoteComponent extends Component {
             src={leftArrowIcon} 
             alt="close editor" 
             className="left-arrow-icon"
-            onClick={() => this.props.closeNoteEdtior()} 
+            onClick={() => this.props.closeNoteEditor()} 
           />
           <h2 className="dv-add-note-header">Add a new note!</h2>
         </div>

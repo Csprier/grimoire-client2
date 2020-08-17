@@ -69,7 +69,7 @@ class DVNoteEditor extends Component {
             src={leftArrowIcon} 
             alt="close editor" 
             className="left-arrow-icon"
-            onClick={() => this.props.closeNoteEdtior()} 
+            onClick={() => this.props.closeNoteEditor()} 
           />
           <h2 className="dv-edit-note-header">Editing: {this.props.note.title}</h2>
         </div>

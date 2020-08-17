@@ -45,6 +45,14 @@ const DesktopViewComponent = (props) => {
     _selectNote({});
   }
 
+  /** ================================================================================ */
+  /** OPEN/CLOSE THE EDITOR */
+  /** ================================= */
+  function _closeNoteEditor() {
+    _toggleADD(false);
+    _toggleEDIT(false);
+    _selectNote({});
+  };
 
   return(
     <DesktopViewContainer>
@@ -52,13 +60,12 @@ const DesktopViewComponent = (props) => {
         <DesktopViewNoteList 
           notes={props.notes}
           selectNote={_selectNote}
-          selectedNote={props.selectedNote}
+          selectedNote={selectedNote}
           searchTerm={props.searchTerm}
           setSearchTerm={props.setSearchTerm}
           ADDLogic={ADDLogic}
           EDITLogic={EDITLogic}
-          openNoteEditor={props._openNoteEditor}
-          closeNoteEdtior={props._closeNoteEdtior}
+          closeNoteEditor={_closeNoteEditor}
           reRenderFunction={props.reRenderFunction}
         />
 
@@ -66,7 +73,7 @@ const DesktopViewComponent = (props) => {
           ADD={ADD}
           EDIT={EDIT}
           selectedNote={selectedNote}
-          closeNoteEdtior={props._closeNoteEdtior}
+          closeNoteEditor={_closeNoteEditor}
           reRenderFunction={props.reRenderFunction}
         />
       </DesktopViewComponentContainer>  
@@ -120,7 +127,7 @@ export default DesktopViewComponent;
     }
   };
 
-  function _closeNoteEdtior() {
+  function _() {
     console.log('Closing Editor.');
     _setToggleAddNote(false);
     _setToggleEditNote(false);
