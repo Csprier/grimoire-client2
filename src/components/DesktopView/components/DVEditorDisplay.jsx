@@ -1,8 +1,5 @@
 import React from 'react';
 
-/** Util */
-// import Util from '../../../utility/util';
-
 /** Components */
 import DVNoteEditor from './Edit/DVNoteEditor';
 import DVAddNoteComponent from './Add/DVAddNote';

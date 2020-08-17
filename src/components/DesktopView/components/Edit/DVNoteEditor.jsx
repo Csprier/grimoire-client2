@@ -81,7 +81,7 @@ class DVNoteEditor extends Component {
               type="text"
               name="title"
               onChange={this._handleChange}
-              defaultValue={this.props.note.title}
+              value={this.props.note.title}
               placeholder="Title..."
             />
           </label>
