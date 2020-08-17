@@ -43,11 +43,15 @@ const DesktopViewComponent = (props) => {
   /** ================================= */
   function ADDLogic() {
     console.log('Add a note!');
-    _toggleCLICKED(true);
-    _toggleADD(true);
-    _toggleEDIT(false);
-    _selectNote({});
-  }
+    if (CLICKED && ADD) {
+      _closeNoteEditor();
+    } else {
+      _toggleCLICKED(true);
+      _toggleADD(true);
+      _toggleEDIT(false);
+      _selectNote({});
+    }
+  };
 
   /** ================================================================================ */
   /** OPEN/CLOSE THE EDITOR */

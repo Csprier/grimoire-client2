@@ -43,32 +43,3 @@ const DesktopViewEditorDisplay = (props) => {
 };
 
 export default DesktopViewEditorDisplay;
-
-/* 
-  // function RenderTheEditor({ note }) {
-  //   return (ADD) 
-  //     ? <p>ADD</p>
-  //     : (EDIT && note.hasOwnProperty('_id')) 
-  //       ? <p>EDIT</p>
-  //       : null;
-  // };
-
-  <RenderTheEditor 
-    note={note}
-    ADD={ADD}
-    EDIT={EDIT} 
-  /> 
-*/
-
-// return (ADD) 
-//  ? <DVAddNoteComponent
-//      closeNoteEditor={closeNoteEditor}
-//      reRenderFunction={reRenderFunction}
-//    />
-//  : (EDIT) 
-//    ? <DVNoteEditor 
-//        note={note}
-//        closeNoteEditor={closeNoteEditor}
-//        reRenderFunction={reRenderFunction}
-//      />
-//    : null;
