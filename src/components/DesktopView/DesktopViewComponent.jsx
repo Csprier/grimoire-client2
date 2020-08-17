@@ -12,6 +12,42 @@ import DesktopViewNoteList from './components/DVNoteList';
 import DesktopViewEditorDisplay from './components/DVEditorDisplay';
 
 const DesktopViewComponent = (props) => {
+  const [selectedNote, _selectNote] = useState({});
+  const [ADD, _toggleADD] = useState(false);
+  const [EDIT, _toggleEDIT] = useState(false);
+
+  return(
+    <DesktopViewContainer>
+      <DesktopViewComponentContainer>
+        <DesktopViewNoteList 
+          notes={props.notes}
+          selectNote={_selectNote}
+          selectedNote={props.selectedNote}
+          searchTerm={props.searchTerm}
+          setSearchTerm={props.setSearchTerm}
+          toggleADD={_toggleADD}
+          EDIT={EDIT}
+          toggleEDIT={_toggleEDIT}
+          openNoteEditor={props._openNoteEditor}
+          closeNoteEdtior={props._closeNoteEdtior}
+          reRenderFunction={props.reRenderFunction}
+        />
+
+        <DesktopViewEditorDisplay 
+          ADD={ADD}
+          EDIT={EDIT}
+          selectedNote={selectedNote}
+          closeNoteEdtior={props._closeNoteEdtior}
+          reRenderFunction={props.reRenderFunction}
+        />
+      </DesktopViewComponentContainer>  
+    </DesktopViewContainer>
+  );
+};
+
+export default DesktopViewComponent;
+
+/**
   const [animate, _setAnimate] = useState(false);
   const [clicked, _setClicked] = useState(false);
   const [selectedNote, _setSelectedNote] = useState({});
@@ -67,39 +103,4 @@ const DesktopViewComponent = (props) => {
   function _selectNote(note) {
     _setSelectedNote(note);
   };
-
-  return(
-    <DesktopViewContainer>
-      <DesktopViewComponentContainer>
-        <DesktopViewNoteList 
-          notes={props.notes}
-          clicked={clicked}
-          setClicked={_setClicked}
-          setAnimate={_setAnimate}
-          openNoteEditor={_openNoteEditor}
-          closeNoteEdtior={_closeNoteEdtior}
-          selectNote={_selectNote}
-          selectedNote={selectedNote}
-          searchTerm={props.searchTerm}
-          setSearchTerm={props.setSearchTerm}
-          animate={animate}
-          toggleAddNote={toggleAddNote}
-          setToggleAddNote={_setToggleAddNote}
-          setToggleEditNote={_setToggleEditNote}
-          reRenderFunction={props.reRenderFunction}
-        />
-
-        <DesktopViewEditorDisplay 
-          animate={animate}
-          note={selectedNote}
-          toggleAddNote={toggleAddNote}
-          toggleEditNote={toggleEditNote}
-          reRenderFunction={props.reRenderFunction}
-          closeNoteEdtior={_closeNoteEdtior}
-        />
-      </DesktopViewComponentContainer>  
-    </DesktopViewContainer>
-  );
-};
-
-export default DesktopViewComponent;
+ */

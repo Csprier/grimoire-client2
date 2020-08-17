@@ -34,18 +34,15 @@ const DesktopViewNoteList = (props) => {
   /** ================================================================================ */
   /** PROP IMPORTS 
   /** ================================= */
-  const { 
-    clicked, 
-    setClicked, 
-    selectNote,
+  const {
+    // selectNote,
     selectedNote, 
     searchTerm,
-    openNoteEditor,
-    closeNoteEdtior,
-    toggleAddNote,
-    setToggleAddNote,
-    toggleEditNote,
-    setToggleEditNote
+    // openNoteEditor,
+    // closeNoteEdtior,
+    toggleADD,
+    // EDIT,
+    // toggleEDIT
   } = props;
 
   /** ================================================================================ */
@@ -61,44 +58,6 @@ const DesktopViewNoteList = (props) => {
     listOfNotesToRender = notes;
   };
 
-  /** ================================================================================ */
-  /** Add Note Button functions 
-   /** ================================= */
-  function modifyToggleAddNote(boolean) {
-    setClicked(true);
-    setToggleAddNote(!boolean);
-  };
-
-  function addNoteButtonLogic(toggleAddNote) {
-    console.log('AddNoteButton has been clicked; handling logic...');
-    modifyToggleAddNote(toggleAddNote);
-    setTimeout(() => {
-      console.log('Handling the editor...');
-      console.log('Opening Editor to add a note.');
-      openNoteEditor({});
-    }, 200);
-  };
-
-  /** ================================================================================ */
-  /** Edit Note functions 
-  /** ================================= */
-  function modifyToggleEditNote(boolean) {
-    setClicked(true);
-    setToggleEditNote(!boolean);
-  }
-  
-  // This is the function to invoke when a note is clicked in the list
-  function editNoteLogic(note, toggleEditNote) {
-    console.log('A note in the NoteList has been clicked.');
-    modifyToggleEditNote(toggleEditNote);
-    setTimeout(() => {
-      console.log('Handling the editor...');
-      console.log('Opening Editor with the selected note.');
-      openNoteEditor(note);
-    });
-  };
-  
-  /** ====================================================== */
   return(
     <DVNoteListContainer>
       
@@ -118,7 +77,8 @@ const DesktopViewNoteList = (props) => {
           src={addIcon}
           alt="Add a note"
           onClick={() => {
-            addNoteButtonLogic();
+            toggleADD(true);
+            // addNoteButtonLogic();
           }}
         />
       </DVNoteListFixedContainer>
@@ -128,7 +88,6 @@ const DesktopViewNoteList = (props) => {
           (props.notes) 
             ? listOfNotesToRender.map(note => {
                 let { 
-                  toggleEditNote,
                   selectNote, 
                   closeNoteEdtior 
                 } = props;
@@ -142,23 +101,19 @@ const DesktopViewNoteList = (props) => {
                     key={note._id}
                     onClick={() => {
                       console.log('Clicked:', note._id);
-                      setClicked(true);
-                      console.log('1', selectedNote);
                       selectNote(note);
-                      console.log('2', selectedNote);
-                      editNoteLogic(note, toggleEditNote);
+                      // editNoteLogic(note, toggleEditNote);
 
-                      if (clicked && selectedNote._id !== note._id) {
+                      if (selectedNote._id !== note._id) {
                         closeNoteEdtior(); // wipes slate clean
-                        setClicked(true); // selects new note
                         selectNote(note);
                         setTimeout(() => {
                           console.log('New note recognized...');
-                          editNoteLogic(note, toggleEditNote);
+                          // editNoteLogic(note, toggleEditNote);
                         }, 200);
                       }
 
-                      if (clicked && selectedNote._id === note._id) {
+                      if (selectedNote._id === note._id) {
                         closeNoteEdtior();
                       }
                     }}
@@ -188,7 +143,6 @@ const DesktopViewNoteList = (props) => {
                   <DVSelectedNote
                     key={note._id}
                     onClick={() => {
-                      setClicked(!clicked);
                       selectNote({});
                       props.closeNoteEdtior();
                     }}
@@ -200,11 +154,11 @@ const DesktopViewNoteList = (props) => {
                     </DVNoteInfoContainer>
                   </DVSelectedNote>
                 );
-
-                return (!selectedNote.hasOwnProperty('id'))
-                  ? unSelectedNoteListItem
-                  : (clicked && selectedNote._id === note._id) 
-                      ? selectedNoteListItem 
+                    
+                return (note)
+                    ? unSelectedNoteListItem
+                    : (selectedNote._id === note._id)
+                      ? selectedNoteListItem
                       : unSelectedNoteListItem
               })
           : <p>No notes...</p>
@@ -216,10 +170,39 @@ const DesktopViewNoteList = (props) => {
 
 export default DesktopViewNoteList;
 
-  // function handleTheEditor(boolean) {
-  //   if (boolean) {
+  // ================================================================================ */
+  // Add Note Button functions 
+  // ================================= */
+  // function modifyToggleAddNote(boolean) {
+  //   setClicked(true);
+  //   setToggleAddNote(!boolean);
+  // };
+
+  // function addNoteButtonLogic(toggleAddNote) {
+  //   console.log('AddNoteButton has been clicked; handling logic...');
+  //   modifyToggleAddNote(toggleAddNote);
+  //   setTimeout(() => {
+  //     console.log('Handling the editor...');
+  //     console.log('Opening Editor to add a note.');
   //     openNoteEditor({});
-  //   } else {
-  //     closeNoteEdtior();
-  //   }
+  //   }, 200);
+  // };
+
+  // ================================================================================ */
+  // Edit Note functions 
+  // ================================= */
+  // function modifyToggleEditNote(boolean) {
+  //   setClicked(true);
+  //   setToggleEditNote(!boolean);
+  // }
+  
+  // This is the function to invoke when a note is clicked in the list
+  // function editNoteLogic(note, toggleEditNote) {
+  //   console.log('A note in the NoteList has been clicked.');
+  //   modifyToggleEditNote(toggleEditNote);
+  //   setTimeout(() => {
+  //     console.log('Handling the editor...');
+  //     console.log('Opening Editor with the selected note.');
+  //     openNoteEditor(note);
+  //   });
   // };

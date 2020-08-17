@@ -15,22 +15,20 @@ import {
 
 const DesktopViewEditorDisplay = (props) => {
   const { 
-    animate, 
     note, 
-    toggleAddNote, 
-    toggleEditNote,
+    ADD, 
+    EDIT,
     closeNoteEdtior, 
     reRenderFunction 
   } = props;
-  // console.log('DesktopViewEditorDisplay props:', props);
 
   function RenderTheEditor({ note }) {
-    return (toggleAddNote) 
+    return (ADD) 
       ? <DVAddNoteComponent
           closeNoteEdtior={closeNoteEdtior}
           reRenderFunction={reRenderFunction}
         />
-      : (toggleEditNote) 
+      : (EDIT) 
         ? <DVNoteEditor 
             note={note}
             closeNoteEdtior={closeNoteEdtior}
@@ -40,13 +38,13 @@ const DesktopViewEditorDisplay = (props) => {
   };
 
   return(
-    <DVEditorContainer animate={animate}>
-      <DVEditorInnerAnimatedContainer animate={animate}>
+    <DVEditorContainer>
+      <DVEditorInnerAnimatedContainer>
         
         <RenderTheEditor 
           note={note}
-          toggleAddNote={toggleAddNote}
-          toggleEditNote={toggleEditNote} 
+          ADD={ADD}
+          EDIT={EDIT} 
         />
         
       </DVEditorInnerAnimatedContainer>
@@ -55,18 +53,3 @@ const DesktopViewEditorDisplay = (props) => {
 };
 
 export default DesktopViewEditorDisplay;
-
-// {(toggleAddNote) 
-//   ? (<p>Add Note</p>) 
-//   : (<p>`Edit note: ${JSON.stringify(note, null, 2)}`</p>)
-// }
-// {(toggleAddNote) 
-// ? <DVAddNoteComponent
-//     closeNoteEdtior={closeNoteEdtior}
-//     reRenderFunction={reRenderFunction}
-//   />
-// : <DVNoteEditor 
-//     note={note}
-//     closeNoteEdtior={closeNoteEdtior}
-//     reRenderFunction={reRenderFunction}
-//   />}
