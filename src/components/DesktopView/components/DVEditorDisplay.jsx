@@ -15,41 +15,57 @@ import {
 
 const DesktopViewEditorDisplay = (props) => {
   const { 
-    note, 
+    selectedNote, 
     ADD, 
     EDIT,
     closeNoteEdtior, 
     reRenderFunction 
   } = props;
 
-  function RenderTheEditor({ note }) {
-    return (ADD) 
-      ? <DVAddNoteComponent
-          closeNoteEdtior={closeNoteEdtior}
-          reRenderFunction={reRenderFunction}
-        />
-      : (EDIT) 
-        ? <DVNoteEditor 
-            note={note}
-            closeNoteEdtior={closeNoteEdtior}
-            reRenderFunction={reRenderFunction}
-          />
-        : null;
-  };
-
+  console.log('ED SN:', selectedNote);
   return(
     <DVEditorContainer>
       <DVEditorInnerAnimatedContainer>
         
-        <RenderTheEditor 
-          note={note}
-          ADD={ADD}
-          EDIT={EDIT} 
-        />
-        
+        {(ADD) 
+          ? <p>ADD</p>
+          : (EDIT && selectedNote) 
+            ? <p>EDIT</p>
+            : null
+        }
+
       </DVEditorInnerAnimatedContainer>
     </DVEditorContainer>
   );
 };
 
 export default DesktopViewEditorDisplay;
+
+/* 
+  // function RenderTheEditor({ note }) {
+  //   return (ADD) 
+  //     ? <p>ADD</p>
+  //     : (EDIT && note.hasOwnProperty('_id')) 
+  //       ? <p>EDIT</p>
+  //       : null;
+  // };
+
+  <RenderTheEditor 
+    note={note}
+    ADD={ADD}
+    EDIT={EDIT} 
+  /> 
+*/
+
+// return (ADD) 
+//  ? <DVAddNoteComponent
+//      closeNoteEdtior={closeNoteEdtior}
+//      reRenderFunction={reRenderFunction}
+//    />
+//  : (EDIT) 
+//    ? <DVNoteEditor 
+//        note={note}
+//        closeNoteEdtior={closeNoteEdtior}
+//        reRenderFunction={reRenderFunction}
+//      />
+//    : null;

@@ -35,7 +35,7 @@ const DesktopViewNoteList = (props) => {
   /** PROP IMPORTS 
   /** ================================= */
   const {
-    // selectNote,
+    selectNote,
     selectedNote, 
     searchTerm,
     // openNoteEditor,
@@ -56,6 +56,14 @@ const DesktopViewNoteList = (props) => {
     listOfNotesToRender = filteredListOfNotes;
   } else {
     listOfNotesToRender = notes;
+  };
+
+  /** ================================================================================ */
+  /** EDIT NOTE */
+  /** ================================= */
+  function EDITLogic(note) {
+    console.log('Clicked:', note._id);
+    selectNote(note);
   };
 
   return(
@@ -87,8 +95,7 @@ const DesktopViewNoteList = (props) => {
         { /** Render filtered list of notes if there is a search term */
           (props.notes) 
             ? listOfNotesToRender.map(note => {
-                let { 
-                  selectNote, 
+                let {
                   closeNoteEdtior 
                 } = props;
                 let contentSnippet = JSON.parse(note.content);
@@ -100,22 +107,7 @@ const DesktopViewNoteList = (props) => {
                   <DVNote 
                     key={note._id}
                     onClick={() => {
-                      console.log('Clicked:', note._id);
-                      selectNote(note);
-                      // editNoteLogic(note, toggleEditNote);
-
-                      if (selectedNote._id !== note._id) {
-                        closeNoteEdtior(); // wipes slate clean
-                        selectNote(note);
-                        setTimeout(() => {
-                          console.log('New note recognized...');
-                          // editNoteLogic(note, toggleEditNote);
-                        }, 200);
-                      }
-
-                      if (selectedNote._id === note._id) {
-                        closeNoteEdtior();
-                      }
+                      props.EDITLogic(note);
                     }}
                   >
                     <DVNoteInfoContainer>

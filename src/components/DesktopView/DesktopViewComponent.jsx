@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-// import React, { useEffect, useState } from 'react';
+// import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 /** Styles */
 import { 
@@ -12,9 +12,29 @@ import DesktopViewNoteList from './components/DVNoteList';
 import DesktopViewEditorDisplay from './components/DVEditorDisplay';
 
 const DesktopViewComponent = (props) => {
-  const [selectedNote, _selectNote] = useState({});
   const [ADD, _toggleADD] = useState(false);
   const [EDIT, _toggleEDIT] = useState(false);
+  const [selectedNote, _selectNote] = useState({});
+
+  /** Monitor state in the console, if something changes... */
+  useEffect(() => {
+    console.log('----------------');
+    console.log('ADD:', ADD);
+    console.log('EDIT:', EDIT);
+    console.log('SELECTEDNOTE', selectedNote);
+    console.log('----------------');
+  }, [ADD, EDIT, selectedNote]);
+
+  /** ================================================================================ */
+  /** EDIT NOTE */
+  /** ================================= */
+  function EDITLogic(note) {
+    console.log('Clicked:', note._id);
+    _toggleADD(false);
+    _toggleEDIT(true);
+    _selectNote(note);
+  };
+
 
   return(
     <DesktopViewContainer>
@@ -25,9 +45,7 @@ const DesktopViewComponent = (props) => {
           selectedNote={props.selectedNote}
           searchTerm={props.searchTerm}
           setSearchTerm={props.setSearchTerm}
-          toggleADD={_toggleADD}
-          EDIT={EDIT}
-          toggleEDIT={_toggleEDIT}
+          EDITLogic={EDITLogic}
           openNoteEditor={props._openNoteEditor}
           closeNoteEdtior={props._closeNoteEdtior}
           reRenderFunction={props.reRenderFunction}
