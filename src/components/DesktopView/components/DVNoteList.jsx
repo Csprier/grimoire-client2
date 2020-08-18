@@ -8,7 +8,7 @@ import moment from 'moment';
 import Util from '../../../utility/util';
 
 /** Icon */
-import trashcan from '../../icons/TRASHCAN.png';
+import trashcan from '../../icons/TRASHCAN2.png';
 import addIcon from '../../icons/ADDICON.png';
 
 /** Components */

@@ -126,9 +126,7 @@ const DVNoteTrashCan = styled.img`
   margin: 0 auto;
   padding: 0;
   &:hover {
-    filter: saturate(1) brightness(125%) hue-rotate(28deg);
-    -webkit-filter: saturate(1) brightness(125%) hue-rotate(28deg);
-    border: 1px solid red;
+    filter: invert(12%) sepia(67%) saturate(5710%) hue-rotate(358deg) brightness(125%) contrast(121%);
   }
 `;
 
