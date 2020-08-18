@@ -7,7 +7,7 @@ const DVEditorContainer = styled.div`
   height: 600px;
   margin: 0;
   padding: 0;
-  border: 1px solid lightgray;
+  // border: 1px solid lightgray;
   transition-property: height;
   transition-duration: .1s;
   transition-delay: .1s;
@@ -21,7 +21,7 @@ const DVEditorInnerAnimatedContainer = styled.div`
   height: 600px;
   margin: 0 auto;
   padding: 0;
-  border: 1px solid orange;
+  // border: 1px solid orange;
   transition-property: width, height;
   transition-duration: .1s;
   transition-delay: .1s;
