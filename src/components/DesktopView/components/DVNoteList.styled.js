@@ -40,12 +40,12 @@ const DVNote = styled.div`
   height: 75px;
   margin: 0;
   padding: 4px 10px;
-  border-top: 1px solid lightgray;
+  border-top: 1px solid #d0bdf4;
   overflow: hidden;
   &:hover {
     padding: 4px;
-    background-color: rgb(223, 253, 223);
-    border-top: 1px solid rgb(223, 253, 223);
+    background-color: #d0bdf4;
+    border-top: 1px solid #d0bdf4;
   }
 `;
 
@@ -58,12 +58,12 @@ const DVSelectedNote = styled.div`
   margin: 0;
   padding: 4px 10px;
   overflow: hidden;
-  background-color: rgb(223, 253, 223);
-  border-top: 1px solid rgb(223, 253, 223);
+  background-color: #d0bdf4;
+  border-top: 1px solid #d0bdf4;
   &:hover {
     color: white;
-    background-color: rgb(223, 253, 223);
-    border-top: 1px solid rgb(223, 253, 223);
+    background-color: #d0bdf4;
+    border-top: 1px solid #d0bdf4;
   }
 `;
 
@@ -83,6 +83,9 @@ const DVNoteTitle = styled.h2`
   margin: 0;
   padding: 0;
   font-size: 20px;
+  &:hover {
+    color: goldenrod;
+  }
 `;
 
 const DVNoteUpdatedAt = styled.p`
@@ -91,6 +94,9 @@ const DVNoteUpdatedAt = styled.p`
   margin: 0;
   padding: 2px;
   font-size: 10px;
+  &:hover {
+    color: goldenrod;
+  }
 `;
 
 const DNNoteSnippet = styled.p`
@@ -99,6 +105,9 @@ const DNNoteSnippet = styled.p`
   margin: 0;
   padding: 3px 8px;
   font-size: 14px;
+  &:hover {
+    color: goldenrod;
+  }
 `;
 
 /** DELETE BUTTON */
@@ -118,10 +127,10 @@ const DVNoteTrashCan = styled.img`
   margin: 0 auto;
   padding: 0;
   &:hover {
-    padding: 2px;
+    padding: 4px;
     border: 1px solid red;
-    background-color: #ff726f;
-    border-radius: 4px;
+    background-color: #ff4d4d;
+    // border-radius: 3px;
   }
 `;
 
@@ -130,7 +139,7 @@ const DVNoteAddIcon = styled.img`
   margin: 0px 0px 0px 10px;
   padding: 0px;
   &:hover {
-    padding: 10px;
+    padding: 7px;
     background-color: rgb(223, 253, 223);
     border: 1px solid lightgreen;
     border-radius: 4px;
