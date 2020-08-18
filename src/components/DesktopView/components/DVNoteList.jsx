@@ -9,7 +9,7 @@ import Util from '../../../utility/util';
 
 /** Icon */
 import trashcan from '../../icons/TRASHCAN2.png';
-import addIcon from '../../icons/ADDICON.png';
+import addIcon from '../../icons/ADDICON2.png';
 
 /** Components */
 import SearchNotes from '../../SearchNotes/SearchNotes';

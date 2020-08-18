@@ -40,11 +40,11 @@ const DVNote = styled.div`
   height: 75px;
   margin: 0;
   padding: 4px 10px;
-  border-top: 1px solid #d0bdf4;
+  border-top: 1px solid #C7CCDB;
   overflow: hidden;
   &:hover {
-    background-color: #d0bdf4;
-    border-top: 1px solid #d0bdf4;
+    background-color: #C7CCDB;
+    border-top: 1px solid: #C7CCDB;
   }
 `;
 
@@ -57,12 +57,11 @@ const DVSelectedNote = styled.div`
   margin: 0;
   padding: 4px 10px;
   overflow: hidden;
-  background-color: #d0bdf4;
-  border-top: 1px solid #d0bdf4;
+  background-color: #8093F1;
+  border-top: 1px solid #8093F1;
   &:hover {
-    color: white;
-    background-color: #d0bdf4;
-    border-top: 1px solid #d0bdf4;
+    background-color: #8093F1;
+    border-top: 1px solid #8093F1;
   }
 `;
 
@@ -82,9 +81,6 @@ const DVNoteTitle = styled.h2`
   margin: 0;
   padding: 0;
   font-size: 20px;
-  &:hover {
-    color: goldenrod;
-  }
 `;
 
 const DVNoteUpdatedAt = styled.p`
@@ -93,9 +89,6 @@ const DVNoteUpdatedAt = styled.p`
   margin: 0;
   padding: 2px;
   font-size: 10px;
-  &:hover {
-    color: goldenrod;
-  }
 `;
 
 const DNNoteSnippet = styled.p`
@@ -104,9 +97,6 @@ const DNNoteSnippet = styled.p`
   margin: 0;
   padding: 3px 8px;
   font-size: 14px;
-  &:hover {
-    color: goldenrod;
-  }
 `;
 
 /** DELETE BUTTON */
@@ -131,14 +121,14 @@ const DVNoteTrashCan = styled.img`
 `;
 
 const DVNoteAddIcon = styled.img`
-  width: 50px;
+  width: 40px;
   margin: 0px 0px 0px 10px;
-  padding: 0px;
+  padding: 0;
+  margin: 0px 10px;
   &:hover {
-    padding: 7px;
-    background-color: rgb(223, 253, 223);
-    border: 1px solid lightgreen;
-    border-radius: 4px;
+    filter: invert(59%) sepia(5%) saturate(5503%) hue-rotate(59deg) brightness(100%) contrast(79%);
+    // background-color: rgb(223, 253, 223);
+    // border: 1px solid lightgreen;
   }
 `;
 
