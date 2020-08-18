@@ -43,7 +43,6 @@ const DVNote = styled.div`
   border-top: 1px solid #d0bdf4;
   overflow: hidden;
   &:hover {
-    padding: 4px;
     background-color: #d0bdf4;
     border-top: 1px solid #d0bdf4;
   }
@@ -127,10 +126,7 @@ const DVNoteTrashCan = styled.img`
   margin: 0 auto;
   padding: 0;
   &:hover {
-    padding: 4px;
-    border: 1px solid red;
-    background-color: #ff4d4d;
-    // border-radius: 3px;
+    filter: brightness(50%) sepia(100) saturate(100) hue-rotate(25deg);
   }
 `;
 
