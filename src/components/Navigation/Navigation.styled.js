@@ -15,7 +15,7 @@ const UsernameHeader = styled.h3`
   align-items: center;
   font-size: 16px;
   font-weight: 100;
-  margin: 0px 0px 0px 5px;
+  margin: 0px 0px 0px 20px;
   padding: 0;
   color: white;
 `;
@@ -43,7 +43,7 @@ const NavigationButtonContainer = styled.div`
 const IconButton = styled.button`
   width: 200px;
   height: 100%;
-  margin: 0px 10px 0px 0px;
+  margin: 0px 20px 0px 0px;
   padding: 6px 8px;
   font-size: 22px;
   text-align: center;
