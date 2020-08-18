@@ -16,6 +16,7 @@ const DesktopViewComponent = (props) => {
   const [ADD, _toggleADD] = useState(false);
   const [EDIT, _toggleEDIT] = useState(false);
   const [selectedNote, _selectNote] = useState({});
+  const [ANIMATE, _toggleANIMATE] = useState(false);
 
   /** Monitor state in the console, if something changes... */
   useEffect(() => {
@@ -24,8 +25,9 @@ const DesktopViewComponent = (props) => {
     console.log('ADD:', ADD);
     console.log('EDIT:', EDIT);
     console.log('SELECTEDNOTE', selectedNote);
+    console.log('ANIMATE:', ANIMATE);
     console.log('----------------');
-  }, [CLICKED, ADD, EDIT, selectedNote]);
+  }, [CLICKED, ADD, EDIT, selectedNote, ANIMATE]);
 
   /** ================================================================================ */
   /** EDIT NOTE */
@@ -36,6 +38,7 @@ const DesktopViewComponent = (props) => {
     _toggleADD(false);
     _toggleEDIT(true);
     _selectNote(note);
+    _toggleANIMATE(true);
   };
 
   /** ================================================================================ */
@@ -50,6 +53,7 @@ const DesktopViewComponent = (props) => {
       _toggleADD(true);
       _toggleEDIT(false);
       _selectNote({});
+      _toggleANIMATE(true);
     }
   };
 
@@ -61,6 +65,7 @@ const DesktopViewComponent = (props) => {
     _toggleADD(false);
     _toggleEDIT(false);
     _selectNote({});
+    _toggleANIMATE(false);
   };
 
   return(
@@ -82,6 +87,7 @@ const DesktopViewComponent = (props) => {
         <DesktopViewEditorDisplay
           ADD={ADD}
           EDIT={EDIT}
+          ANIMATE={ANIMATE}
           selectedNote={selectedNote}
           closeNoteEditor={_closeNoteEditor}
           reRenderFunction={props.reRenderFunction}

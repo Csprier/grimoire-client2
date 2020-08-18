@@ -15,13 +15,14 @@ const DesktopViewEditorDisplay = (props) => {
     selectedNote, 
     ADD, 
     EDIT,
+    ANIMATE,
     closeNoteEditor, 
     reRenderFunction 
   } = props;
 
   return(
-    <DVEditorContainer>
-      <DVEditorInnerAnimatedContainer>
+    <DVEditorContainer animate={ANIMATE}>
+      <DVEditorInnerAnimatedContainer animate={ANIMATE}>
 
         {(ADD) 
           ? <DVAddNoteComponent
