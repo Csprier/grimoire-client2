@@ -3,13 +3,14 @@ div.DraftEditor-root {
   width: 98%;
   height: 400px;
   margin: 4px auto;
+  padding: 0;
   border: 1px solid lightgray;
   overflow-y: auto;
-  /* background-color: #687079; */
   color: rgb(85, 85, 85);
 }
 
 div.DraftEditor-editorContainer,
 div.public-DraftEditor-content {
   height: 100%;
+  padding: 5px;
 }

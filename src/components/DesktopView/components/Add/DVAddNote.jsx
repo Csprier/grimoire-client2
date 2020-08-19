@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Util from '../../../../utility/util';
 
 /** Icons */
-import leftArrowIcon from '../../../icons/leftarrowicon.png';
+import leftArrowIcon from '../../../icons/LEFTARROW.png';
 
 /** Components */
 import DVAddNoteTextEditor from '../Editor/DVAddNoteTextEditor';
@@ -57,7 +57,7 @@ class DVAddNoteComponent extends Component {
           <img 
             src={leftArrowIcon} 
             alt="close editor" 
-            className="left-arrow-icon"
+            className="dv-add-left-arrow-icon"
             onClick={() => this.props.closeNoteEditor()} 
           />
           <h2 className="dv-add-note-header">Add a new note!</h2>

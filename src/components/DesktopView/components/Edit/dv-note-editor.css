@@ -3,6 +3,7 @@ div.DraftEditor-root {
   width: 98%;
   height: 400px;
   margin: 0 auto;
+  padding: 0;
   border: 1px solid #000000;
   overflow-y: auto;
   background-color: #687079;
@@ -12,4 +13,5 @@ div.DraftEditor-root {
 div.DraftEditor-editorContainer,
 div.public-DraftEditor-content {
   height: 100%;
+  padding: 2px;
 }

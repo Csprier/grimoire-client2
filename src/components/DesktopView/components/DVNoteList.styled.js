@@ -77,9 +77,6 @@ const DVNoteTitle = styled.h2`
   margin: 0;
   padding: 0;
   font-size: 20px;
-  // &:hover {
-  //   color: #F4F4ED;
-  // }
 `;
 
 const DVNoteUpdatedAt = styled.p`
@@ -88,9 +85,6 @@ const DVNoteUpdatedAt = styled.p`
   margin: 0;
   padding: 2px;
   font-size: 10px;
-  // &:hover {
-  //   color: #F4F4ED;
-  // }
 `;
 
 const DNNoteSnippet = styled.p`

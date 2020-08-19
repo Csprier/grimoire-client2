@@ -3,20 +3,17 @@
   height: 100%;
   margin: 0;
   padding: 0;
-  /* border: 1px solid red; */
 }
 
-.left-arrow-icon {
-  width: 50px;
-  height: 50px;
+.dv-add-left-arrow-icon {
+  width: 40px;
+  height: 40px;
   margin: 0px;
   padding: 10px;
-  /* border: 1px solid red; */
 }
-.left-arrow-icon:hover {
-  background-color: rgb(223, 253, 223);
-  border: 1px solid lightgreen;
-  border-radius: 4px;
+.dv-add-left-arrow-icon:hover {
+  filter: invert(98%) sepia(76%) saturate(289%) hue-rotate(49deg) brightness(101%) contrast(98%);
+  -webkit-filter: invert(98%) sepia(76%) saturate(289%) hue-rotate(49deg) brightness(101%) contrast(98%);
 }
 
 .dv-add-note-header-container {
@@ -54,8 +51,11 @@
   width: 95%;
   height: 30px;
   margin: 0 auto;
-  padding: 0;
+  padding: 4px;
   border: 1px solid lightgray;
+}
+.dv-add-note-input::placeholder {
+  padding: 0px 0px 0px 5px;
 }
 
 .dv-add-note-submit-button {

@@ -20,8 +20,11 @@ const SearchInput = styled.input`
   width: 100%;
   height: 25px;
   margin: 0;
-  padding: 0px 16px 0px 0px;
+  padding: 0;
   border: 1px solid lightgray;
+  ::placeholder {
+    padding: 0px 0px 0px 5px;
+  }
 `;
 
 export {
