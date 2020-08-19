@@ -70,11 +70,7 @@
   font-size: 14px;
 }
 .dv-edit-note-submit-button:hover {
-  width: 100px;
-  height: 33px;
-  margin: 0 auto;
-  padding: 6px 8px;
-  background-color: rgb(223, 253, 223);
+  background-color: #DFFDDF;
   border: 1px solid rgb(223, 253, 223);
   color: #444;
 }
