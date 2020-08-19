@@ -57,12 +57,8 @@ const DVSelectedNote = styled.div`
   margin: 0;
   padding: 4px 10px;
   overflow: hidden;
-  background-color: #8093F1;
-  border-top: 1px solid #8093F1;
-  &:hover {
-    background-color: #8093F1;
-    border-top: 1px solid #8093F1;
-  }
+  background-color: #C7CCDB;
+  border-top: 1px solid #C7CCDB;
 `;
 
 /** NOTE INFORMATION */
@@ -81,9 +77,9 @@ const DVNoteTitle = styled.h2`
   margin: 0;
   padding: 0;
   font-size: 20px;
-  &:hover {
-    color: #F4F4ED;
-  }
+  // &:hover {
+  //   color: #F4F4ED;
+  // }
 `;
 
 const DVNoteUpdatedAt = styled.p`
@@ -92,9 +88,9 @@ const DVNoteUpdatedAt = styled.p`
   margin: 0;
   padding: 2px;
   font-size: 10px;
-  &:hover {
-    color: #F4F4ED;
-  }
+  // &:hover {
+  //   color: #F4F4ED;
+  // }
 `;
 
 const DNNoteSnippet = styled.p`
@@ -124,6 +120,7 @@ const DVNoteTrashCan = styled.img`
   padding: 0;
   &:hover {
     filter: invert(12%) sepia(67%) saturate(5710%) hue-rotate(358deg) brightness(125%) contrast(121%);
+    -webkit-filter: invert(12%) sepia(67%) saturate(5710%) hue-rotate(358deg) brightness(125%) contrast(121%);
   }
 `;
 

@@ -83,6 +83,7 @@ const DesktopViewNoteList = (props) => {
         { /** Render filtered list of notes if there is a search term */
           (props.notes) 
             ? listOfNotesToRender.map(note => {
+                const { EDIT } = props;
                 let contentSnippet = JSON.parse(note.content);
                 let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 20) + '...';
                 let updatedAt = moment(note.updatedAt);
@@ -96,9 +97,9 @@ const DesktopViewNoteList = (props) => {
                     }}
                   >
                     <DVNoteInfoContainer>
-                      <DVNoteTitle>{note.title}</DVNoteTitle>
-                      <DVNoteUpdatedAt>Last updated: {date}</DVNoteUpdatedAt>
-                      <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
+                      <DVNoteTitle edit={EDIT}>{note.title}</DVNoteTitle>
+                      <DVNoteUpdatedAt edit={EDIT}>Last updated: {date}</DVNoteUpdatedAt>
+                      <DNNoteSnippet edit={EDIT}>{formattedSnippet}</DNNoteSnippet>
                     </DVNoteInfoContainer>
 
                     <DVNoteDeleteButtonContainer>
@@ -129,6 +130,9 @@ const DesktopViewNoteList = (props) => {
                       <DVNoteUpdatedAt>Last updated: {date}</DVNoteUpdatedAt>
                       <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
                     </DVNoteInfoContainer>
+                    <DVNoteDeleteButtonContainer>
+                      {/** This styled-component exists here in DVSelectedNote to resolve a padding issue in the CSS. */}
+                    </DVNoteDeleteButtonContainer>
                   </DVSelectedNote>
                 );
                     
