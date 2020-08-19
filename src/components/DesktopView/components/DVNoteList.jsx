@@ -1,5 +1,4 @@
 import React from 'react';
-// import React, { useState } from 'react';
 
 /** Libraries */
 import moment from 'moment';
@@ -63,13 +62,6 @@ const DesktopViewNoteList = (props) => {
           notes={props.notes}
           setSearchTerm={props.setSearchTerm} 
         />
-
-        {/**
-         * This button is on DVNoteList, and effects DVEditorDisplay.jsx.
-         * addNoteButtonLogic handles modifying * toggleAddNote * and after a 1s timeout, passes to the next function.
-         * handleTheEditor handles a boolean, in this case ^^^^.
-         * It processes the value of the boolean, and handles opening the editor via props.openNoteEditor
-         */}
         <DVNoteAddIcon 
           src={addIcon}
           alt="Add a note"
@@ -150,40 +142,3 @@ const DesktopViewNoteList = (props) => {
 };
 
 export default DesktopViewNoteList;
-
-  // ================================================================================ */
-  // Add Note Button functions 
-  // ================================= */
-  // function modifyToggleAddNote(boolean) {
-  //   setClicked(true);
-  //   setToggleAddNote(!boolean);
-  // };
-
-  // function addNoteButtonLogic(toggleAddNote) {
-  //   console.log('AddNoteButton has been clicked; handling logic...');
-  //   modifyToggleAddNote(toggleAddNote);
-  //   setTimeout(() => {
-  //     console.log('Handling the editor...');
-  //     console.log('Opening Editor to add a note.');
-  //     openNoteEditor({});
-  //   }, 200);
-  // };
-
-  // ================================================================================ */
-  // Edit Note functions 
-  // ================================= */
-  // function modifyToggleEditNote(boolean) {
-  //   setClicked(true);
-  //   setToggleEditNote(!boolean);
-  // }
-  
-  // This is the function to invoke when a note is clicked in the list
-  // function editNoteLogic(note, toggleEditNote) {
-  //   console.log('A note in the NoteList has been clicked.');
-  //   modifyToggleEditNote(toggleEditNote);
-  //   setTimeout(() => {
-  //     console.log('Handling the editor...');
-  //     console.log('Opening Editor with the selected note.');
-  //     openNoteEditor(note);
-  //   });
-  // };
