@@ -3,7 +3,7 @@ import {
   convertToRaw,
   Editor,
   EditorState,
-  RichUtils,
+  RichUtils
 } from 'draft-js';
 
 /** Util */
@@ -21,7 +21,7 @@ class AddNoteTextEditor extends Component {
     this.onChange = this.onChange.bind(this);
     this._saveContent = this._saveContent.bind(this);
     this._handleKeyCommand = this._handleKeyCommand.bind(this);
-    this._onBoldClick = this._onBoldClick.bind(this);
+    // this._onBoldClick = this._onBoldClick.bind(this);
   };
 
   /**
@@ -64,15 +64,26 @@ class AddNoteTextEditor extends Component {
   };
 
   /** */
-  _onBoldClick() {
-    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
-  }
+  // _onBoldClick = () => {
+  //   const { editorState } = this.state;
+  //   this.onChange(RichUtils.toggleInlineStyle(editorState, 'BOLD'));
+  // }
 
   render() {
     const { editorState } = this.state;
     return(
-      <div onClick={this.focus}>
-        {/* <div onClick={() => this._onBoldClick.bind(this)}>Bold</div> */}
+      <div>
+        {/* <div className="editor-button-container">
+          <button 
+            className="editor-button"
+            type="button" 
+            onClick={() => this._onBoldClick()}
+          >
+            <strong>BOLD</strong>
+          </button>
+
+        </div> */}
+
         <Editor 
           editorState={editorState}
           onChange={this.onChange}

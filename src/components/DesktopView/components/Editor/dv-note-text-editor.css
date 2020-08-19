@@ -14,3 +14,21 @@ div.public-DraftEditor-content {
   height: 100%;
   padding: 5px;
 }
+
+/* RICHUTIL CONTROLS */
+.editor-button-container {
+  width: 98%;
+  height: auto;
+  margin: 0 auto;
+  padding: 4px;
+  border: 1px solid red;
+}
+
+.editor-button {
+  width: 30px;
+  height: 18px;
+  margin: 0;
+  padding: 6px 8px;
+  background-color: white;;
+  border: 1px solid lightgray;
+}
