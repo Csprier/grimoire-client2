@@ -21,7 +21,7 @@ class AddNoteTextEditor extends Component {
     this.onChange = this.onChange.bind(this);
     this._saveContent = this._saveContent.bind(this);
     this._handleKeyCommand = this._handleKeyCommand.bind(this);
-    // this._keyBindingFn = this._keyBindingFn.bind(this);
+    this._onBoldClick = this._onBoldClick.bind(this);
   };
 
   /**
@@ -58,20 +58,25 @@ class AddNoteTextEditor extends Component {
 
     if (newState) {
       this.onChange(newState);
-      return true;
+      return 'handled';
     }
-    return false;
+    return 'not-handled';
   };
+
+  /** */
+  _onBoldClick() {
+    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
+  }
 
   render() {
     const { editorState } = this.state;
     return(
       <div onClick={this.focus}>
+        {/* <div onClick={() => this._onBoldClick.bind(this)}>Bold</div> */}
         <Editor 
           editorState={editorState}
           onChange={this.onChange}
           handleKeyCommand={this._handleKeyCommand}
-          // keyBindingFn={this._keyBindingFn}
         />
       </div>
     );
