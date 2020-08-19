@@ -84,7 +84,7 @@ const DesktopViewNoteList = (props) => {
           (props.notes) 
             ? listOfNotesToRender.map(note => {
                 let contentSnippet = JSON.parse(note.content);
-                let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 10) + '...';
+                let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 20) + '...';
                 let updatedAt = moment(note.updatedAt);
                 let date = updatedAt.format('MMMM Do YYYY, h:mm:ss a')
                 
