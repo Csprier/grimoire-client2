@@ -88,7 +88,7 @@ const DVNoteTitle = styled.h2`
 
 const DVNoteUpdatedAt = styled.p`
   display: flex;  
-  color: gray;
+  color: #6e6e6e;
   margin: 0;
   padding: 2px;
   font-size: 10px;
@@ -99,7 +99,8 @@ const DVNoteUpdatedAt = styled.p`
 
 const DNNoteSnippet = styled.p`
   display: flex;  
-  color: goldenrod;
+  // color: goldenrod;
+  color: #919191;
   margin: 0;
   padding: 3px 8px;
   font-size: 14px;
