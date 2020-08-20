@@ -32,3 +32,47 @@ div.public-DraftEditor-content {
   background-color: white;;
   border: 1px solid lightgray;
 }
+
+/* =================================================== */
+/* TOOLBAR STYLES */
+.flex-fragment {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-evenly; */
+  width: 300px;
+  /* height: 40px; */
+  margin: 0px 0px 0px 5px;
+  padding: 0px 0px 0px 0px;
+  /* border: 1px solid red; */
+}
+
+.headlineButtonWrapper {
+  display: flex;
+}
+
+.headlineButton {
+  background: #fbfbfb;
+  color: #888;
+  font-size: 18px;
+  border: 0;
+  padding-top: 5px;
+  vertical-align: bottom;
+  height: 34px;
+  width: 36px;
+}
+
+.headlineButton:hover,
+.headlineButton:focus {
+  background: #f3f3f3;
+}
+
+.tb-button {
+  background: #fbfbfb;
+  color: #888;
+  font-size: 18px;
+  border: 0;
+  padding-top: 5px;
+  vertical-align: bottom;
+  height: 34px;
+  width: 36px;
+}
