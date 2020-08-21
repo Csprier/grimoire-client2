@@ -89,7 +89,7 @@ const DesktopViewNoteList = (props) => {
                     }}
                   >
                     <DVNoteInfoContainer>
-                      <DVNoteTitle edit={EDIT}>{note.title}</DVNoteTitle>
+                      <DVNoteTitle edit={EDIT}>{note.title.slice(0, 18) + '...'}</DVNoteTitle>
                       <DVNoteUpdatedAt edit={EDIT}>Last updated: {date}</DVNoteUpdatedAt>
                       <DNNoteSnippet edit={EDIT}>{formattedSnippet}</DNNoteSnippet>
                     </DVNoteInfoContainer>
@@ -118,7 +118,7 @@ const DesktopViewNoteList = (props) => {
                     }}
                   >
                     <DVNoteInfoContainer>
-                      <DVNoteTitle>{note.title}</DVNoteTitle>
+                      <DVNoteTitle>{note.title.slice(0, 18) + '...'}</DVNoteTitle>
                       <DVNoteUpdatedAt>Last updated: {date}</DVNoteUpdatedAt>
                       <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
                     </DVNoteInfoContainer>
