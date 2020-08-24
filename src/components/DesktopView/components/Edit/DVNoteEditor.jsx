@@ -60,8 +60,8 @@ class DVNoteEditor extends Component {
       .then(() => this.props.reRenderFunction())
       .catch(err => console.error(err));
   };
-
   render() {
+    // console.log('STATE', this.state);
     return(
       <div className="dv-edit-note-container">
         <div className="dv-edit-note-header-container">
@@ -81,6 +81,7 @@ class DVNoteEditor extends Component {
               type="text"
               name="title"
               onChange={this._handleChange}
+              // defaultValue={this.props.note.title}
               value={this.props.note.title}
               placeholder="Title..."
             />
