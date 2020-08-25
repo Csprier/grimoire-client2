@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import HeadlinesPicker from './HeadlinesPicker';
 
+/** Styles */
+import '../dv-note-text-editor.css';
+
 class HeadlinesButton extends Component {
   onClick = () =>
     // A button can call `onOverrideContent` to replace the content

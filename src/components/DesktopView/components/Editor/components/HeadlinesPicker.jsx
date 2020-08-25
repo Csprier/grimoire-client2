@@ -5,6 +5,8 @@ import {
   HeadlineThreeButton
 } from 'draft-js-buttons';
 
+/** Styles */
+import '../dv-note-text-editor.css';
 
 class HeadlinesPicker extends Component {
   componentDidMount() {
@@ -26,7 +28,6 @@ class HeadlinesPicker extends Component {
     return (
       <div>
         {buttons.map((Button, i) => // eslint-disable-next-line
-          // <Button key={i} {...this.props} className="tb-button" />
           <div key={i} {...this.props} className="tb-button"></div>
         )}
       </div>

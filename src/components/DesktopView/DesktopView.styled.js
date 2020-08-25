@@ -3,8 +3,8 @@ import styled from 'styled-components';
 const DesktopViewContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 98%;
-  height: 600px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   padding: 0;
   // border: 1px solid slategray;
