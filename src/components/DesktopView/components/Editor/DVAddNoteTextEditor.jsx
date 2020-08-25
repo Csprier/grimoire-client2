@@ -6,6 +6,9 @@ import Util from '../../../../utility/util';
 /** Styles */
 import './dv-note-text-editor.css';
 
+/** Components */
+import HeadlinesButton from './components/HeadlinesButton';
+
 import { 
   convertToRaw,
   EditorState,
@@ -18,9 +21,6 @@ import {
   BoldButton,
   UnderlineButton,
   CodeButton,
-  HeadlineOneButton,
-  HeadlineTwoButton,
-  HeadlineThreeButton,
   UnorderedListButton,
   OrderedListButton,
   BlockquoteButton,
@@ -29,52 +29,6 @@ import {
 const toolbarPlugin = createToolbarPlugin();
 const { Toolbar } = toolbarPlugin;
 const plugins = [toolbarPlugin];
-
-class HeadlinesPicker extends Component {
-  componentDidMount() {
-    setTimeout(() => { 
-      window.addEventListener('click', this.onWindowClick); 
-    });
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('click', this.onWindowClick);
-  }
-
-  // Call `onOverrideContent` again with `undefined`
-  // so the toolbar can show its regular content again.
-  _onWindowClick = () => this.props.onOverrideContent(undefined);
-
-  render() {
-    const buttons = [HeadlineOneButton, HeadlineTwoButton, HeadlineThreeButton];
-    return (
-      <div>
-        {buttons.map((Button, i) => // eslint-disable-next-line
-          // <Button key={i} {...this.props} className="tb-button" />
-          <div key={i} {...this.props} className="tb-button"></div>
-        )}
-      </div>
-    );
-  }
-};
-
-class HeadlinesButton extends Component {
-  onClick = () =>
-    // A button can call `onOverrideContent` to replace the content
-    // of the toolbar. This can be useful for displaying sub
-    // menus or requesting additional information from the user.
-    this.props.onOverrideContent(HeadlinesPicker);
-
-  render() {
-    return (
-      <div className="headlineButtonWrapper">
-        <button onClick={this.onClick} className="headlineButton">
-          H
-        </button>
-      </div>
-    );
-  }
-};
 
 class AddNoteTextEditor extends Component {
   constructor() {

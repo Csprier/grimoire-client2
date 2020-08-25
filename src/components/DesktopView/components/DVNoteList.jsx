@@ -80,7 +80,7 @@ const DesktopViewNoteList = (props) => {
                 let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 20) + '...';
                 let updatedAt = moment(note.updatedAt);
                 let date = updatedAt.format('MMMM Do YYYY, h:mm:ss a')
-                console.log('CS', contentSnippet, null, 2);
+                // console.log('CS', contentSnippet, null, 2);
                 let unSelectedNoteListItem = (
                   <DVNote 
                     key={note._id}
