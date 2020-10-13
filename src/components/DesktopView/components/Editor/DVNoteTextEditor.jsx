@@ -69,8 +69,9 @@ class DVNoteTextEditor extends Component {
    *  editorState to reflect the new contentState and return true; otherwise, return false and do nothing.
    * @param {string}  command 
    */
-  _handleKeyCommand(command) {
-    const { editorState } = this.state;
+  _handleKeyCommand(command, editorState = this.state.editorState) {
+    // const { editorState } = this.state;
+    console.log('asdasga', editorState);
     let newState = RichUtils.handleKeyCommand(editorState, command);
 
     if (newState) {
@@ -87,6 +88,8 @@ class DVNoteTextEditor extends Component {
 
   render() {
     const { editorState } = this.state;
+    // console.log('EditorState: ', editorState);
+
     return(
       <div onClick={this.focus}>
         <Toolbar>
