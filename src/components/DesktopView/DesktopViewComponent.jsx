@@ -19,15 +19,15 @@ const DesktopViewComponent = (props) => {
   const [ANIMATE, _toggleANIMATE] = useState(false);
 
   /** Monitor state in the console, if something changes... */
-  useEffect(() => {
-    console.log('----------------');
-    console.log('CLICKED:', CLICKED);
-    console.log('ADD:', ADD);
-    console.log('EDIT:', EDIT);
-    console.log('SELECTEDNOTE', selectedNote);
-    console.log('ANIMATE:', ANIMATE);
-    console.log('----------------');
-  }, [CLICKED, ADD, EDIT, selectedNote, ANIMATE]);
+  // useEffect(() => {
+  //   console.log('----------------');
+  //   console.log('CLICKED:', CLICKED);
+  //   console.log('ADD:', ADD);
+  //   console.log('EDIT:', EDIT);
+  //   console.log('SELECTEDNOTE', selectedNote);
+  //   console.log('ANIMATE:', ANIMATE);
+  //   console.log('----------------');
+  // }, [CLICKED, ADD, EDIT, selectedNote, ANIMATE]);
 
   /** ================================================================================ */
   /** EDIT NOTE */
