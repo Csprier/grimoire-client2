@@ -12,7 +12,7 @@ import {
 /** Components */
 import NavigationBar from '../Navigation/Navigation';
 import DesktopViewComponent from '../DesktopView/DesktopViewComponent';
-// import MobileViewComponent from '../MobileView/MobileViewComponent';
+import MobileViewComponent from '../MobileView/MobileViewComponent';
 
 /** Force rerender */
 const useForceUpdate = () => useState()[1]; 
@@ -44,31 +44,30 @@ const Dashboard = () => {
 
   function _reRenderNoteList() {
     toggleReRender(!reRender);
-    // console.log('Toggling reRender:', reRender);
   };
   
-  // console.log(searchTerm);
   return(
     <DashboardContainer>
       
       <NavigationBar />
 
       <DashboardContent>
-        {/* <MobileViewComponent 
-          notes={listOfNotes} 
-          reRenderFunction={_reRenderNoteList}
-          toggleAnimation={toggleAnimation} 
-          animate={animate} 
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm} 
-        /> */}
+        
+        {(window.innerWidth >= 700)
+          ? <DesktopViewComponent 
+              notes={listOfNotes} 
+              reRenderFunction={_reRenderNoteList}
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm} 
+            />
+          : <MobileViewComponent 
+              notes={listOfNotes} 
+              reRenderFunction={_reRenderNoteList}
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm} 
+            />
+        }
 
-        <DesktopViewComponent 
-          notes={listOfNotes} 
-          reRenderFunction={_reRenderNoteList}
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm} 
-        />
       </DashboardContent>
 
     </DashboardContainer>
