@@ -74,7 +74,7 @@ div.public-DraftEditor-content {
   background: #fbfbfb;
   color: #888;
   font-size: 18px;
-  border: 0;
+  border: 1px solid red;
   padding-top: 5px;
   vertical-align: bottom;
   height: 34px;

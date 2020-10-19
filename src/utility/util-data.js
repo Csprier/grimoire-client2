@@ -33,9 +33,9 @@ function _clearAuthToken() {
 };
 
 function _storeAuthInfo(authToken) {
-  const decodedToken = jwtDecode(authToken);
-  console.log(authToken);
-  console.log(decodedToken);
+  // const decodedToken = jwtDecode(authToken);
+  // console.log(authToken);
+  // console.log(decodedToken);
   _saveAuthToken(authToken);
 };
 
@@ -51,7 +51,7 @@ function _getUserIdFromLocalStorage() {
   const authToken = _loadAuthToken();
   const decodedToken = jwtDecode(authToken);
   const user_id = decodedToken.user.id;
-  console.log('Current id: ', user_id);
+  // console.log('Current id: ', user_id);
   return user_id;
 };
 
@@ -78,7 +78,7 @@ function _startPeriodicRefresh() {
 };
 
 function _stopPeriodicRefresh() {
-  console.log('refreshInterval STOP: ', refreshInterval);
+  // console.log('refreshInterval STOP: ', refreshInterval);
   clearInterval(refreshInterval);
 };
 

@@ -59,7 +59,7 @@ function _registerUser(data) {
   .then((res) => UtilDATA.normalizeResponseErrors(res))
   .then((res) => res.json())
   .then((res) => {
-    console.log('Registerd new user: ', res)
+    // console.log('Registerd new user: ', res)
     _loginUser(data);
   })
   .catch((err) => console.error(err));
@@ -85,9 +85,9 @@ function _refreshAuthToken() {
 function _notePOST(data) {
   const authToken = UtilDATA.loadAuthToken();
   const url = `${API_BASE_URL}/notes`;
-  console.log(authToken);
-  console.log(url);
-  console.log(data);
+  // console.log(authToken);
+  // console.log(url);
+  // console.log(data);
   return fetch(url, {
     method: 'POST',
     headers: { 
@@ -97,7 +97,7 @@ function _notePOST(data) {
     },
     body: JSON.stringify(data)
   })
-  .then(res => console.log(res))
+  // .then(res => console.log(res))
   .catch(err => console.error(err));
 };
 
@@ -127,7 +127,7 @@ function _notePUT(id, data) {
     },
     body: JSON.stringify(data)
   })
-  .then(res => console.log(res))
+  // .then(res => console.log(res))
   .catch(err => console.error(err));
 };
 

@@ -7,7 +7,7 @@ import Util from '../../../../utility/util';
 import './dv-note-text-editor.css';
 
 /** Components */
-import HeadlinesButton from './components/HeadlinesButton';
+// import HeadlinesButton from './components/HeadlinesButton';
 
 import { 
   convertToRaw,
@@ -97,7 +97,7 @@ class AddNoteTextEditor extends Component {
               <UnderlineButton {...externalProps} />
               <CodeButton {...externalProps} />
               <Separator {...externalProps} />
-              <HeadlinesButton {...externalProps} />
+              {/* <HeadlinesButton {...externalProps} /> */}
               <UnorderedListButton {...externalProps} />
               <OrderedListButton {...externalProps} />
               <BlockquoteButton {...externalProps} />

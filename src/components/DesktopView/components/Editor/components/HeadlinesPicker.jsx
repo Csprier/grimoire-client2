@@ -13,15 +13,15 @@ class HeadlinesPicker extends Component {
     setTimeout(() => { 
       window.addEventListener('click', this.onWindowClick); 
     });
-  }
+  };
 
   componentWillUnmount() {
     window.removeEventListener('click', this.onWindowClick);
-  }
+  };
 
   // Call `onOverrideContent` again with `undefined`
   // so the toolbar can show its regular content again.
-  _onWindowClick = () => this.props.onOverrideContent(undefined);
+  // _onWindowClick = () => this.props.onOverrideContent(undefined);
 
   render() {
     const buttons = [HeadlineOneButton, HeadlineTwoButton, HeadlineThreeButton];

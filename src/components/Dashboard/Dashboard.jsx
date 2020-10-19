@@ -27,7 +27,7 @@ const Dashboard = () => {
     if (reRender) {
       Util.API.debounce(_GETNotes, 2000)
       forceUpdate();
-      console.log('Rerendering Note List and resetting toggle');
+      // console.log('Rerendering Note List and resetting toggle');
       toggleReRender(!reRender);
     }
     Util.API.debounce(_GETNotes, 2000);
@@ -44,10 +44,10 @@ const Dashboard = () => {
 
   function _reRenderNoteList() {
     toggleReRender(!reRender);
-    console.log('Toggling reRender:', reRender);
+    // console.log('Toggling reRender:', reRender);
   };
   
-  console.log(searchTerm);
+  // console.log(searchTerm);
   return(
     <DashboardContainer>
       

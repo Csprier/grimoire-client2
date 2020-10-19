@@ -15,6 +15,9 @@
 //   CodeBlockButton,
 // } from 'draft-js-buttons';
 
+/** Styles */
+import '../dv-note-text-editor.css';
+
 class HeadlinesPicker extends Component {
   componentDidMount() {
     setTimeout(() => { 
@@ -28,7 +31,7 @@ class HeadlinesPicker extends Component {
 
   // Call `onOverrideContent` again with `undefined`
   // so the toolbar can show its regular content again.
-  _onWindowClick = () => this.props.onOverrideContent(undefined);
+  // _onWindowClick = () => this.props.onOverrideContent(undefined);
 
   render() {
     const buttons = [HeadlineOneButton, HeadlineTwoButton, HeadlineThreeButton];
@@ -43,11 +46,11 @@ class HeadlinesPicker extends Component {
 };
 
 class HeadlinesButton extends Component {
-  onClick = () =>
+  onClick = () => console.log('Headline button clicked.');
     // A button can call `onOverrideContent` to replace the content
     // of the toolbar. This can be useful for displaying sub
     // menus or requesting additional information from the user.
-    this.props.onOverrideContent(HeadlinesPicker);
+    // this.props.onOverrideContent(HeadlinesPicker);
 
   render() {
     return (
@@ -72,7 +75,7 @@ const Toolbar = () => {
             <UnderlineButton {...externalProps} />
             <CodeButton {...externalProps} />
             <Separator {...externalProps} />
-            <HeadlinesButton {...externalProps} />
+            {/* <HeadlinesButton {...externalProps} /> */}
             <UnorderedListButton {...externalProps} />
             <OrderedListButton {...externalProps} />
             <BlockquoteButton {...externalProps} />

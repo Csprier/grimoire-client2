@@ -7,7 +7,7 @@ import Util from '../../../../utility/util';
 import './dv-note-text-editor.css';
 
 /** Components */
-import HeadlinesButton from './components/HeadlinesButton';
+// import HeadlinesButton from './components/HeadlinesButton';
 
 import { 
   convertToRaw,
@@ -71,7 +71,7 @@ class DVNoteTextEditor extends Component {
    */
   _handleKeyCommand(command, editorState = this.state.editorState) {
     // const { editorState } = this.state;
-    console.log('asdasga', editorState);
+    // console.log('asdasga', editorState);
     let newState = RichUtils.handleKeyCommand(editorState, command);
 
     if (newState) {
@@ -100,7 +100,7 @@ class DVNoteTextEditor extends Component {
               <UnderlineButton {...externalProps} />
               <CodeButton {...externalProps} />
               <Separator {...externalProps} />
-              <HeadlinesButton {...externalProps} />
+              {/* <HeadlinesButton {...externalProps} /> */}
               <UnorderedListButton {...externalProps} />
               <OrderedListButton {...externalProps} />
               <BlockquoteButton {...externalProps} />

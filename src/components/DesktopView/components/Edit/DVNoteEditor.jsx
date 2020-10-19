@@ -54,9 +54,9 @@ class DVNoteEditor extends Component {
       title: this.state.title,
       content: JSON.stringify(this.state.content)
     };
-    console.log('Payload: ', payload);
+    // console.log('Payload: ', payload);
     return Util.API.notePUT(note_id, payload)
-      .then(res => console.log(res))
+      // .then(res => console.log(res))
       .then(() => this.props.reRenderFunction())
       .catch(err => console.error(err));
   };
