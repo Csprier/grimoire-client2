@@ -22,8 +22,14 @@ const Dashboard = () => {
   const [reRender, toggleReRender] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const forceUpdate = useForceUpdate();
+  const [viewWidth, setViewWidth]  = useState(0);
 
   useEffect(() => {
+    setViewWidth(window.innerWidth);
+    window.addEventListener('resize', () => {
+      setViewWidth(window.innerWidth);
+    });
+
     if (reRender) {
       Util.API.debounce(_GETNotes, 2000)
       forceUpdate();
@@ -31,6 +37,10 @@ const Dashboard = () => {
       toggleReRender(!reRender);
     }
     Util.API.debounce(_GETNotes, 2000);
+
+    return () => {
+      window.removeEventListener('resize', () => {});
+    }
   }, [reRender, forceUpdate]);
 
   function _GETNotes() {
@@ -45,7 +55,7 @@ const Dashboard = () => {
   function _reRenderNoteList() {
     toggleReRender(!reRender);
   };
-  
+
   return(
     <DashboardContainer>
       
@@ -53,7 +63,7 @@ const Dashboard = () => {
 
       <DashboardContent>
         
-        {(window.innerWidth >= 700)
+        {(viewWidth >= 700) 
           ? <DesktopViewComponent 
               notes={listOfNotes} 
               reRenderFunction={_reRenderNoteList}
@@ -61,12 +71,11 @@ const Dashboard = () => {
               setSearchTerm={setSearchTerm} 
             />
           : <MobileViewComponent 
-              notes={listOfNotes} 
-              reRenderFunction={_reRenderNoteList}
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm} 
-            />
-        }
+                notes={listOfNotes} 
+                reRenderFunction={_reRenderNoteList}
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm} 
+              />}
 
       </DashboardContent>
 
@@ -75,17 +84,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-/*  
-  <NoteList
-    listOfNotes={listOfNotes}
-    reRenderFunction={_reRenderNoteList}
-    toggleReRender={toggleReRender}
-    reRender={reRender}
-  />
-  <AddNoteDisplay 
-    toggleAnimation={toggleAnimation} 
-    animate={animate} 
-    reRenderFunction={_reRenderNoteList}
-  />
-*/
