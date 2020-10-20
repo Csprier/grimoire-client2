@@ -41,7 +41,7 @@ const Dashboard = () => {
     return () => {
       window.removeEventListener('resize', () => {});
     }
-  }, [reRender, forceUpdate]);
+  }, [reRender, forceUpdate, viewWidth]);
 
   function _GETNotes() {
     Util.API.noteGET()
