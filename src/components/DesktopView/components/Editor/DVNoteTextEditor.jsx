@@ -13,16 +13,13 @@ import {
   RichUtils
 } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
-import createToolbarPlugin, { Separator }  from 'draft-js-static-toolbar-plugin';
+import createToolbarPlugin from 'draft-js-static-toolbar-plugin';
 import {
   ItalicButton,
   BoldButton,
   UnderlineButton,
   CodeButton,
-  UnorderedListButton,
-  OrderedListButton,
-  BlockquoteButton,
-  CodeBlockButton,
+  BlockquoteButton
 } from 'draft-js-buttons';
 const toolbarPlugin = createToolbarPlugin();
 const { Toolbar } = toolbarPlugin;
@@ -39,7 +36,7 @@ class DVNoteTextEditor extends Component {
     this.onChange = this.onChange.bind(this);
   };
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (this.props.editorState !== prevProps.editorState) {
       this.setState({
         editorState: (this.props.editorState) 
@@ -78,15 +75,13 @@ class DVNoteTextEditor extends Component {
     return 'not-handled';
   }
 
-  /**  */
+  /** FOCUS the Editor */
   focus = () => {
     this.editor.focus();
   };
 
   render() {
     const { editorState } = this.state;
-    // console.log('EditorState: ', editorState);
-
     return(
       <div onClick={this.focus}>
         <Toolbar>
@@ -96,12 +91,7 @@ class DVNoteTextEditor extends Component {
               <ItalicButton {...externalProps} />
               <UnderlineButton {...externalProps} />
               <CodeButton {...externalProps} />
-              <Separator {...externalProps} />
-              {/* <HeadlinesButton {...externalProps} /> */}
-              <UnorderedListButton {...externalProps} />
-              <OrderedListButton {...externalProps} />
               <BlockquoteButton {...externalProps} />
-              <CodeBlockButton {...externalProps} />
             </div>
           )}
         </Toolbar>

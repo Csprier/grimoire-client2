@@ -19,7 +19,7 @@ import {
   BoldButton,
   UnderlineButton,
   CodeButton,
-  BlockquoteButton,
+  BlockquoteButton
 } from 'draft-js-buttons';
 const toolbarPlugin = createToolbarPlugin();
 const { Toolbar } = toolbarPlugin;
