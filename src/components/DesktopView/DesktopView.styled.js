@@ -28,8 +28,16 @@ const DesktopViewComponentContainer = styled.div`
   padding: 0;
 `;
 
+const LeftArrowIcon = styled.img`
+  width: 40px;
+  height: 40px;
+  margin: 0px;
+  padding: 10px;
+`;
+
 export {
   DesktopViewButtonContainer,
   DesktopViewComponentContainer,
-  DesktopViewContainer
+  DesktopViewContainer,
+  LeftArrowIcon
 };

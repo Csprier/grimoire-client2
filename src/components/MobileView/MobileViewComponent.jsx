@@ -1,10 +1,14 @@
 import React, { useEffect, useState }  from 'react';
 
+/** Icons */
+import leftArrowIcon from '../icons/LEFTARROW.png';
+
 /** Styles */
 import {
   MobileViewContainer,
   MobileViewComponentContainer,
-  ModalCloseButton
+  ModalCloseButton,
+  LeftArrowIcon
 } from './MobileView.styled';
 import MobileViewNoteList from './components/MVNoteList';
 import Modal from '../Modal/Modal';
@@ -48,7 +52,13 @@ const MobileViewComponent = (props) => {
             setShowModal(false);
             setInit(false);
             console.log('Closing modal');
-          }}>CLOSE X</ModalCloseButton>
+          }}>
+            <LeftArrowIcon 
+              src={leftArrowIcon} 
+              alt="close modal" 
+              className="dv-add-left-arrow-icon"
+            />
+          </ModalCloseButton>
           
 
           {(addNote) 

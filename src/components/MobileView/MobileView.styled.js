@@ -28,17 +28,22 @@ const MobileViewComponentContainer = styled.div`
 `;
 
 const ModalCloseButton = styled.button`
-  display: block;
-  width: 70px;
-  margin: 0 auto;
-  padding: 5px;
-  border: 1px solid white;
+  width: 50px;
   background-color: white;
+  border: 1px solid white;
+`;
+
+const LeftArrowIcon = styled.img`
+  width: 40px;
+  height: 40px;
+  margin: 0px;
+  padding: 10px;
 `;
 
 export {
   MobileViewContainer,
   MobileViewButtonContainer,
   MobileViewComponentContainer,
-  ModalCloseButton
+  ModalCloseButton,
+  LeftArrowIcon
 };
