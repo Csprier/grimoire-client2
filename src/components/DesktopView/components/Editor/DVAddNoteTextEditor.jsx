@@ -6,8 +6,6 @@ import Util from '../../../../utility/util';
 /** Styles */
 import './dv-note-text-editor.css';
 
-/** Components */
-// import HeadlinesButton from './components/HeadlinesButton';
 
 import { 
   convertToRaw,
@@ -15,16 +13,13 @@ import {
   RichUtils
 } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
-import createToolbarPlugin, { Separator }  from 'draft-js-static-toolbar-plugin';
+import createToolbarPlugin from 'draft-js-static-toolbar-plugin';
 import {
   ItalicButton,
   BoldButton,
   UnderlineButton,
   CodeButton,
-  UnorderedListButton,
-  OrderedListButton,
   BlockquoteButton,
-  CodeBlockButton,
 } from 'draft-js-buttons';
 const toolbarPlugin = createToolbarPlugin();
 const { Toolbar } = toolbarPlugin;
@@ -80,7 +75,7 @@ class AddNoteTextEditor extends Component {
     return 'not-handled';
   };
 
-  /**  */
+  /** FOCUS the Editor */
   focus = () => {
     this.editor.focus();
   };
@@ -96,12 +91,7 @@ class AddNoteTextEditor extends Component {
               <ItalicButton {...externalProps} />
               <UnderlineButton {...externalProps} />
               <CodeButton {...externalProps} />
-              <Separator {...externalProps} />
-              {/* <HeadlinesButton {...externalProps} /> */}
-              <UnorderedListButton {...externalProps} />
-              <OrderedListButton {...externalProps} />
               <BlockquoteButton {...externalProps} />
-              <CodeBlockButton {...externalProps} />
             </div>
           )}
         </Toolbar>

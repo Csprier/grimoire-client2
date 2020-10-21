@@ -6,9 +6,6 @@ import Util from '../../../../utility/util';
 /** Styles */
 import './dv-note-text-editor.css';
 
-/** Components */
-// import HeadlinesButton from './components/HeadlinesButton';
-
 import { 
   convertToRaw,
   convertFromRaw,

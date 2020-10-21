@@ -3,7 +3,6 @@ import React, { useEffect, useState }  from 'react';
 /** Styles */
 import {
   MobileViewContainer,
-  // MobileViewButtonContainer,
   MobileViewComponentContainer,
   ModalCloseButton
 } from './MobileView.styled';
@@ -86,28 +85,3 @@ const MobileViewComponent = (props) => {
 };
 
 export default MobileViewComponent;
-
-/**
-if (!clicked && selected === ''){
-  setClicked(!clicked);
-  setSelected(note);
-  setShowModal(true);
-}
-
-if (clicked && selected !== '') {
-  setSelected(note);
-  setShowModal(true);
-}
-
-if (clicked && selected === note._id) {
-  setClicked(false);
-  setSelected({});
-  setShowModal(false);
-}
-*/
-
-/**
-<MobileViewButtonContainer>
-  // Add Note Button goes in here
-</MobileViewButtonContainer>
-*/

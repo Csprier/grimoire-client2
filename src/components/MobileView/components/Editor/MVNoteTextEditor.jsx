@@ -1,16 +1,32 @@
 import React, { Component } from 'react';
-import { 
-  Editor,
-  EditorState,
-  convertFromRaw,
-  convertToRaw 
-} from 'draft-js';
 
 /** Util */
 import Util from '../../../../utility/util';
 
 /** Styles */
 import './mv-note-text-editor.css';
+
+import { 
+  convertToRaw,
+  convertFromRaw,
+  EditorState,
+  RichUtils
+} from 'draft-js';
+import Editor from 'draft-js-plugins-editor';
+import createToolbarPlugin, { Separator }  from 'draft-js-static-toolbar-plugin';
+import {
+  ItalicButton,
+  BoldButton,
+  UnderlineButton,
+  CodeButton,
+  UnorderedListButton,
+  OrderedListButton,
+  BlockquoteButton,
+  CodeBlockButton,
+} from 'draft-js-buttons';
+const toolbarPlugin = createToolbarPlugin();
+const { Toolbar } = toolbarPlugin;
+const plugins = [toolbarPlugin];
 
 class MVNoteTextEditor extends Component {
   constructor(props) {

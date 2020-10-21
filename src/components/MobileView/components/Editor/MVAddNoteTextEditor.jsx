@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
-import {
-  convertToRaw,
-  Editor,
-  EditorState,
-  RichUtils
-} from 'draft-js';
 
 /** Util */
 import Util from '../../../../utility/util';
 
 /** Styles */
 import './mv-note-text-editor.css';
+
+import {
+  convertToRaw,
+  EditorState,
+  RichUtils
+} from 'draft-js';
+import Editor from 'draft-js-plugins-editor';
+import createToolbarPlugin from 'draft-js-static-toolbar-plugin';
+import {
+  ItalicButton,
+  BoldButton,
+  UnderlineButton,
+  CodeButton,
+  BlockquoteButton
+} from 'draft-js-buttons';
+const toolbarPlugin = createToolbarPlugin();
+const { Toolbar } = toolbarPlugin;
+const plugins = [toolbarPlugin];
 
 class MVAddNoteTextEditor extends Component {
   constructor(props) {
@@ -23,6 +35,12 @@ class MVAddNoteTextEditor extends Component {
     this._handleKeyCommand = this._handleKeyCommand.bind(this);
   };
 
+  /**
+   * onChange: when an onChange event happens, get the contentState of the editorState, 
+   *  pass the raw JSON into props.handleContentChange and save it to localStorage via _saveContent, 
+   *  and set the class this.state.editorState to the new editorState
+   * @param {object}  editorState - editorState of the editor
+  */
   onChange = (editorState) => {
     const contentState = editorState.getCurrentContent();
     this.props.handleContentChange(convertToRaw(contentState));
@@ -30,10 +48,21 @@ class MVAddNoteTextEditor extends Component {
     this.setState({ editorState });
   };
 
+  /**
+   * _saveContent: use Util.API.debounce to hold off til 1 second after the last keystroke, 
+   * then save the JSON of the content to localStorage
+   * @param {object}  content - editorState JSON
+  */
   _saveContent = (content) => {
     Util.API.debounce(window.localStorage.setItem('content', JSON.stringify(convertToRaw(content))), 1000);
   };
 
+  /**
+   * _handleKeyCommand: Monitors key commands in the Editor, takes this.state.editorState and passes it into
+   *  RichUtils.handleKeyCommand with the command parameter. If there is a newState, invoke onChange to change the 
+   *  editorState to reflect the new contentState and return true; otherwise, return false and do nothing.
+   * @param {string}  command 
+   */
   _handleKeyCommand = (command) => {
     const { editorState } = this.state;
     let newState = RichUtils.handleKeyCommand(editorState, command);
@@ -45,24 +74,33 @@ class MVAddNoteTextEditor extends Component {
     return false;
   };
 
-  fu = () => {
-    this.forceUpdate();
-    console.log('forceUpdating the Editor');
-  };
+  /** FOCUS the Editor */
+  focus = () => {
+    this.editor.focus();
+  }
 
   render() {
     const { editorState } = this.state;
-    // if (this.props.init) {
-    //   this.fu(); // <-- does not work!!!
-    //   console.log('forceUpdating the Editor');
-    // }
     return(
       <div onClick={this.focus}>
+        <Toolbar>
+          {(externalProps) => (
+            <div className="flex-fragment">
+              <BoldButton {...externalProps} />
+              <ItalicButton {...externalProps} />
+              <UnderlineButton {...externalProps} />
+              <CodeButton {...externalProps} />
+              <BlockquoteButton {...externalProps} />
+            </div>
+          )}
+        </Toolbar>
+
         <Editor 
           editorState={editorState}
           onChange={this.onChange}
           handleKeyCommand={this._handleKeyCommand}
-          placeholder="Type here..."
+          plugins={plugins}
+          ref={(element) => { this.editor = element; }}
         />
       </div>
     );
