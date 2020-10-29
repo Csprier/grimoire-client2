@@ -5,6 +5,7 @@ import Util from '../../../../utility/util';
 
 /** Styles */
 import './dv-note-text-editor.css';
+import "draft-js/dist/Draft.css";
 
 import { 
   convertToRaw,
@@ -23,6 +24,11 @@ class AddNoteTextEditor extends Component {
     this.onChange = this.onChange.bind(this);
     this._saveContent = this._saveContent.bind(this);
     this._handleKeyCommand = this._handleKeyCommand.bind(this);
+    this.onUnderlineClick = this.onUnderlineClick.bind(this);
+    this.onBoldClick = this.onBoldClick.bind(this);
+    this.onItalicClick = this.onItalicClick.bind(this);
+    this.toggleBlockType = this.toggleBlockType.bind(this);
+    this.focus = this.focus.bind(this);
   };
   
   /**
@@ -73,6 +79,7 @@ class AddNoteTextEditor extends Component {
 
   onBoldClick = (e) => {
     e.preventDefault();
+    this.focus();
     console.log('Bold active!');
     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "BOLD"));
   };
@@ -99,11 +106,11 @@ class AddNoteTextEditor extends Component {
       <div onClick={this.focus}>
         <div>
           <div>
-            <button onClick={this.onUnderlineClick.bind(this)}>U</button>
-            <button onClick={this.onBoldClick.bind(this)}>
+            <button onClick={this.onUnderlineClick}>U</button>
+            <button onClick={(e) => this.onBoldClick(e)}>
               <b>B</b>
             </button>
-            <button onClick={this.onItalicClick.bind(this)}>
+            <button onClick={this.onItalicClick}>
               <em>I</em>
             </button>
           </div>

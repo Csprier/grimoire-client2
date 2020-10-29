@@ -2,7 +2,7 @@ import React from 'react';
 
 class HeaderStyleDropdown extends React.Component {
   onToggle = event => {
-    let value = event.target.value
+    let value = event.target.value;
     this.props.onToggle(value);
   };
   
