@@ -19,6 +19,15 @@ const BLOCK_TYPE_HEADINGS = [
   { label: "H6", style: "header-six" }
 ];
 
+export const getBlockStyle = (block) => {
+  switch (block.getType()) {
+   case "blockquote":
+    return "RichEditor-blockquote";
+   default:
+    return null;
+  }
+};
+
 class BlockStyleToolbar extends React.Component {
   render() {
     const { editorState } = this.props;

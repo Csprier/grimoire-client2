@@ -2,7 +2,7 @@ import React from 'react';
 
 class BlockStyleButton extends React.Component {
   onToggle = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     this.props.onToggle(this.props.style)
   }
 
@@ -12,10 +12,10 @@ class BlockStyleButton extends React.Component {
       className += " RichEditor-activeButton";
     }
     
-    return (
-      <span className={className} onClick={this.onToggle}>
+    return(
+      <button className={className} onClick={this.onToggle}>
         {this.props.label}
-      </span>
+      </button>
     );
   }
 }

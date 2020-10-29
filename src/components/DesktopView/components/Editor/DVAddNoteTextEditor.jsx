@@ -12,7 +12,7 @@ import {
   EditorState,
   RichUtils
 } from 'draft-js';
-import BlockStyleToolbar from "./BlockStyles/BlockStyleToolbar";
+import BlockStyleToolbar, { getBlockStyle } from "./BlockStyles/BlockStyleToolbar";
 
 class AddNoteTextEditor extends Component {
   constructor() {
@@ -65,29 +65,27 @@ class AddNoteTextEditor extends Component {
   };
 
   /** RICH UTIL FUNCTIONS */
-  onUnderlineClick = () => {
+  onUnderlineClick = (e) => {
+    e.preventDefault();
+    console.log('Underline active!');
     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "UNDERLINE"));
   };
 
-  onBoldClick = () => {
+  onBoldClick = (e) => {
+    e.preventDefault();
+    console.log('Bold active!');
     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "BOLD"));
   };
 
-  onItalicClick = () => {
+  onItalicClick = (e) => {
+    e.preventDefault();
+    console.log('Italic active!');
     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "ITALIC"));
   };
 
   toggleBlockType = (blockType) => {
+    console.log(`${blockType} active!`);
     this.onChange(RichUtils.toggleBlockType(this.state.editorState, blockType));
-  };
-
-  getBlockStyle = (block) => {
-    switch (block.getType()) {
-     case "blockquote":
-      return "RichEditor-blockquote";
-     default:
-      return null;
-    }
   };
 
   /** FOCUS the Editor */
@@ -99,28 +97,29 @@ class AddNoteTextEditor extends Component {
     const { editorState } = this.state;
     return(
       <div onClick={this.focus}>
-
         <div>
-          <button onClick={this.onUnderlineClick}>U</button>
-          <button onClick={this.onBoldClick}>
-            <b>B</b>
-          </button>
-          <button onClick={this.onItalicClick}>
-            <em>I</em>
-          </button>
+          <div>
+            <button onClick={this.onUnderlineClick.bind(this)}>U</button>
+            <button onClick={this.onBoldClick.bind(this)}>
+              <b>B</b>
+            </button>
+            <button onClick={this.onItalicClick.bind(this)}>
+              <em>I</em>
+            </button>
+          </div>
+
+          <BlockStyleToolbar
+            editorState={editorState}
+            onToggle={this.toggleBlockType}
+          />
         </div>
 
-        <BlockStyleToolbar
-          editorState={this.state.editorState}
-          onToggle={this.toggleBlockType}
-        />
-        
         <Editor 
           editorState={editorState}
           onChange={this.onChange}
-          blockStyleFn={this.getBlockStyle}
+          blockStyleFn={getBlockStyle}
           handleKeyCommand={this._handleKeyCommand}
-          ref={(element) => { this.editor = element; }}
+          ref={(element) => { this.editor = element; }} // necesssary for focus()
         />
       </div>
     );
