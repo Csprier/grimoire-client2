@@ -8,21 +8,22 @@ import './mv-note-text-editor.css';
 
 import {
   convertToRaw,
+  Editor,
   EditorState,
   RichUtils
 } from 'draft-js';
-import Editor from 'draft-js-plugins-editor';
-import createToolbarPlugin from 'draft-js-static-toolbar-plugin';
-import {
-  ItalicButton,
-  BoldButton,
-  UnderlineButton,
-  CodeButton,
-  BlockquoteButton
-} from 'draft-js-buttons';
-const toolbarPlugin = createToolbarPlugin();
-const { Toolbar } = toolbarPlugin;
-const plugins = [toolbarPlugin];
+// import Editor from 'draft-js-plugins-editor';
+// import createToolbarPlugin from 'draft-js-static-toolbar-plugin';
+// import {
+//   ItalicButton,
+//   BoldButton,
+//   UnderlineButton,
+//   CodeButton,
+//   BlockquoteButton
+// } from 'draft-js-buttons';
+// const toolbarPlugin = createToolbarPlugin();
+// const { Toolbar } = toolbarPlugin;
+// const plugins = [toolbarPlugin];
 
 class MVAddNoteTextEditor extends Component {
   constructor(props) {
@@ -74,6 +75,23 @@ class MVAddNoteTextEditor extends Component {
     return false;
   };
 
+  /** RICH UTIL FUNCTIONS */
+  onUnderlineClick = () => {
+		this.onChange(
+			RichUtils.toggleInlineStyle(this.state.editorState, "UNDERLINE")
+		);
+	};
+
+	onBoldClick = () => {
+		this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "BOLD"));
+	};
+
+	onItalicClick = () => {
+		this.onChange(
+			RichUtils.toggleInlineStyle(this.state.editorState, "ITALIC")
+		);
+	};
+
   /** FOCUS the Editor */
   focus = () => {
     this.editor.focus();
@@ -83,23 +101,20 @@ class MVAddNoteTextEditor extends Component {
     const { editorState } = this.state;
     return(
       <div onClick={this.focus}>
-        <Toolbar>
-          {(externalProps) => (
-            <div className="flex-fragment">
-              <BoldButton {...externalProps} />
-              <ItalicButton {...externalProps} />
-              <UnderlineButton {...externalProps} />
-              <CodeButton {...externalProps} />
-              <BlockquoteButton {...externalProps} />
-            </div>
-          )}
-        </Toolbar>
-
+        <div>
+          <button onClick={this.onUnderlineClick}>U</button>
+          <button onClick={this.onBoldClick}>
+            <b>B</b>
+          </button>
+          <button onClick={this.onItalicClick}>
+            <em>I</em>
+          </button>
+        </div>
         <Editor 
           editorState={editorState}
           onChange={this.onChange}
           handleKeyCommand={this._handleKeyCommand}
-          plugins={plugins}
+          // plugins={plugins}
           ref={(element) => { this.editor = element; }}
         />
       </div>
@@ -108,3 +123,15 @@ class MVAddNoteTextEditor extends Component {
 };
 
 export default MVAddNoteTextEditor;
+
+/* <Toolbar>
+  {(externalProps) => (
+    <div className="flex-fragment">
+      <BoldButton {...externalProps} />
+      <ItalicButton {...externalProps} />
+      <UnderlineButton {...externalProps} />
+      <CodeButton {...externalProps} />
+      <BlockquoteButton {...externalProps} />
+    </div>
+  )}
+</Toolbar> */

@@ -1,89 +1,28 @@
-// import React, { Component } from 'react';
-
-// import createToolbarPlugin, { Separator }  from 'draft-js-static-toolbar-plugin';
-// import {
-//   ItalicButton,
-//   BoldButton,
-//   UnderlineButton,
-//   CodeButton,
-//   HeadlineOneButton,
-//   HeadlineTwoButton,
-//   HeadlineThreeButton,
-//   UnorderedListButton,
-//   OrderedListButton,
-//   BlockquoteButton,
-//   CodeBlockButton,
-// } from 'draft-js-buttons';
+import React from 'react';
 
 /** Styles */
-import '../dv-note-text-editor.css';
-
-class HeadlinesPicker extends Component {
-  componentDidMount() {
-    setTimeout(() => { 
-      window.addEventListener('click', this.onWindowClick); 
-    });
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('click', this.onWindowClick);
-  }
-
-  // Call `onOverrideContent` again with `undefined`
-  // so the toolbar can show its regular content again.
-  // _onWindowClick = () => this.props.onOverrideContent(undefined);
-
-  render() {
-    const buttons = [HeadlineOneButton, HeadlineTwoButton, HeadlineThreeButton];
-    return (
-      <div>
-        {buttons.map((Button, i) => // eslint-disable-next-line
-          <Button key={i} {...this.props} />
-        )}
-      </div>
-    );
-  }
-};
-
-class HeadlinesButton extends Component {
-  onClick = () => console.log('Headline button clicked.');
-    // A button can call `onOverrideContent` to replace the content
-    // of the toolbar. This can be useful for displaying sub
-    // menus or requesting additional information from the user.
-    // this.props.onOverrideContent(HeadlinesPicker);
-
-  render() {
-    return (
-      <div>
-        <button onClick={this.onClick}>
-          H
-        </button>
-      </div>
-    );
-  }
-};
+import {
+  ToolbarButton,
+  ToolbarContainer
+} from './Toolbar.styled';
 
 /** ACTUAL COMPONENT */
 const Toolbar = () => {
   return(
-    <div>
+    <ToolbarContainer>
       {// may be use React.Fragment instead of div to improve perfomance after React 16
         (externalProps) => (
-          <div>
+          <React.Fragment>
             <BoldButton {...externalProps} />
             <ItalicButton {...externalProps} />
             <UnderlineButton {...externalProps} />
             <CodeButton {...externalProps} />
-            <Separator {...externalProps} />
-            {/* <HeadlinesButton {...externalProps} /> */}
-            <UnorderedListButton {...externalProps} />
-            <OrderedListButton {...externalProps} />
             <BlockquoteButton {...externalProps} />
             <CodeBlockButton {...externalProps} />
-          </div>
+          </React.Fragment>
         )
       }
-    </div>
+    </ToolbarContainer>
   );
 };
 
