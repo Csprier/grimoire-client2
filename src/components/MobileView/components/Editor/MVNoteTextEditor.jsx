@@ -13,18 +13,6 @@ import {
   EditorState,
   RichUtils
 } from 'draft-js';
-// import Editor from 'draft-js-plugins-editor';
-// import createToolbarPlugin from 'draft-js-static-toolbar-plugin';
-// import {
-//   ItalicButton,
-//   BoldButton,
-//   UnderlineButton,
-//   CodeButton,
-//   BlockquoteButton
-// } from 'draft-js-buttons';
-// const toolbarPlugin = createToolbarPlugin();
-// const { Toolbar } = toolbarPlugin;
-// const plugins = [toolbarPlugin];
 
 class MVNoteTextEditor extends Component {
   constructor(props) {
@@ -115,7 +103,6 @@ class MVNoteTextEditor extends Component {
           editorState={editorState}
           onChange={this.onChange}
           handleKeyCommand={this._handleKeyCommand}
-          // plugins={plugins}
           ref={(element) => { this.editor = element }}
         />
       </div>
@@ -124,15 +111,3 @@ class MVNoteTextEditor extends Component {
 };
 
 export default MVNoteTextEditor;
-
-/* <Toolbar>
-  {(externalProps) => (
-    <div className="flex-fragment">
-      <BoldButton {...externalProps} />
-      <ItalicButton {...externalProps} />
-      <UnderlineButton {...externalProps} />
-      <CodeButton {...externalProps} />
-      <BlockquoteButton {...externalProps} />
-    </div>
-  )}
-</Toolbar> */
