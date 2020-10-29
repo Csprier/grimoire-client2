@@ -12,6 +12,7 @@ import {
   EditorState,
   RichUtils
 } from 'draft-js';
+import BlockStyleToolbar from "./BlockStyles/BlockStyleToolbar";
 
 class AddNoteTextEditor extends Component {
   constructor() {
@@ -65,9 +66,7 @@ class AddNoteTextEditor extends Component {
 
   /** RICH UTIL FUNCTIONS */
   onUnderlineClick = () => {
-    this.onChange(
-      RichUtils.toggleInlineStyle(this.state.editorState, "UNDERLINE")
-    );
+    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "UNDERLINE"));
   };
 
   onBoldClick = () => {
@@ -75,9 +74,20 @@ class AddNoteTextEditor extends Component {
   };
 
   onItalicClick = () => {
-    this.onChange(
-      RichUtils.toggleInlineStyle(this.state.editorState, "ITALIC")
-    );
+    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "ITALIC"));
+  };
+
+  toggleBlockType = (blockType) => {
+    this.onChange(RichUtils.toggleBlockType(this.state.editorState, blockType));
+  };
+
+  getBlockStyle = (block) => {
+    switch (block.getType()) {
+     case "blockquote":
+      return "RichEditor-blockquote";
+     default:
+      return null;
+    }
   };
 
   /** FOCUS the Editor */
@@ -89,6 +99,7 @@ class AddNoteTextEditor extends Component {
     const { editorState } = this.state;
     return(
       <div onClick={this.focus}>
+
         <div>
           <button onClick={this.onUnderlineClick}>U</button>
           <button onClick={this.onBoldClick}>
@@ -98,9 +109,16 @@ class AddNoteTextEditor extends Component {
             <em>I</em>
           </button>
         </div>
+
+        <BlockStyleToolbar
+          editorState={this.state.editorState}
+          onToggle={this.toggleBlockType}
+        />
+        
         <Editor 
           editorState={editorState}
           onChange={this.onChange}
+          blockStyleFn={this.getBlockStyle}
           handleKeyCommand={this._handleKeyCommand}
           ref={(element) => { this.editor = element; }}
         />
