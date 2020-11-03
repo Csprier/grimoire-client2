@@ -98,8 +98,8 @@ class CustomEditor extends Component  {
 
   render() {
     const { editorState } = this.state;
-    console.log('CustomEditor props:', this.props);
-    console.log('CustomEditor state:', editorState);
+    // console.log('CustomEditor props:', this.props);
+    console.log('CustomEditor state:', this.state.editorState);
 
     // If the user changes block type before entering any text, we can
     // either style the placeholder or hide it. Let's just hide it now.

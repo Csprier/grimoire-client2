@@ -73,8 +73,8 @@ class MVEditNoteComponent extends Component {
   };
 
   render() {
-    // console.log('PROPS:', this.props.note, '\n', 
-    //             'STATE:', this.state);
+    console.log('PROPS:', this.props.note, '\n', 
+                'STATE:', this.state);
     return(
       <MVEditNoteComponentContainer>
         <MVEditNoteForm onSubmit={this._submitNote}>

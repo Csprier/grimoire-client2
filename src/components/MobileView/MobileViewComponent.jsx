@@ -58,9 +58,13 @@ const MobileViewComponent = (props) => {
               alt="close modal" 
               className="dv-add-left-arrow-icon"
             />
-            <h4>Editing: {selected.title}</h4>
           </ModalCloseButton>
-          
+          <h4>
+            {(addNote)
+              ? 'Add a new note!'
+              : `Editing: ${selected.title}!`
+            }
+          </h4>
 
           {(addNote) 
             ? <MVAddNote
