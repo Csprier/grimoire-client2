@@ -7,12 +7,12 @@ import Util from '../../../../utility/util';
 import leftArrowIcon from '../../../icons/LEFTARROW.png';
 
 /** Components */
-import DVNoteTextEditor from '../Editor/DVNoteTextEditor';
+import CustomEditor from '../../../Editor/CustomEditor';
 
 /** Styles */
 import './dv-edit-note.css';
 
-class DVNoteEditor extends Component { 
+class DVEditNoteComponent extends Component { 
   constructor(props) {
     super(props);
     this.state = {
@@ -63,6 +63,7 @@ class DVNoteEditor extends Component {
 
   render() {
     // console.log('STATE', this.state);
+    // console.log('PROPS', this.props);
     return(
       <div className="dv-edit-note-container">
         <div className="dv-edit-note-header-container">
@@ -89,8 +90,8 @@ class DVNoteEditor extends Component {
           </label>
 
           <label className="dv-edit-note-label">Content</label>
-          <DVNoteTextEditor 
-            editorState={this.props.note.content}
+          <CustomEditor 
+            editorState={this.state.content}
             handleContentChange={this._handleContentChange}
           />
 
@@ -101,4 +102,4 @@ class DVNoteEditor extends Component {
   };
 };
 
-export default DVNoteEditor;
+export default DVEditNoteComponent;

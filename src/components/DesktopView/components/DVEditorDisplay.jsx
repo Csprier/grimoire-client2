@@ -1,7 +1,7 @@
 import React from 'react';
 
 /** Components */
-import DVNoteEditor from './Edit/DVNoteEditor';
+import DVEditNoteComponent from './Edit/DVEditNoteComponent';
 import DVAddNoteComponent from './Add/DVAddNote';
 
 /** Styles */
@@ -30,7 +30,7 @@ const DesktopViewEditorDisplay = (props) => {
               reRenderFunction={reRenderFunction}
             />
           : (EDIT) 
-            ? <DVNoteEditor 
+            ? <DVEditNoteComponent
                 note={selectedNote}
                 closeNoteEditor={closeNoteEditor}
                 reRenderFunction={reRenderFunction}

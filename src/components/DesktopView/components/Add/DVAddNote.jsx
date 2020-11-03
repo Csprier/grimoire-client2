@@ -7,7 +7,6 @@ import Util from '../../../../utility/util';
 import leftArrowIcon from '../../../icons/LEFTARROW.png';
 
 /** Components */
-// import DVAddNoteTextEditor from '../Editor/DVAddNoteTextEditor';
 import CustomEditor from '../../../Editor/CustomEditor';
 
 /** Styles */
@@ -76,12 +75,8 @@ class DVAddNoteComponent extends Component {
           </label>
 
           <label className="dv-add-note-label">Content</label>
-          {/* <DVAddNoteTextEditor 
-            editorState={JSON.stringify(this.state.content)}
-            handleContentChange={this._handleContentChange}
-          /> */}
           <CustomEditor 
-            editorState={JSON.stringify(this.state.content)}
+            // editorState={this.state.content}
             handleContentChange={this._handleContentChange}
           />
 

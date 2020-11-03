@@ -5,6 +5,7 @@ import Util from '../../utility/util';
 
 import { 
   convertToRaw,
+  convertFromRaw,
   Editor,
   EditorState,
   RichUtils
@@ -18,10 +19,12 @@ import InlineStyleControls from './InlineStyleControls';
 import './css/editor.css';
 
 class CustomEditor extends Component  {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      editorState: EditorState.createEmpty()
+      editorState: (this.props.editorState) 
+        ? EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.editorState)))
+        : EditorState.createEmpty()
     };
     this.saveContent = (content) => this._saveContent(content);
     this.focus = () => this.editor.focus();
@@ -94,7 +97,8 @@ class CustomEditor extends Component  {
   };
 
   render() {
-    const {editorState} = this.state;
+    console.log('CustomEditor props:', this.props.editorState);
+    const { editorState } = this.state;
 
     // If the user changes block type before entering any text, we can
     // either style the placeholder or hide it. Let's just hide it now.
