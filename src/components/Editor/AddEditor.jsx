@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 /** Util */
-// import Util from '../../utility/util';
+import Util from '../../utility/util';
 
 import { 
-  // convertToRaw,
+  convertToRaw,
   Editor,
   EditorState,
   RichUtils
@@ -14,20 +14,52 @@ import { styleMap } from './styleMap';
 import BlockStyleControls from './BlockStyleControls';
 import InlineStyleControls from './InlineStyleControls';
 
+/** Styles */
+import './css/add-editor.css';
+
 class AddEditor extends Component  {
   constructor() {
     super();
     this.state = {
       editorState: EditorState.createEmpty()
     };
+    this.saveContent = (content) => this._saveContent(content);
     this.focus = () => this.editor.focus();
-    this.onChange = (editorState) => this.setState({ editorState });
+    this.onChange = (editorState) => this._onChange(editorState);
     this.handleKeyCommand = (command) => this._handleKeyCommand(command);
     // this.onTab = (e) => this._onTab(e);
     this.toggleBlockType = (type) => this._toggleBlockType(type);
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
   };
 
+  /**
+   * onChange: when an onChange event happens, get the contentState of the editorState, 
+   *  pass the raw JSON into props.handleContentChange and save it to localStorage via _saveContent, 
+   *  and set the class this.state.editorState to the new editorState
+   * @param {object}  editorState - editorState of the editor
+  */
+  _onChange = (editorState) => {
+    const contentState = editorState.getCurrentContent();
+    this.props.handleContentChange(convertToRaw(contentState));
+    this._saveContent(contentState);
+    this.setState({ editorState });
+  };
+
+  /**
+   * _saveContent: use Util.API.debounce to hold off til 1 second after the last keystroke, 
+   * then save the JSON of the content to localStorage
+   * @param {object}  content - editorState JSON
+  */
+  _saveContent = (content) => {
+    Util.API.debounce(window.localStorage.setItem('content', JSON.stringify(convertToRaw(content))), 1000);
+  };
+
+  /**
+   * _handleKeyCommand: Monitors key commands in the Editor, takes this.state.editorState and passes it into
+   *  RichUtils.handleKeyCommand with the command parameter. If there is a newState, invoke onChange to change the 
+   *  editorState to reflect the new contentState and return true; otherwise, return false and do nothing.
+   * @param {string}  command 
+   */
   _handleKeyCommand(command) {
     const {editorState} = this.state;
     const newState = RichUtils.handleKeyCommand(editorState, command);
@@ -67,7 +99,7 @@ class AddEditor extends Component  {
     // If the user changes block type before entering any text, we can
     // either style the placeholder or hide it. Let's just hide it now.
     let className = 'RichEditor-editor';
-    var contentState = editorState.getCurrentContent();
+    const contentState = editorState.getCurrentContent();
     if (!contentState.hasText()) {
       if (contentState.getBlockMap().first().getType() !== 'unstyled') {
         className += ' RichEditor-hidePlaceholder';
