@@ -15,9 +15,9 @@ import BlockStyleControls from './BlockStyleControls';
 import InlineStyleControls from './InlineStyleControls';
 
 /** Styles */
-import './css/add-editor.css';
+import './css/editor.css';
 
-class AddEditor extends Component  {
+class CustomEditor extends Component  {
   constructor() {
     super();
     this.state = {
@@ -134,4 +134,4 @@ class AddEditor extends Component  {
   }
 };
 
-export default AddEditor;
+export default CustomEditor;
