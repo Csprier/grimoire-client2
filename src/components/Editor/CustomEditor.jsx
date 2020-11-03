@@ -64,7 +64,7 @@ class CustomEditor extends Component  {
    * @param {string}  command 
    */
   _handleKeyCommand(command) {
-    const {editorState} = this.state;
+    const { editorState } = this.state;
     const newState = RichUtils.handleKeyCommand(editorState, command);
     if (newState) {
       this.onChange(newState);
@@ -97,8 +97,9 @@ class CustomEditor extends Component  {
   };
 
   render() {
-    console.log('CustomEditor props:', this.props.editorState);
     const { editorState } = this.state;
+    console.log('CustomEditor props:', this.props);
+    console.log('CustomEditor state:', editorState);
 
     // If the user changes block type before entering any text, we can
     // either style the placeholder or hide it. Let's just hide it now.

@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import {
-  EditorState
-} from 'draft-js';
 
 /** Util */
 import Util from '../../../../utility/util';
 
 /** Components */
-import MVAddNoteTextEditor from '../Editor/MVAddNoteTextEditor';
+import CustomEditor from '../../../Editor/CustomEditor';
 
 /** Styles */
 import {
@@ -17,13 +14,14 @@ import {
   MVAddNoteForm,
   MVAddNoteSubmitButton,
 } from './MVAddNoteForm.styled';
+// import './mv-add-note.css';
 
-class MVAddNoteFormComponent extends Component {
+class MVAddNoteComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: '',
-      content: EditorState.createEmpty()
+      content: {}
     };
     this._handleChange = this._handleChange.bind(this);
     this._handleContentChange = this._handleContentChange.bind(this);
@@ -79,10 +77,8 @@ class MVAddNoteFormComponent extends Component {
           </MVAddNoteLabel>
 
           <MVAddNoteLabel>Content
-            <MVAddNoteTextEditor 
-              editorState={this.state.content}
+            <CustomEditor
               handleContentChange={this._handleContentChange}
-              init={this.props.init}
             />
           </MVAddNoteLabel>
           <MVAddNoteSubmitButton>Save</MVAddNoteSubmitButton>
@@ -92,4 +88,4 @@ class MVAddNoteFormComponent extends Component {
   };
 };
 
-export default MVAddNoteFormComponent;
+export default MVAddNoteComponent;

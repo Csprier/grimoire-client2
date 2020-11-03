@@ -12,8 +12,8 @@ import {
 } from './MobileView.styled';
 import MobileViewNoteList from './components/MVNoteList';
 import Modal from '../Modal/Modal';
-import MVAddNoteForm from './components/Add/MVAddNoteForm';
-import MVEditNoteForm from './components/Edit/MVEditNoteForm';
+import MVAddNote from './components/Add/MVAddNote';
+import MVEditNote from './components/Edit/MVEditNote';
 
 /** Force ReRender */
 const useForceUpdate = () => useState()[1];
@@ -58,17 +58,18 @@ const MobileViewComponent = (props) => {
               alt="close modal" 
               className="dv-add-left-arrow-icon"
             />
+            <h4>Editing: {selected.title}</h4>
           </ModalCloseButton>
           
 
           {(addNote) 
-            ? <MVAddNoteForm 
+            ? <MVAddNote
                 reRender={props.reRenderFunction}
                 setShowModal={setShowModal}
                 setInit={setInit}
                 init={init}
               />
-            : <MVEditNoteForm 
+            : <MVEditNote
                 note={selected} 
                 reRender={props.reRenderFunction}
                 setShowModal={setShowModal}
