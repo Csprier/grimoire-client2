@@ -65,7 +65,7 @@ class MVEditNote2 extends Component {
   };
 
   render() {
-    console.log('MV STATE', this.state);
+    // console.log('MV STATE', this.state.content);
     // console.log('MV PROPS', this.props);
     return(
       <div className="mv-edit-note-container">
