@@ -7,15 +7,9 @@ import Util from '../../../../utility/util';
 import CustomEditor from '../../../Editor/CustomEditor';
 
 /** Styles */
-import {
-  MVEditNoteInput,
-  MVEditNoteLabel,
-  MVEditNoteComponentContainer,
-  MVEditNoteForm,
-  MVEditNoteSubmitButton,
-} from './MVEditNoteForm.styled';
+import './mv-edit-note.css';
 
-class MVEditNoteComponent extends Component {
+class MVEditNote2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,16 +20,6 @@ class MVEditNoteComponent extends Component {
     this._handleChange = this._handleChange.bind(this);
     this._handleContentChange = this._handleContentChange.bind(this);
     this._submitNote = this._submitNote.bind(this);
-  };
-
-  componentDidUpdate(prevProps) {
-    if (this.props !== prevProps) {
-      this.setState({
-        id: this.props.note._id,
-        title: this.props.note.title,
-        content: this.props.note.content
-      })
-    }
   };
 
   _handleChange = (e) => {
@@ -73,33 +57,31 @@ class MVEditNoteComponent extends Component {
   };
 
   render() {
-    // console.log('PROPS:', this.props.note, '\n', 
-    //             'STATE:', this.state);
-    console.log('PROPS:', this.props.note.content);
     return(
-      <MVEditNoteComponentContainer>
-        <MVEditNoteForm onSubmit={this._submitNote}>
-          <MVEditNoteLabel>Title
-            <MVEditNoteInput 
+      <div className="mv-edit-note-container">
+        <form className="mv-edit-note-form" onSubmit={this._submitNote}>
+          <label className="mv-edit-note-label">Title
+            <input 
+              className="mv-edit-note-input"
               type="text"
               name="title"
               onChange={this._handleChange}
               defaultValue={this.state.title}
               placeholder="Title..."
             />
-          </MVEditNoteLabel>
+          </label>
 
-          <MVEditNoteLabel>Content
-            <CustomEditor
+          <label className="mv-edit-note-label">Content
+            <CustomEditor 
               editorState={this.state.content}
-              handleContentChange={this._handleContentChange}
+              _handleContentChange={this._handleContentChange}
             />
-          </MVEditNoteLabel>
-          <MVEditNoteSubmitButton>Save</MVEditNoteSubmitButton>
-        </MVEditNoteForm>
-      </MVEditNoteComponentContainer>
+          </label>
+          <button>Save</button>
+        </form>
+      </div>
     );
-  };
+  }
 };
 
-export default MVEditNoteComponent;
+export default MVEditNote2;
