@@ -46,9 +46,7 @@ class MVAddNoteComponent extends Component {
       title: this.state.title,
       content: JSON.stringify(this.state.content)
     };
-    console.log('Payload: ', payload);
     return Util.API.notePOST(payload)
-      .then(res => console.log(res))
       .then(() => this.props.reRender())
       .then(() => this.props.setShowModal())
       .then(() => {

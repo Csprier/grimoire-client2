@@ -22,6 +22,16 @@ class MVEditNote2 extends Component {
     this._submitNote = this._submitNote.bind(this);
   };
 
+  componentDidUpdate(prevProps) {
+    if (this.props.note !== prevProps.note) {
+      this.setState({
+        id: this.props.note._id,
+        title: this.props.note.title,
+        content: this.props.note.content
+      })
+    }
+  };
+
   _handleChange = (e) => {
     e.persist();
     this.setState({
@@ -34,16 +44,14 @@ class MVEditNote2 extends Component {
 
   _submitNote = (e) => {
     e.preventDefault();
-    const id = this.props.note._id;
+    const { id } = this.state;
     const user_id = Util.DATA.getUserIdFromLocalStorage();
     let payload = {
       userId: user_id,
       title: this.state.title,
       content: JSON.stringify(this.state.content)
     };
-    console.log('Payload: ', payload);
     return Util.API.notePUT(id, payload)
-      .then(res => console.log('notePUT res:', res))
       .then(() => this.props.reRender())
       .catch(err => console.error(err));
   };
@@ -57,6 +65,8 @@ class MVEditNote2 extends Component {
   };
 
   render() {
+    console.log('MV STATE', this.state);
+    // console.log('MV PROPS', this.props);
     return(
       <div className="mv-edit-note-container">
         <form className="mv-edit-note-form" onSubmit={this._submitNote}>
@@ -71,12 +81,12 @@ class MVEditNote2 extends Component {
             />
           </label>
 
-          <label className="mv-edit-note-label">Content
-            <CustomEditor 
-              editorState={this.state.content}
-              _handleContentChange={this._handleContentChange}
-            />
-          </label>
+          <label className="mv-edit-note-label">Content</label>
+          <CustomEditor 
+            editorState={this.state.content}
+            handleContentChange={this._handleContentChange}
+          />
+
           <button className="mv-edit-note-submit-button">Save</button>
         </form>
       </div>

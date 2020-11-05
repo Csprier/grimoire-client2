@@ -13,7 +13,8 @@ import {
 import MobileViewNoteList from './components/MVNoteList';
 import Modal from '../Modal/Modal';
 import MVAddNote from './components/Add/MVAddNote';
-import MVEditNote from './components/Edit/MVEditNote';
+// import MVEditNote from './components/Edit/MVEditNote';
+import MVEditNote2 from './components/Edit/MVEditNote2';
 
 /** Force ReRender */
 const useForceUpdate = () => useState()[1];
@@ -73,7 +74,7 @@ const MobileViewComponent = (props) => {
                 setInit={setInit}
                 init={init}
               />
-            : <MVEditNote
+            : <MVEditNote2
                 note={selected} 
                 reRender={props.reRenderFunction}
                 setShowModal={setShowModal}
