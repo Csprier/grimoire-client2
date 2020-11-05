@@ -77,7 +77,7 @@ class MVEditNote2 extends Component {
               _handleContentChange={this._handleContentChange}
             />
           </label>
-          <button>Save</button>
+          <button className="mv-edit-note-submit-button">Save</button>
         </form>
       </div>
     );
