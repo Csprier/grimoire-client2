@@ -37,7 +37,7 @@ const Note = (props) => {
         <span>Last updated: {date}</span>
         <span>{formattedSnippet}</span>
       </div>
-      <div className={`animated-editor-display${(selectedNote && selectedNote._id === note._id) ? ' animate-open' : ''}`}>
+      <div className={`animated-editor-display${(selectedNote._id === note._id) ? ' animate-open' : ''}`}>
         <EditComponent 
           note={note}
         />
