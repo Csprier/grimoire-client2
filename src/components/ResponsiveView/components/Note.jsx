@@ -25,8 +25,9 @@ const Note = (props) => {
     if (selectedNote._id === note._id) {
       setAsSelectedNote({});
     }
-
-    setAsSelectedNote(note);
+    else if (selectedNote._id !== note._id) {
+      setAsSelectedNote(note);
+    }
   };
 
   return(
