@@ -10,14 +10,3 @@
   height: 100%;
   border: 1px solid blue;
 }
-
-@media screen and (max-width: 400px) {
-  .responsive-view {
-    position: relative;
-    margin: 0 auto;
-    width: 98%;
-    height: 100%;
-    background-color: green;
-    border: 1px solid orange;
-  } 
-}

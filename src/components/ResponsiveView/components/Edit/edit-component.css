@@ -1,39 +1,24 @@
 .edit-container {
   display: none;
-  width: 0px;
-  height: 0px;
+  width: 100%;
+  height: 100%;
   margin: 0px;
   padding: 5px;
-  transition-property: width, height;
-  transition-duration: .1s;
-  transition-delay: .1s;
-  overflow: hidden;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
+}
+
+/* EDITOR DISPLAY STYLES */
+.animated-editor-display {
+  width: 100%;
+  height: 600px;
+  border: 1px solid orange;
 }
 
 .animate-open {
   display: block;
-  margin: 0 auto;
-  width: 300px;
-  height: 350px;
-}
-
-.note-list {
-  width: 100%;
-  height: 100%;
-  border: 1px solid red;
-}
-
-.note {
-  display: inline-block;
-  width: 300px;
-  height: 75px;
-  border: 1px solid green;
-}
-
-.note-info {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 4px;
+  height: 600px;
+  transition-property: height;
+  transition-duration: .1s;
+  transition-delay: .1s;
+  border: 1px solid blue;
 }

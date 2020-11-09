@@ -7,7 +7,7 @@ import moment from 'moment';
 import EditComponent from './Edit/EditComponent';
 
 /** Styles */
-import '../responsive-view.css';
+import './note.css';
 
 const Note = (props) => {
   const { note, setAsSelectedNote, selectedNote } = props;
@@ -17,7 +17,7 @@ const Note = (props) => {
   let date = updatedAt.format('MMMM Do YYYY, h:mm:ss a');
 
   function _onClick() {
-    console.log(note);
+    // console.log(note);
     if (selectedNote === {}) {
       setAsSelectedNote(note);
     }
@@ -30,13 +30,13 @@ const Note = (props) => {
   };
 
   return(
-    <li className={`note${(selectedNote && selectedNote._id === note._id) ? ' animate-open' : ''}`} key={note._id} onClick={_onClick}>
+    <li className="note" key={note._id} onClick={_onClick}>
       <div className="note-info">
         <h4>{note.title.slice(0, 18) + '...'}</h4>
         <span>Last updated: {date}</span>
         <span>{formattedSnippet}</span>
       </div>
-      <div className="animated-editor-display">
+      <div className={`animated-editor-display${(selectedNote && selectedNote._id === note._id) ? ' animate-open' : ''}`}>
         <EditComponent 
           note={note}
         />

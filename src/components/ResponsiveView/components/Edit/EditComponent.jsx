@@ -59,7 +59,7 @@ class EditComponent extends Component {
   render() {
     const { selectedNote } = this.props;
     return(
-      <div className={`edit-container ${(selectedNote) ? 'animate-open' : ''}`}>
+      <div className={`edit-container${(selectedNote) ? ' animate-open' : ''}`}>
         <form className="edit-form">
           <label className="edit-label">Title
             <input
