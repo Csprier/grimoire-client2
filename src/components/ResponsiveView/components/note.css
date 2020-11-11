@@ -2,8 +2,8 @@
 .note-list {
   display: flex;
   justify-content: space-around;
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   /* border: 1px solid red; */
 }
 
@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   width: 300px;
+  height: 350px;
   border: 1px solid green;
 }
 
@@ -25,21 +26,23 @@
 /* EDITOR DISPLAY STYLES */
 .animated-editor-display {
   position: relative;
+  display: none;
   width: 100%;
-  height: 0;
+  height: 0px;
   transition-property: transform, height;
   transition-duration: .5s;
   transition-delay: .5s;
-  overflow: hidden;
+  transform: translateY(-100%);
   border: 1px solid orange;
 }
 
 .animate-open {
-  position: absolute;
+  position: relative;
+  display: block;
   height: 300px;
   transition-property: transform, height;
   transition-duration: .5s;
   transition-delay: .5s;
-  transform: translateY(3em, 0);
+  transform: translateY(0%);
   border: 1px solid blue;
 }
