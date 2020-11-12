@@ -4,11 +4,16 @@ import React, { useEffect, useState } from 'react';
 import Note from './components/Note';
 import SearchNotes from '../SearchNotes/SearchNotes';
 
+/** Icon */
+// import trashcan from '../../icons/TRASHCAN2.png';
+import addIcon from '../icons/ADDICON2.png';
+
 /** Styles */
 import './responsive-view.css';
 
 const ResponsiveViewComponent = (props) => {
   const [notes, setNotes] = useState([]);
+  const [ADD, setADD] = useState(false);
   const [selectedNote, setAsSelectedNote] = useState({});
   const isSelected = selectedNote.hasOwnProperty('_id');
   const { searchTerm, setSearchTerm } = props;
@@ -16,8 +21,9 @@ const ResponsiveViewComponent = (props) => {
   useEffect(() => {
     setNotes(props.notes);
     // console.log('selectedNote:', selectedNote);
-    console.log('isSelected: ', isSelected);
-  }, [props.notes, setNotes, notes, selectedNote, isSelected]);
+    // console.log('isSelected: ', isSelected);
+    console.log('ADD:', ADD);
+  }, [props.notes, setNotes, notes, selectedNote, isSelected, ADD]);
 
   /** ================================================================================ */
   /** SEARCH TERM FILTER 
@@ -39,6 +45,15 @@ const ResponsiveViewComponent = (props) => {
           <SearchNotes 
             notes={notes}
             setSearchTerm={setSearchTerm} 
+          />
+          <img 
+            src={addIcon}
+            alt="Add a note"
+            className="add-icon"
+            onClick={() => {
+              console.log('Add a note!');
+              setADD(true);
+            }} 
           />
         </div>
         <ul className="note-list">

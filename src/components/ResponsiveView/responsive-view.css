@@ -24,3 +24,16 @@
 .search-container.closed {
   display: none;
 }
+
+/* ADD NOTE ICON */
+.add-icon {
+  width: 40px;
+  margin: 0px 0px 0px 10px;
+  padding: 0;
+  margin: 0px 10px;
+}
+
+.add-icon:hover {
+  filter: sepia(1) saturate(5352%) brightness(200%) hue-rotate(90deg);
+  -webkit-filter: sepia(1) saturate(5352%) brightness(200%) hue-rotate(90deg);
+}
