@@ -7,29 +7,18 @@ import Util from '../../../../utility/util';
 import CustomEditor from '../../../Editor/CustomEditor';
 
 /** Styles */
-import './edit-component.css';
+import './add-component.css';
 
-class EditComponent extends Component {
-  constructor(props) {
+class AddComponent extends Component {
+  constructor(props){
     super(props);
     this.state = {
-      id: this.props.note._id,
-      title: this.props.note.title,
-      content: this.props.note.content
+      title: '',
+      content: {}
     };
     this._handleChange = this._handleChange.bind(this);
     this._handleContentChange = this._handleContentChange.bind(this);
     this._submitNote = this._submitNote.bind(this);
-  };
-
-  componentDidUpdate(prevProps) {
-    if (this.props.note !== prevProps.note) {
-      this.setState({
-        id: this.props.note._id,
-        title: this.props.note.title,
-        content: this.props.note.content
-      })
-    }
   };
 
   _handleChange = (e) => {
@@ -44,44 +33,48 @@ class EditComponent extends Component {
 
   _submitNote = (e) => {
     e.preventDefault();
-    const note_id = this.state.id;
+    const { setAdd } = this.props;
     const user_id = Util.DATA.getUserIdFromLocalStorage();
     let payload = {
       userId: user_id,
       title: this.state.title,
       content: JSON.stringify(this.state.content)
     };
-    return Util.API.notePUT(note_id, payload)
+    // console.log('Payload: ', payload);
+    return Util.API.notePOST(payload)
+      .then(res => console.log(res))
+      .then(() => setAdd(false))
       .then(() => this.props.reRenderFunction())
+      // .then(() => this.props.closeNoteEditor())
       .catch(err => console.error(err));
   };
 
   render() {
     return(
-      <div className="edit-container">
-        <form className="edit-form" onSubmit={this._submitNote}>
-          <label className="edit-label">Title</label>
+      <div className="add-container">
+        <button onClick={() => this.props.setAdd(false)}>X</button>
+        <form className="add-form" onSubmit={this._submitNote}>
+          <label className="add-label">Title</label>
           <input
-            className="edit-input"
+            className="add-input"
             type="text"
             name="title"
             onChange={this._handleChange}
             defaultValue={this.state.title}
             placeholder="Title..."
           />
-          
 
-          <label className="edit-label">Content</label>
+          <label className="add-label">Content</label>
           <CustomEditor 
-            editorState={this.state.content}
+            // editorState={this.state.content}
             handleContentChange={this._handleContentChange}
           />
 
-          <button className="edit-submit-button">Submit</button>
+          <button className="add-submit-button">Submit</button>
         </form>
       </div>
     );
   };
 };
 
-export default EditComponent;
+export default AddComponent;

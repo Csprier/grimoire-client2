@@ -10,6 +10,7 @@ import addIcon from '../icons/ADDICON2.png';
 
 /** Styles */
 import './responsive-view.css';
+import AddComponent from './components/Add/AddComponent';
 
 const ResponsiveViewComponent = (props) => {
   const [notes, setNotes] = useState([]);
@@ -56,6 +57,16 @@ const ResponsiveViewComponent = (props) => {
             }} 
           />
         </div>
+
+        {/** Add a note */}
+        {(ADD)
+          ? <AddComponent 
+              setAdd={setADD}
+              reRenderFunction={props.reRenderFunction}
+            />
+          : null
+        }
+
         <ul className="note-list">
           {listOfNotesToRender.map(note => {
             return(
