@@ -31,7 +31,7 @@ const Note = (props) => {
   };
 
   return(
-    <li className="note" key={note._id} onClick={_onClick}>
+    <li className={`note${(selectedNote._id === note._id) ? ' animate-open' : ''}`} key={note._id} onClick={_onClick}>
       <div className="note-info">
         <h4>{note.title.slice(0, 18) + '...'}</h4>
         <span>Last updated: {date}</span>

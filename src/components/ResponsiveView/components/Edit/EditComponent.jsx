@@ -60,16 +60,16 @@ class EditComponent extends Component {
     return(
       <div className="edit-container">
         <form className="edit-form">
-          <label className="edit-label">Title
-            <input
-              className="edit-input"
-              type="text"
-              name="title"
-              onChange={this._handleChange}
-              defaultValue={this.state.title}
-              placeholder="Title..."
-            />
-          </label>
+          <label className="edit-label">Title</label>
+          <input
+            className="edit-input"
+            type="text"
+            name="title"
+            onChange={this._handleChange}
+            defaultValue={this.state.title}
+            placeholder="Title..."
+          />
+          
 
           <label className="edit-label">Content</label>
           <CustomEditor 
