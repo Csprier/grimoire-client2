@@ -8,9 +8,25 @@
   margin: 0 auto;
   width: 98%;
   height: 100%;
-  /* border: 1px solid blue; */
 }
 
+.note-list {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  width: 100%;
+  /* height: 100%; */
+  /* overflow: hidden; */
+  /* border: 1px solid red; */
+}
+.note-list.expand-height {
+  height: 100%;
+  overflow: hidden;
+  background-color: white;
+}
+
+/* SEARCH STYLES */
 .search-container {
   position: relative;
   width: 100%;

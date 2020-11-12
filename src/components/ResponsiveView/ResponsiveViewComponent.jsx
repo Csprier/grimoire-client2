@@ -68,7 +68,7 @@ const ResponsiveViewComponent = (props) => {
           : null
         }
 
-        <ul className="note-list">
+        <ul className={`note-list ${ADD ? 'expand-height' : ''}`}>
           {listOfNotesToRender.map(note => {
             return(
               <Note 
