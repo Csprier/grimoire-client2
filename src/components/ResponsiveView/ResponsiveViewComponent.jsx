@@ -50,7 +50,7 @@ const ResponsiveViewComponent = (props) => {
           <img 
             src={addIcon}
             alt="Add a note"
-            className="add-icon"
+            className={`add-icon ${ADD ? 'hide' : ''}`}
             onClick={() => {
               console.log('Add a note!');
               setADD(true);
@@ -61,6 +61,7 @@ const ResponsiveViewComponent = (props) => {
         {/** Add a note */}
         {(ADD)
           ? <AddComponent 
+              ADD={ADD}
               setAdd={setADD}
               reRenderFunction={props.reRenderFunction}
             />

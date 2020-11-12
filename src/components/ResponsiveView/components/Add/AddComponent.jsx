@@ -50,8 +50,9 @@ class AddComponent extends Component {
   };
 
   render() {
+    const { ADD } = this.props;
     return(
-      <div className="add-container">
+      <div className={`add-container ${(ADD ? 'open' : '')}`}>
         <button onClick={() => this.props.setAdd(false)}>X</button>
         <form className="add-form" onSubmit={this._submitNote}>
           <label className="add-label">Title</label>

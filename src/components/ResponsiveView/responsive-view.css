@@ -37,3 +37,7 @@
   filter: sepia(1) saturate(5352%) brightness(200%) hue-rotate(90deg);
   -webkit-filter: sepia(1) saturate(5352%) brightness(200%) hue-rotate(90deg);
 }
+
+.add-icon.hide {
+  display: none;
+}
