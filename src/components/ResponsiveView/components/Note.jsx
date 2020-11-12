@@ -15,6 +15,7 @@ const Note = (props) => {
   let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 20) + '...';
   let updatedAt = moment(note.updatedAt);
   let date = updatedAt.format('MMMM Do YYYY, h:mm:ss a');
+  const isSelected = selectedNote._id === note._id;
 
   function _onClick() {
     // console.log(note);
@@ -31,13 +32,13 @@ const Note = (props) => {
   };
 
   return(
-    <li className={`note${(selectedNote._id === note._id) ? ' animate-open' : ''}`} key={note._id} onClick={_onClick}>
+    <li className={`note${isSelected ? ' animate-open' : ''}`} key={note._id} onClick={_onClick}>
       <div className="note-info">
         <h4>{note.title.slice(0, 18) + '...'}</h4>
         <span>Last updated: {date}</span>
         <span>{formattedSnippet}</span>
       </div>
-      <div className={`animated-editor-display${(selectedNote._id === note._id) ? ' animate-open' : ''}`}>
+      <div className={`animated-editor-display${isSelected ? ' animate-open' : ''}`}>
         <EditComponent 
           note={note}
         />
