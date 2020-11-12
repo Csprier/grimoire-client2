@@ -10,12 +10,14 @@ import './responsive-view.css';
 const ResponsiveViewComponent = (props) => {
   const [notes, setNotes] = useState([]);
   const [selectedNote, setAsSelectedNote] = useState({});
-  const { searchTerm } = props;
-  
+  const isSelected = selectedNote.hasOwnProperty('_id');
+  const { searchTerm, setSearchTerm } = props;
+
   useEffect(() => {
     setNotes(props.notes);
-    console.log('selectedNote:', selectedNote);
-  }, [props.notes, setNotes, notes, selectedNote]);
+    // console.log('selectedNote:', selectedNote);
+    console.log('isSelected: ', isSelected);
+  }, [props.notes, setNotes, notes, selectedNote, isSelected]);
 
   /** ================================================================================ */
   /** SEARCH TERM FILTER 
@@ -33,10 +35,10 @@ const ResponsiveViewComponent = (props) => {
     <div className="responsive-view-container">
       <div className="responsive-view">
 
-        <div className="dashboard-util-container">
+        <div className={`search-container ${(!isSelected) ? 'open' : 'closed'}`}>
           <SearchNotes 
-            notes={props.notes}
-            setSearchTerm={props.setSearchTerm} 
+            notes={notes}
+            setSearchTerm={setSearchTerm} 
           />
         </div>
         <ul className="note-list">

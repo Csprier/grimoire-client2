@@ -10,3 +10,17 @@
   height: 100%;
   /* border: 1px solid blue; */
 }
+
+.search-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.search-container.open {
+  display: block;
+}
+
+.search-container.closed {
+  display: none;
+}
