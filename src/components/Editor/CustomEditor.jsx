@@ -98,7 +98,8 @@ class CustomEditor extends Component  {
 
   render() {
     const { editorState } = this.state;
-    // console.log('CustomEditor props:', this.props.editorState);
+    console.log('CustomEditor props:', this.props.editorState);
+    console.log('CustomEditor state', this.state.editorState);
     // console.log('CustomEditor state:', JSON.stringify(editorState));
 
     // If the user changes block type before entering any text, we can
@@ -123,9 +124,9 @@ class CustomEditor extends Component  {
         />
         <div className={className} onClick={this.focus}>
           <Editor
+            editorState={editorState}
             blockStyleFn={getBlockStyle}
             customStyleMap={styleMap}
-            editorState={editorState}
             handleKeyCommand={this.handleKeyCommand}
             onChange={this.onChange}
             // onTab={this.onTab}

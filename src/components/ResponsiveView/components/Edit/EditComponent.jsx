@@ -55,8 +55,10 @@ class EditComponent extends Component {
       .then(() => this.props.reRenderFunction())
       .catch(err => console.error(err));
   };
-
+  
   render() {
+    // console.log('Edit props', this.props);
+    console.log('Edit State', this.state);
     return(
       <div className="edit-container">
         <form className="edit-form" onSubmit={this._submitNote}>
