@@ -74,27 +74,3 @@ function AnimatedFormComponent() {
 };
 
 export default AnimatedFormComponent;
-
-/*
-<ToggleButton onClick={() => {
-  if (loginMenu === 'closed') {
-    console.log('Change login from closed to open');
-    setLoginMenu('open');
-  }
-  if (loginMenu === 'open') {
-    console.log('Change login from open to closed');
-    setLoginMenu('closed');
-  }
-}}>Login</ToggleButton>
-
-<ToggleButton onClick={() => {
-  if (registerMenu === 'closed') {
-    console.log('Change register from closed to open');
-    setRegisterMenu('open');
-  }
-  if (registerMenu === 'open') {
-    console.log('Change register from open to closed');
-    setRegisterMenu('closed');
-  }
-}}>Register</ToggleButton>
-*/
