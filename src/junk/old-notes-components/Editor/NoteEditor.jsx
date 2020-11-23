@@ -7,7 +7,7 @@ import {
 } from 'draft-js';
 
 /** Util */
-import Util from '../../../../utility/util';
+import Util from '../../../utility/util';
 
 /** Styles */
 import './note-editor.css';

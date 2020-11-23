@@ -9,11 +9,9 @@ import logoutIcon from './LOGOUTICON.png';
 /** Styles */
 import {
   Navigation,
-  // LogOutButton,
   UsernameHeader,
   LogOutIcon
 } from './Navigation.styled';
-// import { AddNoteButton } from '../Dashboard/components/AddNoteDisplay.styled';
 
 const NavigationBar = () => {
   const [activeUser, setActiveUser] = useState('');
