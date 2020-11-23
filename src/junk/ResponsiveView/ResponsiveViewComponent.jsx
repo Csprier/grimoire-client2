@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 /** Components */
 import Note from './components/Note';
-import SearchNotes from '../SearchNotes/SearchNotes';
+import SearchNotes from '../../components/SearchNotes/SearchNotes';
 
 /** Icon */
 // import trashcan from '../../icons/TRASHCAN2.png';

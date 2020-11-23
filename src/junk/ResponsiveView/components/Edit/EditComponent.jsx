@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Util from '../../../../utility/util';
 
 /** Components */
-import CustomEditor from '../../../Editor/CustomEditor';
+import CustomEditor from '../../../../components/Editor/CustomEditor';
 
 /** Styles */
 import './edit-component.css';
