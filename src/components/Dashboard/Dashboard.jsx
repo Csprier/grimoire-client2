@@ -21,25 +21,15 @@ const Dashboard = () => {
   const [reRender, toggleReRender] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const forceUpdate = useForceUpdate();
-  const [viewWidth, setViewWidth]  = useState(0);
 
   useEffect(() => {
-    setViewWidth(window.innerWidth);
-    window.addEventListener('resize', () => {
-      setViewWidth(window.innerWidth);
-    });
-
     if (reRender) {
       Util.API.debounce(_GETNotes, 2000)
       forceUpdate();
       toggleReRender(!reRender);
     }
     Util.API.debounce(_GETNotes, 2000);
-
-    return () => {
-      window.removeEventListener('resize', () => {});
-    }
-  }, [reRender, forceUpdate, viewWidth]);
+  }, [reRender, forceUpdate]);
 
   function _GETNotes() {
     Util.API.noteGET()
