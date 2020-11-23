@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 /** Components */
 import Note from './components/Note';
 import SearchNotes from '../SearchNotes/SearchNotes';
+import Modal from '../Modal/Modal';
 
 /** Icon */
 // import trashcan from '../../icons/TRASHCAN2.png';
@@ -15,6 +16,7 @@ import AddComponent from './components/Add/AddComponent';
 const ResponsiveViewComponent = (props) => {
   const [notes, setNotes] = useState([]);
   const [ADD, setADD] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [selectedNote, setAsSelectedNote] = useState({});
   const isSelected = selectedNote.hasOwnProperty('_id');
   const { searchTerm, setSearchTerm } = props;
@@ -58,15 +60,9 @@ const ResponsiveViewComponent = (props) => {
           />
         </div>
 
-        {/** Add a note */}
-        {(ADD)
-          ? <AddComponent 
-              ADD={ADD}
-              setAdd={setADD}
-              reRenderFunction={props.reRenderFunction}
-            />
-          : null
-        }
+        <Modal showModal={showModal}>
+            
+        </Modal>
 
         <ul className={`note-list ${ADD ? 'expand-height' : ''}`}>
           {listOfNotesToRender.map(note => {
@@ -88,3 +84,12 @@ const ResponsiveViewComponent = (props) => {
 };
 
 export default ResponsiveViewComponent;
+
+/* {(ADD)
+  ? <AddComponent 
+      ADD={ADD}
+      setAdd={setADD}
+      reRenderFunction={props.reRenderFunction}
+    />
+  : null
+} */
