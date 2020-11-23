@@ -56,12 +56,13 @@ const ResponsiveViewComponent = (props) => {
             onClick={() => {
               console.log('Add a note!');
               setADD(true);
+              setShowModal(true);
             }} 
           />
         </div>
 
         <Modal showModal={showModal}>
-            
+            <button onClick={() => setShowModal(false)}>CLOSE</button>
         </Modal>
 
         <ul className={`note-list ${ADD ? 'expand-height' : ''}`}>
