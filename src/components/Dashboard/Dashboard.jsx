@@ -11,9 +11,9 @@ import {
 
 /** Components */
 import NavigationBar from '../Navigation/Navigation';
-// import DesktopViewComponent from '../DesktopView/DesktopViewComponent';
+import DesktopViewComponent from '../DesktopView/DesktopViewComponent';
 // import MobileViewComponent from '../MobileView/MobileViewComponent';
-import ResponsiveViewComponent from '../ResponsiveView/ResponsiveViewComponent';
+// import ResponsiveViewComponent from '../ResponsiveView/ResponsiveViewComponent';
 
 /** Force rerender */
 const useForceUpdate = () => useState()[1]; 
@@ -63,13 +63,13 @@ const Dashboard = () => {
       <NavigationBar />
 
       <DashboardContent>
-        <ResponsiveViewComponent 
+        {/* <ResponsiveViewComponent 
           notes={listOfNotes}
           reRenderFunction={_reRenderNoteList}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm} 
-        />
-        {/* {(viewWidth >= 700) 
+        /> */}
+        {(viewWidth >= 700) 
           ? <DesktopViewComponent 
               notes={listOfNotes} 
               reRenderFunction={_reRenderNoteList}
@@ -81,7 +81,7 @@ const Dashboard = () => {
                 reRenderFunction={_reRenderNoteList}
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm} 
-              />} */}
+              />}
 
       </DashboardContent>
 
