@@ -36,7 +36,7 @@ function _loginUser(data) {
     const message = (status === 401) 
       ? 'Unauthorized login'
       : 'Incorrect username or password';
-      return err + message;
+    return err + message;
   });
 };
 
