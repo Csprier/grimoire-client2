@@ -24,7 +24,6 @@ const Register = () => {
   function register() {
     console.log(values);
     return Util.API.registerUser(values)
-      .then(() => Util.UI.redirectToDashboard())
       .catch(err => console.error(err));
   }
   

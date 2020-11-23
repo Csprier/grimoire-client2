@@ -19,7 +19,7 @@ function _validateLogin(values) {
   else if (UtilUI.validators.nonEmpty(values.password) === '*Field cannot be blank') {
     errors.password = 'Password cannot be blank'
   }
-
+  console.log('VL errors', errors);
   return errors;
 };
 

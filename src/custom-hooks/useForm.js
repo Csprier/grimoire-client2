@@ -17,7 +17,7 @@ const useForm = (callback, validate) => {
       setIsSubmitting(true);
       setErrors(validate(values));
     }
-  }
+  };
 
   const handleChange = (e) => {
     e.persist();

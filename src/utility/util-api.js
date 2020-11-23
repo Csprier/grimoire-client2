@@ -1,5 +1,6 @@
 // import axios from 'axios';
 import UtilDATA from './util-data'; 
+import UtilUI from './util-ui';
 import API_BASE_URL from './api-config';
 
 /** ============================================== */
@@ -30,14 +31,8 @@ function _loginUser(data) {
   .then((res) => UtilDATA.normalizeResponseErrors(res))
   .then((res) => res.json())
   .then(({ authToken }) => UtilDATA.storeAuthInfo(authToken))
-  .catch((err) => {
-    console.error(err)
-    const status = err;
-    const message = (status === 401) 
-      ? 'Unauthorized login'
-      : 'Incorrect username or password';
-    return err + message;
-  });
+  .then(() => UtilUI.redirectToDashboard())
+  .catch((err) => console.error('err', err));
 };
 
 function _registerUser(data) {
@@ -59,9 +54,9 @@ function _registerUser(data) {
   .then((res) => UtilDATA.normalizeResponseErrors(res))
   .then((res) => res.json())
   .then((res) => {
-    // console.log('Registerd new user: ', res)
     _loginUser(data);
   })
+  .then(() => UtilUI.redirectToDashboard())
   .catch((err) => console.error(err));
 };
 
@@ -85,9 +80,6 @@ function _refreshAuthToken() {
 function _notePOST(data) {
   const authToken = UtilDATA.loadAuthToken();
   const url = `${API_BASE_URL}/notes`;
-  // console.log(authToken);
-  // console.log(url);
-  // console.log(data);
   return fetch(url, {
     method: 'POST',
     headers: { 
@@ -97,7 +89,6 @@ function _notePOST(data) {
     },
     body: JSON.stringify(data)
   })
-  // .then(res => console.log(res))
   .catch(err => console.error(err));
 };
 
@@ -127,7 +118,6 @@ function _notePUT(id, data) {
     },
     body: JSON.stringify(data)
   })
-  // .then(res => console.log(res))
   .catch(err => console.error(err));
 };
 

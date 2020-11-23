@@ -21,9 +21,8 @@ const Login = () => {
   const { values, handleChange, handleSubmit, errors } = useForm(login, Util.USER.validateLogin);
 
   function login() {
-    console.log(values);
+    console.log('values', values);
     return Util.API.loginUser(values)
-    .then(() => Util.UI.redirectToDashboard())
     .then(() => Util.DATA.startPeriodicRefresh())
     .catch(err => console.error(err));
   }
@@ -60,6 +59,7 @@ const Login = () => {
           )}
         </Label>
       </InputContainer>
+      {/* {<Error>{errors}</Error>} */}
       <ButtonContainer>
         <LoginButton type="submit">Login</LoginButton>
       </ButtonContainer>
