@@ -73,11 +73,6 @@ class CustomEditor extends Component  {
     return false;
   };
 
-  // _onTab(e) {
-  //   const maxDepth = 4;
-  //   this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth));
-  // };
-
   _toggleBlockType(blockType) {
     this.onChange(
       RichUtils.toggleBlockType(
@@ -128,7 +123,6 @@ class CustomEditor extends Component  {
             editorState={editorState}
             handleKeyCommand={this.handleKeyCommand}
             onChange={this.onChange}
-            // onTab={this.onTab}
             placeholder="Tell a story..."
             ref={(element) => { this.editor = element; }} // necesssary for focus()
             spellCheck={true}

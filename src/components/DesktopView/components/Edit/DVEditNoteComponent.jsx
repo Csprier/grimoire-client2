@@ -60,8 +60,6 @@ class DVEditNoteComponent extends Component {
   };
 
   render() {
-    // console.log('DV STATE', this.state.content);
-    // console.log('DV PROPS', this.props.note.content);
     return(
       <div className="dv-edit-note-container">
         <div className="dv-edit-note-header-container">

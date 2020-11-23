@@ -42,9 +42,7 @@ class DVAddNoteComponent extends Component {
       title: this.state.title,
       content: JSON.stringify(this.state.content)
     };
-    // console.log('Payload: ', payload);
     return Util.API.notePOST(payload)
-      // .then(res => console.log(res))
       .then(() => this.props.reRenderFunction())
       .then(() => this.props.closeNoteEditor())
       .catch(err => console.error(err));
@@ -76,7 +74,6 @@ class DVAddNoteComponent extends Component {
 
           <label className="dv-add-note-label">Content</label>
           <CustomEditor 
-            // editorState={this.state.content}
             handleContentChange={this._handleContentChange}
           />
 
