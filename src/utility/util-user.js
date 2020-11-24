@@ -40,9 +40,9 @@ function _validateRegister(values) {
   if (UtilUI.validators.required(username) === '*Required') {
     errors.username = 'Username is required';
   } 
-  
-  if (UtilUI.validators.nonEmpty(username) === '*Field cannot be blank') {
-    errors.username = 'Field cannot be blank';
+
+  if (UtilUI.validators.hasWhiteSpace(username) === '*Usernames cannot have whitespaces') {
+    errors.username = '*Usernames cannot have whitespaces';
   }
   
   if (UtilUI.validators.isTrimmed(username) === '*Cannot start or end with whitespace') {
