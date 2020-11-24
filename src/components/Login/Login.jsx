@@ -21,10 +21,10 @@ const Login = () => {
   const { values, handleChange, handleSubmit, errors } = useForm(login, Util.USER.validateLogin);
 
   function login() {
-    console.log('values', values);
     return Util.API.loginUser(values)
-    .then(() => Util.DATA.startPeriodicRefresh())
-    .catch(err => console.error(err));
+      .then(() => Util.DATA.startPeriodicRefresh())
+      .then(() => Util.UI.redirectToDashboard())
+      .catch(err => console.error('ERROR', err));
   }
 
   return(
@@ -38,7 +38,7 @@ const Login = () => {
             onChange={handleChange}
             value={values.username || ''}
             placeholder="Username..."
-            required
+            // required
           />
           {errors.username && (
             <Error>{errors.username}</Error>
@@ -52,14 +52,13 @@ const Login = () => {
             onChange={handleChange}
             value={values.password  || ''}
             placeholder="Password..."
-            required
+            // required
           />
           {errors.password && (
             <Error>{errors.password}</Error>
           )}
         </Label>
       </InputContainer>
-      {/* {<Error>{errors}</Error>} */}
       <ButtonContainer>
         <LoginButton type="submit">Login</LoginButton>
       </ButtonContainer>

@@ -31,8 +31,7 @@ function _loginUser(data) {
   .then((res) => UtilDATA.normalizeResponseErrors(res))
   .then((res) => res.json())
   .then(({ authToken }) => UtilDATA.storeAuthInfo(authToken))
-  .then(() => UtilUI.redirectToDashboard())
-  .catch((err) => console.error('err', err));
+  // .catch((err) => console.error('loginUser err', err));
 };
 
 function _registerUser(data) {
