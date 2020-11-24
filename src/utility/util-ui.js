@@ -40,6 +40,13 @@ const validators = {
 				? '*Field cannot be blank'
 				: undefined;
 		}
+	},
+	hasWhiteSpace: (value) => {
+		if (value) {
+			return value.indexOf(' ') >= 0
+				? '*Usernames cannot have whitespaces'
+				: undefined;
+		}
 	}
 };
 

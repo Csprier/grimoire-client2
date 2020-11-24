@@ -52,7 +52,7 @@ const Login = () => {
             onChange={handleChange}
             value={values.password  || ''}
             placeholder="Password..."
-            // required
+            required
           />
           {errors.password && (
             <Error>{errors.password}</Error>
