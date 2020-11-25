@@ -24,7 +24,7 @@ const Login = () => {
     return Util.API.loginUser(values)
       .then(() => Util.DATA.startPeriodicRefresh())
       .then(() => Util.UI.redirectToDashboard())
-      .catch(err => console.error('ERROR', err));
+      .catch(err => console.error('ERROR s', err));
   }
 
   return(
@@ -52,7 +52,7 @@ const Login = () => {
             onChange={handleChange}
             value={values.password  || ''}
             placeholder="Password..."
-            required
+            // required
           />
           {errors.password && (
             <Error>{errors.password}</Error>
