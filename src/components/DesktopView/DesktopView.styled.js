@@ -7,7 +7,7 @@ const DesktopViewContainer = styled.div`
   height: 100%;
   margin: 0 auto;
   padding: 0;
-  // border: 1px solid slategray;
+  border: 1px solid slategray;
   overflow: hidden;
 `;
 
