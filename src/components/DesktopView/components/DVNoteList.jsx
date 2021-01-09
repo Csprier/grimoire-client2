@@ -133,7 +133,7 @@ const DesktopViewNoteList = (props) => {
                     ? selectedNoteListItem
                     : unSelectedNoteListItem
               })
-          : <p>No notes...</p>
+          : <p>No notes... to create a note, hit the add note button. :D</p>
         }
       </DVNoteList>
     </DVNoteListContainer>

@@ -4,7 +4,7 @@ const NoteCounter = styled.h1`
   margin: 0;
   padding: 4px;
   font-size: 24px;
-  color: #444;
+  color: goldenrod;
 `;
 
 const SearchNotesInputContainer = styled.div`
