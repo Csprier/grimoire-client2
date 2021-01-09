@@ -61,7 +61,6 @@ class DVAddNoteComponent extends Component {
           <h2 className="dv-add-note-header">Add a new note!</h2>
         </div>
         <form className="dv-add-note-form" onSubmit={(e) => this._submitNote(e)}>
-          <label className="dv-add-note-label">Title
             <input
               className="dv-add-note-input" 
               type="text"
@@ -70,9 +69,8 @@ class DVAddNoteComponent extends Component {
               value={this.state.title || ''}
               placeholder="Title..."
             />
-          </label>
 
-          <label className="dv-add-note-label">Content</label>
+          <label className="dv-add-note-label"></label>
           <CustomEditor 
             handleContentChange={this._handleContentChange}
           />

@@ -73,7 +73,6 @@ class DVEditNoteComponent extends Component {
         </div>
 
         <form className="dv-edit-note-form" onSubmit={this._submitNote}>
-          <label className="dv-edit-note-label">Title
             <input
               className="dv-edit-note-input"
               type="text"
@@ -82,9 +81,8 @@ class DVEditNoteComponent extends Component {
               defaultValue={this.state.title}
               placeholder="Title..."
             />
-          </label>
 
-          <label className="dv-edit-note-label">Content</label>
+          <label className="dv-edit-note-label"></label>
           <CustomEditor 
             editorState={this.state.content}
             handleContentChange={this._handleContentChange}

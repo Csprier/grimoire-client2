@@ -27,7 +27,7 @@
 .dv-edit-note-header {
   margin: 0px 0px 0px 10px;
   padding: 0;
-  color: #444;
+  color: goldenrod;
 }
 
 .dv-edit-note-form {
@@ -52,7 +52,9 @@
   height: 30px;
   margin: 0 auto;
   padding: 4px;
-  border: 1px solid lightgray;
+  background-color:#171c1f;
+  border: 1px solid #171c1f;
+  color: gray;
 }
 .dv-edit-note-input::placeholder {
   padding: 0px 0px 0px 5px;

@@ -27,7 +27,7 @@
 .dv-add-note-header {
   margin: 0px 0px 0px 10px;
   padding: 0;
-  color: #444;
+  color: goldenrod;
 }
 
 .dv-add-note-form {
@@ -44,7 +44,7 @@
   width: 100%;
   margin: 0;
   padding: 4px;
-  color: #444;
+  color: lightgray;
 }
 
 .dv-add-note-input {
@@ -52,10 +52,12 @@
   height: 30px;
   margin: 0 auto;
   padding: 4px;
-  border: 1px solid lightgray;
+  background-color:#171c1f;
+  border: 1px solid #171c1f;
 }
 .dv-add-note-input::placeholder {
   padding: 0px 0px 0px 5px;
+  color: lightgray;
 }
 
 .dv-add-note-submit-button {
