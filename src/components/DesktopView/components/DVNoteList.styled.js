@@ -42,7 +42,7 @@ const DVNote = styled.div`
   padding: 4px 10px;
   overflow: hidden;
   &:hover {
-    background-color: slateblue;
+    background-color: darkslateblue;
   }
 `;
 
@@ -56,7 +56,6 @@ const DVSelectedNote = styled.div`
   padding: 4px 10px;
   overflow: hidden;
   background-color: #171c1f;
-  // border-top: 1px solid #C7CCDB;
 `;
 
 /** NOTE INFORMATION */

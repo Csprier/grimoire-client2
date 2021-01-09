@@ -7,7 +7,7 @@ const Navigation = styled.div`
   height: 40px;
   margin: 0;
   padding: 0;
-  background-color: #2a3439;
+  background-color: darkslateblue;
 `;
 
 const UsernameHeader = styled.h3`
