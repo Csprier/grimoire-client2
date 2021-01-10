@@ -54,6 +54,7 @@
   padding: 4px;
   background-color:#171c1f;
   border: 1px solid #171c1f;
+  color: gray;
 }
 .dv-add-note-input::placeholder {
   padding: 0px 0px 0px 5px;

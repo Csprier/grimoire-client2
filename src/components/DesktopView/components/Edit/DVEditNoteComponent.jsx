@@ -69,7 +69,7 @@ class DVEditNoteComponent extends Component {
             className="dv-edit-left-arrow-icon"
             onClick={() => this.props.closeNoteEditor()} 
           />
-          <h2 className="dv-edit-note-header">Editing: {this.props.note.title}</h2>
+          <h3 className="dv-edit-note-header">Editing: {this.props.note.title}</h3>
         </div>
 
         <form className="dv-edit-note-form" onSubmit={this._submitNote}>

@@ -58,7 +58,7 @@ class DVAddNoteComponent extends Component {
             className="dv-add-left-arrow-icon"
             onClick={() => this.props.closeNoteEditor()} 
           />
-          <h2 className="dv-add-note-header">Add a new note!</h2>
+          <h3 className="dv-add-note-header">Add a new note!</h3>
         </div>
         <form className="dv-add-note-form" onSubmit={(e) => this._submitNote(e)}>
             <input
