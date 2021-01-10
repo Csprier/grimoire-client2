@@ -20,7 +20,7 @@ import {
   DVNoteListContainer,
   DVNoteListFixedContainer,
   DVNoteTitle,
-  DNNoteSnippet,
+  // DNNoteSnippet,
   DVSelectedNote,
   DVNoteUpdatedAt,
   DVNoteInfoContainer,
@@ -76,8 +76,8 @@ const DesktopViewNoteList = (props) => {
           (props.notes) 
             ? listOfNotesToRender.map(note => {
                 const { EDIT } = props;
-                let contentSnippet = JSON.parse(note.content);
-                let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 20) + '...';
+                // let contentSnippet = JSON.parse(note.content);
+                // let formattedSnippet = contentSnippet.blocks[0].text.slice(0, 20) + '...';
                 let updatedAt = moment(note.updatedAt);
                 let date = updatedAt.format('MMMM Do YYYY, h:mm:ss a')
                 let unSelectedNoteListItem = (
@@ -90,7 +90,7 @@ const DesktopViewNoteList = (props) => {
                     <DVNoteInfoContainer>
                       <DVNoteTitle edit={EDIT}>{note.title.slice(0, 18) + '...'}</DVNoteTitle>
                       <DVNoteUpdatedAt edit={EDIT}>Last updated: {date}</DVNoteUpdatedAt>
-                      <DNNoteSnippet edit={EDIT}>{formattedSnippet}</DNNoteSnippet>
+                      {/* <DNNoteSnippet edit={EDIT}>{formattedSnippet}</DNNoteSnippet> */}
                     </DVNoteInfoContainer>
 
                     <DVNoteDeleteButtonContainer>
@@ -119,7 +119,7 @@ const DesktopViewNoteList = (props) => {
                     <DVNoteInfoContainer>
                       <DVNoteTitle>{note.title.slice(0, 18) + '...'}</DVNoteTitle>
                       <DVNoteUpdatedAt>Last updated: {date}</DVNoteUpdatedAt>
-                      <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet>
+                      {/* <DNNoteSnippet>{formattedSnippet}</DNNoteSnippet> */}
                     </DVNoteInfoContainer>
                     <DVNoteDeleteButtonContainer>
                       {/** This styled-component exists here in DVSelectedNote to resolve a padding issue in the CSS. */}
