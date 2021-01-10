@@ -21,8 +21,9 @@ const SearchInput = styled.input`
   height: 25px;
   margin: 0;
   padding: 0;
-  background-color: lightgray;
-  border: 1px solid lightgray;
+  background-color:#171c1f;
+  border: 1px solid #171c1f;
+  color: gray;
   ::placeholder {
     padding: 0px 0px 0px 5px;
   }
