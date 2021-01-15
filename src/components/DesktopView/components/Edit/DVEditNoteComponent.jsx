@@ -54,13 +54,14 @@ class DVEditNoteComponent extends Component {
       title: this.state.title,
       content: JSON.stringify(this.state.content)
     };
+    console.log('edit payload: ', payload);
     return Util.API.notePUT(note_id, payload)
       .then(() => this.props.reRenderFunction())
       .catch(err => console.error(err));
   };
 
   render() {
-    console.log('DVEdit State: ', this.state);
+    console.log('DVEdit content: ', this.state.content);
     return(
       <div className="dv-edit-note-container">
         <div className="dv-edit-note-header-container">
