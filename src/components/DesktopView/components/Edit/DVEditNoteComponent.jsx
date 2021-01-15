@@ -60,6 +60,7 @@ class DVEditNoteComponent extends Component {
   };
 
   render() {
+    console.log('DVEdit State: ', this.state);
     return(
       <div className="dv-edit-note-container">
         <div className="dv-edit-note-header-container">
@@ -73,14 +74,14 @@ class DVEditNoteComponent extends Component {
         </div>
 
         <form className="dv-edit-note-form" onSubmit={this._submitNote}>
-            <input
-              className="dv-edit-note-input"
-              type="text"
-              name="title"
-              onChange={this._handleChange}
-              defaultValue={this.state.title}
-              placeholder="Title..."
-            />
+          <input
+            className="dv-edit-note-input"
+            type="text"
+            name="title"
+            onChange={this._handleChange}
+            defaultValue={this.state.title}
+            placeholder="Title..."
+          />
 
           <label className="dv-edit-note-label"></label>
           <CustomEditor 
