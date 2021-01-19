@@ -88,8 +88,7 @@ class DVEditNoteComponent extends Component {
 
           <label className="dv-edit-note-label"></label>
           <CustomEditor 
-            // editorState={this.state.content}
-            editorState={this.props.note.content}
+            editorState={this.state.content}
             handleContentChange={this._handleContentChange}
           />
 
