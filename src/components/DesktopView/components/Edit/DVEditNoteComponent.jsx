@@ -62,8 +62,15 @@ class DVEditNoteComponent extends Component {
   };
 
   render() {
-    console.log('DVEdit state:', this.state);
-    // console.log('DVEdit props: ', this.props.note.content);
+    console.log('p->', this.props.note.content);
+    console.log('s->', this.state.content);
+    // console.log('DVEdit state:', this.state);
+    const originalContent = this.props.note.content.replace(/\\/g, "");
+    let thisContent = originalContent.replace(/\"\{/, "{");
+    thisContent = thisContent.replace(/\}\"/, "}");
+    console.log(thisContent)
+    console.log(JSON.parse(thisContent));
+    console.log('DVEdit props: ', JSON.parse(thisContent));
     // console.log('DVEdit state: ', this.state.content);
     return(
       <div className="dv-edit-note-container">
@@ -89,7 +96,8 @@ class DVEditNoteComponent extends Component {
 
           <label className="dv-edit-note-label"></label>
           <CustomEditor 
-            editorState={this.state.content}
+            // editorState={this.state.content}
+            editorState={thisContent}
             handleContentChange={this._handleContentChange}
           />
 

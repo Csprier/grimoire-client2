@@ -94,7 +94,8 @@ class CustomEditor extends Component  {
   render() {
     // console.log('this.props.editorState', '\n', typeof this.props.editorState, '\n', this.props.editorState);
     const { editorState } = this.state;
-    // console.log('CustomEditor props:', this.props.editorState);
+    // console.clear();
+    // console.log('CustomEditor props:', this.props);
     // console.log('CustomEditor state:', JSON.stringify(editorState, null, 2));
 
     // If the user changes block type before entering any text, we can
