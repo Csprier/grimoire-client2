@@ -92,7 +92,7 @@ class CustomEditor extends Component  {
   };
 
   render() {
-    console.log('this.props.editorState', '\n', typeof this.props.editorState, '\n', this.props.editorState);
+    // console.log('this.props.editorState', '\n', typeof this.props.editorState, '\n', this.props.editorState);
     const { editorState } = this.state;
     // console.log('CustomEditor props:', this.props.editorState);
     // console.log('CustomEditor state:', JSON.stringify(editorState));
