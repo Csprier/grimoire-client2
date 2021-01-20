@@ -22,6 +22,7 @@ const DesktopViewComponent = (props) => {
   /** ================================= */
   function EDITLogic(note) {
     console.log('Clicked:', note._id);
+    console.log('EDITLogic note:', note);
     _toggleCLICKED(true);
     _toggleADD(false);
     _toggleEDIT(true);
