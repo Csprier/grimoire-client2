@@ -49,10 +49,11 @@ class DVEditNoteComponent extends Component {
     e.preventDefault();
     const note_id = this.state.id;
     const user_id = Util.DATA.getUserIdFromLocalStorage();
+    let preparedPayloadContent = (typeof this.state.content === 'string') ? JSON.parse(this.state.content) : this.state.content;
     let payload = {
       userId: user_id,
       title: this.state.title,
-      content: JSON.stringify(this.state.content)
+      content: JSON.stringify(preparedPayloadContent)
     };
     console.log('edit payload: ', payload);
     return Util.API.notePUT(note_id, payload)
@@ -65,9 +66,9 @@ class DVEditNoteComponent extends Component {
     // console.log('p->', this.props.note.content);
     // console.log('s->', this.state.content);
     // console.log('DVEdit state:', this.state);
-    const originalContent = this.props.note.content.replace(/\\/g, "");
-    let thisContent = originalContent.replace(/\"\{/, "{");
-    thisContent = thisContent.replace(/\}\"/, "}");
+    // const originalContent = this.props.note.content.replace(/\\/g, "");
+    // let thisContent = originalContent.replace(/\"\{/, "{");
+    // thisContent = thisContent.replace(/\}\"/, "}");
     // console.log(thisContent)
     // console.log(JSON.parse(thisContent));
     // console.log('DVEdit props: ', JSON.parse(thisContent));
@@ -96,8 +97,8 @@ class DVEditNoteComponent extends Component {
 
           <label className="dv-edit-note-label"></label>
           <CustomEditor 
-            // editorState={this.state.content}
-            editorState={thisContent}
+            editorState={this.state.content}
+            // editorState={thisContent}
             handleContentChange={this._handleContentChange}
           />
 
