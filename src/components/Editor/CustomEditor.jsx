@@ -37,6 +37,8 @@ class CustomEditor extends Component  {
 
   /** Handle rapid selectiong from the note list to properly render editorState in the editor as new notes are selected while the editor is open */
   componentDidUpdate(prevProps) {
+    // console.log('prevProps ->', prevProps.editorState);
+    console.log('new props ->', typeof this.props.editorState, '\n', this.props.editorState);
     if (this.props.editorState !== prevProps.editorState) {
       this.setState({
         editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.editorState)))
