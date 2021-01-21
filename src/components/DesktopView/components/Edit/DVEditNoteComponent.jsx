@@ -31,7 +31,7 @@ class DVEditNoteComponent extends Component {
         id: this.props.note._id,
         title: this.props.note.title,
         content: this.props.note.content
-      })
+      });
     }
   };
 
@@ -63,6 +63,7 @@ class DVEditNoteComponent extends Component {
   };
 
   render() {
+    // console.log('DVEdit Current State:', this.state);
     return(
       <div className="dv-edit-note-container">
         <div className="dv-edit-note-header-container">

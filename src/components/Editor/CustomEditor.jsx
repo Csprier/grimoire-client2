@@ -35,6 +35,14 @@ class CustomEditor extends Component  {
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
   };
 
+  componentDidUpdate(prevProps) {
+    if (this.props.editorState !== prevProps.editorState) {
+      this.setState({
+        editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.editorState)))
+      });
+    }
+  };
+
   /**
    * onChange: when an onChange event happens, get the contentState of the editorState, 
    *  pass the raw JSON into props.handleContentChange and save it to localStorage via _saveContent, 

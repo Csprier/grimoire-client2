@@ -17,6 +17,14 @@ const DesktopViewComponent = (props) => {
   const [selectedNote, _selectNote] = useState({});
   const [ANIMATE, _toggleANIMATE] = useState(false);
 
+  function _clearEverything() {
+    _toggleCLICKED(false);
+    _toggleADD(false);
+    _toggleEDIT(false);
+    _selectNote({});
+    _toggleANIMATE(false);
+  };
+
   /** ================================================================================ */
   /** EDIT NOTE */
   /** ================================= */
