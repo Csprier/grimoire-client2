@@ -13,6 +13,10 @@ import AnimatedFormComponent from './components/AnimatedFormComponent';
 const LandingPage = () => {
   if (Util.DATA.loadAuthToken()) {
     return <Redirect to="/dashboard" />
+  } else {
+    Util.DATA.clearLocalStorageContent();
+    Util.DATA.clearAuthToken();
+    // return <Redirect to="/" />
   }
 
   return(
