@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Redirect } from "react-router-dom";
 
 /** Util */
 import Util from '../../utility/util';
@@ -23,12 +24,14 @@ const Dashboard = () => {
   const forceUpdate = useForceUpdate();
 
   useEffect(() => {
-    if (reRender) {
-      Util.API.debounce(_GETNotes, 2000)
-      forceUpdate();
-      toggleReRender(!reRender);
+    if (Util.DATA.loadAuthToken()) {
+      if (reRender) {
+        Util.API.debounce(_GETNotes, 2000)
+        forceUpdate();
+        toggleReRender(!reRender);
+      }
+      Util.API.debounce(_GETNotes, 2000);
     }
-    Util.API.debounce(_GETNotes, 2000);
   }, [reRender, forceUpdate]);
 
   function _GETNotes() {
@@ -44,6 +47,14 @@ const Dashboard = () => {
   function _reRenderNoteList() {
     toggleReRender(!reRender);
   };
+
+  if (!Util.DATA.loadAuthToken()) {
+    let theThing = Util.DATA.loadAuthToken();
+    console.log(theThing);
+    Util.DATA.clearLocalStorageContent();
+    Util.DATA.clearAuthToken();
+    return <Redirect to="/" />
+  }
 
   return(
     <DashboardContainer>
