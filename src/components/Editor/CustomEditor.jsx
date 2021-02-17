@@ -39,14 +39,12 @@ class CustomEditor extends Component  {
   componentDidUpdate(prevProps) {
     // console.log('prevProps ->', prevProps.editorState);
     // console.log('new props ->', typeof this.props.editorState, '\n', this.props.editorState);
-    
-    let updatedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
-      ? JSON.stringify(this.props.editorState)
-      : this.props.editorState;
-    // console.log('Updated Editor State', typeof updatedEditorState, '\n', updatedEditorState); 
-    
     if (this.props.editorState !== prevProps.editorState) {
       // console.log('prevProps ->', typeof prevProps.editorState, prevProps.editorState, '\n', 'does not equal:', typeof this.props.editorState, this.props.editorState);
+      let updatedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
+        ? JSON.stringify(this.props.editorState)
+        : this.props.editorState;
+      // console.log('Updated Editor State', typeof updatedEditorState, '\n', updatedEditorState); 
       this.setState({
         editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(updatedEditorState)))
       });
@@ -112,6 +110,7 @@ class CustomEditor extends Component  {
   render() {
     // console.log('this.props.editorState', '\n', typeof this.props.editorState, '\n', this.props.editorState);
     const { editorState } = this.state;
+    console.log(editorState);
     // console.clear();
     // console.log('CustomEditor props:', this.props);
     // console.log('CustomEditor state:', JSON.stringify(editorState, null, 2));
