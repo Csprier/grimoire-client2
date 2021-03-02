@@ -139,7 +139,7 @@ class CustomEditor extends Component  {
           editorState={editorState}
           onToggle={this.toggleInlineStyle}
         />
-        <div className={className} onClick={this.focus}>
+        <div className={className} /*onClick={this.focus}*/>
           <Editor
             blockStyleFn={getBlockStyle}
             customStyleMap={styleMap}
@@ -148,6 +148,7 @@ class CustomEditor extends Component  {
             onChange={this.onChange}
             placeholder="Tell a story..."
             ref={(element) => { this.editor = element; }} // necesssary for focus()
+            onClick={this.focus}
             spellCheck={true}
           />
         </div>
