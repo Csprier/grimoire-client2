@@ -30,36 +30,33 @@ class CustomEditor extends Component  {
     this.focus = () => this.editor.focus();
     this.onChange = (editorState) => this._onChange(editorState);
     this.handleKeyCommand = (command) => this._handleKeyCommand(command);
-    // this.onTab = (e) => this._onTab(e);
     this.toggleBlockType = (type) => this._toggleBlockType(type);
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
   };
 
-  // componentDidMount() {
-  //   this.setState({
-  //     editorState: EditorState.moveFocusToEnd(this.state.editorState)
-  //   });
-  // }
-
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.editorState !== this.state.editorState) {
-      return true;
-    }
-    return false;
+  componentDidMount() {
+    let normalizedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
+      ? JSON.stringify(this.props.editorState)
+      : this.props.editorState;
+    let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(normalizedEditorState)))
+    editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
+    this.setState({
+      editorState: editorStatetoBeRendered
+    });
   }
 
   componentDidUpdate(prevProps) {
-    let updatedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
-        ? JSON.stringify(this.props.editorState)
-        : this.props.editorState;
-      console.log('Updated Editor State', typeof updatedEditorState, '\n', updatedEditorState); 
-      let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(updatedEditorState)))
-      editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
+    console.log('CustomEditor CDU props: ', this.props.editorState);
+    if (this.props.editorState !== prevProps.editorState) {
+      let normalizedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
+      ? JSON.stringify(this.props.editorState)
+      : this.props.editorState;
+      let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(normalizedEditorState)))
+      // editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
       this.setState({
         editorState: editorStatetoBeRendered
       });
-      break;
-      // THIS IS BROKEN
+    }
   }
 
   /**
@@ -119,12 +116,8 @@ class CustomEditor extends Component  {
   };
 
   render() {
-    // console.log('this.props.editorState', '\n', typeof this.props.editorState, '\n', this.props.editorState);
     const { editorState } = this.state;
-    console.log(editorState);
-    // console.clear();
-    // console.log('CustomEditor props:', this.props);
-    // console.log('CustomEditor state:', JSON.stringify(editorState, null, 2));
+    // console.log(editorState);
 
     // If the user changes block type before entering any text, we can
     // either style the placeholder or hide it. Let's just hide it now.
@@ -171,11 +164,11 @@ componentDidUpdate(prevProps) {
   console.clear();
   console.log('prevProps ->', prevProps.editorState);
   console.log('new props ->', typeof this.props.editorState, '\n', this.props.editorState);
-  let updatedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
+  let normalizedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
     ? JSON.stringify(this.props.editorState)
     : this.props.editorState;
-  console.log('Updated Editor State', typeof updatedEditorState, '\n', updatedEditorState); 
-  let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(updatedEditorState)))
+  console.log('Updated Editor State', typeof normalizedEditorState, '\n', normalizedEditorState); 
+  let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(normalizedEditorState)))
   editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
   // console.log('prevProps ->', typeof prevProps.editorState, prevProps.editorState, '\n', 'does not equal:', typeof this.props.editorState, this.props.editorState);
   this.setState({
@@ -183,11 +176,11 @@ componentDidUpdate(prevProps) {
   });
   // -----------------------------------------------------------------------
   // if (this.props.editorState !== prevProps.editorState) {
-  //   let updatedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
+  //   let normalizedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
   //     ? JSON.stringify(this.props.editorState)
   //     : this.props.editorState;
-  //   console.log('Updated Editor State', typeof updatedEditorState, '\n', updatedEditorState); 
-  //   let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(updatedEditorState)))
+  //   console.log('Updated Editor State', typeof normalizedEditorState, '\n', normalizedEditorState); 
+  //   let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(normalizedEditorState)))
   //   editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
   //   // console.log('prevProps ->', typeof prevProps.editorState, prevProps.editorState, '\n', 'does not equal:', typeof this.props.editorState, this.props.editorState);
   //   this.setState({
@@ -195,4 +188,27 @@ componentDidUpdate(prevProps) {
   //   });
   // }
 };
+*/
+
+/*
+console.log('prevProps: ', prevProps.editorState.text);
+    console.log('------------------------------------')
+    console.log('this.props: ', this.props.editorState.text);
+    if (this.props.editorState !== prevProps.editor) {
+      Util.DATA.clearLocalStorageContent();
+      console.log((this.props.editorState !== prevProps.editor));
+      let normalizedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
+        ? JSON.stringify(this.props.editorState)
+        : this.props.editorState;
+      // create the editorState with the normalizedEditorState
+      let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(normalizedEditorState)));
+      
+      // set cursor focus to the end
+      editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
+      console.log(JSON.stringify(editorStatetoBeRendered));
+      // update state with new editorState to be rendered
+      // this.setState({
+      //   editorState: editorStatetoBeRendered
+      // })
+    }
 */

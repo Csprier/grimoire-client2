@@ -21,6 +21,7 @@ const DesktopViewComponent = (props) => {
   /** EDIT NOTE */
   /** ================================= */
   function EDITLogic(note) {
+    console.log('-------------------------------')
     console.log('Clicked:', note._id);
     console.log('EDITLogic note:', note);
     _toggleCLICKED(true);
@@ -57,6 +58,7 @@ const DesktopViewComponent = (props) => {
     _toggleANIMATE(false);
   };
 
+  console.log('DVC selectedNote', selectedNote);
   return(
     <DesktopViewContainer>
       <DesktopViewComponentContainer>

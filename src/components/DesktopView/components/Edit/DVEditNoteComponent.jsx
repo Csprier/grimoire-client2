@@ -26,7 +26,7 @@ class DVEditNoteComponent extends Component {
   };
 
   componentDidUpdate(prevProps) {
-    if (this.props.note !== prevProps.note) {
+    if (this.props.note._id !== prevProps.note._id) {
       this.setState({
         id: this.props.note._id,
         title: this.props.note.title,
@@ -63,6 +63,10 @@ class DVEditNoteComponent extends Component {
   };
 
   render() {
+    console.log('DVEditNC: ', this.state.content);
+    if (this.props.note._id !== this.state.id) {
+      this.props.reRenderFunction();
+    }
     return(
       <div className="dv-edit-note-container">
         <div className="dv-edit-note-header-container">
