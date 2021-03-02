@@ -37,23 +37,30 @@ class CustomEditor extends Component  {
 
   // componentDidMount() {
   //   this.setState({
-  //     editorState:  EditorState.moveFocusToEnd(this.state.editorState)
+  //     editorState: EditorState.moveFocusToEnd(this.state.editorState)
   //   });
   // }
 
-  /** Handle rapid selecting from the note list to properly render editorState in the editor as new notes are selected while the editor is open */
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.editorState !== this.state.editorState) {
+      return true;
+    }
+    return false;
+  }
+
   componentDidUpdate(prevProps) {
-    if (this.props.editorState !== prevProps.editorState) {
-      let updatedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
+    let updatedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
         ? JSON.stringify(this.props.editorState)
         : this.props.editorState;
+      console.log('Updated Editor State', typeof updatedEditorState, '\n', updatedEditorState); 
       let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(updatedEditorState)))
       editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
       this.setState({
         editorState: editorStatetoBeRendered
       });
-    }
-  };
+      break;
+      // THIS IS BROKEN
+  }
 
   /**
    * onChange: when an onChange event happens, get the contentState of the editorState, 
@@ -157,3 +164,35 @@ class CustomEditor extends Component  {
 };
 
 export default CustomEditor;
+
+/** Handle rapid selecting from the note list to properly render editorState in the editor as new notes are selected while the editor is open */
+/*
+componentDidUpdate(prevProps) {
+  console.clear();
+  console.log('prevProps ->', prevProps.editorState);
+  console.log('new props ->', typeof this.props.editorState, '\n', this.props.editorState);
+  let updatedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
+    ? JSON.stringify(this.props.editorState)
+    : this.props.editorState;
+  console.log('Updated Editor State', typeof updatedEditorState, '\n', updatedEditorState); 
+  let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(updatedEditorState)))
+  editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
+  // console.log('prevProps ->', typeof prevProps.editorState, prevProps.editorState, '\n', 'does not equal:', typeof this.props.editorState, this.props.editorState);
+  this.setState({
+    editorState: editorStatetoBeRendered
+  });
+  // -----------------------------------------------------------------------
+  // if (this.props.editorState !== prevProps.editorState) {
+  //   let updatedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
+  //     ? JSON.stringify(this.props.editorState)
+  //     : this.props.editorState;
+  //   console.log('Updated Editor State', typeof updatedEditorState, '\n', updatedEditorState); 
+  //   let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(updatedEditorState)))
+  //   editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
+  //   // console.log('prevProps ->', typeof prevProps.editorState, prevProps.editorState, '\n', 'does not equal:', typeof this.props.editorState, this.props.editorState);
+  //   this.setState({
+  //     editorState: editorStatetoBeRendered
+  //   });
+  // }
+};
+*/
