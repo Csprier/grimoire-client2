@@ -63,10 +63,8 @@ class DVEditNoteComponent extends Component {
   };
 
   render() {
-    console.log('DVEditNC: ', this.state.content);
-    if (this.props.note._id !== this.state.id) {
-      this.props.reRenderFunction();
-    }
+    // console.log('DVEditNC: ', this.state.content);
+    
     return(
       <div className="dv-edit-note-container">
         <div className="dv-edit-note-header-container">

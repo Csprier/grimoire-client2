@@ -46,7 +46,7 @@ class CustomEditor extends Component  {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('CustomEditor CDU props: ', this.props.editorState);
+    // console.log('CustomEditor CDU props: ', this.props.editorState);
     if (this.props.editorState !== prevProps.editorState) {
       let normalizedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
       ? JSON.stringify(this.props.editorState)

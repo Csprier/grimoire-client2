@@ -58,7 +58,7 @@ const DesktopViewComponent = (props) => {
     _toggleANIMATE(false);
   };
 
-  console.log('DVC selectedNote', selectedNote);
+  // console.log('DVC selectedNote', selectedNote);
   return(
     <DesktopViewContainer>
       <DesktopViewComponentContainer>
