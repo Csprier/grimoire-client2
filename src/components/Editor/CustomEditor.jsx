@@ -34,17 +34,6 @@ class CustomEditor extends Component  {
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
   };
 
-  componentDidMount() {
-    let normalizedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
-      ? JSON.stringify(this.props.editorState)
-      : this.props.editorState;
-    let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(normalizedEditorState)))
-    // editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
-    this.setState({
-      editorState: editorStatetoBeRendered
-    });
-  }
-
   /** Handle rapid selecting from the note list to properly render editorState in the editor as new notes are selected while the editor is open */
   componentDidUpdate(prevProps) {
     if (this.props.editorState !== prevProps.editorState) {
@@ -160,11 +149,3 @@ class CustomEditor extends Component  {
 };
 
 export default CustomEditor;
-
-// const stateWithContent = EditorState.createWithContent(c)
-// const currentSelection = this.state.editorState.getSelection()
-// const stateWithContentAndSelection = EditorState.forceSelection(stateWithContent, currentSelection)
-
-// this.setState({
-//   editorState: stateWithContentAndSelection
-// })
