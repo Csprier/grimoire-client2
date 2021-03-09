@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+.editor-opened {
+  display: none;
+}
+
 /* Houses the Searchbar and Add Icon */
 .fixed-container {
   position: relative;
