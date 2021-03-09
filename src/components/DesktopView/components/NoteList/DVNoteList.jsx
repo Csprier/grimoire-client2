@@ -41,8 +41,6 @@ const DVNoteList = (props) => {
     listOfNotesToRender = notes;
   };
 
-  // className={(selectedNote != {} && CLICKED) ? "dv-note-list-container editor-opened" : "dv-note-list-container"}
-  // <div className="dv-note-list-container">
 	return(
     <div className={(selectedNote != {} && CLICKED) ? "dv-note-list-container editor-opened" : "dv-note-list-container"}>
       <div className="fixed-container">

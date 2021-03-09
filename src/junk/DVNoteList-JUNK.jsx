@@ -4,14 +4,14 @@ import React from 'react';
 import moment from 'moment';
 
 /** Util */
-import Util from '../../../utility/util';
+import Util from '../utility/util';
 
 /** Icon */
 import trashcan from '../../icons/TRASHCAN2.png';
 import addIcon from '../../icons/ADDICON2.png';
 
 /** Components */
-import SearchNotes from '../../SearchNotes/SearchNotes';
+import SearchNotes from '../components/SearchNotes/SearchNotes';
 
 /** Styles */
 import {
@@ -27,7 +27,7 @@ import {
   DVNoteDeleteButtonContainer,
   DVNoteTrashCan,
   DVNoteAddIcon
-} from './DVNoteList.styled';
+} from './DVNoteList-JUNK.styled';
 
 const DesktopViewNoteList = (props) => {
   /** ================================================================================ */

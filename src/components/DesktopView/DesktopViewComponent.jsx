@@ -7,8 +7,7 @@ import {
 } from './DesktopView.styled';
 
 /** Components */
-// import DesktopViewNoteList from './components/DVNoteList';
-import DVNoteList from './components/NoteList/DVNoteListRefactor';
+import DVNoteList from './components/NoteList/DVNoteList';
 import DesktopViewEditorDisplay from './components/DVEditorDisplay';
 
 const DesktopViewComponent = (props) => {
@@ -59,22 +58,9 @@ const DesktopViewComponent = (props) => {
     _toggleANIMATE(false);
   };
 
-  // console.log('DVC selectedNote', selectedNote);
   return(
     <DesktopViewContainer>
       <DesktopViewComponentContainer>
-        {/* <DesktopViewNoteList 
-          notes={props.notes}
-          selectNote={_selectNote}
-          selectedNote={selectedNote}
-          searchTerm={props.searchTerm}
-          setSearchTerm={props.setSearchTerm}
-          ADDLogic={ADDLogic}
-          EDITLogic={EDITLogic}
-          CLICKED={CLICKED}
-          closeNoteEditor={_closeNoteEditor}
-          reRenderFunction={props.reRenderFunction}
-        /> */}
         <DVNoteList 
           notes={props.notes}
           selectNote={_selectNote}
