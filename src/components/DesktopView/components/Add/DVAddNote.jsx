@@ -52,12 +52,6 @@ class DVAddNote extends Component {
     return(
       <div className="dv-add-note-container">
         <div className="dv-add-note-header-container">
-          {/* <img 
-            src={leftArrowIcon} 
-            alt="close editor" 
-            className="dv-add-left-arrow-icon"
-            onClick={() => this.props.closeNoteEditor()} 
-          /> */}
           <h3 className="dv-add-note-header">Add a new note!</h3>
         </div>
         <form className="dv-add-note-form" onSubmit={(e) => this._submitNote(e)}>
@@ -67,6 +61,7 @@ class DVAddNote extends Component {
               alt="close editor" 
               className="dv-edit-left-arrow-icon"
             />
+            <p>Submit</p>
           </button>
           <input
             className="dv-add-note-input" 
@@ -81,8 +76,6 @@ class DVAddNote extends Component {
           <CustomEditor 
             handleContentChange={this._handleContentChange}
           />
-
-          {/* <button className="dv-add-note-submit-button">Submit</button> */}
         </form>
       </div>
     );

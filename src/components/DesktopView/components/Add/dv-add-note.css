@@ -7,12 +7,18 @@
 
 /* Close the editor */
 .close-and-submit {
+  display: flex;
+  flex-direction: row;
   width: 40px;
   height: 40px;
   margin: 0px;
   padding: 10px;
   background-color: #242526;
   border: 1px solid #242526;
+}
+.close-and-submit p {
+  padding: 2px;
+  color: goldenrod;
 }
 
 .dv-add-left-arrow-icon {
@@ -71,7 +77,6 @@
 }
 .dv-add-note-input::placeholder {
   padding: 0px 0px 0px 5px;
-  color: lightgray;
 }
 
 .dv-add-note-submit-button {
