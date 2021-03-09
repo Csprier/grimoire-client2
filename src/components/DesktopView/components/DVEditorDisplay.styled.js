@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 const DVEditorContainer = styled.div`
   display: ${props => props.note ? 'none' : 'block'};
-  width: 100%;
+  width: 90%;
   height: ${props => props.animate ? '600px' : '0px'};
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
+  padding: 20px 0px 0px 0px;
   transition-property: height;
   transition-duration: .1s;
   transition-delay: .1s;
