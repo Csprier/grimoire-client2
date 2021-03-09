@@ -61,6 +61,7 @@ const DVNoteList = (props) => {
                 date={date}
                 updatedAt={updatedAt}
                 EDITLogic={EDITLogic}
+                reRenderFunction={props.reRenderFunction}
               />
             )
           })

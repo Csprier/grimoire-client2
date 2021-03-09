@@ -10,7 +10,7 @@ import trashcan from '../../../icons/TRASHCAN2.png';
 import './note.css';
 
 const Note = (props) => {
-  const { note, EDITLogic } = props;
+  const { note, EDITLogic, reRenderFunction } = props;
   return(
     <div className="note" onClick={() => EDITLogic(note)}>
       <div className="info-container">
@@ -18,9 +18,11 @@ const Note = (props) => {
         <p className="updated-at">{note.updatedAt}</p>
       </div>
       <div className="button-container"
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
           console.log('Deleting:', note._id);
           Util.API.noteDELETE(note._id)
+            .then(() => reRenderFunction())
             .catch(err => console.error(err)); 
         }}>
         <img 
