@@ -58,17 +58,17 @@ const DesktopViewNoteList = (props) => {
     <DVNoteListContainer>
       
       <DVNoteListFixedContainer>
-        <SearchNotes 
-          notes={props.notes}
-          setSearchTerm={props.setSearchTerm} 
-        />
+          <SearchNotes 
+            notes={props.notes}
+            setSearchTerm={props.setSearchTerm} 
+          />
         <DVNoteAddIcon 
           src={addIcon}
           alt="Add a note"
           onClick={() => {
             ADDLogic();
           }}
-        />
+        />  
       </DVNoteListFixedContainer>
 
       <DVNoteList>

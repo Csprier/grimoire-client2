@@ -8,3 +8,54 @@
   padding: 4px 10px;
   overflow: hidden;
 }
+.note:hover {
+  background-color: darkslateblue;
+}
+
+/* Note information */
+.info-container {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  height: 50px;
+  margin: 2px auto;
+  padding: 0;
+}
+
+.title {
+  display: flex;
+  color: lightgray;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-weight: light;
+}
+
+.updated-at {
+  display: flex;  
+  color: lightgray;
+  margin: 0;
+  padding: 2px;
+  font-size: 10px;
+}
+
+/* Delete button container */
+.button-container {
+  display: flex;
+  align-items: center;
+  width: 50px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.delete-icon {
+  position: relative;
+  width: 30px;
+  margin: 0 auto;
+  padding: 0;
+}
+.delete-icon:hover {
+  filter: invert(12%) sepia(67%) saturate(5710%) hue-rotate(358deg) brightness(125%) contrast(121%);
+  -webkit-filter: invert(12%) sepia(67%) saturate(5710%) hue-rotate(358deg) brightness(125%) contrast(121%);
+}

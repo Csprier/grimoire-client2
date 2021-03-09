@@ -41,16 +41,6 @@ const DVNoteList = (props) => {
     listOfNotesToRender = notes;
   };
 
-  function normalizeNotesForRender(props) {
-    let notesToRender = (props.notes) 
-      ? listOfNotesToRender.map(note => {
-        return(
-          <Note note={note} />
-        );
-      })
-      : null;
-  }
-
 	return(
 		<div className="dv-note-list-container">
 
@@ -59,11 +49,28 @@ const DVNoteList = (props) => {
           notes={props.notes}
           setSearchTerm={props.setSearchTerm} 
         />
-        <img src={addIcon} alt="add" className="add-icon" />
+        <img src={addIcon} alt="add" className="add-icon" 
+          onClick={() => ADDLogic()}
+        />
       </div>
 
       <div className="note-list">
-
+        {(props.notes)
+          ? listOfNotesToRender.map(note => {
+            // const { EDIT } = props;
+            let updatedAt = moment(note.updatedAt);
+            let date = updatedAt.format('MMMM Do YYYY, h:mm:ss a')
+            return (
+              <Note note={note}
+                key={note._id}
+                date={date}
+                updatedAt={updatedAt}
+                EDITLogic={EDITLogic}
+              />
+            )
+          })
+          : <p>No Notes!</p>
+        }
       </div>
 
 		</div>
