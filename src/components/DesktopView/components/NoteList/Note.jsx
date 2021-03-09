@@ -10,7 +10,6 @@ import trashcan from '../../../icons/TRASHCAN2.png';
 import './note.css';
 
 const Note = (props) => {
-  console.log(props);
   const { note, EDITLogic } = props;
   return(
     <div className="note" onClick={() => EDITLogic(note)}>
@@ -18,18 +17,16 @@ const Note = (props) => {
         <h2 className="title">{note.title.slice(0, 18) + '...'}</h2>
         <p className="updated-at">{note.updatedAt}</p>
       </div>
-      <div className="button-container">
+      <div className="button-container"
+        onClick={() => {
+          console.log('Deleting:', note._id);
+          Util.API.noteDELETE(note._id)
+            .catch(err => console.error(err)); 
+        }}>
         <img 
           src={trashcan}
           alt="delete"
           className="delete-icon"
-          onClick={() => {
-            console.log('Deleting:', note._id);
-            Util.API.noteDELETE(note._id)
-              .then(() => props.reRenderFunction())
-              .then(() => props.closeNoteEditor())
-              .catch(err => console.error(err)); 
-          }}
         />
       </div>
     </div>
