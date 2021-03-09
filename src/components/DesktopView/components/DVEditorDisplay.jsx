@@ -1,8 +1,8 @@
 import React from 'react';
 
 /** Components */
-import DVEditNoteComponent from './Edit/DVEditNoteComponent';
-import DVAddNoteComponent from './Add/DVAddNote';
+import DVEditNote from './Edit/DVEditNote';
+import DVAddNote from './Add/DVAddNote';
 
 /** Styles */
 import {
@@ -25,12 +25,12 @@ const DesktopViewEditorDisplay = (props) => {
       <DVEditorInnerAnimatedContainer animate={ANIMATE}>
 
         {(ADD) 
-          ? <DVAddNoteComponent
+          ? <DVAddNote
               closeNoteEditor={closeNoteEditor}
               reRenderFunction={reRenderFunction}
             />
           : (EDIT) 
-            ? <DVEditNoteComponent
+            ? <DVEditNote
                 note={selectedNote}
                 closeNoteEditor={closeNoteEditor}
                 reRenderFunction={reRenderFunction}

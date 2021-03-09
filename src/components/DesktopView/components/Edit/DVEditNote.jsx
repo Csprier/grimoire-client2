@@ -12,7 +12,7 @@ import CustomEditor from '../../../Editor/CustomEditor';
 /** Styles */
 import './dv-edit-note.css';
 
-class DVEditNoteComponent extends Component { 
+class DVEditNote extends Component { 
   constructor(props) {
     super(props);
     this.state = {
@@ -98,4 +98,4 @@ class DVEditNoteComponent extends Component {
   };
 };
 
-export default DVEditNoteComponent;
+export default DVEditNote;
