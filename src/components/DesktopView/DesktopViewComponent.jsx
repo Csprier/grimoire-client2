@@ -7,7 +7,8 @@ import {
 } from './DesktopView.styled';
 
 /** Components */
-import DesktopViewNoteList from './components/DVNoteList';
+// import DesktopViewNoteList from './components/DVNoteList';
+import DVNoteList from './components/NoteList/DVNoteListRefactor';
 import DesktopViewEditorDisplay from './components/DVEditorDisplay';
 
 const DesktopViewComponent = (props) => {
@@ -62,7 +63,19 @@ const DesktopViewComponent = (props) => {
   return(
     <DesktopViewContainer>
       <DesktopViewComponentContainer>
-        <DesktopViewNoteList 
+        {/* <DesktopViewNoteList 
+          notes={props.notes}
+          selectNote={_selectNote}
+          selectedNote={selectedNote}
+          searchTerm={props.searchTerm}
+          setSearchTerm={props.setSearchTerm}
+          ADDLogic={ADDLogic}
+          EDITLogic={EDITLogic}
+          CLICKED={CLICKED}
+          closeNoteEditor={_closeNoteEditor}
+          reRenderFunction={props.reRenderFunction}
+        /> */}
+        <DVNoteList 
           notes={props.notes}
           selectNote={_selectNote}
           selectedNote={selectedNote}

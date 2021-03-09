@@ -58,15 +58,9 @@ class CustomEditor extends Component  {
 
       this.setState({
         editorState: stateWithContentAndSelection
-      })
-
-      // let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(normalizedEditorState)))
-      // editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
-      // this.setState({
-      //   editorState: editorStatetoBeRendered
-      // });
-    }
-  }
+      });
+    };
+  };
 
   /**
    * onChange: when an onChange event happens, get the contentState of the editorState, 
