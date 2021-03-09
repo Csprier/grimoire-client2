@@ -59,6 +59,7 @@ class DVEditNoteComponent extends Component {
     return Util.API.notePUT(note_id, payload)
       .then(() => this.props.reRenderFunction())
       .then(() => Util.DATA.clearLocalStorageContent())
+      .then(() => this.props.closeNoteEditor())
       .catch(err => console.error(err));
   };
 
@@ -66,16 +67,17 @@ class DVEditNoteComponent extends Component {
     return(
       <div className="dv-edit-note-container">
         <div className="dv-edit-note-header-container">
-          <img 
-            src={leftArrowIcon} 
-            alt="close editor" 
-            className="dv-edit-left-arrow-icon"
-            onClick={() => this.props.closeNoteEditor()} 
-          />
           <h3 className="dv-edit-note-header">Editing: {this.props.note.title}</h3>
         </div>
 
         <form className="dv-edit-note-form" onSubmit={this._submitNote}>
+          <button type="submit" className="close-and-submit" onClick={(e) => this._submitNote(e)}>
+            <img 
+              src={leftArrowIcon} 
+              alt="close editor" 
+              className="dv-edit-left-arrow-icon"
+            />
+          </button>
           <input
             className="dv-edit-note-input"
             type="text"
@@ -90,8 +92,6 @@ class DVEditNoteComponent extends Component {
             editorState={this.state.content}
             handleContentChange={this._handleContentChange}
           />
-
-          <button className="dv-edit-note-submit-button">Submit</button>
         </form> 
       </div>
     );

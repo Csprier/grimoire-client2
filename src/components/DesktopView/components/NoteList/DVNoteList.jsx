@@ -3,9 +3,6 @@ import React from 'react';
 /** Libraries */
 import moment from 'moment';
 
-/** Util */
-import Util from '../../../../utility/util';
-
 /** Icon */
 import addIcon from '../../../icons/ADDICON2.png';
 
@@ -42,7 +39,7 @@ const DVNoteList = (props) => {
   };
 
 	return(
-    <div className={(selectedNote != {} && CLICKED) ? "dv-note-list-container editor-opened" : "dv-note-list-container"}>
+    <div className={(selectedNote !== {} && CLICKED) ? "dv-note-list-container editor-opened" : "dv-note-list-container"}>
       <div className="fixed-container">
         <SearchNotes 
           notes={props.notes}
@@ -56,7 +53,6 @@ const DVNoteList = (props) => {
       <div className="note-list">
         {(props.notes)
           ? listOfNotesToRender.map(note => {
-            // const { EDIT } = props;
             let updatedAt = moment(note.updatedAt);
             let date = updatedAt.format('MMMM Do YYYY, h:mm:ss a')
             return (
