@@ -16,6 +16,7 @@
 .info-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   width: 98%;
   height: 50px;
   margin: 2px auto;

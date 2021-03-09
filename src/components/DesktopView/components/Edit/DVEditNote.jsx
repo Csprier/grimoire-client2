@@ -77,6 +77,7 @@ class DVEditNote extends Component {
               alt="close editor" 
               className="dv-edit-left-arrow-icon"
             />
+            <p>Submit</p>
           </button>
           <input
             className="dv-edit-note-input"
