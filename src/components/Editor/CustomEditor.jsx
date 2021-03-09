@@ -39,7 +39,7 @@ class CustomEditor extends Component  {
       ? JSON.stringify(this.props.editorState)
       : this.props.editorState;
     let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(normalizedEditorState)))
-    editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
+    // editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
     this.setState({
       editorState: editorStatetoBeRendered
     });
@@ -51,11 +51,20 @@ class CustomEditor extends Component  {
       let normalizedEditorState = (typeof this.props.editorState === "object" && this.props.editorState !== null)
       ? JSON.stringify(this.props.editorState)
       : this.props.editorState;
-      let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(normalizedEditorState)))
-      // editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
+
+      const stateWithContent = EditorState.createWithContent(convertFromRaw(JSON.parse(normalizedEditorState)))
+      const currentSelection = this.state.editorState.getSelection();
+      const stateWithContentAndSelection = EditorState.forceSelection(stateWithContent, currentSelection)
+
       this.setState({
-        editorState: editorStatetoBeRendered
-      });
+        editorState: stateWithContentAndSelection
+      })
+
+      // let editorStatetoBeRendered = EditorState.createWithContent(convertFromRaw(JSON.parse(normalizedEditorState)))
+      // editorStatetoBeRendered = EditorState.moveFocusToEnd(this.state.editorState);
+      // this.setState({
+      //   editorState: editorStatetoBeRendered
+      // });
     }
   }
 
@@ -157,3 +166,11 @@ class CustomEditor extends Component  {
 };
 
 export default CustomEditor;
+
+// const stateWithContent = EditorState.createWithContent(c)
+// const currentSelection = this.state.editorState.getSelection()
+// const stateWithContentAndSelection = EditorState.forceSelection(stateWithContent, currentSelection)
+
+// this.setState({
+//   editorState: stateWithContentAndSelection
+// })
