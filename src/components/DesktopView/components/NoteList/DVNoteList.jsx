@@ -51,6 +51,10 @@ const DVNoteList = (props) => {
       </div>
 
       <div className="note-list">
+        {(LOADING)
+          ? <div>Loading</div>
+          : null
+        }
         {(props.notes)
           ? listOfNotesToRender.map(note => {
             let updatedAt = moment(note.updatedAt);

@@ -16,6 +16,7 @@ const DesktopViewComponent = (props) => {
   const [EDIT, _toggleEDIT] = useState(false);
   const [selectedNote, _selectNote] = useState({});
   const [ANIMATE, _toggleANIMATE] = useState(false);
+  const [LOADING, _setLoading] = useState(false);
 
   /** ================================================================================ */
   /** EDIT NOTE */
@@ -51,6 +52,7 @@ const DesktopViewComponent = (props) => {
   /** OPEN/CLOSE THE EDITOR */
   /** ================================= */
   function _closeNoteEditor() {
+    _setLoading(true);
     _toggleCLICKED(false);
     _toggleADD(false);
     _toggleEDIT(false);
@@ -70,6 +72,7 @@ const DesktopViewComponent = (props) => {
           ADDLogic={ADDLogic}
           EDITLogic={EDITLogic}
           CLICKED={CLICKED}
+          LOADING={LOADING}
           closeNoteEditor={_closeNoteEditor}
           reRenderFunction={props.reRenderFunction}
         />
