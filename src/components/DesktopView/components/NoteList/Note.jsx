@@ -10,7 +10,7 @@ import trashcan from '../../../icons/TRASHCAN2.png';
 import './note.css';
 
 const Note = (props) => {
-  const { note, EDITLogic, reRenderFunction } = props;
+  const { note, EDITLogic, setLoading, reRenderFunction } = props;
   return(
     <div className="note" onClick={() => EDITLogic(note)}>
       <div className="info-container">
@@ -22,6 +22,7 @@ const Note = (props) => {
           e.stopPropagation();
           console.log('Deleting:', note._id);
           Util.API.noteDELETE(note._id)
+            .then(() => setLoading(true))
             .then(() => reRenderFunction())
             .catch(err => console.error(err)); 
         }}>

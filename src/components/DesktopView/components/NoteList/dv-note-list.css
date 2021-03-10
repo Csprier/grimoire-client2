@@ -46,3 +46,12 @@
 .note-list::-webkit-scrollbar {
   display: none;
 };
+
+/* LOADER */
+.show-loader {
+  display: block;
+}
+
+.no-loader {
+  display: none;
+}

@@ -9,6 +9,7 @@ import addIcon from '../../../icons/ADDICON2.png';
 /** Components */
 import SearchNotes from '../../../SearchNotes/SearchNotes';
 import Note from './Note';
+import Loader from '../../../Loader/Loader';
 
 /** Styles */
 import './dv-note-list.css';
@@ -21,6 +22,8 @@ const DVNoteList = (props) => {
     ADDLogic,
     EDITLogic,
     CLICKED,
+    LOADING,
+    setLoading,
     selectedNote, 
     searchTerm,
   } = props;
@@ -50,11 +53,11 @@ const DVNoteList = (props) => {
         />
       </div>
 
+      <div className={(LOADING) ? "show-loader" : "no-loader"}>
+        <Loader />
+      </div>
+
       <div className="note-list">
-        {(LOADING)
-          ? <div>Loading</div>
-          : null
-        }
         {(props.notes)
           ? listOfNotesToRender.map(note => {
             let updatedAt = moment(note.updatedAt);
@@ -65,6 +68,7 @@ const DVNoteList = (props) => {
                 date={date}
                 updatedAt={updatedAt}
                 EDITLogic={EDITLogic}
+                setLoading={setLoading}
                 reRenderFunction={props.reRenderFunction}
               />
             )
