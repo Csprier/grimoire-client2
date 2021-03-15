@@ -40,7 +40,6 @@ function _getUsernameFromLocalStorage() {
   const authToken = _loadAuthToken();
   const decodedToken = jwtDecode(authToken);
   const username = decodedToken.user.username;
-  console.log('Current user: ', username);
   return username;
 };
 
