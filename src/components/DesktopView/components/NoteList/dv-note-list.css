@@ -49,14 +49,17 @@
 
 /* LOADER */
 .show-loader {
-  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* display: block; */
 }
 
 .no-loader {
   display: none;
 }
 
-/* NOTE LIST LOADER */
-.hide-list-show-loader {
+/* NOTE-LIST LOADER */
+.hide-element-show-loader {
   display: none;
 }
