@@ -40,7 +40,6 @@ const Dashboard = () => {
     Util.API.noteGET()
       .then(res => {
         let notes = res;
-        // console.log(notes);
         setListOfNotes(notes);
       })
       .then(() => {
