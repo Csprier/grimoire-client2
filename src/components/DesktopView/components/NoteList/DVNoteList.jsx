@@ -58,7 +58,6 @@ const DVNoteList = (props) => {
       </div>
 
       <div className={(LOADING) ? "hide-list-show-loader": "note-list"}>
-      {/* <div className="note-list"> */}
         {(props.notes)
           ? listOfNotesToRender.map(note => {
             let updatedAt = moment(note.updatedAt);
