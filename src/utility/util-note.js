@@ -12,20 +12,8 @@ function _validateNote(values) {
 };
 
 /** ================================================= */
-/** Note form handlers */
-// function _handleContentChange(contentValue, setContentValue) {
-//   setContentValue(contentValue);
-// };
-
-/** ================================================= */
 /** EXPORTS */
 const UtilNOTE = {
-  /**
-   * handleContentChange: Handles the content value of the form
-   * @param {object}    contentValue - literally the editorState
-   * @param {function}  setContentValue - hook function passed as a parameter
-   */
-  // handleContentChange: (contentValue, setContentValue) => _handleContentChange(contentValue, setContentValue),
   /**
    * validateNote: Validation for modifying Notes
    * @param {object}    values - form values

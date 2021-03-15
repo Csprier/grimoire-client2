@@ -1,13 +1,5 @@
 import UtilAPI from './util-api';
 import { RichUtils, convertToRaw } from 'draft-js';
-// focus
-// getLengthOfSelectedText
-// handleBeforeInput
-// handleKeyCommand
-// onChange
-// onTab
-// toggleBlockType
-// toggleInlineStyles
 
 function _saveContent(content) {
   UtilAPI.debounce(window.localStorage.setItem('content', JSON.stringify((convertToRaw(content)))), 1000);
@@ -15,7 +7,6 @@ function _saveContent(content) {
 
 function _onChange(editorState, setEditorState) {
   const contentState = editorState.getCurrentContent();
-  // handleContentChange(convertToRaw(contentState));
   _saveContent(contentState);
   setEditorState(contentState);
 };
