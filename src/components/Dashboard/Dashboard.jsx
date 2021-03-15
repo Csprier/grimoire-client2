@@ -21,6 +21,7 @@ const Dashboard = () => {
   const [listOfNotes, setListOfNotes] = useState([]);
   const [reRender, toggleReRender] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [LOADING, _setLoading] = useState(false);
   const forceUpdate = useForceUpdate();
 
   useEffect(() => {
@@ -35,11 +36,17 @@ const Dashboard = () => {
   }, [reRender, forceUpdate]);
 
   function _GETNotes() {
+    _setLoading(true);
     Util.API.noteGET()
       .then(res => {
         let notes = res;
         // console.log(notes);
         setListOfNotes(notes);
+      })
+      .then(() => {
+        setTimeout(() => {
+          _setLoading(false)
+        }, 1000);
       })
       .catch(err => console.error(err));
   };
@@ -66,7 +73,9 @@ const Dashboard = () => {
           notes={listOfNotes} 
           reRenderFunction={_reRenderNoteList}
           searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm} 
+          setSearchTerm={setSearchTerm}
+          LOADING={LOADING}
+          setLoading={_setLoading}
         />
       </DashboardContent>
 

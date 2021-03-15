@@ -16,7 +16,8 @@ const DesktopViewComponent = (props) => {
   const [EDIT, _toggleEDIT] = useState(false);
   const [selectedNote, _selectNote] = useState({});
   const [ANIMATE, _toggleANIMATE] = useState(false);
-  const [LOADING, _setLoading] = useState(false);
+
+  const { LOADING, setLoading } = props;
 
   /** ================================================================================ */
   /** EDIT NOTE */
@@ -52,7 +53,7 @@ const DesktopViewComponent = (props) => {
   /** OPEN/CLOSE THE EDITOR */
   /** ================================= */
   function _closeNoteEditor() {
-    // _setLoading(true);
+    // setLoading(true);
     _toggleCLICKED(false);
     _toggleADD(false);
     _toggleEDIT(false);
@@ -63,7 +64,7 @@ const DesktopViewComponent = (props) => {
   function toggleLoaderonReRender() {
     props.reRenderFunction();
     setTimeout(() => {
-      _setLoading(false);
+      setLoading(false);
     }, 2000);
   };
 
@@ -77,7 +78,7 @@ const DesktopViewComponent = (props) => {
           searchTerm={props.searchTerm}
           setSearchTerm={props.setSearchTerm}
           LOADING={LOADING}
-          setLoading={_setLoading}
+          setLoading={setLoading}
           ADDLogic={ADDLogic}
           EDITLogic={EDITLogic}
           CLICKED={CLICKED}
@@ -92,7 +93,7 @@ const DesktopViewComponent = (props) => {
           ANIMATE={ANIMATE}
           selectedNote={selectedNote}
           LOADING={LOADING}
-          setLoading={_setLoading}
+          setLoading={setLoading}
           closeNoteEditor={_closeNoteEditor}
           // reRenderFunction={props.reRenderFunction}
           reRenderFunction={toggleLoaderonReRender}

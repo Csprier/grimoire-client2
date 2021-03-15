@@ -89,6 +89,7 @@
   color: white;
   border-radius: 3px;
   font-size: 14px;
+  outline: none;
 }
 .dv-add-note-submit-button:hover {
   width: 100px;

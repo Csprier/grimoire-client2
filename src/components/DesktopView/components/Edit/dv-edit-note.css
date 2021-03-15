@@ -89,6 +89,7 @@
   color: white;
   border-radius: 3px;
   font-size: 14px;
+  outline: none;
 }
 .dv-edit-note-submit-button:hover {
   background-color: #DFFDDF;
