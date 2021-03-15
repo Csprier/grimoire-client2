@@ -16,6 +16,8 @@ const DesktopViewEditorDisplay = (props) => {
     ADD, 
     EDIT,
     ANIMATE,
+    LOADING,
+    setLoading,
     closeNoteEditor, 
     reRenderFunction 
   } = props;
@@ -26,12 +28,16 @@ const DesktopViewEditorDisplay = (props) => {
 
         {(ADD) 
           ? <DVAddNote
+              LOADING={LOADING}
+              setLoading={setLoading}
               closeNoteEditor={closeNoteEditor}
               reRenderFunction={reRenderFunction}
             />
           : (EDIT) 
             ? <DVEditNote
                 note={selectedNote}
+                LOADING={LOADING}
+                setLoading={setLoading}
                 closeNoteEditor={closeNoteEditor}
                 reRenderFunction={reRenderFunction}
               />

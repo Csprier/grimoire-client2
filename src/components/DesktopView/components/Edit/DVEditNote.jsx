@@ -57,6 +57,7 @@ class DVEditNote extends Component {
     };
     console.log('edit payload: ', payload);
     return Util.API.notePUT(note_id, payload)
+      .then(() => this.props.setLoading(true))
       .then(() => this.props.reRenderFunction())
       .then(() => Util.DATA.clearLocalStorageContent())
       .then(() => this.props.closeNoteEditor())

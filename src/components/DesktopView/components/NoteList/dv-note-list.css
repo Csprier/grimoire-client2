@@ -55,3 +55,8 @@
 .no-loader {
   display: none;
 }
+
+/* NOTE LIST LOADER */
+.hide-list-show-loader {
+  display: none;
+}

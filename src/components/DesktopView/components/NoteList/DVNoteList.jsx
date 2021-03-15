@@ -57,6 +57,7 @@ const DVNoteList = (props) => {
         <Loader />
       </div>
 
+      {/* <div className={(LOADING) ? "note-list hide-list-show-loader": "note-list"}> */}
       <div className="note-list">
         {(props.notes)
           ? listOfNotesToRender.map(note => {
