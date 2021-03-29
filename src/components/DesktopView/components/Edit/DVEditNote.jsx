@@ -72,13 +72,13 @@ class DVEditNote extends Component {
         </div>
 
         <form className="dv-edit-note-form" onSubmit={this._submitNote}>
-          <button type="submit" className="close-and-submit" onClick={(e) => this._submitNote(e)}>
+          <button className="close-button" onClick={() => this.props.closeNoteEditor()}>
             <img 
               src={leftArrowIcon} 
               alt="close editor" 
               className="dv-edit-left-arrow-icon"
             />
-            <p>Submit</p>
+            <p>Cancel</p>
           </button>
           <input
             className="dv-edit-note-input"
@@ -94,6 +94,9 @@ class DVEditNote extends Component {
             editorState={this.state.content}
             handleContentChange={this._handleContentChange}
           />
+          <button type="submit" className="dv-edit-note-submit-button" onClick={(e) => this._submitNote(e)}>
+            Submit
+          </button>
         </form> 
       </div>
     );

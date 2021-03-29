@@ -6,7 +6,7 @@
 }
 
 /* Close the editor */
-.close-and-submit {
+.close-button {
   display: flex;
   flex-direction: row;
   width: 40px;
@@ -16,9 +16,9 @@
   background-color: #242526;
   border: 1px solid #242526;
 }
-.close-and-submit p {
+.close-button p {
   padding: 2px;
-  color: goldenrod;
+  color: red;
 }
 
 .dv-edit-left-arrow-icon {
@@ -83,6 +83,7 @@
   width: 100px;
   height: 33px;
   margin: 0 auto;
+  margin-top: 5px;
   padding: 6px 8px;
   background-color: slateblue;
   border: 1px solid slateblue;

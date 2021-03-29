@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const DVEditorContainer = styled.div`
   display: ${props => props.note ? 'none' : 'block'};
   width: 90%;
-  height: ${props => props.animate ? '600px' : '0px'};
+  height: ${props => props.animate ? '625px' : '0px'};
   margin: 0 auto;
   padding: 20px 0px 0px 0px;
   transition-property: height;
