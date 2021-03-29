@@ -17,9 +17,9 @@ const UsernameHeader = styled.h3`
   align-items: center;
   font-size: 16px;
   font-weight: 100;
-  margin: 0px 0px 0px 20px;
+  margin: 0px 0px 0px 10px;
   padding: 0;
-  color: white;
+  color: #aaa7ab;
 `;
 
 const LogOutIcon = styled.img`
