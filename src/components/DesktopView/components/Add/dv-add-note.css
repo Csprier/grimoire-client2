@@ -5,31 +5,45 @@
   padding: 0;
 }
 
-/* Close the editor */
-.close-and-submit {
+/* BUTTONS */
+.form-buttons {
   display: flex;
   flex-direction: row;
-  width: 40px;
-  height: 40px;
-  margin: 0px;
-  padding: 10px;
-  background-color: #242526;
-  border: 1px solid #242526;
-}
-.close-and-submit p {
-  padding: 2px;
-  color: goldenrod;
+  justify-content: space-evenly;
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 5px;
+  padding: 3px;
 }
 
-.dv-add-left-arrow-icon {
-  width: 40px;
-  height: 40px;
-  margin: 0px;
-  padding: 10px;
+.dv-edit-note-submit-button {
+  width: 100px;
+  height: 33px;
+  padding: 6px 8px;
+  background-color: #242526;
+  border: 1px solid #242526;
+  color: #02e602;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
 }
-.dv-add-left-arrow-icon:hover {
-  filter: invert(98%) sepia(76%) saturate(289%) hue-rotate(49deg) brightness(101%) contrast(98%);
-  -webkit-filter: invert(98%) sepia(76%) saturate(289%) hue-rotate(49deg) brightness(101%) contrast(98%);
+.dv-edit-note-submit-button:hover {
+  border: 1px solid #02e602;
+}
+
+/* Close the editor */
+.close-button {
+  width: 100px;
+  height: 33px;
+  padding: 6px 8px;
+  background-color: #242526;
+  border: 1px solid #242526;
+  color: red;
+  border-radius: 3px;
+  text-align: center;
+}
+.close-button:hover {
+  border: 1px solid red;
 }
 
 .dv-add-note-header-container {
